@@ -1,5 +1,16 @@
-require('ember-skeleton/core');
+require('uranime/core');
 
 App.store = DS.Store.create({
-  revision: 4
+  revision: 7,
+  
+  adapter: DS.RESTAdapter.create({ 
+  	bulkCommit:false,
+  	
+    plurals: {
+  	  'anime':'anime'
+    },
+  
+    url: 'http://groenlid.no-ip.org' 
+  
+  }),
 });

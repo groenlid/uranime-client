@@ -1,5 +1,5 @@
-require('ember-skeleton/core');
+require('uranime/core');
 
 App.ApplicationView = Ember.View.extend({
-  templateName: 'ember-skeleton/~templates/application'
+  templateName: 'uranime/~templates/application'
 });

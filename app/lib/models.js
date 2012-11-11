@@ -1,0 +1,1 @@
+require('uranime/models/anime');

@@ -1,4 +1,4 @@
-APPNAME = 'ember-skeleton'
+APPNAME = 'uranime'
 
 require 'json'
 require 'rake-pipeline-web-filters'

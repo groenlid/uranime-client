@@ -1,0 +1,341 @@
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+@import "base";
+
+@mixin blur ($px: 1px) {
+	filter: blur($px);
+	// Browser Specific
+	-webkit-filter: blur($px);
+	-moz-filter: blur($px);
+	-o-filter: blur($px);
+	-ms-filter: blur($px);
+}
+
+body {
+	padding-top:40px;
+	font-family:'Proxima Nova';
+	background:#f9f9f9;//url('../img/bg_noise.png');
+}
+
+.navbar {
+	z-index:1000;
+	position:absolute;
+}
+
+#notifications {
+	top:43px;
+	left:-73px;
+	/*margin-left:15px;*/
+}
+
+.transparent-bar {
+	background: rgba(0, 0, 0, 0.6);
+	padding: 5px 0;
+	position: absolute;
+	width: 100%;
+	margin-top: -69px;
+	color: white;
+	text-shadow: 0 1px 1px black;
+	text-align: center;
+}
+
+.white{
+	background:#fff;
+	padding:20px;
+	border:1px solid #ccc;
+}
+
+#fanart {
+	background-color:#efeff2;
+	display:block;
+	background-size:100%;
+	height:300px;
+	width:100%;
+	position:relative;
+	top:0px;
+	left:0;
+	/*border-top:1px solid rgba(255, 255, 255, 0.3);*/
+	border-bottom:1px solid #ddd;
+	z-index:0;
+	box-shadow: inset 0 -1px 1px rgba(0,0,0,0.1);
+}
+
+#fanart{
+    // box-shadow: 0px 0px px 10px rgba(255,255,255,1);
+    // @include box-shadow(inset 0px -7px 10px rgba(0,0,0,0.3));
+    // opacity: 0.7;
+    // @include blur(1px);
+
+}
+
+/*.navbar + #fanart {
+	margin-bottom:40px;
+}*/
+
+#fanart + .container {
+	/*margin-top:50px;*/
+	margin-top:10px;
+}
+
+p.animedesc {
+	font-family:'Proxima Nova';
+	color:#5E5E5E;
+	padding: 30px 30px 30px 30px;
+	background: url('../img/quote1.png') no-repeat top left,url('../img/quote2.png') no-repeat bottom right;
+	line-height: 18px;
+	font-size:0.9em;
+	margin-bottom:50px;
+}
+.smalltext {
+	font-size:0.8em;
+}
+
+img.animeimage, #fanart .animetitle {
+	border:1px solid #000002;
+	box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2);
+	-moz-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2);
+	max-width:175px;
+	width:100%;
+	/*max-width:225px;*/
+	padding: 10px;
+   	border:3px solid #f5f4f9;
+   	-webkit-appearance: none;
+   	-webkit-box-shadow: inset 1px 1px 0 #d0d1d5, inset -1px -1px 0 #d0d1d5;
+   	-moz-box-shadow: inset 1px 1px 0 #d0d1d5, inset -1px -1px 0 #d0d1d5;
+   	border-radius: 3px;
+   	background:#fff;
+}
+
+#fanart .animetitle {
+	margin:130px auto;
+	max-width:400px;
+	text-align:center;
+	background:rgba(255,255,255,.3);
+	/* DO NOT DISPLAY THE TITLE FOR NOW */
+	display:none;
+}
+
+.progressbar {
+	height:30px;
+	background:#d7d9d8;
+	border:1px solid #bcbcbc;
+	border-radius:3px;
+	box-shadow:inset 0 1px 0 #cecece;
+	position:relative;
+	width:100%;
+}
+
+.progressbar #progress {
+	position:absolute;
+	z-index:1000;
+	height:30px;
+	top:-1px;
+	left:-1px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.3), inset 0 1px 0 #b3d7ed;
+	border:1px solid #2167ae;
+	border-radius:3px;
+	background-image: linear-gradient(bottom, rgb(25,89,154) 0, rgb(62,145,228) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(25,89,154) 0, rgb(62,145,228) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(25,89,154) 0, rgb(62,145,228) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(25,89,154) 0, rgb(62,145,228) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(25,89,154) 0, rgb(62,145,228) 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(25,89,154)),
+		color-stop(1, rgb(62,145,228))
+	);
+	box-shadow:inset 0 1px 0 #47a4ff;
+	overflow:hidden;
+}
+
+.progressbar #progress span {
+	position: absolute;
+	right:5px;
+	text-shadow:   rgba(255,255,255, 0.45) 0 1px 0px;
+	color: rgba(0,0,0,0.6);
+	white-space: nowrap;
+	line-height:30px;
+}
+
+/* EPISODE LIST */
+
+div.episode {
+	margin-bottom:20px;
+	/*border-bottom:1px solid #ccc;*/
+	box-shadow:0 1px 1px #ededed;
+	padding:10px 0;
+}
+
+div.episode span.episodeImage {
+	display:inline-block;
+	/*width:84px;*/
+	vertical-align:top;
+}
+
+div.episode span.episodeNumber {
+	color:#ccc;
+	display:inline-block;
+	width:50px;
+}
+
+div.episode span.episodeImage img {
+	/*border:1px solid #ccc;
+	border-radius:3px;*/
+}
+
+div.episode span.episodeContent {
+	display:inline-block;
+	vertical-align:top;
+	/*padding:0 20px;*/
+}
+
+div.episode span.episodeContent p {
+	display:block;
+	color:#5E5E5E;
+	line-height:17px;
+	font-size:0.9em;
+}
+
+div.episode span.episodeContent span.episodeName {
+	font-weight:bold;
+	letter-spacing:1px;
+}
+
+div.episode span.episodeContent span.episodeTime {
+	font-weight:bold;
+	font-size:0.8em;
+	letter-spacing:1px;
+	color:#555;
+	float:right;
+}
+
+div.episode span.extra {
+	display:inline-block;
+	width:20px;
+	padding:10px;
+	position:relative;
+}
+
+div.episode span.extra:hover span.tooltip {
+	display:inline-block;
+}
+
+.newsfeed img, .episodeImage img {
+	padding: 2px;
+	border: 3px solid #F5F4F9;
+	-webkit-appearance: none;
+	-webkit-box-shadow: inset 1px 1px 0 #d0d1d5, inset -1px -1px 0 #d0d1d5;
+	border-radius: 3px;
+	background: white;
+	max-width: 200px;
+	text-align: center;
+	max-height:50px;
+	border-image: initial;
+}
+
+.newsfeed img:hover, .episodeImage img:hover {
+	background: #32b9e6;/* OLD LIGHT BLUE*/
+	background: #2F6A9F !important;/* NEW AWESOME DARK BLUE*/
+	/*border-color: #2b9fc4;*/
+	box-shadow:none;
+}
+
+.animethumbnail {
+	@include box-shadow(
+		#D0D1D5 1px 1px 0,
+		#D0D1D5 -1px -1px 0,
+		#D0D1D5 1px -1px 0,
+		#D0D1D5 -1px 1px 0,
+		#F5F4F9 4px 4px 0,  //light gray outer border
+		#F5F4F9 -4px -4px 0,
+		#F5F4F9 -4px 4px 0,
+		#F5F4F9 4px -4px 0
+	);
+	background: #fff;
+	padding:2px;
+	position:relative;
+	display:inline-block;
+	img {
+		border:1px solid #fff;
+	}
+	img:hover {
+		@include box-shadow(
+		rgba(255,255,255,0.1) 1px 1px 0 0 inset,
+		rgba(255,255,255,0.1) -1px -1px 0 0 inset,
+		rgba(255,255,255,0.1) 1px -1px 0 0 inset,
+		rgba(255,255,255,0.1) -1px 1px 0 0 inset,
+		#2F6A9F 2px 2px 0,  //light gray outer border
+		#2F6A9F -2px -2px 0,
+		#2F6A9F -2px 2px 0,
+		#2F6A9F 2px -2px 0
+		);
+		border:1px solid rgba(0,0,0,0.8);
+	}
+
+	.animethumbnail-fav {
+		border:0;
+		position:absolute;
+		top:0px;
+		height:40px;
+		width:40px;
+		left:0px;
+		background:url("../img/flag.png");
+	}
+
+	&:hover .animethumbnail-fav{
+			border:0;
+			background:url("../img/flag_hover.png");
+			@include box-shadow(none);
+		}
+
+}
+
+
+
+.animethumbnail + p {
+	color:#545655;
+	text-align:center;
+	margin-top:10px;
+	max-width:200px;
+	height:1.3em;
+	overflow:hidden;
+	text-overflow: ellipsis;
+}
+
+.margin {
+	margin:5px;
+}
+
+@media (max-width: $responsive_medium) {
+	.navbar-fixed-top {
+		/*position:absolute !important;*/
+	}
+
+	#fanart {
+		margin:-20px -20px 0 -20px;
+		padding: 0 10px;
+	}
+}
+
+@media (max-width: $responsive_small) {
+	#fanart {
+		padding: 0 20px;
+		max-height:150px;
+	}
+
+	.navbar-fixed-top:first-child {
+		margin-bottom: 0;
+	}
+	
+	/*#fanart .animetitle {
+		display:block;
+	}*/
+
+	#fanart{
+    	box-shadow: 0px 0px 300px 10px rgba(255,255,255,1);
+    	opacity: 0.7;
+    	@include blur(2px);
+	}
+}

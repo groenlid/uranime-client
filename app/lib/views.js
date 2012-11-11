@@ -1,1 +1,1 @@
-require('ember-skeleton/views/application');
+require('uranime/views/application');

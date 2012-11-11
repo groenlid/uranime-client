@@ -1,1 +1,1 @@
-require('ember-skeleton/controllers/application');
+require('uranime/controllers/application');

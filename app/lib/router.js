@@ -1,4 +1,4 @@
-require('ember-skeleton/core');
+require('uranime/core');
 
 App.Router = Ember.Router.extend({
   enableLogging: true,

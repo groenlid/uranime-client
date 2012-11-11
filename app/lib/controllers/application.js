@@ -1,3 +1,3 @@
-require('ember-skeleton/core');
+require('uranime/core');
 
 App.ApplicationController = Ember.Controller.extend();

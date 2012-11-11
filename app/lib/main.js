@@ -1,7 +1,8 @@
-require('ember-skeleton/core');
-require('ember-skeleton/store');
-require('ember-skeleton/router');
-require('ember-skeleton/controllers');
-require('ember-skeleton/views');
+require('uranime/core');
+require('uranime/models');
+require('uranime/store');
+require('uranime/router');
+require('uranime/controllers');
+require('uranime/views');
 
 App.initialize();
