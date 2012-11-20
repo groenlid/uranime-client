@@ -1,0 +1,53 @@
+{{#with controller.content}}
+<div class="black-top">
+    <header id="fanart" {{bindAttr style="fanartStyle"}}>
+        <div class="animetitle"><h1>.hack//Roots</h1></div>
+    </header>
+</div>
+<div class="container content infobar">
+    <div class="row-fluid">
+        <div class="span8 pull-left">
+            <h1>{{title}}<span class="small pull-right">(2009-2012)</span></h1>
+            <p class="animedesc">
+				{{{desc}}}
+			</p>
+        </div>
+        <div class="span4 pull-right">
+			<img class="posterimage pull-right" {{bindAttr src="imageURL"}}>
+		</div>
+    </div>
+</div>
+<div class="container content">
+
+    {{! LAST AIRED EPISODES }}
+    <div class="row-fluid">
+        <div id="anime-gallery">
+            <div class="gallery-header">
+                {{#if hasFutureEpisodes}} 
+                    <h2>Next <span class="normal">episode</span></h2>
+                {{/if}}
+                <h2>Last aired <span class="normal">episodes</span></h2>
+            </div>
+            {{#each episode in lastEpisodes}}
+                <div class="anime-gallery-single">
+                    <div class="anime-gallery-single-inner">
+                        <a href="#"> 
+                                <img {{bindAttr src="episode.imageURL"}}/>
+                            </a>
+                        <span class="anime-gallery-single-hover">
+                            <a href="#">
+                                View Episode
+                            </a>
+                        </span>
+                    </div>
+                    <p class="bold calendarinfo">
+                        <a href="#">{{episode.anime.title}}</a> {{episode.number}}
+                    </p>
+                    <p class="calendarinfo">{{episode.name}}</p>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+
+</div>
+{{/with}}

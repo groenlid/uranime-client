@@ -110,7 +110,7 @@ input 'app' do
     if ENV['RAKEP_MODE'] == 'production'
       yui_css
     end
-    concat ['bootstrap.css', 'main.css'], 'app.css'
+    concat ['main.css'], 'app.css'
   end
 
   match 'css/**/*.scss' do

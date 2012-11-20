@@ -1,5 +1,6 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
+@import "compass/css3/border-radius";
 @import "base";
 
 @mixin blur ($px: 1px) {
@@ -11,11 +12,68 @@
 	-ms-filter: blur($px);
 }
 
+// COMMON
+
 body {
-	padding-top:40px;
 	font-family:'Proxima Nova';
-	background:#f9f9f9;//url('../img/bg_noise.png');
+    background:#F9F9F9;
+    font-size:14px;
+    text-rendering: optimizelegibility
 }
+
+h1, h2, h3, h4 {
+    color:#2a2a2a;
+    font-weight:bold;
+    font-family: "Roboto","Questrial",Helvetica,Arial,sans-serif;
+}
+
+h1 {
+    font-size:30px;
+    margin:10px 0;
+
+    .small {
+        line-height:30px;
+        color:rgba(0,0,0,0.5);
+        font-weight:normal;
+    }
+}
+
+.small {
+    font-size:0.7em;
+}
+
+.black-top {
+    margin-top:-20px;
+    padding-top:20px;
+    background-image:url('./img/navy_blue.png');
+}
+
+.container {
+    width: 960px;
+}
+
+.content {
+    padding: 20px 30px;
+    background:#fff;
+	border:1px solid #ccc;
+    border-width: 0 1px 1px 1px;
+}
+
+.infobar{
+    background: #efefef;
+}
+
+img.posterimage {
+	max-width:175px;
+	width:100%;
+	/*max-width:225px;*/
+	padding: 10px;
+   	//border:3px solid #f5f4f9;
+    @include box-shadow(inset 0 0 2px #d0d1d5);
+   	@include border-radius(3px);
+   	background:#fff;
+}
+
 
 .navbar {
 	z-index:1000;
@@ -39,49 +97,27 @@ body {
 	text-align: center;
 }
 
-.white{
-	background:#fff;
-	padding:20px;
-	border:1px solid #ccc;
-}
 
 #fanart {
 	background-color:#efeff2;
 	display:block;
 	background-size:100%;
-	height:300px;
+	height:385px;
 	width:100%;
-	position:relative;
-	top:0px;
-	left:0;
-	/*border-top:1px solid rgba(255, 255, 255, 0.3);*/
-	border-bottom:1px solid #ddd;
+    max-width:1020px;
+    margin:0 auto;
 	z-index:0;
-	box-shadow: inset 0 -1px 1px rgba(0,0,0,0.1);
-}
-
-#fanart{
-    // box-shadow: 0px 0px px 10px rgba(255,255,255,1);
-    // @include box-shadow(inset 0px -7px 10px rgba(0,0,0,0.3));
-    // opacity: 0.7;
-    // @include blur(1px);
-
-}
-
-/*.navbar + #fanart {
-	margin-bottom:40px;
-}*/
-
-#fanart + .container {
-	/*margin-top:50px;*/
-	margin-top:10px;
+    @include box-shadow(inset 0 0 0 1px rgba(255, 255, 255, 0.15));
+    @include border-radius(3px 3px 0 0);
+    border:1px solid #000;
+    border-width: 1px 1px 0 1px;
 }
 
 p.animedesc {
 	font-family:'Proxima Nova';
 	color:#5E5E5E;
 	padding: 30px 30px 30px 30px;
-	background: url('../img/quote1.png') no-repeat top left,url('../img/quote2.png') no-repeat bottom right;
+	background: url('./img/quote1.png') no-repeat top left,url('./img/quote2.png') no-repeat bottom right;
 	line-height: 18px;
 	font-size:0.9em;
 	margin-bottom:50px;
@@ -105,6 +141,148 @@ img.animeimage, #fanart .animetitle {
    	border-radius: 3px;
    	background:#fff;
 }
+
+#anime-gallery {
+	position:relative;
+    //216
+    .gallery-header {
+        h2 {
+            width:216px;
+            display:inline-block;
+            margin-left:5px;
+            font-size:18px;
+            
+            span.normal {
+                font-weight:normal;
+            }
+        }
+    }
+    .anime-gallery-single {
+        position:relative;
+        display:inline-block;
+        margin:5px;/* 10px;*/
+        color:#545655;
+        max-width:215px;
+        height:180px;
+        float:left;	
+        
+        .anime-gallery-single-inner {
+            padding: 3px 3px 0 3px;
+            border: 3px solid #f5f4f9;
+            -webkit-appearance: none;
+            -webkit-box-shadow: inset 1px 1px 0 #d0d1d5, inset -1px -1px 0 #d0d1d5;
+            border-radius: 3px;
+            background: white;
+            max-width:200px;
+            text-align:center;
+            
+            span.anime-gallery-single-hover {
+                display:none;
+                position:absolute;
+                top:6px;
+                left:6px;
+                height:112px;
+                line-height:112px;
+                width:198px;
+                font-weight:bold;
+                border:1px solid rgba(0,0,0,0.8);
+                background:rgba(0,0,0,0.6);
+                color:#fff;
+                box-shadow:inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.1),inset 1px 0 0 rgba(255,255,255,0.1),inset -1px 0 0 rgba(255,255,255,0.1);
+            }
+            a, a:hover {
+                color:#fff;
+                top:6px;
+                left:6px;
+                height:100%px;
+                width:100%;
+                display:block;
+                text-decoration:none;
+            }
+            
+            &:hover {
+                background: #32b9e6;/* OLD LIGHT BLUE*/
+                background: #2F6A9F !important;/* NEW AWESOME DARK BLUE*/
+                /*border-color: #2b9fc4;*/
+                box-shadow:none;
+                
+                span.anime-gallery-single-hover {
+                    display:block;
+                }
+            }
+        }
+        
+        span.anime-gallery-single-name {
+            font-weight:normal;
+            color:#545655;
+            display:block;
+            text-align:center;
+            margin-top:10px;
+        }
+    }
+    
+    p.calendarinfo {
+        margin: 0 5px;
+    }
+}
+
+.bold {
+	font-weight:bold;
+}
+
+// NEED TO BE REDONE
+
+.animethumbnail {
+	@include box-shadow(
+		#D0D1D5 1px 1px 0,
+		#D0D1D5 -1px -1px 0,
+		#D0D1D5 1px -1px 0,
+		#D0D1D5 -1px 1px 0,
+		#F5F4F9 4px 4px 0,  //light gray outer border
+		#F5F4F9 -4px -4px 0,
+		#F5F4F9 -4px 4px 0,
+		#F5F4F9 4px -4px 0
+	);
+	background: #fff;
+	padding:2px;
+	position:relative;
+	display:inline-block;
+	img {
+		border:1px solid #fff;
+	}
+	img:hover {
+		@include box-shadow(
+		rgba(255,255,255,0.1) 1px 1px 0 0 inset,
+		rgba(255,255,255,0.1) -1px -1px 0 0 inset,
+		rgba(255,255,255,0.1) 1px -1px 0 0 inset,
+		rgba(255,255,255,0.1) -1px 1px 0 0 inset,
+		#2F6A9F 2px 2px 0,  //light gray outer border
+		#2F6A9F -2px -2px 0,
+		#2F6A9F -2px 2px 0,
+		#2F6A9F 2px -2px 0
+		);
+		border:1px solid rgba(0,0,0,0.8);
+	}
+
+	.animethumbnail-fav {
+		border:0;
+		position:absolute;
+		top:0px;
+		height:40px;
+		width:40px;
+		left:0px;
+		background:url("../img/flag.png");
+	}
+
+	&:hover .animethumbnail-fav{
+			border:0;
+			background:url("../img/flag_hover.png");
+			@include box-shadow(none);
+		}
+
+}
+
+// UNUSED STUFF START
 
 #fanart .animetitle {
 	margin:130px auto;
@@ -157,6 +335,16 @@ img.animeimage, #fanart .animetitle {
 	color: rgba(0,0,0,0.6);
 	white-space: nowrap;
 	line-height:30px;
+}
+
+.animethumbnail + p {
+	color:#545655;
+	text-align:center;
+	margin-top:10px;
+	max-width:200px;
+	height:1.3em;
+	overflow:hidden;
+	text-overflow: ellipsis;
 }
 
 /* EPISODE LIST */
@@ -242,85 +430,32 @@ div.episode span.extra:hover span.tooltip {
 	box-shadow:none;
 }
 
-.animethumbnail {
-	@include box-shadow(
-		#D0D1D5 1px 1px 0,
-		#D0D1D5 -1px -1px 0,
-		#D0D1D5 1px -1px 0,
-		#D0D1D5 -1px 1px 0,
-		#F5F4F9 4px 4px 0,  //light gray outer border
-		#F5F4F9 -4px -4px 0,
-		#F5F4F9 -4px 4px 0,
-		#F5F4F9 4px -4px 0
-	);
-	background: #fff;
-	padding:2px;
-	position:relative;
-	display:inline-block;
-	img {
-		border:1px solid #fff;
-	}
-	img:hover {
-		@include box-shadow(
-		rgba(255,255,255,0.1) 1px 1px 0 0 inset,
-		rgba(255,255,255,0.1) -1px -1px 0 0 inset,
-		rgba(255,255,255,0.1) 1px -1px 0 0 inset,
-		rgba(255,255,255,0.1) -1px 1px 0 0 inset,
-		#2F6A9F 2px 2px 0,  //light gray outer border
-		#2F6A9F -2px -2px 0,
-		#2F6A9F -2px 2px 0,
-		#2F6A9F 2px -2px 0
-		);
-		border:1px solid rgba(0,0,0,0.8);
-	}
-
-	.animethumbnail-fav {
-		border:0;
-		position:absolute;
-		top:0px;
-		height:40px;
-		width:40px;
-		left:0px;
-		background:url("../img/flag.png");
-	}
-
-	&:hover .animethumbnail-fav{
-			border:0;
-			background:url("../img/flag_hover.png");
-			@include box-shadow(none);
-		}
-
-}
+// UNUSED STUFF END
 
 
 
-.animethumbnail + p {
-	color:#545655;
-	text-align:center;
-	margin-top:10px;
-	max-width:200px;
-	height:1.3em;
-	overflow:hidden;
-	text-overflow: ellipsis;
-}
-
-.margin {
-	margin:5px;
+// Responsive stuff
+@media (min-width: $responsive_big) {
+    .container,
+    .navbar-static-top .container,
+    .navbar-fixed-top .container,
+    .navbar-fixed-bottom .container {
+        width: 960px;
+    }
 }
 
 @media (max-width: $responsive_medium) {
-	.navbar-fixed-top {
-		/*position:absolute !important;*/
-	}
-
-	#fanart {
+	/*#fanart {
 		margin:-20px -20px 0 -20px;
 		padding: 0 10px;
-	}
+	}*/
 }
 
 @media (max-width: $responsive_small) {
-	#fanart {
+    body {
+        padding: 0;
+    }
+	/*#fanart {
 		padding: 0 20px;
 		max-height:150px;
 	}
@@ -328,14 +463,10 @@ div.episode span.extra:hover span.tooltip {
 	.navbar-fixed-top:first-child {
 		margin-bottom: 0;
 	}
-	
-	/*#fanart .animetitle {
-		display:block;
-	}*/
 
 	#fanart{
-    	box-shadow: 0px 0px 300px 10px rgba(255,255,255,1);
-    	opacity: 0.7;
-    	@include blur(2px);
-	}
+    	//box-shadow: 0px 0px 300px 10px rgba(255,255,255,1);
+    	//opacity: 0.7;
+    	//@include blur(2px);
+	}*/
 }

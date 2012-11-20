@@ -1,10 +1,72 @@
-<nav role="navigation" class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <a class="brand" href="#">ember-skeleton</a>
-    </div>
-  </div>
-</nav>
-<div id="main" role="main" class="container">
-  ember-skeleton v{{App.VERSION}}
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</a>
+			<a class="brand" href="#">Uranime</a>
+			<ul class="nav hidden-phone">
+					{{#view App.SearchFormView class="navbar-search"}}
+						{{view Ember.TextField valueBinding="view.searchQuery" placeholder="Search for anime" class="input-large search-query"}}
+						<!-- <button type="submit" class="btn">Search</button>-->
+					{{/view}}
+			</ul>
+			<div class="nav-collapse">	
+				<ul class="nav pull-right">
+
+					<!-- Notification -->
+					<!--
+					<li class="divider-vertical"></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<span class="badge badge-inverse">2</span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu span3 smalltext">
+							<div class="row-fluid">
+								<div class="well well-small">
+									<strong>Newly added episodes</strong>
+								</div>
+								
+							</div>
+						</ul>
+					</li>
+					-->
+
+					<!-- Notification w/popover -->
+					<li class="divider-vertical"></li>
+					{{view App.NotificationsView}}
+
+
+					<!-- User profile -->
+					<li class="divider-vertical"></li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							 <img src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20"> Groenlid<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu">
+							something
+						</ul>
+					</li>
+					<!--
+					<li class="">
+						<a href="#">Logout</a>
+					</li>-->
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
+<div class="navbar-fixed-top visible-phone">
+  		<div class="navbar-inner">
+  			<div class="row-fluid">
+	  			{{#view App.SearchFormView class="navbar-form span9"}}
+						{{view Ember.TextField valueBinding="view.searchQuery" placeholder="Search for anime" class="input-large search-query"}}
+						<!--<button type="submit" class="btn hidden">Search</button>-->
+					{{/view}}
+			</div>
+  		</div>
+  	</div>
+{{outlet}}
