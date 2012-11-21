@@ -16,6 +16,13 @@ App.Anime = DS.Model.extend({
 		return (image == null) ? "" : App.Config.get('imagepath') + this.get('image');
 	}.property('image'),
 
+    imageURLSmall: function(){
+        var width = 200;
+		var image = this.get("image");
+		var fallbackImage = App.Config.get('noImageYet');//"http://placehold.it/200x112&text=No+image+yet";
+		return (image == null) ? fallbackImage : App.Config.get('imageresizepath') + this.get('image') + "/" + width;
+    }.property('image'),
+
 	fanartURL: function(){
 		var fanart = this.get("fanart");
 		return (fanart == null) ? "" : App.Config.get('imagepath') + this.get('fanart');

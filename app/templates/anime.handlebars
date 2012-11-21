@@ -21,7 +21,7 @@
 
     {{! LAST AIRED EPISODES }}
     <div class="row-fluid">
-        <div id="anime-gallery">
+        <div class="anime-gallery">
             <div class="gallery-header">
                 {{#if hasFutureEpisodes}} 
                     <h2>Next <span class="normal">episode</span></h2>
@@ -29,22 +29,20 @@
                 <h2>Last aired <span class="normal">episodes</span></h2>
             </div>
             {{#each episode in lastEpisodes}}
-                <div class="anime-gallery-single">
-                    <div class="anime-gallery-single-inner">
-                        <a href="#"> 
-                                <img {{bindAttr src="episode.imageURL"}}/>
-                            </a>
-                        <span class="anime-gallery-single-hover">
-                            <a href="#">
-                                View Episode
-                            </a>
+            <div class="pull-left">
+                <div class="gallery-image gallery-episode">
+                    <a href="#"> 
+                        <img {{bindAttr src="episode.imageURL"}}/>
+                        <span>
+                            View Episode
                         </span>
-                    </div>
-                    <p class="bold calendarinfo">
-                        <a href="#">{{episode.anime.title}}</a> {{episode.number}}
-                    </p>
-                    <p class="calendarinfo">{{episode.name}}</p>
+                    </a>
                 </div>
+                <p class="bold">
+                    <a href="#">{{episode.anime.title}}</a> {{episode.number}}
+                </p>
+                <p class="calendarinfo">{{episode.name}}</p>
+            </div>
             {{/each}}
         </div>
     </div>

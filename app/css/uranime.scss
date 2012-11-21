@@ -1,6 +1,7 @@
 @import "compass/css3/box-shadow";
 @import "compass/css3/text-shadow";
 @import "compass/css3/border-radius";
+@import "compass/css3/box-sizing";
 @import "base";
 
 @mixin blur ($px: 1px) {
@@ -66,9 +67,7 @@ h1 {
 img.posterimage {
 	max-width:175px;
 	width:100%;
-	/*max-width:225px;*/
 	padding: 10px;
-   	//border:3px solid #f5f4f9;
     @include box-shadow(inset 0 0 2px #d0d1d5);
    	@include border-radius(3px);
    	background:#fff;
@@ -83,7 +82,6 @@ img.posterimage {
 #notifications {
 	top:43px;
 	left:-73px;
-	/*margin-left:15px;*/
 }
 
 .transparent-bar {
@@ -132,7 +130,6 @@ img.animeimage, #fanart .animetitle {
 	-moz-box-shadow:inset 1px 1px 1px rgba(255,255,255,0.2);
 	max-width:175px;
 	width:100%;
-	/*max-width:225px;*/
 	padding: 10px;
    	border:3px solid #f5f4f9;
    	-webkit-appearance: none;
@@ -142,12 +139,21 @@ img.animeimage, #fanart .animetitle {
    	background:#fff;
 }
 
-#anime-gallery {
+.clear {
+    clear:both;
+}
+
+.anime-gallery {
 	position:relative;
-    //216
+    p {
+        margin-left:5px;
+        overflow:hidden;
+        width:100%;
+    }
     .gallery-header {
         h2 {
             width:216px;
+            
             display:inline-block;
             margin-left:5px;
             font-size:18px;
@@ -157,130 +163,93 @@ img.animeimage, #fanart .animetitle {
             }
         }
     }
-    .anime-gallery-single {
+}
+
+.gallery-episode {
+    width:215px;
+    margin:5px 10px 5px 0;
+}
+
+.gallery-poster {
+    width: 138px;
+    height: 203px;
+}
+
+.gallery-image {
+    border:3px solid #F5F4F9;
+    box-shadow:inset 1px 1px 0 #D0D1D5, inset -1px -1px 0 #D0D1D5;
+    display:inline-block;
+    padding:3px 5px 3px 3px;
+    max-width:100%; // width:100%;
+    position:relative;
+    @include box-sizing(border-box);
+    
+    a {
+        display:block;
         position:relative;
-        display:inline-block;
-        margin:5px;/* 10px;*/
-        color:#545655;
-        max-width:215px;
-        height:180px;
-        float:left;	
-        
-        .anime-gallery-single-inner {
-            padding: 3px 3px 0 3px;
-            border: 3px solid #f5f4f9;
-            -webkit-appearance: none;
-            -webkit-box-shadow: inset 1px 1px 0 #d0d1d5, inset -1px -1px 0 #d0d1d5;
-            border-radius: 3px;
-            background: white;
-            max-width:200px;
-            text-align:center;
-            
-            span.anime-gallery-single-hover {
-                display:none;
-                position:absolute;
-                top:6px;
-                left:6px;
-                height:112px;
-                line-height:112px;
-                width:198px;
-                font-weight:bold;
-                border:1px solid rgba(0,0,0,0.8);
-                background:rgba(0,0,0,0.6);
-                color:#fff;
-                box-shadow:inset 0 1px 0 rgba(255,255,255,0.1), 0 1px 3px rgba(0,0,0,0.3), inset 0 -1px 0 rgba(255,255,255,0.1),inset 1px 0 0 rgba(255,255,255,0.1),inset -1px 0 0 rgba(255,255,255,0.1);
-            }
-            a, a:hover {
-                color:#fff;
-                top:6px;
-                left:6px;
-                height:100%px;
-                width:100%;
-                display:block;
-                text-decoration:none;
-            }
-            
-            &:hover {
-                background: #32b9e6;/* OLD LIGHT BLUE*/
-                background: #2F6A9F !important;/* NEW AWESOME DARK BLUE*/
-                /*border-color: #2b9fc4;*/
-                box-shadow:none;
-                
-                span.anime-gallery-single-hover {
-                    display:block;
-                }
-            }
+        background:#000;        
+        img {
+            vertical-align: bottom;
+            border:1px solid #fff;
+            height:100%;
+            width:100%;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);          
         }
-        
-        span.anime-gallery-single-name {
-            font-weight:normal;
-            color:#545655;
-            display:block;
-            text-align:center;
-            margin-top:10px;
+        span {
+            display:none;
+            color:#fff;  
+            font-weight:bold;  
+        }
+        &:hover span {
+            display:inline;
+            width:100%;
+            position:absolute;
+            top:50%;
+            text-align:center;  
+            vertical-align:middle;    
+        }
+        &:hover img {
+            border:1px solid #000;
+            opacity: 0.5;    
         }
     }
     
-    p.calendarinfo {
-        margin: 0 5px;
+    &:hover {
+        background:#2F6A9F;    
     }
-}
+    
+    & span.info {
+        position:absolute;
+        margin-top:10px;
+        overflow:hidden;
+        p {
+            height:1.1em;
+            line-height:1.1em;
+        }        
+    }
+}​
 
 .bold {
-	font-weight:bold;
+	font-weight:bold !important;
 }
+
+.margin {
+    margin:15px;
+}
+
 
 // NEED TO BE REDONE
 
-.animethumbnail {
-	@include box-shadow(
-		#D0D1D5 1px 1px 0,
-		#D0D1D5 -1px -1px 0,
-		#D0D1D5 1px -1px 0,
-		#D0D1D5 -1px 1px 0,
-		#F5F4F9 4px 4px 0,  //light gray outer border
-		#F5F4F9 -4px -4px 0,
-		#F5F4F9 -4px 4px 0,
-		#F5F4F9 4px -4px 0
-	);
-	background: #fff;
-	padding:2px;
-	position:relative;
-	display:inline-block;
-	img {
-		border:1px solid #fff;
-	}
-	img:hover {
-		@include box-shadow(
-		rgba(255,255,255,0.1) 1px 1px 0 0 inset,
-		rgba(255,255,255,0.1) -1px -1px 0 0 inset,
-		rgba(255,255,255,0.1) 1px -1px 0 0 inset,
-		rgba(255,255,255,0.1) -1px 1px 0 0 inset,
-		#2F6A9F 2px 2px 0,  //light gray outer border
-		#2F6A9F -2px -2px 0,
-		#2F6A9F -2px 2px 0,
-		#2F6A9F 2px -2px 0
-		);
-		border:1px solid rgba(0,0,0,0.8);
-	}
-
-	.animethumbnail-fav {
-		border:0;
-		position:absolute;
-		top:0px;
-		height:40px;
-		width:40px;
-		left:0px;
-		background:url("../img/flag.png");
-	}
-
-	&:hover .animethumbnail-fav{
-			border:0;
-			background:url("../img/flag_hover.png");
-			@include box-shadow(none);
-		}
-
+.smallPoster img{
+    width: 138px;
+    height:203px;
 }
+
+.smallPoster + p {
+    width:138px;
+}
+
+
 
 // UNUSED STUFF START
 
@@ -335,16 +304,6 @@ img.animeimage, #fanart .animetitle {
 	color: rgba(0,0,0,0.6);
 	white-space: nowrap;
 	line-height:30px;
-}
-
-.animethumbnail + p {
-	color:#545655;
-	text-align:center;
-	margin-top:10px;
-	max-width:200px;
-	height:1.3em;
-	overflow:hidden;
-	text-overflow: ellipsis;
 }
 
 /* EPISODE LIST */

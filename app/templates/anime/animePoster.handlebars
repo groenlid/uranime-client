@@ -1,1 +1,15 @@
-
+{{#with view.content}}
+<div class="anime-gallery gallery-poster pull-left">
+    <div class="gallery-image">
+        <a href="#"> 
+            <img {{bindAttr src="imageURLSmall"}}/>
+            <span>
+                View Anime
+            </span>
+        </a>
+    </div>
+    <p class="bold">
+        <a href="#">{{title}}</a>
+    </p>
+</div>
+{{/with}}
