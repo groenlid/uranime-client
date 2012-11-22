@@ -1,7 +1,6 @@
 {{#with controller.content}}
 <div class="black-top">
     <header id="fanart" {{bindAttr style="fanartStyle"}}>
-        <div class="animetitle"><h1>.hack//Roots</h1></div>
     </header>
 </div>
 <div class="container content infobar">
@@ -29,8 +28,8 @@
                 <h2>Last aired <span class="normal">episodes</span></h2>
             </div>
             {{#each episode in lastEpisodes}}
-            <div class="pull-left">
-                <div class="gallery-image gallery-episode">
+            <div class="pull-left gallery-episode">
+                <div class="gallery-image">
                     <a href="#"> 
                         <img {{bindAttr src="episode.imageURL"}}/>
                         <span>

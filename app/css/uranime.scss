@@ -4,21 +4,13 @@
 @import "compass/css3/box-sizing";
 @import "base";
 
-@mixin blur ($px: 1px) {
-	filter: blur($px);
-	// Browser Specific
-	-webkit-filter: blur($px);
-	-moz-filter: blur($px);
-	-o-filter: blur($px);
-	-ms-filter: blur($px);
-}
-
 // COMMON
 
 body {
 	font-family:'Proxima Nova';
     background:#F9F9F9;
     font-size:14px;
+    padding-top:44px;
     text-rendering: optimizelegibility
 }
 
@@ -44,7 +36,6 @@ h1 {
 }
 
 .black-top {
-    margin-top:-20px;
     padding-top:20px;
     background-image:url('./img/navy_blue.png');
 }
@@ -60,7 +51,7 @@ h1 {
     border-width: 0 1px 1px 1px;
 }
 
-.infobar{
+.infobar {
     background: #efefef;
 }
 
@@ -120,6 +111,7 @@ p.animedesc {
 	font-size:0.9em;
 	margin-bottom:50px;
 }
+
 .smalltext {
 	font-size:0.8em;
 }
@@ -145,12 +137,15 @@ img.animeimage, #fanart .animetitle {
 
 .anime-gallery {
 	position:relative;
+    
     p {
         margin-left:5px;
         overflow:hidden;
         width:100%;
     }
+    
     .gallery-header {
+    
         h2 {
             width:216px;
             
@@ -161,33 +156,28 @@ img.animeimage, #fanart .animetitle {
             span.normal {
                 font-weight:normal;
             }
+    
         }
+    
     }
-}
 
-.gallery-episode {
-    width:215px;
-    margin:5px 10px 5px 0;
-}
-
-.gallery-poster {
-    width: 138px;
-    height: 203px;
 }
 
 .gallery-image {
+    
     border:3px solid #F5F4F9;
     box-shadow:inset 1px 1px 0 #D0D1D5, inset -1px -1px 0 #D0D1D5;
     display:inline-block;
     padding:3px 5px 3px 3px;
-    max-width:100%; // width:100%;
+    max-width:100%;
     position:relative;
     @include box-sizing(border-box);
     
     a {
         display:block;
         position:relative;
-        background:#000;        
+        background:#000;
+                
         img {
             vertical-align: bottom;
             border:1px solid #fff;
@@ -195,11 +185,13 @@ img.animeimage, #fanart .animetitle {
             width:100%;
             box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);          
         }
+        
         span {
             display:none;
             color:#fff;  
             font-weight:bold;  
         }
+        
         &:hover span {
             display:inline;
             width:100%;
@@ -208,26 +200,52 @@ img.animeimage, #fanart .animetitle {
             text-align:center;  
             vertical-align:middle;    
         }
+        
         &:hover img {
             border:1px solid #000;
             opacity: 0.5;    
         }
+        
     }
     
     &:hover {
         background:#2F6A9F;    
     }
     
-    & span.info {
+    span.info {
         position:absolute;
         margin-top:10px;
         overflow:hidden;
+        
         p {
             height:1.1em;
             line-height:1.1em;
         }        
     }
-}​
+}
+
+.gallery-episode {
+    width:215px;
+    margin:5px 10px 5px 0;
+    a {
+        img {
+            width: 215px;
+        }
+    }
+}
+
+.gallery-poster {
+    width: 138px;
+    a {
+        img {
+            width: 138px;
+            height: 203px;
+        }
+    }
+    p {
+        height:1em;
+    }
+}
 
 .bold {
 	font-weight:bold !important;
@@ -252,16 +270,7 @@ img.animeimage, #fanart .animetitle {
 
 
 // UNUSED STUFF START
-
-#fanart .animetitle {
-	margin:130px auto;
-	max-width:400px;
-	text-align:center;
-	background:rgba(255,255,255,.3);
-	/* DO NOT DISPLAY THE TITLE FOR NOW */
-	display:none;
-}
-
+/*
 .progressbar {
 	height:30px;
 	background:#d7d9d8;
@@ -300,95 +309,12 @@ img.animeimage, #fanart .animetitle {
 .progressbar #progress span {
 	position: absolute;
 	right:5px;
-	text-shadow:   rgba(255,255,255, 0.45) 0 1px 0px;
+	text-shadow: rgba(255,255,255, 0.45) 0 1px 0px;
 	color: rgba(0,0,0,0.6);
 	white-space: nowrap;
 	line-height:30px;
 }
-
-/* EPISODE LIST */
-
-div.episode {
-	margin-bottom:20px;
-	/*border-bottom:1px solid #ccc;*/
-	box-shadow:0 1px 1px #ededed;
-	padding:10px 0;
-}
-
-div.episode span.episodeImage {
-	display:inline-block;
-	/*width:84px;*/
-	vertical-align:top;
-}
-
-div.episode span.episodeNumber {
-	color:#ccc;
-	display:inline-block;
-	width:50px;
-}
-
-div.episode span.episodeImage img {
-	/*border:1px solid #ccc;
-	border-radius:3px;*/
-}
-
-div.episode span.episodeContent {
-	display:inline-block;
-	vertical-align:top;
-	/*padding:0 20px;*/
-}
-
-div.episode span.episodeContent p {
-	display:block;
-	color:#5E5E5E;
-	line-height:17px;
-	font-size:0.9em;
-}
-
-div.episode span.episodeContent span.episodeName {
-	font-weight:bold;
-	letter-spacing:1px;
-}
-
-div.episode span.episodeContent span.episodeTime {
-	font-weight:bold;
-	font-size:0.8em;
-	letter-spacing:1px;
-	color:#555;
-	float:right;
-}
-
-div.episode span.extra {
-	display:inline-block;
-	width:20px;
-	padding:10px;
-	position:relative;
-}
-
-div.episode span.extra:hover span.tooltip {
-	display:inline-block;
-}
-
-.newsfeed img, .episodeImage img {
-	padding: 2px;
-	border: 3px solid #F5F4F9;
-	-webkit-appearance: none;
-	-webkit-box-shadow: inset 1px 1px 0 #d0d1d5, inset -1px -1px 0 #d0d1d5;
-	border-radius: 3px;
-	background: white;
-	max-width: 200px;
-	text-align: center;
-	max-height:50px;
-	border-image: initial;
-}
-
-.newsfeed img:hover, .episodeImage img:hover {
-	background: #32b9e6;/* OLD LIGHT BLUE*/
-	background: #2F6A9F !important;/* NEW AWESOME DARK BLUE*/
-	/*border-color: #2b9fc4;*/
-	box-shadow:none;
-}
-
+*/
 // UNUSED STUFF END
 
 
@@ -404,28 +330,7 @@ div.episode span.extra:hover span.tooltip {
 }
 
 @media (max-width: $responsive_medium) {
-	/*#fanart {
-		margin:-20px -20px 0 -20px;
-		padding: 0 10px;
-	}*/
 }
 
 @media (max-width: $responsive_small) {
-    body {
-        padding: 0;
-    }
-	/*#fanart {
-		padding: 0 20px;
-		max-height:150px;
-	}
-
-	.navbar-fixed-top:first-child {
-		margin-bottom: 0;
-	}
-
-	#fanart{
-    	//box-shadow: 0px 0px 300px 10px rgba(255,255,255,1);
-    	//opacity: 0.7;
-    	//@include blur(2px);
-	}*/
 }

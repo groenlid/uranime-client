@@ -1,15 +1,15 @@
 {{#with view.content}}
 <div class="anime-gallery gallery-poster pull-left">
     <div class="gallery-image">
-        <a href="#"> 
-            <img {{bindAttr src="imageURLSmall"}}/>
+        <a {{action goToAnime this target="parentView"}}> 
+            <img {{bindAttr src="imageURLSmall"}} rel="tooltip" title="first tooltip"/>
             <span>
                 View Anime
             </span>
         </a>
     </div>
     <p class="bold">
-        <a href="#">{{title}}</a>
+        <a href="#" {{bindAttr title="title"}}>{{title}}</a>
     </p>
 </div>
 {{/with}}
