@@ -14,6 +14,6 @@ App.AnimeListView = Ember.CollectionView.extend({
     }),
     
     emptyView: Ember.View.extend({
-        template: Ember.Handlebars.compile("<h1>The collection is empty. Here, have a cat..</h1><img class='posterimage' src='./assets/img/mascot.jpg'>")
+        templateName: "uranime/~templates/anime/loadingOrEmpty"
     }),
 });
