@@ -49,6 +49,7 @@ h1 {
     background:#fff;
 	border:1px solid #ccc;
     border-width: 0 1px 1px 1px;
+    position:relative;
 }
 
 .infobar {
@@ -235,16 +236,27 @@ img.animeimage, #fanart .animetitle {
 }
 
 .gallery-poster {
-    width: 138px;
+    width: 166px;
+    margin:10px;
     a {
         img {
-            width: 138px;
-            height: 203px;
+            width: 150px;
+            height: 225px;
         }
     }
     p {
         height:1em;
+        text-align:center;
+        width:100%;
+        text-overflow: clip;
     }
+}
+
+.loading {
+    background:url('../img/loading_square.gif');
+    width: 400px;
+    height:300px;
+    margin:0 auto;
 }
 
 .bold {

@@ -1,5 +1,25 @@
 <div class="container content">
-{{view App.AnimeListView contentBinding="controller"}}
+    <div class="row-fluid">
+        <div class="btn-group">
+            {{#each controller.viewTypes}}
+                <a class="btn" {{action changeViewType this target="controller"}}>
+                    <i {{bindAttr class="icon"}}></i>
+                </a>
+            {{/each}}
+        </div>
+        <div class="btn-group pull-right">
+            <a class="btn">
+                <i class="icon-font"></i>
+            </a>
+            <a class="btn">
+                <i class="icon-time"></i>
+            </a>
+            <a class="btn">
+                <i class="icon-star"></i>
+            </a>
+        </div>
+    </div>
+{{view App.AnimeListView viewTypeBinding="controller.viewType" contentBinding="controller"}}
 <div class="clear"></div>
 </div>
 
