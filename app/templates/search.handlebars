@@ -1,24 +1,24 @@
 <div class="container content">
     <div class="row-fluid">
         <div class="btn-group">
-            {{#each controller.viewTypes}}
+            {{#each viewTypes}}
                 <a class="btn" {{action changeViewType this target="controller"}}>
                     <i {{bindAttr class="icon"}}></i>
                 </a>
             {{/each}}
         </div>
-        <div class="btn-group pull-right">
-            <a class="btn">
-                <i class="icon-font"></i>
-            </a>
-            <a class="btn">
-                <i class="icon-time"></i>
-            </a>
-            <a class="btn">
-                <i class="icon-star"></i>
-            </a>
+        <div class="span2 pull-right">
+            <div class="span5 line-height-input">Sort by: </div>
+            <div class="span7">
+            {{view Ember.Select 
+                contentBinding="sortTypes" 
+                optionLabelPath="content.label"
+                optionValuePath="content.value"
+                selectionBinding="chosenSort"
+            }}</div>
         </div>
     </div>
+    <hr>
 {{view App.AnimeListView viewTypeBinding="controller.viewType" contentBinding="controller"}}
 <div class="clear"></div>
 </div>

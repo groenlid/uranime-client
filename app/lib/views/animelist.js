@@ -7,8 +7,6 @@ App.AnimeListView = Ember.CollectionView.extend({
             
             var viewType = this.get('parentView.parentView.controller.viewType');
 
-
-
             console.log(viewType);
             var view = Ember.none(viewType) ? 'animePoster' : viewType;
             return "uranime/~templates/anime/" + view;
@@ -18,7 +16,7 @@ App.AnimeListView = Ember.CollectionView.extend({
         _templateChanged: function() {
             this.rerender();
           }.observes('templateName'),
-        
+
         goToAnime: function(e,a){
             console.log("going to anime");
             var id = e.context.get("id");

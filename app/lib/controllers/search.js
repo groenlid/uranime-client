@@ -1,7 +1,9 @@
 App.SearchController = Ember.ArrayController.extend({
-    sortProperties: ['title'],
+    sortProperties: function(){
+        return [this.get('chosenSort.value.sortProperty')];
+    }.property('chosenSort'),//['title'],
+
     sortAscending: true,
-    
     viewType: 'animePoster',
     
     viewTypes: Ember.A([
@@ -15,9 +17,32 @@ App.SearchController = Ember.ArrayController.extend({
         }),
         Ember.Object.create({
             icon: 'icon-list',
-            viewType: 'animeList'
+            viewType: 'animeInfoList'
         }),
+    ]),
 
+    sortTypes: Ember.A([
+        Ember.Object.create({
+            label: 'title',
+            value: Ember.Object.create({
+                sortProperty: ['title'],
+                sortAscending: true
+            })
+        }),
+        Ember.Object.create({
+            label: 'age',
+            value: Ember.Object.create({
+                sortProperty: ['age'],
+                sortAscending: true
+            })
+        }),
+        Ember.Object.create({
+            label: 'rating',
+            value: Ember.Object.create({
+                sortProperty: ['rating'],
+                sortAscending: true
+            })
+        }),
     ]),
 
     changeViewType: function(evt){

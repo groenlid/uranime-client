@@ -252,6 +252,31 @@ img.animeimage, #fanart .animetitle {
     }
 }
 
+select {
+    max-width:100%;
+}
+
+.line-height-input {
+    line-height:30px;
+}
+
+.gallery-fanart {
+    width: 216px;
+    margin:10px;
+    a {
+        img {
+            width: 200px;
+            height: 112px;
+        }
+    }
+    p {
+        height:1em;
+        text-align:center;
+        width:100%;
+        text-overflow: clip;
+    }
+}
+
 .loading {
     background:url('../img/loading_square.gif');
     width: 400px;
