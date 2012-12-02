@@ -7,3 +7,4 @@ require('uranime/controllers');
 require('uranime/views');
 
 App.initialize();
+

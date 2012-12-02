@@ -73,6 +73,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 		{
 			// load episodes
 			json = this.loadHasManyAssociation(store, App.Episode, 'episode', json);
+            json = this.loadHasManyAssociation(store, App.Genre, 'genre', json);
 		}
 		
 		return json;

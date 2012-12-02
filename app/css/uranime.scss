@@ -8,7 +8,7 @@
 
 body {
 	font-family:'Proxima Nova';
-    background:#F9F9F9;
+    background:#eee;
     font-size:14px;
     padding-top:44px;
     text-rendering: optimizelegibility
@@ -26,7 +26,8 @@ h1 {
 
     .small {
         line-height:30px;
-        color:rgba(0,0,0,0.5);
+        color:#BFBFBF;
+        //color:rgba(0,0,0,0.5);
         font-weight:normal;
     }
 }
@@ -53,7 +54,7 @@ h1 {
 }
 
 .infobar {
-    background: #efefef;
+    background: whiteSmoke;
 }
 
 img.posterimage {
@@ -278,7 +279,7 @@ select {
 }
 
 .loading {
-    background:url('../img/loading_square.gif');
+    background:url('./img/loading_square.gif');
     width: 400px;
     height:300px;
     margin:0 auto;
@@ -291,6 +292,17 @@ select {
 .margin {
     margin:15px;
 }
+
+
+// Tags
+
+.tag 					{ background: url(../img/tag.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
+.tag:hover 				{ cursor: pointer; }
+.tag:active 			{ top: 1px; }
+.tag span 				{ display: block; float: left; }
+.tag_name 				{ background: url(./img/tag.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; }
+.tag_count 				{ background: url(./img/tag.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
+
 
 
 // NEED TO BE REDONE

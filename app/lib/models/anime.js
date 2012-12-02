@@ -10,7 +10,20 @@ App.Anime = DS.Model.extend({
 	type: DS.attr('string'),
 	
 	episode: DS.hasMany('App.Episode', {embedded:true}),
+    genre: DS.hasMany('App.Genre', {embedded:true}),
 	
+    genres: function(){
+        return this.get('genre').filter(function(f){
+                return f.get('is_genre') == 1
+            });
+    }.property('genre.@each'),
+    
+    tags: function(){
+        return this.get('genre').filter(function(f){
+                return f.get('is_genre') !== '1'
+            });
+    }.property('genre.@each'),
+    
 	imageURL: function(){
 		var image = this.get('image');
 		return (image == null) ? "" : App.Config.get('imagepath') + this.get('image');
