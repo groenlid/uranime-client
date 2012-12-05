@@ -1,6 +1,7 @@
-<div class="container content">
-    <div class="row-fluid">
-        <div class="btn-group">
+<div class="container content infobar">
+<div class="row-fluid">
+        <h1 class="span6">You searched for: ''{{App.SearchFormView.searchQuery}}</h1>
+        <div class="btn-group pull-right" style="margin-left:10px;">
             {{#each viewTypes}}
                 <a class="btn" {{action changeViewType this target="controller"}}>
                     <i {{bindAttr class="icon"}}></i>
@@ -18,7 +19,9 @@
             }}</div>
         </div>
     </div>
-    <hr>
+</div>
+
+<div class="container content">
 {{view App.AnimeListView viewTypeBinding="controller.viewType" contentBinding="controller"}}
 <div class="clear"></div>
 </div>

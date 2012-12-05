@@ -23,21 +23,21 @@ App.SearchController = Ember.ArrayController.extend({
 
     sortTypes: Ember.A([
         Ember.Object.create({
-            label: 'title',
+            label: 'Title',
             value: Ember.Object.create({
                 sortProperty: ['title'],
                 sortAscending: true
             })
         }),
         Ember.Object.create({
-            label: 'age',
+            label: 'Age',
             value: Ember.Object.create({
                 sortProperty: ['age'],
                 sortAscending: true
             })
         }),
         Ember.Object.create({
-            label: 'rating',
+            label: 'Rating',
             value: Ember.Object.create({
                 sortProperty: ['rating'],
                 sortAscending: true

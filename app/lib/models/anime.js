@@ -86,7 +86,7 @@ App.Anime = DS.Model.extend({
 	  return items.sort(function (lhs, rhs) {
 		return Date.parse(rhs.get('aired')) - Date.parse(lhs.get('aired'));
 	  });
-	}.property('episode.@each.aired'),
+	}.property('episode.@each'),
 	
 	hasFutureEpisodes: function() {
 		var episodesAirDate = this.get('episode').getEach('aired');

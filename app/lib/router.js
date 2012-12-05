@@ -24,17 +24,36 @@ App.Router = Ember.Router.extend({
 		}),
 		anime: Ember.Route.extend({
 			route: '/anime/:id',
+
 			connectOutlets: function( router, context) { // context is the anime
-				var idValue = context.id;
-				
-				//App.AnimeController.reopenClass({content:App.store.find(App.Anime,context.id)});
-				router.get('applicationController').connectOutlet('anime',App.store.find(App.Anime, idValue));
-			}
+					var idValue = context.id;
+
+					router.get('applicationController').connectOutlet('anime',App.store.find(App.Anime, idValue));
+			},	
+
+
+			animeDesc: Ember.Route.extend({
+				route: '/',
+
+				connectOutlets: function( router, context ) {
+					router.get('animeController').connectOutlet('animeDesc');
+				}
+
+			}),
+
+			animeEpisodes: Ember.Route.extend({
+				route: '/episodes',
+
+				connectOutlets: function( router, context ) {
+					router.get('animeController').connectOutlet('animeEpisodes');
+				}
+			})
+
 		}),
 		search: Ember.Route.extend({
 			route: '/search/:query',
 
-			goToAnime: Ember.Route.transitionTo('anime'),
+			goToAnime: Ember.Route.transitionTo('anime.animeDesc'),
 			
 			connectOutlets: function( router, context ){ // context is the query
 				console.log("The query is: '" + context.query + "'");

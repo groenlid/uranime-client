@@ -1,1 +1,1 @@
-App.AnimeController = Ember.Controller.extend();
+App.AnimeController = Ember.ObjectController.extend();

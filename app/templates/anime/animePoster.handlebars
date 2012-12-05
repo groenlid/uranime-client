@@ -1,7 +1,7 @@
 {{#with view.content}}
 <div class="anime-gallery gallery-poster pull-left">
     <div class="gallery-image">
-        <a {{action goToAnime this target="parentView"}}> 
+        <a {{action goToAnime this href="true" target="parentView"}}> 
             <img {{bindAttr src="imageURLSmall"}} />
             <span>
                 View Anime
