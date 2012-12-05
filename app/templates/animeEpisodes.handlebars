@@ -6,19 +6,8 @@
     </div>
 </div>
 <div class="container content">
-{{#each episode in sortedEpisodes}}
-    <div class="row-fluid">
-        
-        <div class="gallery-episode pull-left">
-            <div class="gallery-image">
-                <a><img {{bindAttr src="episode.imageURL"}} /></a>
-            </div>
-        </div>
-        <div class="span8 margin">
-            <h4><a>Episode {{episode.number}} - {{episode.name}}</a></h4>
-            <p class="subtle">{{episode.aired}}</p>
-            <p>{{episode.description}}</p>
-        </div>
-    </div>
-{{/each}}
+
+
+{{view App.EpisodeListView completeBinding="sortedEpisodes"}}
+
 </div>

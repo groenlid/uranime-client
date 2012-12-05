@@ -1,0 +1,13 @@
+<div class="row-fluid">
+        
+        <div class="gallery-episode pull-left">
+            <div class="gallery-image">
+                <a><img {{bindAttr src="view.content.imageURL"}} /></a>
+            </div>
+        </div>
+        <div class="span8 margin">
+            <h4><a>Episode {{view.content.number}} - {{view.content.name}}</a></h4>
+            <p class="subtle">{{view.content.aired}}</p>
+            <p>{{view.content.description}}</p>
+        </div>
+    </div>
