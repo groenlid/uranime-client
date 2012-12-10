@@ -1,3 +1,4 @@
+require('moment');
 App.Anime = DS.Model.extend({
 	
 	title: DS.attr('string'),

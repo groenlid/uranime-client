@@ -7,4 +7,8 @@ App.Config = Ember.Object.create({
         
         // Anime
         search: "search?q=",
+
+
+        // Episodes
+        shortDescriptionLength: 200,
 });

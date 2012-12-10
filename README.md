@@ -9,6 +9,9 @@ Running
     $ bundle install
     $ bundle exec rackup
 
+    $ bundle exec rakep build ## to build
+    $ bundle exec rakep server ## for 9292
+
 App Structure
 -------------
 

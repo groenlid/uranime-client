@@ -19,7 +19,7 @@ App.Router = Ember.Router.extend({
 
 			connectOutlets: function( router ){
 				//App.store.find(App.Anime, 1);
-				router.get('applicationController').connectOutlet('anime');
+				router.get('applicationController').connectOutlet('front');
 			}
 		}),
 		anime: Ember.Route.extend({

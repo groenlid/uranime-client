@@ -17,7 +17,7 @@ body {
 h1, h2, h3, h4 {
     color:#2a2a2a;
     font-weight:bold;
-    font-family: "Roboto","Questrial",Helvetica,Arial,sans-serif;
+    //font-family: "Roboto","Questrial",Helvetica,Arial,sans-serif;
 }
 
 h1 {
@@ -289,6 +289,10 @@ select {
 	font-weight:bold !important;
 }
 
+.episodelist .episode-info {
+    margin-top:10px;
+}
+
 .margin {
     margin:15px;
 }
@@ -304,6 +308,18 @@ select {
 .tag_count 				{ background: url(./img/tag.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
 
 
+
+// SPLASH PAGE
+.splash-white {
+    background:#fff;
+    margin-top:-10px;
+    padding-top:15%;
+
+    h1 {
+        text-align:center;
+    }
+
+}
 
 // NEED TO BE REDONE
 

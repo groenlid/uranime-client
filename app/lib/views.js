@@ -7,4 +7,5 @@ require('uranime/views/search/animelist');
 require('uranime/views/anime/desc/animedesc');
 require('uranime/views/anime/episodes/episodes');
 require('uranime/views/anime/episodes/animeEpisodes');
+require('uranime/views/front');
 
