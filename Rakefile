@@ -1,4 +1,4 @@
-APPNAME = 'ember-skeleton'
+APPNAME = 'Uranime'
 
 require 'colored'
 require 'rake-pipeline'
@@ -24,6 +24,6 @@ task :test => :build do
     puts "Tests Passed".green
   else
     puts "Tests Failed".red
-    exit(1)
+    #exit(1) # Why is this here? Should not quit guard because some tests fail..
   end
 end

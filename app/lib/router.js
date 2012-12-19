@@ -31,6 +31,8 @@ App.Router = Ember.Router.extend({
 					router.get('applicationController').connectOutlet('anime',App.store.find(App.Anime, idValue));
 			},	
 
+			// Transitions
+			goToEpisodes: Ember.Route.transitionTo('animeEpisodes'),
 
 			animeDesc: Ember.Route.extend({
 				route: '/',

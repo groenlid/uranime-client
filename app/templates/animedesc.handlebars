@@ -21,6 +21,7 @@
                     <h2>Next <span class="normal">episode</span></h2>
                 {{/if}}
                 <h2>Last aired <span class="normal">episodes</span></h2>
+                <a {{action goToEpisodes view.content}} class="btn btn-small pull-right bold">View more</a>
             </div>
             {{#each episode in lastEpisodes}}
             <div class="pull-left gallery-episode">

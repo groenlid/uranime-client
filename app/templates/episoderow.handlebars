@@ -2,11 +2,14 @@
     <div class="gallery-episode pull-left span3">
         <div class="gallery-image">
             <a><img {{bindAttr src="view.content.imageURL"}} /></a>
+            
         </div>
     </div>
     <div class="span8 episode-info">
         <div class="row-fluid">
-            <h4 class="span8"><a>#{{view.content.number}} - {{view.content.name}}</a></h4>
+            <h4 class="span8">
+                <a>#{{view.content.number}} - {{view.content.name}}</a>
+            </h4>
             <p class="subtle pull-right">{{view.content.parseAired}}</p>
         </div>
         <p>{{view.content.shortDescription}}</p>

@@ -1,3 +1,5 @@
+/*jshint indent: 2 */
+/*global phantom, QUnit, console, require, window */
 // PhantomJS QUnit Test Runner
 
 var args = phantom.args;
@@ -9,47 +11,18 @@ if (args.length < 1 || args.length > 2) {
 var page = require('webpage').create();
 
 var warnRe = /^WARNING:/;
-page.onConsoleMessage = function(msg) {
-  if (!warnRe.test(msg)) console.log(msg);
+page.onConsoleMessage = function (msg) {
+  if (!warnRe.test(msg)) 
+    console.log(msg);
 };
 
 var uri = args[0];
-page.open(uri, function(status) {
-  if (status !== 'success') {
-    console.error("Unable to access: " + uri + " [" + status + "]");
-    phantom.exit(1);
-  } else {
-    page.evaluate(addLogging);
-
-    var timeout = parseInt(args[1] || 30000, 10);
-    var start = Date.now();
-    var interval = setInterval(function() {
-      if (Date.now() > start + timeout) {
-        console.error("Tests timed out");
-        phantom.exit(1);
-      } else {
-        var qunitDone = page.evaluate(function() {
-          return window.qunitDone;
-        });
-
-        if (qunitDone) {
-          clearInterval(interval);
-          if (qunitDone.failed > 0) {
-            phantom.exit(1);
-          } else {
-            phantom.exit();
-          }
-        }
-      }
-    }, 500);
-  }
-});
 
 function addLogging() {
   var testErrors = [];
   var assertionErrors = [];
 
-  QUnit.moduleDone(function(context) {
+  QUnit.moduleDone(function (context) {
     if (context.failed) {
       var msg = "Module Failed: " + context.name + "\n" + testErrors.join("\n");
       console.error(msg);
@@ -57,7 +30,7 @@ function addLogging() {
     }
   });
 
-  QUnit.testDone(function(context) {
+  QUnit.testDone(function (context) {
     if (context.failed) {
       var msg = "  Test Failed: " + context.name + assertionErrors.join("    ");
       testErrors.push(msg);
@@ -65,7 +38,7 @@ function addLogging() {
     }
   });
 
-  QUnit.log(function(context) {
+  QUnit.log(function (context) {
     if (context.result) return;
 
     var msg = "\n    Assertion Failed:";
@@ -80,7 +53,7 @@ function addLogging() {
     assertionErrors.push(msg);
   });
 
-  QUnit.done(function(context) {
+  QUnit.done(function (context) {
     var stats = [
       "Time: " + context.runtime + "ms",
       "Total: " + context.total,
@@ -91,3 +64,34 @@ function addLogging() {
     window.qunitDone = context;
   });
 }
+
+page.open(uri, function (status) {
+  if (status !== 'success') {
+    console.error("Unable to access: " + uri + " [" + status + "]");
+    phantom.exit(1);
+  } else {
+    page.evaluate(addLogging);
+
+    var timeout = parseInt(args[1] || 30000, 10);
+    var start = Date.now();
+    var interval = this.setInterval(function () {
+      if (Date.now() > start + timeout) {
+        console.error("Tests timed out");
+        phantom.exit(1);
+      } else {
+        var qunitDone = page.evaluate(function () {
+          return window.qunitDone;
+        });
+
+        if (qunitDone) {
+          this.clearInterval(interval);
+          if (qunitDone.failed > 0) {
+            phantom.exit(1);
+          } else {
+            phantom.exit();
+          }
+        }
+      }
+    }, 500);
+  }
+});
