@@ -1,8 +1,7 @@
 <div class="row-fluid episodelist">
     <div class="gallery-episode pull-left span3">
         <div class="gallery-image">
-            <a><img {{bindAttr src="view.content.imageURL"}} /></a>
-            
+            <a {{action showEpisode view.content target="view"}}><img {{bindAttr src="view.content.imageURL"}} /></a>
         </div>
     </div>
     <div class="span8 episode-info">

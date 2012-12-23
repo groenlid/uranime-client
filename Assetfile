@@ -41,6 +41,7 @@ output 'assets'
 input 'app' do
   match 'lib/**/*.js' do
     filter LoaderFilter,
+    #minispade :rewrite_requires => true, :string => true,
       :module_id_generator => proc { |input|
         input.path.sub(/^lib\//, "#{APPNAME}/").sub(/\.js$/, '')
       }
@@ -66,6 +67,7 @@ input 'app' do
       vendor/jquery.js
       vendor/ember.js
       vendor/ember-data.js
+      vendor/ember-bootstrap.js
       vendor/moment.js
     ], 'app.js'
   end

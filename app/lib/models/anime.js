@@ -102,7 +102,7 @@ App.Anime = DS.Model.extend({
 	}.property('episode.@each.aired'),
 
   	didLoad: function() {
-        console.log('Anime loaded', this.toJSON());
+      
     }
 });
 

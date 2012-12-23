@@ -5,20 +5,15 @@ require('uranime/core');
 require('uranime/views/search/search');
 require('uranime/views/search/animelist');
 
-var exampleData;
-
+var application, searchView;
 module("search", {
   setup: function () {
-    searchView = App.SearchView.create();
-
-    Ember.run(function () {
-      searchView.append();
-    });
+    //application = Ember.Application.create();
   },
 
   teardown: function () {
-    searchView.destroy();
-    searchView = null;
+    //searchView.destroy();
+    //application.destroy();
   }
 });
 

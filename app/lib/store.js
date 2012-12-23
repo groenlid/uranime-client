@@ -1,7 +1,7 @@
 require('uranime/core');
 require('uranime/restadapter');
 App.store = DS.Store.create({
-  revision: 7,
+  revision: 10,
   
   adapter: App.RESTAdapter.create(),
 });

@@ -61,6 +61,7 @@ function addLogging() {
       "Failed: " + context.failed
     ];
     console.log(stats.join(", "));
+    console.log(testErrors);
     window.qunitDone = context;
   });
 }

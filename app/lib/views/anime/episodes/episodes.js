@@ -1,3 +1,4 @@
+require('uranime/views/anime/episodes/episode');
 App.EpisodeListView = Ember.CollectionView.extend(App.PaginationMixin,{
 
 	total: function(){
@@ -12,7 +13,13 @@ App.EpisodeListView = Ember.CollectionView.extend(App.PaginationMixin,{
 	}.property('complete'),
 
 	itemViewClass: Ember.View.extend({
-		templateName: 'uranime/~templates/episoderow'
+		templateName: 'uranime/~templates/episoderow',
+
+		showEpisode: function (evt){
+			var episode = evt.context;
+			App.EpisodeView.popup({content:episode});
+		}
+
 	}),
 
 });
