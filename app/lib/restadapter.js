@@ -2,24 +2,34 @@ App.RESTAdapter = DS.RESTAdapter.extend({
   	bulkCommit:false,
   	
     plurals: {
-  	  'anime':'anime'
+  	  'anime':'anime',
+      'episode': 'episode',
+      'episodes': 'episodes',
+      'userepisode': 'userepisode'
     },
   
+    mappings: {
+      userepisode: 'App.UserEpisode',
+      episode: 'App.Episode'
+    },
+
     url: 'http://groenlid.no-ip.org', 
 	
 	findQuery: function(store, type, query, recordArray) {
-      var root = this.rootForType(type);
+    var root = this.rootForType(type);
 	  var that = this;
-	  
+	  var ajaxQuery = null;
 	  var url = this.buildURL(root);
 	  if(type == 'App.Anime' && !Ember.none(query.title))
-		url = this.url + '/' + App.Config.get('search') + query.title, pluralize = false;
-	  else if (type == 'App.Anime' && !Ember.none(query.id))
+		  url = this.url + '/' + App.Config.get('search') + query.title, pluralize = false;
+	  else if (!Ember.none(query.id))
         url += '/' + query.id, pluralize = true;
-      
-      this.ajax(url, "GET", {
-        //data: query,
-        success: function(json) {
+    else
+      ajaxQuery = query;
+
+    this.ajax(url, "GET", {
+    data: ajaxQuery,
+    success: function(json) {
 		  if(!Ember.none(type.addRoot) && type.addRoot)
 			json = that.addRootNode(json, type, pluralize)
 			
@@ -63,7 +73,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 			});
 		else
 			json[that.rootForType(type)] = that.loadAssociations(store, type, inQuestion);
-		console.log(json);
+		//console.log(json);
 		return json;
 	},
 	
@@ -73,13 +83,27 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 		{
 			// load episodes
 			json = this.loadHasManyAssociation(store, App.Episode, 'episode', json);
-            json = this.loadHasManyAssociation(store, App.Genre, 'genre', json);
+      json = this.loadHasManyAssociation(store, App.Genre, 'genre', json);
 		}
-		
+    if(type == 'App.Episode')
+    {
+      this.loadAssociationsFromJSON(store, App.UserEpisode, json);
+      json = this.loadHasManyAssociation(store, App.UserEpisode, 'userepisode',json);
+    }
+		if(type == 'App.UserEpisode')
+    {
+      json = this.loadBelongsToAssociation(store, App.User, 'user', json);
+    }
 		return json;
 	},
+
+	loadBelongsToAssociation: function(store, type, foreignKey, json) {
+    var tmpId = store.load(type, json[foreignKey]);
+    json[foreignKey] = tmpId.id;
+    return json;
+  },
 	
-	loadHasManyAssociation: function(store, type, foreignKey, json) {
+  loadHasManyAssociation: function(store, type, foreignKey, json) {
 		var newIds = [];
 		_.each(json[foreignKey], function(content){
 			var tmpId = store.load(type, content);

@@ -6,6 +6,14 @@
 
 // COMMON
 
+@mixin scrollbar-grey (){
+    &::-webkit-scrollbar {width:6px; height:6px; border: none; background: transparent;}
+    &::-webkit-scrollbar-track-piece {border: none; position: absolute; padding: 0; box-shadow: none; background-color: rgba(0,0,0,0.07); border-radius: 30px;}
+    &::-webkit-scrollbar-thumb:vertical {background-color: rgba(0,0,0,0.18); border-radius: 30px; border: none;}
+    &::-webkit-scrollbar-thumb:horizontal {background-color: rgba(0,0,0,0.18); border-radius: 30px; border: none;}
+}
+
+
 body {
 	font-family:'Proxima Nova';
     background:#eee;
@@ -357,8 +365,8 @@ select {
     }
 
     .gallery-splash {
-        width: 100%;
-        max-width:400px;
+        width: 500px;
+        max-width:100%;
         left:50%;
         margin-left:-200px;
         margin-bottom:20px;
@@ -444,6 +452,9 @@ select {
 
         p.animedesc {
             padding: 30px 0;
+            max-height: 250px;
+            overflow-y: auto;
+            @include scrollbar-grey();
         }
 
         .js-episodeInfo{
@@ -480,12 +491,8 @@ select {
             overflow-y:auto;
 
             &.js-commentsHeight{
-                max-height:247px;
-            
-                &::-webkit-scrollbar {width:6px; height:6px; border: none; background: transparent;}
-                &::-webkit-scrollbar-track-piece {border: none; position: absolute; padding: 0; box-shadow: none; background-color: rgba(0,0,0,0.07); border-radius: 30px;}
-                &::-webkit-scrollbar-thumb:vertical {background-color: rgba(0,0,0,0.18); border-radius: 30px; border: none;}
-                &::-webkit-scrollbar-thumb:horizontal {background-color: rgba(0,0,0,0.18); border-radius: 30px; border: none;}
+                @include scrollbar-grey;
+
             }
         }
     }
@@ -578,6 +585,7 @@ select {
     max-width:200px;
     max-height:50px;
 }
+
 .comment-time {
     color:#AAA;
     background: #f0f0f0;

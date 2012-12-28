@@ -1,8 +1,7 @@
 App.AnimeDescView = Em.View.extend({
 	templateName: "uranime/~templates/animedesc",
-
-	didInsertElement: function(){
-
-		console.log('didInsert', this.get('controller.content'));
-	}
+  showEpisode: function (evt){
+      var episode = evt.context;
+      App.EpisodeView.popup({content:episode});
+  }
 });
