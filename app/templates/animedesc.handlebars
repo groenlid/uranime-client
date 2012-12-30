@@ -6,30 +6,30 @@
 				{{{desc}}}
 			</p>
             <table class="table table-striped table-condensed table-small span3 pull-right">
-            <tbody>
+            <tbody class="pull-right">
                 <tr>
-                    <td>Status</td>
+                    <td class="muted">Status</td>
                     <td>{{status}}</td>
                 </tr>
                 <tr>
-                    <td>Runtime</td>
+                    <td class="muted">Runtime</td>
                     <td>{{runtime}} min</td>
                 </tr>
 
                 <tr>
-                    <td>Episodes</td>
+                    <td class="muted">Episodes</td>
                     <td>12 (0 specials)</td>
                 </tr>
                 <tr>
-                    <td>Time</td>
+                    <td class="muted">Time</td>
                 <td>300 min</td>
                 </tr>
                 <tr>
-                    <td>Class</td>
+                    <td class="muted">Class</td>
                     <td>{{classification}}</td>
                 </tr>
                 <tr>
-                    <td>Type</td>
+                    <td class="muted">Type</td>
                     <td>{{type}}</td>
                 </tr>
             </tbody>
@@ -81,15 +81,23 @@
         <ul class="span10">
         {{#each g in genres}}
             <li>
-                <a class="tag" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
-                    <span class="tag_name">{{g.name}}</span>
+                <a class="genre" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
+                    <span class="genre_name">{{g.name}}</span>
+                    <span class="genre_count">24</span>
+                </a>
+            </li>
+        {{/each}}
+        {{#each t in tags}}
+            <li>
+                <a class="tag" rel="popover" {{bindAttr data-content="t.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
+                    <span class="tag_name">{{t.name}}</span>
                     <span class="tag_count">24</span>
                 </a>
             </li>
         {{/each}}
         </ul>
-            <div class="span2">
-                <a class="btn btn-small pull-right" style="margin-top:5px;">View more</a>
-            </div>
+        <div class="span2">
+            <a class="btn btn-small pull-right" style="margin-top:5px;">View more</a>
+        </div>
     </div>
 </div>
