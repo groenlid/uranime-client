@@ -12,7 +12,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
 
     //$('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight();
     $('.js-commentsHeight').height(
-      $('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight()
+      $('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight() - 10
     );
 
     // Check if the userSeen episodes has been loaded
