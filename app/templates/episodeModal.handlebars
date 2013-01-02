@@ -5,15 +5,16 @@
     <div class="span6 js-episodeInfo">
       <div class="modal-episode">
         <img {{bindAttr src="imageURL"}}>
+        <div class="border-image"></div>
       </div>
 
       <h2 class="outside">
         <a {{action previous this target="view"}}> 
-          <i class="icon-arrow-left icon-white pull-left"></i>
+          <img class ="pull-left arrow" src="./assets/img/arrow_left.png">
         </a> 
         <span class="small grey">Episode {{number}}</span> - {{name}} <span class="small grey">{{aired}}</span> 
         <a {{action next this target="view"}}>
-          <i class="icon-arrow-right icon-white pull-right"></i>
+          <img class ="pull-right arrow" src="./assets/img/arrow_right.png">
         </a>
       </h2>
       

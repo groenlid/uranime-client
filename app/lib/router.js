@@ -6,6 +6,7 @@ App.Router = Ember.Router.extend({
   root: Ember.Route.extend({
 	  
 		goToSearch: Ember.Route.transitionTo('search'),
+	  goToAnime: Ember.Route.transitionTo('anime.animeDesc'),
 	  
 		index: Ember.Route.extend({
 			route: '/',
@@ -54,8 +55,6 @@ App.Router = Ember.Router.extend({
 		}),
 		search: Ember.Route.extend({
 			route: '/search/:query',
-
-			goToAnime: Ember.Route.transitionTo('anime.animeDesc'),
 			
 			connectOutlets: function( router, context ){ // context is the query
 				console.log("The query is: '" + context.query + "'");

@@ -1,11 +1,17 @@
-<div class="container content infobar">
+<!--<div class="container content infobar">
     <div class="row-fluid">
         <div class="span8 pull-left">
-            <h1>{{title}}<span class="small pull-right">(2009-2012)</span></h1>
+            <h1>{{title}}<span class="small pull-right">{{toFromDates}}</span></h1>
         </div>
     </div>
 </div>
+-->
+
 <div class="container content">
+  <ul class="breadcrumb">
+    <li><a {{action goToAnime this href="true"}}>{{title}}</a> <span class="divider">/</span></li>
+    <li class="active">Episodes</li>
+  </ul>
 
 {{view App.EpisodeListView completeBinding="sortedEpisodes"}}
 

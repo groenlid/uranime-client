@@ -22,3 +22,25 @@ Anime
 * The user should be able to sort by date added or Alphabetical
 * Select a character to show all anime beginning with this char.
 ** Need to change backend for this.
+* Capitalize tags/genres
+* To crowded with all on same page tags/genres.
+
+Calendar
+--
+
+Anime-Details
+--
+
+* Different layout for movies and series 
+* Click episode does open modal in all browsers.
+* Comments and activities
+
+Episodes
+--
+* Pagination
+
+
+ServerSide
+==
+
+Image-Resizer

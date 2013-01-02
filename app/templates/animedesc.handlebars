@@ -1,7 +1,7 @@
 <div class="container content infobar">
     <div class="row-fluid">
         <div class="span9 pull-left">
-            <h1>{{title}}<span class="small pull-right">(2009-2012)</span></h1>
+            <h1>{{title}}<span class="small pull-right">{{toFromDates}}</span></h1>
             <p class="animedesc span8 pull-left">
 				{{{desc}}}
 			</p>
@@ -18,11 +18,11 @@
 
                 <tr>
                     <td class="muted">Episodes</td>
-                    <td>12 (0 specials)</td>
+                    <td>{{regularEpisodes}} ({{specialEpisodes}} specials)</td>
                 </tr>
                 <tr>
                     <td class="muted">Time</td>
-                <td>300 min</td>
+                <td>{{totalRuntime}} min</td>
                 </tr>
                 <tr>
                     <td class="muted">Class</td>
@@ -77,8 +77,13 @@
     font-size: 0.8em;
     font-weight: bold;
 ">
+    <h2>Genres <span class="normal">& tags</span></h2>
+    <a {{action toggleTags target="view"}} class="btn btn-small pull-right" style="margin-top:5px;">Toggle tags</a>
+    <br class="clearfix">
+
     <div class="row-fluid">
         <ul class="span10">
+
         {{#each g in genres}}
             <li>
                 <a class="genre" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
@@ -87,17 +92,16 @@
                 </a>
             </li>
         {{/each}}
-        {{#each t in tags}}
-            <li>
-                <a class="tag" rel="popover" {{bindAttr data-content="t.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
-                    <span class="tag_name">{{t.name}}</span>
-                    <span class="tag_count">24</span>
-                </a>
-            </li>
-        {{/each}}
+        {{#if view.showTags}}
+            {{#each t in tags}}
+                <li>
+                    <a class="tag" rel="popover" {{bindAttr data-content="t.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
+                        <span class="tag_name">{{t.name}}</span>
+                        <span class="tag_count">24</span>
+                    </a>
+                </li>
+            {{/each}}
+        {{/if}}
         </ul>
-        <div class="span2">
-            <a class="btn btn-small pull-right" style="margin-top:5px;">View more</a>
-        </div>
     </div>
 </div>

@@ -5,15 +5,9 @@ App.AnimeDescView = Em.View.extend({
       App.EpisodeView.popup({content:episode});
   },
 
-  setPopover: function(){
-     $('.genre').popover();
-    $('.tag').popover();
-    console.log("setting popover");
-  }.observes('content'),
+  showTags: false,
 
-  didInsertElement: function(){
-    $('.genre').popover();
-    $('.tag').popover();
-    console.log("genres", this.get('content.genres.length'));
+  toggleTags: function(evt){
+    this.toggleProperty('showTags');
   }
 });
