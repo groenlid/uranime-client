@@ -9,7 +9,7 @@ App.AnimeListView = Ember.CollectionView.extend({
 
             console.log(viewType);
             var view = Ember.none(viewType) ? 'animePoster' : viewType;
-            return "uranime/~templates/anime/" + view;
+            return "uranime/~templates/animeCollection/" + view;
             
         }.property('parentView.parentView.controller.viewType'),
         
@@ -26,6 +26,6 @@ App.AnimeListView = Ember.CollectionView.extend({
     }),
     
     emptyView: Ember.View.extend({
-        templateName: "uranime/~templates/anime/loadingOrEmpty"
+        templateName: "uranime/~templates/animeCollection/loadingOrEmpty"
     }),
 });

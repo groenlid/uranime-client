@@ -377,17 +377,17 @@ select {
 .splash-white {
     background:#fff;
     margin-top:-10px;
-    padding-top: 10%;//15%;
+    padding-top: 5%;//15%;
 
     h1 {
         text-align:center;
     }
 
     .gallery-splash {
-        width: 500px;
+        width: 600px;
         max-width:100%;
         left:50%;
-        margin-left:-200px;
+        margin-left:-300px;
         margin-bottom:20px;
     }
 }
@@ -490,6 +490,10 @@ select {
             background:whitesmoke;
             margin-bottom:-3px;
             position:relative;
+
+            img {
+                width:100%;
+            }
 
             .border-image {
                 border: rgba(255, 255, 255, .1) 1px solid;
@@ -686,7 +690,7 @@ a.green {
  border:1px solid #4197da;
  border-radius:4px;
  width:40%;
- background:url('/img/smallprogress_background.png');
+ background:url('./img/smallprogress_background.png');
 }
 
 
@@ -756,9 +760,19 @@ a.green {
   .navbar-static-top {
     margin-right: 0;
     margin-left: 0;
+  
+    &.nav-search {
+        margin-bottom:10px;
+        margin-top:9px;
+
+        .navbar-inner {
+            padding:0;
+        }
+    }
   }
 
 }
 
 @media (max-width: $responsive_small) {
+    .brand { margin-left: auto; margin-right: auto; }
 }

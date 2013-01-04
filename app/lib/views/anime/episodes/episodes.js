@@ -20,6 +20,6 @@ App.EpisodeListView = Ember.CollectionView.extend(App.PaginationMixin,{
 			App.EpisodeView.popup({content:episode});
 		}
 
-	}),
+	})
 
 });

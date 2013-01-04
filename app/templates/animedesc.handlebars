@@ -50,7 +50,7 @@
                     <h2>Next <span class="normal">episode</span></h2>
                 {{/if}}
                 <h2>Last aired <span class="normal">episodes</span></h2>
-                <a {{action goToEpisodes view.content}} class="btn btn-small pull-right bold">View more</a>
+                <a {{action goToEpisodes view.content}} class="btn btn-small pull-right bold">More</a>
             </div>
             {{#each episode in lastEpisodes}}
             <div class="pull-left gallery-episode">
@@ -73,12 +73,11 @@
 
 </div>
 <div class="container content infobar" style="
-    font-family: ''Proxima Nova'', Arial;
     font-size: 0.8em;
     font-weight: bold;
 ">
     <h2>Genres <span class="normal">& tags</span></h2>
-    <a {{action toggleTags target="view"}} class="btn btn-small pull-right" style="margin-top:5px;">Toggle tags</a>
+    <a {{action toggleTags target="view"}} class="btn btn-small pull-right" style="margin-top:5px;">More</a>
     <br class="clearfix">
 
     <div class="row-fluid">
@@ -104,4 +103,15 @@
         {{/if}}
         </ul>
     </div>
+</div>
+
+    <div class="container content">
+
+    
+    <div class="row-fluid">
+        <h2><span class="normal">Last</span> seen <span class="normal">by</span></h2>
+        
+        {{view App.AnimeActivityView contentBinding="last_seen" episodesBinding="episode"}}
+    </div>
+
 </div>

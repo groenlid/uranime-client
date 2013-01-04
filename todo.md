@@ -34,6 +34,8 @@ Anime-Details
 * Different layout for movies and series 
 * Click episode does open modal in all browsers.
 * Comments and activities
+* Add MAL-AniDb-TheTVDb links
+* Last Seen by wrong date on "last"
 
 Episodes
 --
@@ -44,3 +46,16 @@ ServerSide
 ==
 
 Image-Resizer
+
+
+
+
+TODO:
+===
+* Jeg liker hånd på alt av linker 
+* Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out
+* Denne lista burde også har brukernavn(?)
+* Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu
+* Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)
+* Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
+Som sagt, bare småshit. 

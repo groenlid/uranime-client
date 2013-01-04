@@ -13,6 +13,7 @@ App.Anime = DS.Model.extend({
 	
 	episode: DS.hasMany('App.Episode', {embedded:true}),
   genre: DS.hasMany('App.Genre', {embedded:true}),
+  last_seen: DS.hasMany('App.SeenActivity', {embedded:true}),
 
   genres: function(){
       return this.get('genre').filter(function(f){
@@ -33,10 +34,19 @@ App.Anime = DS.Model.extend({
 
   imageURLSmall: function(){
       var width = 200;
-	var image = this.get("image");
-	var fallbackImage = App.Config.get('noImageYet');//"http://placehold.it/200x112&text=No+image+yet";
-	return (image == null) ? fallbackImage : App.Config.get('imageresizepath') + this.get('image') + "/" + width;
+	return this.generate_imageURL(width);
   }.property('image'),
+
+  imageURLSmallest: function(){
+    var width = 75;
+    return this.generate_imageURL(width);
+  }.property('image'),
+
+  generate_imageURL: function(width){
+    var image = this.get("image");
+    var fallbackImage = App.Config.get('noImageYet');
+    return (image == null) ? fallbackImage : App.Config.get('imageresizepath') + this.get('image') + "/" + width;
+  },
 
 fanartURL: function(){
 	var fanart = this.get("fanart");

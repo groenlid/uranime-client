@@ -1,3 +1,4 @@
+require('moment');
 App.Episode = DS.Model.extend({
         
   name: DS.attr('string'),
@@ -10,6 +11,12 @@ App.Episode = DS.Model.extend({
   anime: DS.belongsTo('App.Anime'),
 
   userepisode: DS.hasMany('App.UserEpisode', {embedded:true}),
+
+  arrangedUserEpisode: function(){
+    return this.get('userepisode').toArray().sort(function (lhs, rhs) {
+     return moment(rhs.get('timestamp'), App.Config.get('dateFormat')).diff(moment(lhs.get('timestamp'), App.Config.get('dateFormat')));
+    });
+  }.property('userepisode.@each'),
 
   imageURL: function(){
 		var image = this.get('image');

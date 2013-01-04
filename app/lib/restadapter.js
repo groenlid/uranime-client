@@ -5,15 +5,17 @@ App.RESTAdapter = DS.RESTAdapter.extend({
   	  'anime':'anime',
       'episode': 'episode',
       'episodes': 'episodes',
-      'userepisode': 'userepisode'
+      'userepisode': 'userepisode',
+      'last_seen': 'last_seen'
     },
   
     mappings: {
       userepisode: 'App.UserEpisode',
-      episode: 'App.Episode'
+      episode: 'App.Episode',
+      last_seen: 'App.SeenActivity'
     },
 
-    url: 'http://groenlid.no-ip.org', 
+    url: 'http://api2.urani.me', 
 	
 	findQuery: function(store, type, query, recordArray) {
     var root = this.rootForType(type);
@@ -84,6 +86,8 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 			// load episodes
 			json = this.loadHasManyAssociation(store, App.Episode, 'episode', json);
       json = this.loadHasManyAssociation(store, App.Genre, 'genre', json);
+      json = this.loadHasManyAssociation(store, App.SeenActivity, 'last_seen', json);
+
 		}
     if(type == 'App.Episode')
     {
