@@ -11,7 +11,7 @@ App.Anime = DS.Model.extend({
 	classification: DS.attr('string'),
 	type: DS.attr('string'),
 	
-	episode: DS.hasMany('App.Episode', {embedded:true}),
+	episodes: DS.hasMany('App.Episode', {embedded:true}),
   genre: DS.hasMany('App.Genre', {embedded:true}),
   last_seen: DS.hasMany('App.SeenActivity', {embedded:true}),
 
@@ -91,17 +91,19 @@ fanartStyle: function() {
 		return lastAiredEpisodes;
 		//return episodes.slice(0,amount);
 		
-	}.property('episode.@each'),
+	}.property('episodes.@each'),
 
   sortedEpisodes: function () {
-    var items = this.get('episode').toArray();
+    var items = this.get('episodes').toArray();
+    if(items.length == 0)
+      return items;
     return items.sort(function (lhs, rhs) {
   	 return moment(rhs.get('aired'), App.Config.get('dateFormat')).diff(moment(lhs.get('aired'), App.Config.get('dateFormat')));
     });
-  }.property('episode.@each'),
+  }.property('episodes.@each'),
 
   hasFutureEpisodes: function() {
-  	var episodesAirDate = this.get('episode').getEach('aired');
+  	var episodesAirDate = this.get('episodes').getEach('aired');
   	var hasFuture = false;
   	
   	_.each(episodesAirDate, function(content){
@@ -110,19 +112,19 @@ fanartStyle: function() {
   	});
   	
   	return hasFuture;
-  }.property('episode.@each.aired'),
+  }.property('episodes.@each.aired'),
 
   totalRuntime: function(){
-    return this.get('runtime') * this.get('episode.length');
-  }.property('episode.length','runtime'),
+    return this.get('runtime') * this.get('episodes.length');
+  }.property('episodes.length','runtime'),
 
   specialEpisodes: function(){
-    return this.get('episode').filterProperty('special',true).get('length');
-  }.property('episode.@each.special'),
+    return this.get('episodes').filterProperty('special',true).get('length');
+  }.property('episodes.@each.special'),
 
   regularEpisodes: function(){
-    return this.get('episode.length') - this.get('specialEpisodes');
-  }.property('specialEpisodes','episode.length'),
+    return this.get('episodes.length') - this.get('specialEpisodes');
+  }.property('specialEpisodes','episodes.length'),
 
   isFinished: function(){
     return this.get('status') == "finished";
@@ -139,7 +141,7 @@ fanartStyle: function() {
         return "(" + start + "-" + end + ")";
     else
       return "(" + start + "- )";
-  }.property('episode.@each.aired'),
+  }.property('episodes.@each.aired'),
 
 	didLoad: function() {
     

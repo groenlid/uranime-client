@@ -5,17 +5,18 @@ App.RESTAdapter = DS.RESTAdapter.extend({
   	  'anime':'anime',
       'episode': 'episode',
       'episodes': 'episodes',
-      'userepisode': 'userepisode',
+      'userepisodes': 'userepisodes',
       'last_seen': 'last_seen'
     },
   
     mappings: {
-      userepisode: 'App.UserEpisode',
-      episode: 'App.Episode',
+      userepisodes: 'App.UserEpisode',
+      episodes: 'App.Episode',
+      genre: 'App.Genre',
       last_seen: 'App.SeenActivity'
     },
 
-    url: 'http://api2.urani.me', 
+    url: 'http://localhost:3000', 
 	
 	findQuery: function(store, type, query, recordArray) {
     var root = this.rootForType(type);
@@ -84,7 +85,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 		if(type == 'App.Anime')
 		{
 			// load episodes
-			json = this.loadHasManyAssociation(store, App.Episode, 'episode', json);
+			json = this.loadHasManyAssociation(store, App.Episode, 'episodes', json);
       json = this.loadHasManyAssociation(store, App.Genre, 'genre', json);
       json = this.loadHasManyAssociation(store, App.SeenActivity, 'last_seen', json);
 
@@ -92,7 +93,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
     if(type == 'App.Episode')
     {
       this.loadAssociationsFromJSON(store, App.UserEpisode, json);
-      json = this.loadHasManyAssociation(store, App.UserEpisode, 'userepisode',json);
+      json = this.loadHasManyAssociation(store, App.UserEpisode, 'userepisodes',json);
     }
 		if(type == 'App.UserEpisode')
     {

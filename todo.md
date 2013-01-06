@@ -59,3 +59,10 @@ TODO:
 * Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)
 * Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
 Som sagt, bare småshit. 
+
+
+
+
+Important:
+===
+Notifications based on genres/tags when new anime appears
