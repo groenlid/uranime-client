@@ -1,0 +1,53 @@
+<div class="content container newsfeed">
+  <h1> What are people watching right now?</h1>
+  <hr />
+  {{#each activity in view.controller}}
+  <div class="row-fluid">
+    <div class="span1 pull-left">
+      <img class="img-rounded" {{bindAttr src="activity.user.gravatar"}}>
+    </div>
+    <div class="span11">
+      <h2>{{activity.user.nick}} <span class="normal"> watched</span> episode {{activity.episode.number}} <span class="normal">of</span> <a {{action goToAnimeByEpisode activity.episode target="view"}}>{{activity.episode.anime.title}}</a></h2>
+      <p class="muted italic">{{activity.since}}</p>
+      <div class="row-fluid">
+        <div class="span4">
+         <a {{action showEpisode activity.episode target="view"}}> <img class="gallery-image" {{bindAttr src="activity.episode.imageURL"}} /></a>
+        </div>
+        <div class="span6">
+          <h2>Episode {{activity.episode.number}}, {{activity.episode.name}}</h2>
+          <p class="bold grey">Aired: {{activity.episode.aired}}</p>
+          <p class="muted">
+            {{activity.episode.description}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+  {{/each}}
+<!--
+  <div class="row-fluid">
+    <div class="span1 pull-left">
+      <img class="img-rounded" src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg">
+    </div>
+    <div class="span11">
+      <h2>Groenlid <span class="normal"> watched</span> episode 5 <span class="normal">of</span> BTOOM</h2>
+      <p class="muted italic">20 minutes ago</p>
+      <div class="row-fluid">
+        <div class="span5">
+          <img class="gallery-image" src="http://urani.me/attachments/episodes/779/20937.jpg">
+        </div>
+        <div class="span6">
+          <h2>Episode 5, Attack</h2>
+          <p class="bold grey">Aired: 2012-11-01</p>
+          <p class="muted">
+            A pantless corpse floats by Taira and Sakamoto while they are eating lunch. When Sakamoto leaves to investigate he finds a gruesome scene and a familiar figure.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr />
+-->
+
+</div>

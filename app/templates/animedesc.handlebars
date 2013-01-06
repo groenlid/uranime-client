@@ -84,7 +84,7 @@
         <ul class="span10">
 
         {{#each g in genres}}
-            <li>
+            <li class="pull-left">
                 <a class="genre" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
                     <span class="genre_name">{{g.name}}</span>
                     <span class="genre_count">24</span>
@@ -93,7 +93,7 @@
         {{/each}}
         {{#if view.showTags}}
             {{#each t in tags}}
-                <li>
+                <li class="pull-left">
                     <a class="tag" rel="popover" {{bindAttr data-content="t.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
                         <span class="tag_name">{{t.name}}</span>
                         <span class="tag_count">24</span>

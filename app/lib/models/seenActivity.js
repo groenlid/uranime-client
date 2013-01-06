@@ -19,3 +19,5 @@ App.SeenActivity = DS.Model.extend({
   //anime: DS.belongsTo('App.Anime'),
         
 });
+
+

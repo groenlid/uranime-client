@@ -7,6 +7,7 @@ App.Router = Ember.Router.extend({
 	  
 		goToSearch: Ember.Route.transitionTo('search'),
 	  goToAnime: Ember.Route.transitionTo('anime.animeDesc'),
+	  goToCommunity: Ember.Route.transitionTo('community'),
 	  
 		index: Ember.Route.extend({
 			route: '/',
@@ -60,6 +61,14 @@ App.Router = Ember.Router.extend({
 				console.log("The query is: '" + context.query + "'");
 				// STATES
 				router.get('applicationController').connectOutlet('search', App.store.find(App.Anime,{title:context.query}));
+			}
+		}),
+
+		community: Ember.Route.extend({
+			route: '/community',
+
+			connectOutlets: function( router, context ){
+				router.get('applicationController').connectOutlet('community', App.store.find(App.UserEpisode, {limit:10}));
 			}
 		})
 	})

@@ -76,13 +76,13 @@ h2 {
 .black-top {
     padding-top:20px;
     background-image:url('./img/navy_blue.png');
+    margin-top:-2px;
 }
 
 .container {
     max-width: 960px;
 
     h2 {
-        width: 216px;
         display: inline-block;
         margin-left: 5px;
         font-size: 18px;
@@ -200,7 +200,7 @@ img.animeimage, #fanart .animetitle {
         h2 {
             width:216px;
             
-            display:inline-block;
+            display:inline;
             margin-left:5px;
             font-size:18px;
             
@@ -212,6 +212,19 @@ img.animeimage, #fanart .animetitle {
     
     }
 
+}
+
+.italic {
+    font-style:italic;
+}
+
+.newsfeed{
+    h2 {
+        margin:0 0 5px 0;
+    }
+    p {
+        margin:4px 0;
+    }
 }
 
 .gallery-image {

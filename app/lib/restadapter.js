@@ -23,6 +23,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 	  var that = this;
 	  var ajaxQuery = null;
 	  var url = this.buildURL(root);
+    var pluralize = false;
 	  if(type == 'App.Anime' && !Ember.none(query.title))
 		  url = this.url + '/' + App.Config.get('search') + query.title, pluralize = false;
 	  else if (!Ember.none(query.id))
@@ -45,7 +46,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
   
     find: function(store, type, id) {
       var root = this.rootForType(type);
-	  var that = this;
+	    var that = this;
 	  
       this.ajax(this.buildURL(root, id), "GET", {
         success: function(json) {
@@ -59,6 +60,20 @@ App.RESTAdapter = DS.RESTAdapter.extend({
       });
     },
     
+  findAll: function(store, type, since) {
+    var root = this.rootForType(type), that = this, pluralize = false;
+    this.ajax(this.buildURL(root), "GET", {
+      data: this.sinceQuery(since),
+      success: function(json) {
+        if(!Ember.none(type.addRoot) && type.addRoot)
+          json = that.addRootNode(json, type, pluralize)
+        
+        json = this.loadAssociationsFromJSON(store,type,json);
+        this.didFindAll(store, type, json);
+      }
+    });
+  },
+
     addRootNode: function(json, type, plural){
 		var newJson = {};
 		newJson[this.rootForType(type)] = plural ? [json] : json;

@@ -10,4 +10,5 @@ require('uranime/views/anime/episodes/episode');
 require('uranime/views/anime/episodes/episodes');
 require('uranime/views/anime/episodes/animeEpisodes');
 require('uranime/views/front');
+require('uranime/views/community/community');
 

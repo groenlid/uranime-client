@@ -66,3 +66,4 @@ Som sagt, bare småshit.
 Important:
 ===
 Notifications based on genres/tags when new anime appears
+Hide shows from the calendar

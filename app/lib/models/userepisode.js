@@ -2,7 +2,7 @@ App.UserEpisode = DS.Model.extend({
         
   timestamp: DS.attr('string'),
   
-  episode: DS.belongsTo('App.Episode'),
+  episode: DS.belongsTo('App.Episode', { embedded: true}),
 
   user: DS.belongsTo('App.User', { embedded: true }),
 
@@ -12,5 +12,6 @@ App.UserEpisode = DS.Model.extend({
   }.property('timestamp'),
 
 }).reopenClass({
-  url: 'userepisodes'
+  url: 'userepisodes',
+  addRoot: true
 });
