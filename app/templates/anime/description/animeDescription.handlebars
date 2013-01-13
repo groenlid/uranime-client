@@ -1,0 +1,117 @@
+<div class="container content infobar">
+    <div class="row-fluid">
+        <div class="span9 pull-left">
+            <h1>{{title}}<span class="small pull-right">{{toFromDates}}</span></h1>
+            <p class="animedesc span8 pull-left">
+				{{{desc}}}
+			</p>
+            <table class="table table-striped table-condensed table-small span3 pull-right">
+            <tbody class="pull-right">
+                <tr>
+                    <td class="muted">Status</td>
+                    <td>{{status}}</td>
+                </tr>
+                <tr>
+                    <td class="muted">Runtime</td>
+                    <td>{{runtime}} min</td>
+                </tr>
+
+                <tr>
+                    <td class="muted">Episodes</td>
+                    <td>{{regularEpisodes}} ({{specialEpisodes}} specials)</td>
+                </tr>
+                <tr>
+                    <td class="muted">Time</td>
+                <td>{{totalRuntime}} min</td>
+                </tr>
+                <tr>
+                    <td class="muted">Class</td>
+                    <td>{{classification}}</td>
+                </tr>
+                <tr>
+                    <td class="muted">Type</td>
+                    <td>{{type}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="span3 pull-right">
+			<img class="posterimage pull-right" {{bindAttr src="imageURL"}}>
+		</div>
+    </div>
+</div>
+<div class="container content">
+
+    {{! LAST AIRED EPISODES }}
+    <div class="row-fluid">
+        <div class="anime-gallery">
+            <div class="gallery-header">
+                {{#if hasFutureEpisodes}} 
+                    <h2>Next <span class="normal">episode</span></h2>
+                {{/if}}
+                <h2>Last aired <span class="normal">episodes</span></h2>
+                {{#linkTo 'anime.episodes' class="btn btn-small pull-right bold"}}More{{/linkTo}}
+            </div>
+            {{#each episode in lastEpisodes}}
+            <div class="pull-left gallery-episode">
+                <div class="gallery-image">
+                    <a {{action showEpisode episode target="view"}}>
+                        <img {{bindAttr src="episode.imageURL"}}/>
+                        <span>
+                            View Episode
+                        </span>
+                    </a>
+                </div>
+                <p class="bold">
+                   <a {{action showEpisode episode target="view"}}>{{episode.anime.title}}</a> {{episode.number}}
+                </p>
+                <p class="calendarinfo">{{episode.name}}</p>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+
+</div>
+<div class="container content infobar" style="
+    font-size: 0.8em;
+    font-weight: bold;
+">
+    <h2>Genres <span class="normal">& tags</span></h2>
+    <a {{action toggleTags target="view"}} class="btn btn-small pull-right" style="margin-top:5px;">More</a>
+    <br class="clearfix">
+
+    <div class="row-fluid">
+        <ul class="span10">
+
+        {{#each g in genres}}
+            <li class="pull-left">
+                <a class="genre" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
+                    <span class="genre_name">{{g.name}}</span>
+                    <span class="genre_count">24</span>
+                </a>
+            </li>
+        {{/each}}
+        {{#if view.showTags}}
+            {{#each t in tags}}
+                <li class="pull-left">
+                    <a class="tag" rel="popover" {{bindAttr data-content="t.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
+                        <span class="tag_name">{{t.name}}</span>
+                        <span class="tag_count">24</span>
+                    </a>
+                </li>
+            {{/each}}
+        {{/if}}
+        </ul>
+    </div>
+</div>
+
+    <div class="container content">
+
+    
+    <div class="row-fluid">
+        <h2><span class="normal">Last</span> seen <span class="normal">by</span></h2>
+        
+        {{view App.AnimeActivityView contentBinding="last_seen" episodesBinding="episodes"}}
+    </div>
+
+</div>

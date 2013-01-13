@@ -1,0 +1,25 @@
+{{#with view.content}}
+<div class="row-fluid episodelist">
+    <div class="gallery-episode pull-left span2">
+        <div class="gallery-image">
+            <a {{action showEpisode this href="true" target="view"}}>
+            <img {{bindAttr src="this.imageURL"}} /></a>
+        </div>
+    </div>
+    <div class="span8 episode-info">
+        <div class="row-fluid">
+            <h4 class="span10">
+                <a {{action showEpisode this href="true" target="view"}}>
+                    {{#if this.special}}
+                        <span class="label label-info">Special</span>
+                    {{/if}}
+                    #{{this.number}} - {{this.name}}
+                </a>
+            </h4>
+            <p class="subtle span2 pull-right">{{this.parseAired}}</p>
+        </div>
+        <p>{{this.shortDescription}}</p>
+    </div>
+</div>
+<hr>
+{{/with}}    

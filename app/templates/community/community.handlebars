@@ -7,7 +7,7 @@
       <img class="img-rounded" {{bindAttr src="activity.user.gravatar"}}>
     </div>
     <div class="span11">
-      <h2>{{activity.user.nick}} <span class="normal"> watched</span> episode {{activity.episode.number}} <span class="normal">of</span> <a {{action goToAnimeByEpisode activity.episode target="view"}}>{{activity.episode.anime.title}}</a></h2>
+      <h2>{{activity.user.nick}} <span class="normal"> watched</span> episode {{activity.episode.number}} <span class="normal">of</span> {{#linkTo 'anime.description' activity.episode.anime}}{{activity.episode.anime.title}}{{/linkTo}}</h2>
       <p class="muted italic">{{activity.since}}</p>
       <div class="row-fluid">
         <div class="span4">
@@ -17,7 +17,7 @@
           <h2>Episode {{activity.episode.number}}, {{activity.episode.name}}</h2>
           <p class="bold grey">Aired: {{activity.episode.aired}}</p>
           <p class="muted">
-            {{activity.episode.description}}
+            {{activity.episode.shortDescription}}
           </p>
         </div>
       </div>

@@ -1,32 +1,44 @@
 App.RESTAdapter = DS.RESTAdapter.extend({ 
   	bulkCommit:false,
-  	
-    plurals: {
-  	  'anime':'anime',
-      'episode': 'episode',
-      'episodes': 'episodes',
-      'userepisodes': 'userepisodes',
-      'last_seen': 'last_seen'
-    },
   
     mappings: {
-      userepisodes: 'App.UserEpisode',
+      user_episode: 'App.UserEpisode',
       episodes: 'App.Episode',
       genre: 'App.Genre',
       last_seen: 'App.SeenActivity'
     },
 
-    url: 'http://localhost:3000', 
+    //url: 'http://localhost:3000', 
+    url: 'http://uranime.azurewebsites.net', 
 	
+  ajax: function(url, type, hash) {
+    hash.url = url;
+    hash.type = type;
+    hash.dataType = 'json';
+    hash.contentType = 'application/json; charset=utf-8';
+    if(type === 'PUT' || type === 'POST') 
+      hash.contentType = 'application/json; charset=utf-8';
+    else 
+      hash.contentType = 'application/x-www-form-urlencoded; charset=UTF-8';
+
+    hash.context = this;
+
+    if (hash.data && type !== 'GET') {
+      hash.data = JSON.stringify(hash.data);
+    }
+
+    jQuery.ajax(hash);
+  },
+
 	findQuery: function(store, type, query, recordArray) {
     var root = this.rootForType(type);
 	  var that = this;
 	  var ajaxQuery = null;
 	  var url = this.buildURL(root);
     var pluralize = false;
-	  if(type == 'App.Anime' && !Ember.none(query.title))
+	  if(type == 'App.Anime' && !Ember.isNone(query.title))
 		  url = this.url + '/' + App.Config.get('search') + query.title, pluralize = false;
-	  else if (!Ember.none(query.id))
+	  else if (!Ember.isNone(query.id))
         url += '/' + query.id, pluralize = true;
     else
       ajaxQuery = query;
@@ -34,10 +46,10 @@ App.RESTAdapter = DS.RESTAdapter.extend({
     this.ajax(url, "GET", {
     data: ajaxQuery,
     success: function(json) {
-		  if(!Ember.none(type.addRoot) && type.addRoot)
+		  if(!Ember.isNone(type.addRoot) && type.addRoot)
 			json = that.addRootNode(json, type, pluralize)
 			
-          json = this.loadAssociationsFromJSON(store,type,json);
+          //json = this.loadAssociationsFromJSON(store,type,json);
         
           this.didFindQuery(store, type, json, recordArray);
         }
@@ -50,12 +62,13 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 	  
       this.ajax(this.buildURL(root, id), "GET", {
         success: function(json) {
-		  if(!Ember.none(type.addRoot) && type.addRoot)
-			json = that.addRootNode(json, type, false)
+		      
+          if(!Ember.isNone(type.addRoot) && type.addRoot)
+            json = that.addRootNode(json, type, false)
 			
-		  json = this.loadAssociationsFromJSON(store,type,json);
+		        //json = this.loadAssociationsFromJSON(store,type,json);
 			
-          this.didFindRecord(store, type, json, id);
+            this.didFindRecord(store, type, json, id);
         }
       });
     },
@@ -65,32 +78,55 @@ App.RESTAdapter = DS.RESTAdapter.extend({
     this.ajax(this.buildURL(root), "GET", {
       data: this.sinceQuery(since),
       success: function(json) {
-        if(!Ember.none(type.addRoot) && type.addRoot)
+        if(!Ember.isNone(type.addRoot) && type.addRoot)
           json = that.addRootNode(json, type, pluralize)
         
-        json = this.loadAssociationsFromJSON(store,type,json);
+        //json = this.loadAssociationsFromJSON(store,type,json);
         this.didFindAll(store, type, json);
       }
     });
   },
 
-    addRootNode: function(json, type, plural){
-		var newJson = {};
-		newJson[this.rootForType(type)] = plural ? [json] : json;
-		return newJson;
-	},
-	
+  addRootNode: function(json, type, pluralize){
+    var newJson = {}, 
+       rootNode = this.pluralizeIfNeeded(json, type, pluralize);
+    
+    newJson[rootNode] = pluralize ? [json] : json;
+    return newJson;
+  },
+
+  
+  pluralizeIfNeeded: function(json, type, pluralize){
+    var name = this.rootForType(type), 
+        plurals = this.serializer.configurations.get('plurals'),
+        rootNode = (plurals && plurals[name] && (pluralize || Ember.isArray(json))) ? plurals[name] : this.rootForType(type);
+        return rootNode;
+  },
+
+
+	/*
+  firstObjectInJson: function(json){
+    var jsonObj = json, firstProp;
+    for(var key in jsonObj) {
+      if(jsonObj.hasOwnProperty(key)) {
+        firstProp = jsonObj[key];
+        break;
+      }
+    }
+    return firstProp;
+  },
+
 	loadAssociationsFromJSON: function(store, type, json){
 		// Check if it is an array or an object
-		var that = this;
-		var inQuestion = json[this.rootForType(type)];
+
+		var that = this, name = this.pluralizeIfNeeded(this.firstObjectInJson(json),type), inQuestion = json[name];
 		
 		if(Ember.isArray(inQuestion))
 			_.each(inQuestion, function(object, index){
-				json[that.rootForType(type)][index] = that.loadAssociations(store, type, object);
+				json[name][index] = that.loadAssociations(store, type, object);
 			});
 		else
-			json[that.rootForType(type)] = that.loadAssociations(store, type, inQuestion);
+			json[name] = that.loadAssociations(store, type, inQuestion);
 		//console.log(json);
 		return json;
 	},
@@ -113,6 +149,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 		if(type == 'App.UserEpisode')
     {
       json = this.loadBelongsToAssociation(store, App.User, 'user', json);
+      json = this.loadBelongsToAssociation(store, App.Episode, 'episode', json);
     }
 		return json;
 	},
@@ -131,6 +168,39 @@ App.RESTAdapter = DS.RESTAdapter.extend({
 		});
 		json[foreignKey] = newIds;
 		return json;
-	}
+	}*/
 	
+});
+
+App.RESTAdapter.configure('plurals', {
+  anime: 'anime',
+  episode: 'episodes',
+  episodes: 'episodes',
+  user_episode: 'user_episodes',
+  last_seen: 'last_seen'
+})
+
+
+App.RESTAdapter.map(App.Anime, {
+        episodes: {
+          embedded: 'always' // load
+        },
+        genre: {
+          embedded: 'load'
+        },
+        last_seen: {
+          embedded: 'load'
+        }
+});
+
+App.RESTAdapter.map(App.Episode, {
+        userepisodes: {
+          embedded: 'load'
+        }
+});
+
+App.RESTAdapter.map(App.UserEpisode, {
+        user: {
+          embedded: 'load'
+        }
 });

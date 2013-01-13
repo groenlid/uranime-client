@@ -1,40 +1,43 @@
 require('moment');
-
 App.Anime = DS.Model.extend({
-	
-	title: DS.attr('string'),
-	desc: DS.attr('string'),
-	image: DS.attr('string'),
-	fanart: DS.attr('string'),
-	status: DS.attr('string'),
-	runtime: DS.attr('number'),
-	classification: DS.attr('string'),
-	type: DS.attr('string'),
-	
-	episodes: DS.hasMany('App.Episode', {embedded:true}),
-  genre: DS.hasMany('App.Genre', {embedded:true}),
-  last_seen: DS.hasMany('App.SeenActivity', {embedded:true}),
+  	
+  title: DS.attr('string'),
+  desc: DS.attr('string'),
+  image: DS.attr('string'),
+  fanart: DS.attr('string'),
+  status: DS.attr('string'),
+  runtime: DS.attr('number'),
+  classification: DS.attr('string'),
+  type: DS.attr('string'),
 
+  episodes: DS.hasMany('App.Episode'),
+  genre: DS.hasMany('App.Genre'),
+  last_seen: DS.hasMany('App.SeenActivity'),
+
+  /**
+  * Filters out all the tags and only returns the genres
+  * @property genres
+  */
   genres: function(){
       return this.get('genre').filter(function(f){
               return f.get('is_genre') == 1
           });
   }.property('genre.@each'),
-  
+
   tags: function(){
       return this.get('genre').filter(function(f){
               return f.get('is_genre') !== '1'
           });
   }.property('genre.@each'),
-  
-	imageURL: function(){
-		var image = this.get('image');
-		return (image == null) ? "" : App.Config.get('imagepath') + this.get('image');
-	}.property('image'),
+
+  imageURL: function(){
+  	var image = this.get('image');
+  	return (image == null) ? "" : App.Config.get('imagepath') + this.get('image');
+  }.property('image'),
 
   imageURLSmall: function(){
       var width = 200;
-	return this.generate_imageURL(width);
+  return this.generate_imageURL(width);
   }.property('image'),
 
   imageURLSmallest: function(){
@@ -48,50 +51,50 @@ App.Anime = DS.Model.extend({
     return (image == null) ? fallbackImage : App.Config.get('imageresizepath') + this.get('image') + "/" + width;
   },
 
-fanartURL: function(){
-	var fanart = this.get("fanart");
-	return (fanart == null) ? "" : App.Config.get('imagepath') + this.get('fanart');
-}.property('fanart'),
+  fanartURL: function(){
+  	var fanart = this.get("fanart");
+  	return (fanart == null) ? "" : App.Config.get('imagepath') + this.get('fanart');
+  }.property('fanart'),
 
-fanartURLSmall: function(){
-	var width = 200;
-	var fanart = this.get("fanart");
-	var fallbackImage = App.Config.get('noImageYet');//"http://placehold.it/200x112&text=No+image+yet";
-	return (fanart == null) ? fallbackImage : App.Config.get('imageresizepath') + this.get('fanart') + "/" + width;
-}.property('fanart'),
+  fanartURLSmall: function(){
+  	var width = 200;
+  	var fanart = this.get("fanart");
+  	var fallbackImage = App.Config.get('noImageYet');//"http://placehold.it/200x112&text=No+image+yet";
+  	return (fanart == null) ? fallbackImage : App.Config.get('imageresizepath') + this.get('fanart') + "/" + width;
+  }.property('fanart'),
 
-fanartStyle: function() {
- 		return "background-image:url(" + this.get('fanartURL') + ")";
-	}.property('fanartURL').cacheable(),
+  fanartStyle: function() {
+   		return "background-image:url(" + this.get('fanartURL') + ")";
+  	}.property('fanartURL').cacheable(),
 
-/**
- * Should return the [next episode + last 3] or [last 4]
- */
-	lastEpisodes: function() {
-		var episodes = this.get('sortedEpisodes').toArray();
-		var amount = 4;
-		
-		var lastAiredEpisodes = [];
-		var last;
-		_.each(episodes, function(item){
-		if(lastAiredEpisodes.length >= amount)
-			return;
-		
-		// Check if the episode is after todays date "2010-01-07T00:00:00+0100"
-		if(!Ember.none(item.get('aired')) && moment(item.get('aired'), App.Config.get('dateFormat')).diff(moment()) < 1)
-		{
-			// If the lastAiredEpisodes is empty and last is defined
-			if(lastAiredEpisodes.length == 0 && !Ember.none(last))
-				lastAiredEpisodes.push(last);
-			lastAiredEpisodes.push(item);
-		}
-		last = item;
-	 });
-		
-		return lastAiredEpisodes;
-		//return episodes.slice(0,amount);
-		
-	}.property('episodes.@each'),
+  /**
+   * Should return the [next episode + last 3] or [last 4]
+   */
+  lastEpisodes: function() {
+  	var episodes = this.get('sortedEpisodes').toArray();
+  	var amount = 4;
+  	
+  	var lastAiredEpisodes = [];
+  	var last;
+  	_.each(episodes, function(item){
+  	if(lastAiredEpisodes.length >= amount)
+  		return;
+  	
+  	// Check if the episode is after todays date "2010-01-07T00:00:00+0100"
+  	if(!Ember.isNone(item.get('aired')) && moment(item.get('aired'), App.Config.get('dateFormat')).diff(moment()) < 1)
+  	{
+  		// If the lastAiredEpisodes is empty and last is defined
+  		if(lastAiredEpisodes.length == 0 && !Ember.isNone(last))
+  			lastAiredEpisodes.push(last);
+  		lastAiredEpisodes.push(item);
+  	}
+  	last = item;
+   });
+  	
+  	return lastAiredEpisodes;
+  	//return episodes.slice(0,amount);
+  	
+  }.property('episodes.@each'),
 
   sortedEpisodes: function () {
     var items = this.get('episodes').toArray();
@@ -107,7 +110,7 @@ fanartStyle: function() {
   	var hasFuture = false;
   	
   	_.each(episodesAirDate, function(content){
-  		if(!Ember.none(content) && new Date(content) > new Date())
+  		if(!Ember.isNone(content) && new Date(content) > new Date())
   			hasFuture = true;
   	});
   	
@@ -143,12 +146,11 @@ fanartStyle: function() {
       return "(" + start + "- )";
   }.property('episodes.@each.aired'),
 
-	didLoad: function() {
+  didLoad: function() {
     
-  },
+  }
 
 });
-
 
 App.Anime.reopenClass({
 	addRoot: true

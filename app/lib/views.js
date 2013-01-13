@@ -1,14 +1,30 @@
-require('uranime/views/application');
-require('uranime/views/searchform');
-require('uranime/views/notifications');
-require('uranime/views/anime/anime');
-require('uranime/views/search/search');
-require('uranime/views/search/animelist');
-require('uranime/views/anime/desc/animedesc');
-require('uranime/views/anime/desc/animeActivityView');
-require('uranime/views/anime/episodes/episode');
-require('uranime/views/anime/episodes/episodes');
-require('uranime/views/anime/episodes/animeEpisodes');
-require('uranime/views/front');
-require('uranime/views/community/community');
+// Application
+require('uranime/modules/application/applicationView');
 
+// Anime
+require('uranime/modules/anime/animeView');
+require('uranime/modules/anime/animeListView');
+
+  // Anime -> Description  
+require('uranime/modules/anime/description/animeDescriptionView');
+require('uranime/modules/anime/description/activity/animeActivityView');
+
+  // Anime -> Episodes
+require('uranime/modules/anime/episodes/episodesView');
+
+// Community
+require('uranime/modules/community/communityView');
+
+// Episode
+require('uranime/modules/episode/episodeListView');
+require('uranime/modules/episode/episodeModalView');
+
+// Front
+require('uranime/modules/front/frontView');
+
+// Notification
+require('uranime/modules/notifications/notificationsView');
+
+// Search
+require('uranime/modules/search/searchView');
+require('uranime/modules/search/searchFormView');

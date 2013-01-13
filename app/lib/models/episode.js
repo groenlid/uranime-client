@@ -20,7 +20,7 @@ App.Episode = DS.Model.extend({
 
   imageURL: function(){
 		var image = this.get('image');
-	  return Ember.none(image) || Ember.none(this.get('anime.id')) ? 
+	  return Ember.isNone(image) || Ember.isNone(this.get('anime.id')) ? 
     this.get('anime.fanartURL') : 
     App.Config.get('episodepath') + this.get('anime.id') + '/' + this.get('image');
 	}.property('image', 'anime.id'),
@@ -31,16 +31,16 @@ App.Episode = DS.Model.extend({
 
 	shortDescription: function(){
 		var desc = this.get('description');
-		if(Ember.none(desc) || desc.length <= App.Config.get('shortDescriptionLength'))
+		if(Ember.isNone(desc) || desc.length <= App.Config.get('shortDescriptionLength'))
 			return desc;
 		
 		return desc.substr(0, App.Config.get('shortDescriptionLength')) + "...";
 
-	}.property('shortDescription', 'App.Config.shortDescriptionLength'),
+	}.property('description', 'App.Config.shortDescriptionLength'),
 
-    didLoad: function(){
-       
-    }
+  didLoad: function(){
+     
+  }
 });
 
 App.Episode.reopenClass({

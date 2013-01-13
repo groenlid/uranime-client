@@ -1,61 +1,71 @@
-Ember Skeleton
-==============
+Todo
+==
 
-A skeleton application framework using Ember.js and Rake Pipeline.
+Episode-Modal
+--
 
-Running
--------
+* Next-Previous episodes from episode-modal
+* Esc from episode-modal
 
-    $ bundle install
-    $ bundle exec rackup
+Search
+--
 
-    $ bundle exec rakep build ## to build
-    $ bundle exec rakep server ## for 9292
+* Empty search should not send query to server
+* Search by tags/genre
+* Sort by rating
+* Layout for detailed list
+* Paginate
+//* When searching, the search result anime titles should show the matching synonym.
 
-App Structure
--------------
+Anime
+--
 
-    ember-skeleton
-    ├── Assetfile - App build file
-    ├── Gemfile - Package dependencies for rakep/rack
-    ├── Gemfile.lock - Here be dragons: don't touch, always include
-    ├── app - App specific code
-    │   ├── css - App CSS or SCSS (.scss)
-    │   ├── lib - App code, *modularized during build*
-    │   ├── modules - Module code, *already modularized*
-    │   ├── plugins - Plugins (e.g. jquery.jsonrpc.js)
-    │   │   └── loader.js - JS module loader
-    │   ├── static - Static files, never touched, copied over during build
-    │   ├── templates - Handlebars templates, *modularized during build*
-    │   ├── tests - QUnit application tests
-    │   └── vendor - Vendor code, *modularized during build*
-    ├── assets - Built out asset files, minified in production
-    │   ├── app.css - Built out app CSS/SCSS
-    │   ├── app.js - Built out app JS
-    │   └── loader.js - Built out JS module loader
-    ├── config.ru - Rack development web server configuration
-    ├── index.html - The app entry point
-    ├── tests - QUnit testing files
-    │   ├── index.html - The testing entry point
-    │   ├── qunit - Testing support files
-    │   └── run-tests.js - The PhantomJS QUnit test runner
-    └── tmp - Temporary build files used by rakep
+* Anime "overview page" should give the 10 latest added anime
+* The user should be able to sort by date added or Alphabetical
+* Select a character to show all anime beginning with this char.
+** Need to change backend for this.
+* Capitalize tags/genres
+* To crowded with all on same page tags/genres.
 
-Testing
--------
+Calendar
+--
 
-You can test the app by invoking:
+Anime-Details
+--
 
-    $ bundle exec rake test
+* Different layout for movies and series 
+* Click episode does open modal in all browsers.
+* Comments and activities
+* Add MAL-AniDb-TheTVDb links
+* Last Seen by wrong date on "last"
 
-This executes the tests by using [PhantomJS](http://www.phantomjs.org/),
-which you need to have installed.
+Episodes
+--
+* Pagination
 
-Or you can run the tests via:
 
-    $ bundle exec rackup
-    $ open http://localhost:9292/tests/index.html
+ServerSide
+==
 
-If you want to continuously run the tests every time a file changes, invoke:
+*Image-Resizer in nodejs
 
-    $ bundle exec guard
+
+
+
+TODO:
+===
+* Jeg liker hånd på alt av linker 
+* Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out
+* Denne lista burde også har brukernavn(?)
+* Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu
+* Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)
+* Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
+Som sagt, bare småshit. 
+
+
+
+
+Important:
+===
+Notifications based on genres/tags when new anime appears
+Hide shows from the calendar

@@ -1,4 +1,12 @@
-require('uranime/controllers/application');
-require('uranime/controllers/search');
-require('uranime/controllers/anime');
-require('uranime/controllers/community');
+//Applications
+require('uranime/modules/application/applicationController');
+
+//Search 
+require('uranime/modules/search/searchController');
+
+//Anime
+require('uranime/modules/anime/animeController');
+
+//Community
+require('uranime/modules/community/communityController');
+
