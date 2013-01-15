@@ -308,7 +308,7 @@ img.animeimage, #fanart .animetitle {
         }
     }
     p {
-        height:1em;
+        height:1.5em;
         text-align:center;
         width:100%;
         text-overflow: clip;
@@ -681,6 +681,17 @@ a.green {
     color:#5BB75B;
 }
 
+.animelist-info{
+    text-align:center;
+    margin-top:10px;
+    color:#555;
+    h2 {
+        margin:0;
+        color:#343434;
+        font-size:32px;
+    }
+}
+
 /* HERE COMES THE PROGRESS */
 
 .smallprogress {
@@ -706,6 +717,53 @@ a.green {
  background:url('./img/smallprogress_background.png');
 }
 
+div.anime-library {
+    .gallery-image a:hover img {
+        opacity: 1;
+    }
+}
+
+div.backdrop {
+    
+    display:inline !important;
+    width: 100%;
+    height:100%;
+    position: absolute;
+    top: 0;
+    left:0;
+    background:rgba(0,0,0,0.6);
+    text-align: center;
+    vertical-align: middle;
+    .unseen-episodes {
+        bottom: 20px;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        color: rgba(255,255,255,0.8);
+        font-weight: bold;
+        font-size: 23px;
+    }
+
+    .smallprogress {
+        background:url('./img/animeposter-progress-background.png');
+        height:6px;
+        position:absolute;
+        bottom:10px;
+        left:10%;
+        width:80%;
+        border:1px solid #2c2f37;
+        box-shadow:0 1px 0 rgba(255,255,255,0.1);
+        
+        .smallprogress-filled {
+            border:0;
+            top:0;
+            left:0;
+            background:url('./img/animeposter-progress-fill.png');
+        }
+    }
+
+
+}
 
 // UNUSED STUFF START
 /*

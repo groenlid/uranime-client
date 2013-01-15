@@ -22,7 +22,8 @@ App.AnimeActivityView = Ember.CollectionView.extend({
         title: title, 
         content: content,
         placement: 'top',
-        html: true
+        html: true,
+        trigger: 'hover'
       });
     }
 

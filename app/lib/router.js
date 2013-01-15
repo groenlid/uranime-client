@@ -20,6 +20,13 @@ App.Router.map(function(match) {
 	match('/community').to('community');
 	match('/search/:query').to('search');
 
+	match('/user').to('user', function(match){
+
+		//match('/').to('profile');
+		match('/library').to('library');
+
+	});
+
 });
 
 App.AnimeRoute = Ember.Route.extend({

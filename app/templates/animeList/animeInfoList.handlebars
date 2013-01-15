@@ -1,14 +1,14 @@
 <hr>
 {{#with view.content}}
 <div class="media">
-  <a class="pull-left" {{action goToAnime this target="parentView" href=true}}> 
+  {{#linkTo 'anime.description' this class="pull-left"}}
       <img class="thumbnail" {{bindAttr src="imageURLSmallest"}} />
-  </a>
+  {{/linkTo}}
   <div class="media-body">
     <h4 class="media-heading">
-    	<a {{action goToAnime this target="parentView" href=true}}> 
+    	{{#linkTo anime.description this}}
 				{{title}}
-			</a>
+			{{/linkTo}}
 		</h4>
     <p>{{desc}}</p>
   </div>

@@ -38,6 +38,8 @@ Anime-Details
 * Comments and activities
 * Add MAL-AniDb-TheTVDb links
 * Last Seen by wrong date on "last"
+* Constrain size of episode-thumbnail
+* Link on anime title in last-aired-episodes should be removed.
 
 Episodes
 --
@@ -55,7 +57,7 @@ ServerSide
 TODO:
 ===
 * Jeg liker hånd på alt av linker 
-* Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out
+* ~~Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out~~
 * Denne lista burde også har brukernavn(?)
 * Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu
 * Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)

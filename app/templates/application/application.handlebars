@@ -20,25 +20,6 @@
 				</ul>	
 				<ul class="nav pull-right">
 
-					<!-- Notification -->
-					<!--
-					<li class="divider-vertical"></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							<span class="badge badge-inverse">2</span>
-							<b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu span3 smalltext">
-							<div class="row-fluid">
-								<div class="well well-small">
-									<strong>Newly added episodes</strong>
-								</div>
-								
-							</div>
-						</ul>
-					</li>
-					-->
-
 					<!-- Notification w/popover -->
 					<li class="divider-vertical"></li>
 					{{view App.NotificationsView}}
@@ -53,17 +34,13 @@
 						<ul class="dropdown-menu">
 							<li><a tabindex="-1">Profile</a></li>
 							<li><a tabindex="-1">Watchlist</a></li>
-							<li><a tabindex="-1">Library</a></li>
+							<li>{{#linkTo user.library tabindex="-1"}}Library{{/linkTo}}</li>
 							<li><a tabindex="-1">Settings</a></li>
 							<li><a tabindex="-1">Help</a></li>
 							<li class="divider"></li>
 							<li><a tabindex="-1">Logout</a></li>
 						</ul>
 					</li>
-					<!--
-					<li class="">
-						<a href="#">Logout</a>
-					</li>-->
 				</ul>
 			</div>
 		</div>

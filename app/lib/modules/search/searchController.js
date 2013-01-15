@@ -45,9 +45,8 @@ App.SearchController = Ember.ArrayController.extend({
         }),
     ]),
 
-    changeViewType: function(evt){
-        var context = evt.context;
-        console.log(evt, this.get('viewType'));
+    changeViewType: function(context){
+        console.log(context, this.get('viewType'));
         this.set('viewType', context.get('viewType'));
         console.log(this.get('viewType'));
     }

@@ -1,12 +1,12 @@
 {{#with view.content}}
 <div class="anime-gallery gallery-fanart pull-left">
     <div class="gallery-image">
-        <a {{action goToAnime this target="parentView" href=true}}> 
+       {{#linkTo 'anime.description' this}}
             <img {{bindAttr src="fanartURLSmall"}} />
             <span>
                 View Anime
             </span>
-        </a>
+        {{/linkTo}}
     </div>
     <p>
         {{title}}

@@ -28,3 +28,10 @@ require('uranime/modules/notifications/notificationsView');
 // Search
 require('uranime/modules/search/searchView');
 require('uranime/modules/search/searchFormView');
+
+// User
+require('uranime/modules/user/userView');
+
+  // User -> Library
+require('uranime/modules/user/library/libraryView');
+
