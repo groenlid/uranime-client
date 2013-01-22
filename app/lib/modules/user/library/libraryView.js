@@ -3,6 +3,6 @@ App.UserLibraryView = Em.View.extend({
 
 
   didInsertElement: function(){
-    console.log("inserted libraryView");
+    console.log(this.get('content'));
   }
 });

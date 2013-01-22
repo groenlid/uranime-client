@@ -9,7 +9,7 @@ Episode-Modal
 
 Search
 --
-
+* Does not work!
 * Empty search should not send query to server
 * Search by tags/genre
 * Sort by rating

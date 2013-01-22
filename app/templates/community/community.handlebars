@@ -1,6 +1,7 @@
+<div class="content container infobar">
+   <h1> What are people watching right now?</h1>
+</div>
 <div class="content container newsfeed">
-  <h1> What are people watching right now?</h1>
-  <hr />
   {{#each activity in view.controller}}
   <div class="row-fluid">
     <div class="span1 pull-left">
@@ -15,7 +16,7 @@
         </div>
         <div class="span6">
           <h2>Episode {{activity.episode.number}}, {{activity.episode.name}}</h2>
-          <p class="bold grey">Aired: {{activity.episode.aired}}</p>
+          <p class="bold grey">Aired: {{activity.episode.parseAired}}</p>
           <p class="muted">
             {{activity.episode.shortDescription}}
           </p>

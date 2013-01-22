@@ -8,8 +8,22 @@ App.Router = Ember.Router.extend({
 	enableLogging: true
 });
 
-App.Router.map(function(match) {
-	match('/').to('front');
+App.Router.map(function() {
+	this.route('front', { path:'/'});
+	
+	this.resource('anime', { path: '/anime/:anime_id' }, function(){
+		this.route('description', { path: '/' } );
+		this.route('episodes');
+	});
+
+	this.route('community');
+
+	this.route('search', { path: '/search/:query' });
+	this.resource('user', { path: '/user/:id' }, function(){
+		this.route('profile', { path: '/'});
+		this.route('library');
+	});
+	/*
 	match('/anime/:id').to('anime', function(match) {
 
 		match('/').to('description');
@@ -20,20 +34,18 @@ App.Router.map(function(match) {
 	match('/community').to('community');
 	match('/search/:query').to('search');
 
-	match('/user').to('user', function(match){
-
-		//match('/').to('profile');
+	match('/user/:id').to('user', function(match){
+		match('/').to('profile');
 		match('/library').to('library');
 
-	});
+	});*/
 
 });
 
 App.AnimeRoute = Ember.Route.extend({
-	model: function(params){
-		var content = App.Anime.find(params.id);
-		return content;
-	},
+	/*model: function(params){
+		return App.Anime.find(params.id);
+	},*/
 
 	setupController: function(controller, model) {
 		controller.set('content', model);
@@ -55,6 +67,18 @@ App.AnimeEpisodesRoute = Ember.Route.extend({
 	renderTemplate: function() {
 		var controller = this.controllerFor('anime');
 		this.render({ controller: controller });
+	}
+});
+
+App.UserLibraryRoute = Ember.Route.extend({
+	model: function(params){
+		var user_id = this.controllerFor('user').get('content.id');
+		return App.store.find(App.Library, {user_id: user_id});
+	},
+
+	setupController: function(controller, model) {
+		console.log(arguments);
+		controller.set('content', model);
 	}
 });
 

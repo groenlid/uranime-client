@@ -1,16 +1,17 @@
 <div class="content container infobar">
   <div class="row-fluid">
-    <h1 class="span5">Groenlid<span class="normal">'s Library</span></h1>
+    <h1 class="span5">{{controller.content.firstObject.user.nick}}<span class="normal">'s Library</span></h1>
     <div class="span2 pull-right animelist-info">
-      <h2>7</h2>
-      <p>seen anime</p>
+      <h2>{{controller.seenAnime}}</h2>
+      <p>anime seen</p>
     </div>
     <div class="span2 pull-right animelist-info">
-      <h2>96</h2>
+      <h2>{{controller.seenEpisodes}}</h2>
       <p>episodes seen</p>
     </div>
+    <!--1h, 54 min-->
     <div class="span3 pull-right animelist-info">
-      <h2>1h, 54 min</h2>
+      <h2>{{controller.seenTime}}</h2>
       <p>spent watching anime</p>
     </div>
   </div>
@@ -19,6 +20,28 @@
 
 <div class="anime-gallery anime-library">
 
+{{#each item in controller.content}}
+
+  <div class="anime-gallery gallery-poster pull-left">
+    <div class="gallery-image">
+      {{#linkTo "anime.description" item.anime}}
+        <img {{bindAttr src="item.anime.imageURL"}}>
+        {{#if item.incomplete}}
+        <div class="backdrop">
+          <div class="unseen-episodes">{{item.progress}}/{{item.total}}</div>
+          <div class="smallprogress">
+            <div class="smallprogress-filled" {{bindAttr style="item.percentStyle"}}>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      {{/linkTo}}
+    </div>
+    <p>{{item.anime.title}}</p>
+  </div>
+
+{{/each}}
+<!--
   <div class="anime-gallery gallery-poster pull-left">
     <div class="gallery-image ">
       <a href="#/anime/907">
@@ -88,6 +111,7 @@
   </div>
 
 </div>
+-->
 
 <br class="clear">
 

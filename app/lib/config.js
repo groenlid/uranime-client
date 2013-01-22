@@ -12,5 +12,7 @@ App.Config = Ember.Object.create({
         // Episodes
         shortDescriptionLength: 200,
 
-        dateFormat: "YYYY-MM-DD"
+        serverDateFormat: "YYYY-MM-DD",
+
+        clientDateFormat: "dddd, MMM Do YYYY"
 });

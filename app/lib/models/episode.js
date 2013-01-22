@@ -14,7 +14,7 @@ App.Episode = DS.Model.extend({
 
   arrangedUserEpisode: function(){
     return this.get('userepisodes').toArray().sort(function (lhs, rhs) {
-     return moment(rhs.get('timestamp'), App.Config.get('dateFormat')).diff(moment(lhs.get('timestamp'), App.Config.get('dateFormat')));
+     return moment(rhs.get('timestamp'), App.Config.get('serverDateFormat')).diff(moment(lhs.get('timestamp'), App.Config.get('serverDateFormat')));
     });
   }.property('userepisodes.@each'),
 
@@ -26,7 +26,9 @@ App.Episode = DS.Model.extend({
 	}.property('image', 'anime.id'),
     
 	parseAired: function(){
-		return moment(this.get('aired')).calendar();
+    var aired = this.get('aired');
+    if(!Ember.isNone(aired))
+		  return moment(aired).calendar();
 	}.property('aired'),
 
 	shortDescription: function(){

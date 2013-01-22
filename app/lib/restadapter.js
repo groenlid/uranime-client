@@ -177,7 +177,8 @@ App.RESTAdapter.configure('plurals', {
   episode: 'episodes',
   episodes: 'episodes',
   user_episode: 'user_episodes',
-  last_seen: 'last_seen'
+  last_seen: 'last_seen',
+  library: 'library'
 })
 
 
@@ -201,6 +202,13 @@ App.RESTAdapter.map(App.Episode, {
 
 App.RESTAdapter.map(App.UserEpisode, {
         user: {
+          embedded: 'load'
+        }
+});
+
+App.RESTAdapter.map(App.Library, {
+        primaryKey: 'user_id',
+        anime: {
           embedded: 'load'
         }
 });
