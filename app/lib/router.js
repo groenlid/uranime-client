@@ -23,23 +23,18 @@ App.Router.map(function() {
 		this.route('profile', { path: '/'});
 		this.route('library');
 	});
-	/*
-	match('/anime/:id').to('anime', function(match) {
 
-		match('/').to('description');
-		match('/episodes').to('episodes');
-	
-	});
+});
 
-	match('/community').to('community');
-	match('/search/:query').to('search');
-
-	match('/user/:id').to('user', function(match){
-		match('/').to('profile');
-		match('/library').to('library');
-
-	});*/
-
+App.ApplicationRoute = Ember.Route.extend({
+	events: {
+        search: function(params) {
+        	var query = params.query;
+          this.controllerFor('search')
+            .set('query', query);
+          this.router.transitionTo('search', App.Anime.find({title:query}));
+        }
+      }
 });
 
 App.AnimeRoute = Ember.Route.extend({
@@ -89,19 +84,22 @@ App.CommunityRoute = Ember.Route.extend({
 });
 
 App.SearchRoute = Ember.Route.extend({
-	model: function(params) {
-    return params;//App.Anime.find({title: params.query});
+	/*model: function(params) {
+    return App.Anime.find({title: params.query});
+  },*/
+
+  deserialize: function(params){
+  	console.log("deserialize", arguments);
+  	return App.Anime.find({title:params.query});
   },
 
-  serialize: function(params) {
-  	console.log(arguments);
-  	return {query: params.query};
+
+  serialize: function(params){
+  	console.log("serialize", arguments);
+  	return {query: params.query.title}
+  	//return params.query;
   },
 
-	setupController: function(controller, model){
-		if(!Ember.isNone(model.query))
-			controller.set('content', App.Anime.find({title: model.query}));
-	}
 });
 
 /*

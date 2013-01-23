@@ -13,6 +13,7 @@ App.Anime = DS.Model.extend({
   episodes: DS.hasMany('App.Episode'),
   genre: DS.hasMany('App.Genre'),
   last_seen: DS.hasMany('App.SeenActivity'),
+  synonyms: DS.hasMany('App.Synonym'),
 
   /**
   * Filters out all the tags and only returns the genres

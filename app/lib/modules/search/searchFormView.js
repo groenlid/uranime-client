@@ -5,8 +5,10 @@ App.SearchFormView = Ember.TextField.extend(Ember.TargetActionSupport, {
 	valueBinding: 'App.SearchFormController.searchText',
 	searchQuery: '',
 	submit: function(event) {
+		var searchQuery = this.get('searchQuery');
 		event.preventDefault();
-		App.get('Router.router').transitionTo('search', {query: this.get('searchQuery')});//App.Anime.find({title: this.get('searchQuery')}));
+		this.get('controller').send('search', {query:searchQuery});
+		//App.get('Router.router').transitionTo('search', this.get('searchQuery'));//{query: this.get('searchQuery')});//App.Anime.find({title: this.get('searchQuery')}));
     /*App.get('router').send('goToSearch', {
 			query: this.get("searchQuery")
 		});*/

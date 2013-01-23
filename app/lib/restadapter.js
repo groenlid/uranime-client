@@ -191,6 +191,9 @@ App.RESTAdapter.map(App.Anime, {
         },
         last_seen: {
           embedded: 'load'
+        },
+        synonyms: {
+          embedded: 'load'
         }
 });
 
