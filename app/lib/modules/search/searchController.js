@@ -1,6 +1,10 @@
 App.SearchController = Ember.ArrayController.extend({
     sortProperties: function(){
-        return [this.get('chosenSort.value.sortProperty')];
+        var chosenSort = this.get('chosenSort'),
+            sortTypes = this.get('sortTypes');
+        if(Ember.isNone(chosenSort))
+            return sortTypes.get('firstObject.value.sortProperty');
+        return [chosenSort.get('value.sortProperty')];
     }.property('chosenSort'),//['title'],
 
     sortAscending: true,
