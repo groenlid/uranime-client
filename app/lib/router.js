@@ -19,6 +19,7 @@ App.Router.map(function() {
 	this.route('community');
 
 	this.route('search', { path: '/search/:query' });
+
 	this.resource('user', { path: '/user/:id' }, function(){
 		this.route('profile', { path: '/'});
 		this.route('library');
@@ -65,9 +66,15 @@ App.AnimeEpisodesRoute = Ember.Route.extend({
 	}
 });
 
+App.UserRoute = Ember.Route.extend({
+	model: function(params){
+		return App.User.find(params.id);
+	},
+});
+
 App.UserLibraryRoute = Ember.Route.extend({
 	model: function(params){
-		var user_id = this.controllerFor('user').get('content.id');
+		var user_id = this.modelFor('user').get('id');
 		return App.store.find(App.Library, {user_id: user_id});
 	},
 

@@ -139,7 +139,7 @@ img.posterimage {
 
 
 #fanart {
-	background-color:#efeff2;
+	//background-color:#efeff2;
 	display:block;
 	background-size:100%;
 	height:385px;
@@ -151,6 +151,47 @@ img.posterimage {
     @include border-radius(3px 3px 0 0);
     border:1px solid #000;
     border-width: 1px 1px 0 1px;
+
+    &.small {
+        height:230px;
+    }
+
+}
+
+// User profile page
+#fanart .userseen {
+    width: 20%;
+    float: left;
+    height: 50%;
+    @include box-shadow(inset 0 0 0 1px rgba(255, 255, 255, 0.15));
+    border: 1px solid rgba(0,0,0,0.2);
+    border-width: 0 1px 1px 0;
+    box-sizing: border-box;
+    position:relative;
+    -webkit-transition: opacity .6s ease-out;
+    -moz-transition: opacity .6s ease-out;
+    -o-transition: opacity .6s ease-out;
+    transition: opacity .6s ease-out;
+
+    &:nth-child(1){
+        @include border-radius(3px 0 0 0);
+    }
+
+    &:nth-child(5){
+        @include border-radius(0 3px 0 0);
+    }
+
+    .border-image {
+        border: rgba(255, 255, 255, 0.1) 1px solid;
+        -webkit-box-sizing: border-box;
+        font-size: 11px;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        pointer-events: none;
+    }
 }
 
 p.animedesc {
@@ -286,6 +327,7 @@ img.animeimage, #fanart .animetitle {
             line-height:1.1em;
         }        
     }
+
 }
 
 .gallery-episode {
@@ -763,6 +805,11 @@ div.backdrop {
     }
 
 
+}
+
+.clickable {
+    cursor: pointer;
+    cursor: hand;
 }
 
 // UNUSED STUFF START

@@ -197,21 +197,32 @@ App.RESTAdapter.map(App.Anime, {
         }
 });
 
+
 App.RESTAdapter.map(App.Episode, {
         userepisodes: {
           embedded: 'load'
         }
 });
 
+
 App.RESTAdapter.map(App.UserEpisode, {
-        user: {
+        /*user: {
           embedded: 'load'
-        }
+        },
+        episode: {
+          embedded: 'load'
+        }*/
 });
 
 App.RESTAdapter.map(App.Library, {
         primaryKey: 'user_id',
         anime: {
+          embedded: 'load'
+        }
+});
+
+App.RESTAdapter.map(App.User, {
+        userepisodes: {
           embedded: 'load'
         }
 });

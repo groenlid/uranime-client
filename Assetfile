@@ -11,6 +11,7 @@ class LoaderFilter < WebFilters::MinispadeFilter
       code = input.read
       module_id = @module_id_generator.call(input)
       contents = "function(require) {\n#{code}\n}"
+      #contents = "(function(require) {\n#{code}\n})();\n//@ sourceURL=#{module_id}}".to_json
       ret = "\nloader.register('#{module_id}', #{contents});\n"
       output.write ret
     end

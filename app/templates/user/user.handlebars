@@ -1,1 +1,52 @@
+<div class="black-top">
+    <header id="fanart" class="small" style="">
+      {{#each uep in content.userepisodes}}
+        <div class="userseen">
+          <a {{action showEpisode uep.episode target="view"}} class="clickable">
+            <img {{bindAttr src="uep.episode.imageURL"}}>
+          </a>
+          <div class="border-image"></div>
+        </div>
+      {{/each}}
+    </header>
+</div>
+
 {{outlet}}
+
+<!--
+
+  <div class="black-top">
+    <header id="fanart" class="small" style="">
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/9/6808.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/9/4562.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/9/4561.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/9/4560.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/99/4726.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/99/4725.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/749/20221.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/638/18124.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/photos/orginal/4f6d1777-eeac-4791-ba43-5a959e27ab78.jpg">
+      </div>
+      <div class="userseen">
+        <img src="http://urani.me/attachments/episodes/784/21273.jpg">
+      </div>
+    </header>
+</div>
+-->

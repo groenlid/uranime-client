@@ -5,6 +5,10 @@ App.CommunityView = Em.View.extend({
       App.EpisodeView.popup({content:episode});
   },
 
+  something: function(){
+    console.log(this.get('controller.content').getEach('anime.title'));
+  }.observes('controller.@each.anime'),
+
   goToAnimeByEpisode: function(e,a){
     console.log("going to anime");
     var id = e.get("anime.id");
