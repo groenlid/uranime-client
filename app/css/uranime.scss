@@ -336,6 +336,7 @@ img.animeimage, #fanart .animetitle {
     a {
         img {
             width: 215px;
+            height:113px;
         }
     }
 }
@@ -439,11 +440,9 @@ select {
     }
 
     .gallery-splash {
-        width: 600px;
+        width: 800px;
         max-width:100%;
-        left:50%;
-        margin-left:-300px;
-        margin-bottom:20px;
+        margin:0 auto 20px auto;
     }
 }
 
@@ -893,4 +892,8 @@ div.backdrop {
 
 @media (max-width: $responsive_small) {
     .brand { margin-left: auto; margin-right: auto; }
+    body {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
 }

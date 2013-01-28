@@ -2,14 +2,14 @@
 <div class="row-fluid episodelist">
     <div class="gallery-episode pull-left span2">
         <div class="gallery-image">
-            <a {{action showEpisode this href="true" target="view"}}>
+            <a class="clickable" {{action showEpisode this target="view"}}>
             <img {{bindAttr src="this.imageURL"}} /></a>
         </div>
     </div>
     <div class="span8 episode-info">
         <div class="row-fluid">
-            <h4 class="span10">
-                <a {{action showEpisode this href="true" target="view"}}>
+            <h4 class="span10 normal">
+                <a class="clickable" {{action showEpisode this target="view"}}>
                     {{#if this.special}}
                         <span class="label label-info">Special</span>
                     {{/if}}

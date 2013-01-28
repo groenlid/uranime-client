@@ -1,5 +1,5 @@
 require('uranime/modules/episode/episodeModalView');
-App.EpisodeListView = Ember.CollectionView.extend(App.PaginationMixin,{
+App.EpisodeListView = Ember.CollectionView.extend(Ember.PaginationSupport,{
 
 	total: function(){
 		return this.get('complete.length');

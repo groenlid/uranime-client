@@ -2,7 +2,7 @@
   <div class="row-fluid">
     <h1 class="span5">{{controller.content.firstObject.user.nick}}<span class="normal">'s Library</span></h1>
     <div class="span2 pull-right animelist-info">
-      <h2>{{controller.seenAnime}}</h2>
+      <h2>{{controller.content.length}}</h2>
       <p>anime seen</p>
     </div>
     <div class="span2 pull-right animelist-info">
@@ -20,7 +20,7 @@
 
 <div class="anime-gallery anime-library">
 
-{{#each item in controller.content}}
+{{#each item in controller.pagedContent}}
 
   <div class="anime-gallery gallery-poster pull-left">
     <div class="gallery-image">
