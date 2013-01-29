@@ -27,18 +27,17 @@
     <div class="span4 pull-right">
       <ul style="list-style-type: none;">
         <li>
-          <i class="icon-time"></i> 113d, 14h, 17 min spent watching anime
+          <i class="icon-time"></i> {{controller.seenTime}} spent watching anime
         </li>
         <li>
-          <i class="icon-eye-open"></i> 6495 episodes seen
+          <i class="icon-eye-open"></i> {{controller.seenEpisodes}} episodes seen
         </li>
         <li>
-          <i class="icon-film"></i> 203 anime seen
+          <i class="icon-film"></i> {{controller.content.length}} anime seen
         </li>
       </ul>
     </div>
   </div>
-
 <div class="anime-gallery anime-library">
 
 {{#each item in controller.pagedContent}}
@@ -135,16 +134,5 @@
 -->
 
 <br class="clear">
-  <div class="center">
-    <div class="numberbox">
-      <h2>{{controller.content.length}}</h2>anime seen
-    </div>
-    <div class="numberbox">
-      <h2>{{controller.seenEpisodes}}</h2>episodes seen
-    </div>
-    <div class="numberbox">
-      <h2>{{controller.seenTime}}</h2>spent watching anime
-    </div>
-  </div>
 
 </div>
