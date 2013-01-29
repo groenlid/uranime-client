@@ -1,22 +1,43 @@
-<div class="content container infobar">
-  <div class="row-fluid">
-    <h1 class="span5">{{controller.content.firstObject.user.nick}}<span class="normal">'s Library</span></h1>
-    <div class="span2 pull-right animelist-info">
-      <h2>{{controller.content.length}}</h2>
-      <p>anime seen</p>
+<div class="content container">
+  <ul class="breadcrumb">
+    <li>
+      {{#linkTo "user.profile" controller.content.firstObject.user}}{{controller.content.firstObject.user.nick}}{{/linkTo}}<span class="divider">/</span>
+    </li>
+    <li class="active">Library</li>
+  </ul>
+
+<div class="row-fluid">
+  <div class="span2 pull-left">
+    <div class="span5 line-height-input">Sort by: </div>
+      <div class="span7">
+        <select></select>
+      </div>
     </div>
-    <div class="span2 pull-right animelist-info">
-      <h2>{{controller.seenEpisodes}}</h2>
-      <p>episodes seen</p>
+    <div class="btn-group pull-left" style="margin-left:10px;">
+      <a class="btn">
+          <i class="icon-th"></i>
+      </a>
+      <a class="btn">
+          <i class="icon-th-large"></i>
+      </a>
+      <a class="btn">
+          <i class="icon-list"></i>
+      </a>
     </div>
-    <!--1h, 54 min-->
-    <div class="span3 pull-right animelist-info">
-      <h2>{{controller.seenTime}}</h2>
-      <p>spent watching anime</p>
+    <div class="span4 pull-right">
+      <ul style="list-style-type: none;">
+        <li>
+          <i class="icon-time"></i> 113d, 14h, 17 min spent watching anime
+        </li>
+        <li>
+          <i class="icon-eye-open"></i> 6495 episodes seen
+        </li>
+        <li>
+          <i class="icon-film"></i> 203 anime seen
+        </li>
+      </ul>
     </div>
   </div>
-</div>
-<div class="content container">
 
 <div class="anime-gallery anime-library">
 
@@ -114,5 +135,16 @@
 -->
 
 <br class="clear">
+  <div class="center">
+    <div class="numberbox">
+      <h2>{{controller.content.length}}</h2>anime seen
+    </div>
+    <div class="numberbox">
+      <h2>{{controller.seenEpisodes}}</h2>episodes seen
+    </div>
+    <div class="numberbox">
+      <h2>{{controller.seenTime}}</h2>spent watching anime
+    </div>
+  </div>
 
 </div>
