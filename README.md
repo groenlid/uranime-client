@@ -1,21 +1,31 @@
 Todo
 ==
 
+Important:
+--
+* Notifications based on genres/tags when new anime appears
+* Hide shows from the calendar
+* Make a calendar
+
 Episode-Modal
 --
-
 * Next-Previous episodes from episode-modal
-* Esc from episode-modal
+* Esc from episode-modal - Click outside box
 
 Search
 --
-* Does not work!
+* ~~Does not work!~~
 * Empty search should not send query to server
 * Search by tags/genre
 * Sort by rating
 * Layout for detailed list
 * Paginate
 //* When searching, the search result anime titles should show the matching synonym.
+
+Library
+--
+* ~~Pagination~~
+* Make each pagination into Ember.Collectionview
 
 Anime
 --
@@ -64,10 +74,3 @@ TODO:
 * Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
 Som sagt, bare småshit. 
 
-
-
-
-Important:
-===
-Notifications based on genres/tags when new anime appears
-Hide shows from the calendar
