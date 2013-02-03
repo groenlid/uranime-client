@@ -7,12 +7,20 @@
   </ul>
 
 <div class="row-fluid">
-  <div class="span2 pull-left">
-    <div class="span5 line-height-input">Sort by: </div>
-      <div class="span7">
-        <select></select>
-      </div>
-    </div>
+  <div class="pull-left">
+    <div class="btn-group">
+		<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			Sort by
+			<span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<!-- dropdown menu links -->
+      {{#each btn in controller.sortButtons}}
+        <li><a {{action setSorting btn target="controller"}}>{{btn.title}}</a></li>
+      {{/each}}
+		</ul>
+	</div>
+	</div>
     <div class="btn-group pull-left" style="margin-left:10px;">
       <a class="btn">
           <i class="icon-th"></i>
@@ -38,7 +46,7 @@
       </ul>
     </div>
   </div>
-<div class="anime-gallery anime-library">
+<div class="anime-gallery anime-library row-fluid">
 
 {{#each item in controller.pagedContent}}
 
@@ -61,78 +69,9 @@
   </div>
 
 {{/each}}
-<!--
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image ">
-      <a href="#/anime/907">
-        <img src="http://urani.me/attachments/photos/orginal/50ef52ce-1470-4150-9e37-4be5b8adc2dc.jpg">
-        <div class="backdrop">
-          <div class="unseen-episodes">10/20</div>
-          <div class="smallprogress">
-            <div class="smallprogress-filled" style="width:55%">
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <p>Seiken no Blacksmith</p>
-  </div>
-  
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image ">
-      <a href="#/anime/11">
-        <img src="http://urani.me/attachments/photos/orginal/4f0f824b-edf8-47b7-925c-1ddb9e27ab78.jpg">
-      </a>
-    </div>
-    <p>Fairy Tail</p>
-  </div>
-
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image ">
-      <a href="#/anime/190">
-        <img src="http://urani.me/attachments/photos/orginal/4f6dc0aa-2094-4b3d-8d65-690a9e27ab78.jpg">
-        <div class="backdrop">
-          <div class="unseen-episodes">90/100</div>
-          <div class="smallprogress">
-            <div class="smallprogress-filled" style="width:85%">
-            </div>
-          </div>
-        </div>
-      </a>
-    </div>
-    <p>Trinity Blood</p>
-  </div>
-
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image ">
-      <a href="#/anime/488">
-        <img src="http://urani.me/attachments/photos/orginal/4fdf8e1d-b64c-4126-adef-6fefb8adc2dc.jpg">
-      </a>
-    </div>
-    <p>Princess Resurrec...</p>
-  </div>
-
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image ">
-      <a href="#/anime/528">
-        <img src="http://urani.me/attachments/photos/orginal/4ff9eaee-0ea0-4cab-9724-3d08b8adc2dc.jpg">
-      </a>
-    </div>
-    <p>Dakara Boku wa, H...</p>
-  </div>
-
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image ">
-      <a href="#/anime/531">
-        <img src="http://src.sencha.io/200/http://urani.me/attachments/photos/orginal/4ff9ed0b-cf34-4dd2-8a98-6530b8adc2dc.jpg">
-      </a>
-    </div>
-    <p>Sword Art Online</p>
-  </div>
-
 </div>
--->
 
+{{view App.PaginatorCollectionView contentBinding="controller.paginator"}}
 <br class="clear">
 
 </div>

@@ -25,6 +25,14 @@ App.Router.map(function() {
 		this.route('library');
 	});
 
+	this.route('calendar', { path: '/calendar/:date'});
+
+});
+
+App.CalendarRoute = Ember.Route.extend({
+	model: function(params){
+		return App.Episode.find({week:params.date});
+	},
 });
 
 App.ApplicationRoute = Ember.Route.extend({

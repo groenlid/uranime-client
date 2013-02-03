@@ -24,7 +24,7 @@ App.Episode = DS.Model.extend({
     this.get('anime.fanartURL') : 
     App.Config.get('episodepath') + this.get('anime.id') + '/' + this.get('image');
 	}.property('image', 'anime.id'),
-    
+   
 	parseAired: function(){
     var aired = this.get('aired');
     if(!Ember.isNone(aired))

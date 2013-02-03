@@ -2,6 +2,7 @@ App.Library = DS.Model.extend({
         
   total: DS.attr('number'),
   progress: DS.attr('number'),
+  last_seen: DS.attr('date'),
     
   anime: DS.belongsTo('App.Anime'),
   user: DS.belongsTo('App.User'),
@@ -18,9 +19,6 @@ App.Library = DS.Model.extend({
     return "width:" + this.get('percent') + "%;";
   }.property('percent'),
 
-  didLoad: function(){
-       
-  }
 }).reopenClass({
   addRoot: true
 });

@@ -3,15 +3,46 @@ App.UserLibraryController = Ember.ArrayController.extend(Ember.PaginationSupport
   
   totalBinding: 'content.length',
 
+  maxPaginationLinks: 10,
+  
+  rangeWindowSize:20,
+
+  sortProperties:['last_seen'],
+  sortAscending: false,
+
   pagedContent: function(){
     var rStart = this.get('rangeStart'),
         rStop  = this.get('rangeStop'); 
     
-    return this.get('content').slice(rStart,rStop);
+    return this.get('arrangedContent').slice(rStart,rStop);
 
-  }.property('rangeStart','rangeStop'),
+  }.property('rangeStart','rangeStop', 'sortProperties'),
 
   needs: 'user',
+  
+  sortButtons: Ember.A([ 
+    Ember.Object.create({
+      title: 'Last seen',
+      sortProperties: ['last_seen'],
+      sortAscending: false
+      }),
+    Ember.Object.create({
+      title: 'Title',
+      sortProperties: ['anime.title'],
+      sortAscending: true
+      }),
+    Ember.Object.create({
+      title: 'Percentage seen',
+      sortProperties: ['percent'],
+      sortAscending: true
+      })
+    ]),
+
+  setSorting: function(sort){
+    console.log(arguments);
+    this.set('sortProperties', sort.get('sortProperties'));
+    this.set('sortAscending', sort.get('sortAscending'));
+  },
 
   seenEpisodes: function(){
     var sum,

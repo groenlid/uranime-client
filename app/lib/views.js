@@ -1,3 +1,6 @@
+// Common -> Paginator
+require('uranime/common/paginator/paginatorCollectionView');
+
 // Application
 require('uranime/modules/application/applicationView');
 
@@ -35,3 +38,5 @@ require('uranime/modules/user/userView');
   // User -> Library
 require('uranime/modules/user/library/libraryView');
 
+// Calendar
+require('uranime/modules/calendar/calendarView');
