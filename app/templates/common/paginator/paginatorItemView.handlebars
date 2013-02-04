@@ -1,0 +1,6 @@
+{{#if view.content.action}}
+  <a class="clickable" {{action paginate view.content target="controller"}}>{{view.content.title}}</a>
+{{else}}
+  <a>{{view.content.title}}</a>
+{{/if}}
+

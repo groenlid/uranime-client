@@ -74,3 +74,8 @@ TODO:
 * Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
 Som sagt, bare småshit. 
 
+===
+Tror det blir sånn typ:
+- sender at jeg ser film
+- hvis det går 140 min (som er så lang filmen er) så blir den satt til watched
+- hvis den blir canceled i løpet av de 140 minuttene så skjer det ikkeno

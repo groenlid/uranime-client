@@ -30,9 +30,36 @@ App.Router.map(function() {
 });
 
 App.CalendarRoute = Ember.Route.extend({
+	deserialize: function(params){
+		console.log("deserialize", arguments);
+		return App.Episode.find({week:params.date});
+	},
+
+
+	serialize: function(params){
+		console.log("serialize", arguments);
+		return {query: params}
+		//return params.query;
+	},
+
 	model: function(params){
 		return App.Episode.find({week:params.date});
 	},
+
+	setupController: function(controller, model){
+		if(Ember.typeOf(model) == "string")
+			controller.set('content', App.Episode.find({week:model}));
+		else
+			controller.set('content',model);
+		/*controller.set('content',App.Episode.find({week:model.date}));
+		controller.set('query',model.date);*/
+	},
+
+	events: {
+        goToWeek: function(week) {
+          this.router.transitionTo('calendar', App.Episode.find({week:week}));
+        }
+      }
 });
 
 App.ApplicationRoute = Ember.Route.extend({
