@@ -15,3 +15,6 @@ require('uranime/modules/user/userController');
 
 //User -> Library
 require('uranime/modules/user/library/libraryController');
+
+//Calendar
+require('uranime/modules/calendar/calendarController');

@@ -1,4 +1,5 @@
 require('moment');
+
 App.CalendarView = Em.View.extend({
   templateName: "uranime/~templates/calendar/calendar",
 
@@ -10,10 +11,15 @@ App.CalendarView = Em.View.extend({
   	 return now.subtract('days', 7).format('YYYY-MM-DD');
   }.property('query'),
 
+//ONS 06-02-2012
+//4
+
   nextWeek: function(){
   	var now = moment(this.get('query'), 'YYYY-MM-DD');
     if(now.isValid())
   	 return now.add('days', 7).format('YYYY-MM-DD');
-  }.property('query')
+  }.property('query'),
+
+  
 //{{#linkTo calendar view.lastWeek}}Oldie but a goodie{{/linkTo}}
 });

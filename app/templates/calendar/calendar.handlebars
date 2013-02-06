@@ -1,26 +1,26 @@
 <div class="content container">
 	<ul class="pager">
 		<li class="previous">
-			<a {{action goToWeek view.lastWeek href="true"}} class="clickable">Oldie but a goodie</a>
+			<a {{action goToWeek view.lastWeek href="true"}} class="clickable">&larr; Oldie but a goodie</a>
 		</li>
 		<li class="next">
-			<a {{action goToWeek view.nextWeek href="true"}} class="clickable">Into the future!!</a>
+			<a {{action goToWeek view.nextWeek href="true"}} class="clickable">Into the future!! &rarr;</a>
 		</li>
 	</ul>
 
-	<h2 class="calendar">The amount of anime this week.... is to damn high!</h2>
+	<h2 class="calendar">{{sunday}}</h2>
 
-	{{#each ep in controller.content}}
+	{{#each ep in controller.sundayEpisodes}}
 		<div class="pull-left gallery-episode">
 			<div class="gallery-image">
 				<a href="#">
 					<img {{bindAttr src="ep.imageURL"}}>
 				</a>
 			</div>
-			<p class="bold">
+			<p class="bold single">
 				<a href="#">{{ep.anime.title}} {{ep.number}}</a>
 			</p>
-			<p class="calendarinfo">
+			<p class="calendarinfo single">
 				{{ep.name}}
 			</p>
 		</div>
