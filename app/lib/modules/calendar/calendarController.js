@@ -1,30 +1,58 @@
-App.CalendarController = Ember.ArrayController.extend({
-  // Sunday - Saturday
-  sunday: 0,
-  monday: 1,
-  tuesday: 2,
-  wednsday: 3,
-  thursday: 4,
-  friday: 5,
-  saturday: 6,
+App.CalendarController = Ember.ObjectController.extend({
 
-  sundayEpisodes: function(){
-    return this.filteredEpisodes(this.getDateInWeek(this.sunday));
-  }.property('sunday', 'content'),
+  episodes: function(){
+    console.log("episodes:",this.get('model'));
+    if(Ember.isNone(this.get('model')))
+      return Ember.A();
+    return App.Episode.find({week:this.get('model')});
+  }.property('model'),
 
-  getDateInWeek: function(day){
-    var now = this.get('controller.query')();
-    if(now.day() > day)
-      now.subtract('days',now.day() - day);
-    else
-      now.add('days',day - now.day());
-    return now.format(App.Config.get('serverDateFormat'));
-  },
+  arrangedEpisodes: function(){
+    var now, ret = Ember.A(), dayEpisodes, curDay;
+    // Fetch the current date
+    now = moment(this.get('model'));
+
+    for(var weekday = 0; weekday < 7; weekday++)
+    {
+      // Each row will contain title and episodes-array
+      curDay = Ember.A();
+      date = now.day(weekday).format(App.Config.get('serverDateFormat'));
+      curDay.pushObject(date);
+
+      // episodes
+      dayEpisodes = this.get('episodes').filter(function(data){
+        return moment(data.get('aired')).format(App.Config.get('serverDateFormat')) == date;
+      });
+
+      curDay.pushObject(dayEpisodes);
+
+      ret.pushObject(curDay);
+    }
+
+    return ret;
+  }.property('episodes.@each','model.week','episodes.isLoaded'),
 
   filteredEpisodes: function(day){
-    var c = this.get('content');
+    return this.get('episodes');
+    var c = this.get('episodes');
     return c.filter(function(data){
+      console.log(data.serialize());
       return moment(data.get('aired')).format(App.Config.get('serverDateFormat')) == day;
     });
   },
+
+  lastWeek: function(){
+    var now = moment(this.get('model'), 'YYYY-MM-DD');
+    if(now.isValid())
+     return now.subtract('days', 7).format('YYYY-MM-DD');
+  }.property('model'),
+
+//ONS 06-02-2012
+//4
+
+  nextWeek: function(){
+    var now = moment(this.get('model'), 'YYYY-MM-DD');
+    if(now.isValid())
+     return now.add('days', 7).format('YYYY-MM-DD');
+  }.property('model'),
 });

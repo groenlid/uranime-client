@@ -5,21 +5,6 @@ App.CalendarView = Em.View.extend({
 
   queryBinding: 'controller.content.query.week',
 
-  lastWeek: function(){
-  	var now = moment(this.get('query'), 'YYYY-MM-DD');
-    if(now.isValid())
-  	 return now.subtract('days', 7).format('YYYY-MM-DD');
-  }.property('query'),
-
-//ONS 06-02-2012
-//4
-
-  nextWeek: function(){
-  	var now = moment(this.get('query'), 'YYYY-MM-DD');
-    if(now.isValid())
-  	 return now.add('days', 7).format('YYYY-MM-DD');
-  }.property('query'),
-
   
-//{{#linkTo calendar view.lastWeek}}Oldie but a goodie{{/linkTo}}
+
 });

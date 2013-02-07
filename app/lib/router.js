@@ -25,32 +25,22 @@ App.Router.map(function() {
 		this.route('library');
 	});
 
-	this.route('calendar', { path: '/calendar/:date'});
+	this.resource('calendar', { path: '/calendar/:week'});
 
 });
 
 App.CalendarRoute = Ember.Route.extend({
-	/*deserialize: function(params){
-		console.log("deserialize", arguments);
-		return App.Episode.find({week:params.date});
-	},*/
-
-/*
-	serialize: function(params){
-		console.log("serialize", arguments);
-		return {date: params};
-		//return params.query;
-	},*/
 
 	model: function(params){
-		return App.Episode.find({week:params.date});
+		return params.week;//App.Episode.find({week:params.date});
 	},
 
 	setupController: function(controller, model){
-		if(Ember.typeOf(model) == "string")
+		controller.set('content',model);
+		/*if(Ember.typeOf(model) == "string")
 			controller.set('content', App.Episode.find({week:model}));
 		else
-			controller.set('content',model);
+			controller.set('content',model);*/
 	},
 
 	events: {
