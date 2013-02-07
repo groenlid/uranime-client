@@ -14,12 +14,14 @@
 		{{#each episode in day.lastObject}}
 		<div class="pull-left gallery-episode">
 			<div class="gallery-image">
-				<a href="#">
+				<a {{action showEpisode episode target="view"}} class="clickable">
 					<img {{bindAttr src="episode.imageURL"}}>
 				</a>
 			</div>
 			<p class="bold single">
-				<a href="#">{{episode.anime.title}} {{episode.number}}</a>
+				{{#linkTo "anime.description" episode.anime}}
+					{{episode.anime.title}} {{episode.number}}
+				{{/linkTo}}
 			</p>
 			<p class="calendarinfo single">
 				{{episode.name}}

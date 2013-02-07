@@ -21,7 +21,8 @@ App.CalendarController = Ember.ObjectController.extend({
 
       // episodes
       dayEpisodes = this.get('episodes').filter(function(data){
-        return moment(data.get('aired')).format(App.Config.get('serverDateFormat')) == date;
+        return (!Ember.isNone(data.get('aired')) &&
+          moment(data.get('aired')).format(App.Config.get('serverDateFormat')) == date);
       });
 
       curDay.pushObject(dayEpisodes);
