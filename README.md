@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/groenlid/uranime-client.png?branch=master)](https://travis-ci.org/groenlid/uranime-client)
+
 Todo
 ==
 
