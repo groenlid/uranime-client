@@ -55,7 +55,7 @@
             {{#each episode in lastEpisodes}}
             <div class="pull-left gallery-episode">
                 <div class="gallery-image">
-                    <a {{action showEpisode episode target="view"}}>
+                    <a {{action showEpisode episode target="view"}} class="clickable">
                         <img {{bindAttr src="episode.imageURL"}}/>
                         <span>
                             View Episode
@@ -63,7 +63,7 @@
                     </a>
                 </div>
                 <p class="bold">
-                   <a {{action showEpisode episode target="view"}}>{{episode.anime.title}}</a> {{episode.number}}
+                   <a {{action showEpisode episode target="view"}} class="clickable">{{episode.anime.title}}</a> {{episode.number}}
                 </p>
                 <p class="calendarinfo">{{episode.name}}</p>
             </div>

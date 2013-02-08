@@ -1,5 +1,6 @@
 require('uranime/core');
 require('uranime/config');
+require('uranime/common/helpers/dateformat');
 require('uranime/models');
 require('uranime/store');
 require('uranime/controllers');

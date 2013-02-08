@@ -14,10 +14,10 @@ App.SeenActivity = DS.Model.extend({
 
   gravatarSmall: function(){
     return this.get('gravatar') + "?size=100";
-  }.property('gravatar')
+  }.property('gravatar'),
 
   //anime: DS.belongsTo('App.Anime'),
-        
+  user: DS.belongsTo('App.User')      
 });
 
 
