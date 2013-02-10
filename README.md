@@ -7,7 +7,7 @@ Important:
 --
 * Notifications based on genres/tags when new anime appears
 * Hide shows from the calendar
-* Make a calendar
+* ~~Make a calendar~~
 
 Episode-Modal
 --
@@ -68,7 +68,7 @@ ServerSide
 
 TODO:
 ===
-* ~~Jeg liker hånd på alt av linker ~~
+* ~~Jeg liker hånd på alt av linker~~
 * ~~Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out~~
 * Denne lista burde også har brukernavn(?)
 * Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu
