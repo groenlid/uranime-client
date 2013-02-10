@@ -54,9 +54,11 @@ App.ApplicationRoute = Ember.Route.extend({
 	events: {
         search: function(params) {
         	var query = params.query;
-          this.controllerFor('search')
-            .set('query', query);
+          	this.controllerFor('search').set('query', query);
           this.router.transitionTo('search', App.Anime.find({title:query}));
+        },
+        goToLibrary: function(params){
+        	this.router.transitionTo('user.library', params);
         }
       }
 });
@@ -83,9 +85,12 @@ App.AnimeDescriptionRoute = Ember.Route.extend({
 });
 
 App.AnimeEpisodesRoute = Ember.Route.extend({
-	renderTemplate: function() {
+	/*renderTemplate: function() {
 		var controller = this.controllerFor('anime');
 		this.render({ controller: controller });
+	}*/
+	setupController: function(controller, model){
+		controller.set('anime',this.controllerFor('anime').get('content'));
 	}
 });
 

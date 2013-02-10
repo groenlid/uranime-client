@@ -9,13 +9,17 @@
       </div>
 
       <h2 class="outside">
-        <a {{action previous this target="view"}}> 
+        {{#if view.hasPrevious}}
+        <a class="clickable" {{action previous this target="view"}}> 
           <img class ="pull-left arrow" src="./assets/img/arrow_left.png">
         </a> 
+        {{/if}}
         <span class="small grey">Episode {{number}}</span> - {{name}} <span class="small grey">{{dateformat aired}}</span> 
-        <a {{action next this target="view"}}>
+        {{#if view.hasNext}}
+        <a class="clickable" {{action next this target="view"}}>
           <img class ="pull-right arrow" src="./assets/img/arrow_right.png">
         </a>
+        {{/if}}
       </h2>
       
       <!--
@@ -48,7 +52,7 @@
         {{#each activity in arrangedUserEpisode}}
 
           <div class="row-fluid">
-              <img class="img-rounded pull-left" {{bindAttr src="activity.user.smallGravatar"}}>
+              <img class="img-rounded pull-left" style="width:30px" {{bindAttr src="activity.user.smallGravatar"}}>
             <div class="span10">  
                 <a class="bold">{{activity.user.nick}}</a> watched this.<span class="pull-right bold small grey">{{activity.since}}</span> 
             </div>

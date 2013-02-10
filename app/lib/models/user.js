@@ -11,7 +11,7 @@ App.User = DS.Model.extend({
   smallGravatar: function(){
     var gravatar = this.get('gravatar');
     if(!Ember.isNone(gravatar))
-      return this.get('gravatar') + "?s=30";
+      return this.get('gravatar') + "?s=30&d="+encodeURIComponent(App.Config.get('defaultgravatar'));
   }.property('gravatar'),
 
 });

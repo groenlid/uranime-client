@@ -9,12 +9,12 @@ Important:
 
 Episode-Modal
 --
-* Next-Previous episodes from episode-modal
+* ~~Next-Previous episodes from episode-modal~~
 * Esc from episode-modal - Click outside box
+* Bigger buttons for next/prev. Alternatively swipe for next/prev or arrowkeys
 
 Search
 --
-* ~~Does not work!~~
 * Empty search should not send query to server
 * Search by tags/genre
 * Sort by rating
@@ -44,16 +44,16 @@ Anime-Details
 --
 
 * Different layout for movies and series 
-* Click episode does open modal in all browsers.
+* ~~Click episode does not open modal in all browsers.~~
 * Comments and activities
 * Add MAL-AniDb-TheTVDb links
 * Last Seen by wrong date on "last"
-* Constrain size of episode-thumbnail
+* ~~Constrain size of episode-thumbnail~~
 * Link on anime title in last-aired-episodes should be removed.
 
 Episodes
 --
-* Pagination
+* ~~Pagination~~
 
 
 ServerSide
@@ -66,11 +66,11 @@ ServerSide
 
 TODO:
 ===
-* Jeg liker hånd på alt av linker 
+* ~~Jeg liker hånd på alt av linker ~~
 * ~~Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out~~
 * Denne lista burde også har brukernavn(?)
 * Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu
-* Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)
+* ~~Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)~~
 * Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
 Som sagt, bare småshit. 
 

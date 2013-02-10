@@ -14,5 +14,7 @@ App.Config = Ember.Object.create({
 
         serverDateFormat: "YYYY-MM-DD",
 
-        clientDateFormat: "dddd, MMM Do YYYY"
+        clientDateFormat: "dddd, MMM Do YYYY",
+
+        defaultgravatar: "http://groenlid.no-ip.org/assets/img/default_guy2.png"
 });

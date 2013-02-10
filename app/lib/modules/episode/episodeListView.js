@@ -1,16 +1,5 @@
 require('uranime/modules/episode/episodeModalView');
-App.EpisodeListView = Ember.CollectionView.extend(Ember.PaginationSupport,{
-
-	total: function(){
-		return this.get('complete.length');
-	}.property('complete.length'),
-	
-	rangeStart: 0,
-	rangeWindowSize: 10,
-
-	content: function(){
-		return this.get('complete').toArray().slice(this.get('rangeStart'), this.get('rangeStop'));
-	}.property('complete'),
+App.EpisodeListView = Ember.CollectionView.extend({
 
 	itemViewClass: Ember.View.extend({
 		templateName: 'uranime/~templates/episode/episodeListItem',

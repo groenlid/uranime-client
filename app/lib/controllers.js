@@ -7,6 +7,9 @@ require('uranime/modules/search/searchController');
 //Anime
 require('uranime/modules/anime/animeController');
 
+//Anime -> Episodes
+require('uranime/modules/anime/episodes/episodesController');
+
 //Community
 require('uranime/modules/community/communityController');
 

@@ -1,11 +1,12 @@
 <div class="container content">
   <ul class="breadcrumb">
-    <li>{{#linkTo "anime.description"}}{{title}}{{/linkTo}} <span class="divider">/</span></li>
+    <li>{{#linkTo "anime.description"}}{{anime.title}}{{/linkTo}} <span class="divider">/</span></li>
     <li class="active">Episodes</li>
   </ul>
 
-{{view App.EpisodeListView completeBinding="sortedEpisodes"}}
+{{view App.EpisodeListView contentBinding="pagedContent"}}
 
+{{view App.PaginatorCollectionView contentBinding="controller.paginator"}}
 </div>
 
 <!--

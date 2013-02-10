@@ -5,8 +5,13 @@ App.AnimeActivityView = Ember.CollectionView.extend({
   classNames: ['thumbnails'],
 
   itemViewClass: Ember.View.extend({
-    template: Ember.Handlebars.compile("<a class='thumbnail'><img {{bindAttr src='view.content.gravatarSmall'}}/></a>"),
+    template: Ember.Handlebars.compile("<a class='thumbnail clickable'><img {{bindAttr src='view.content.gravatarSmall'}}/></a>"),
     
+    click: function(event){
+      var content = this.get('content.user');
+      this.get('controller').send('goToLibrary',content);
+    },
+
     tagName: 'li',
     classNames: ['span1'],
     

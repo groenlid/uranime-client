@@ -16,7 +16,7 @@
 
 body {
 	font-family:'Proxima Nova';
-    background:#eee;
+    background:#f5f4f3;
     font-size:14px;
     padding-top:44px;
     text-rendering: optimizelegibility
@@ -93,12 +93,9 @@ h2 {
 .content {
     padding: 20px 30px;
     background:#fff;
-	border:1px solid #ccc;
+	border:1px solid #eeeeed;
     border-width: 0 1px 1px 1px;
     position:relative;
-    -webkit-box-shadow: -1 1px 1px rgba(0,0,0,.24), 0 1px 5px rgba(0,0,0,.05);
-    -moz-box-shadow: 0 1px 1px rgba(0,0,0,.24), 0 1px 5px rgba(0,0,0,.05);
-    box-shadow: 0 1px 1px rgba(0,0,0,0.24), 0 1px 5px rgba(0,0,0,.05);
 }
 
 .infobar {
@@ -514,7 +511,7 @@ select {
 // MODAL FOR EPISODE-INFORMATION
 .modal {
     &.episode {
-        border-radius:0 5px 5px 0;
+        border-radius:0 2px 2px 0;
         padding:0;
 
         width:800px;
@@ -630,7 +627,7 @@ select {
 
             &.js-commentsHeight{
                 @include scrollbar-grey;
-
+                max-height:474px;
             }
         }
     }
