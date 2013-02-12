@@ -10,11 +10,13 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>9</td>
-				<td>Digimon</td>
-				<td>Groenlid</td>
-				<td>95%</td>
-			</tr>
+			{{#each request in model}}
+				<tr>
+					<td>{{request.id}}</td>
+					<td>{{#linkTo request request}}{{request.title}}{{/linkTo}}</td>
+					<td>{{request.createdBy}}</td>
+					<td><span {{bindAttr class="request.labelclass :badge"}}>{{request.percentage}}%</span></td>
+				</tr>
+			{{/each}}
 	</table>
 </div>

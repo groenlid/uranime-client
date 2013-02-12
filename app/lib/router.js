@@ -25,16 +25,52 @@ App.Router.map(function() {
 		this.route('library');
 	});
 
-	this.resource('requests', {path: '/requests/'});
+	this.resource('requests');
+	this.resource('request', { path: '/request/:request_id' });
 
 	this.resource('calendar', { path: '/calendar/:week'});
 
 });
 
+App.RequestsRoute = Ember.Route.extend({
+	model: function(params){
+		var requests = [
+		{
+			id:1,
+			title: 'Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.',
+			fanart: 'http://thetvdb.com/banners/fanart/original/247958-18.jpg',
+			poster: 'http://thetvdb.com/banners/posters/247958-1.jpg',
+			user: 1,
+			status: 'created',
+			percentage: '90'
+		},
+		{
+			id:2,
+			title: 'Yu-Gi-Oh',
+			fanart: 'http://thetvdb.com/banners/fanart/original/113561-1.jpg',
+			poster: 'http://thetvdb.com/banners/posters/113561-1.jpg',
+			user: 3,
+			status: 'created',
+			percentage: 50
+		},
+		{
+			id:3,
+			title: 'Hunter x hunter',
+			fanart: 'http://thetvdb.com/banners/fanart/original/252322-2.jpg',
+			poster: 'http://thetvdb.com/banners/posters/252322-2.jpg',
+			user: 2,
+			status: 'created',
+			percentage: 20
+		}]
+		App.store.loadMany(App.Request,requests)
+		return App.store.all(App.Request);
+	}
+});
+
 App.CalendarRoute = Ember.Route.extend({
 
 	model: function(params){
-		return params.week;//App.Episode.find({week:params.date});
+		return params.week;
 	},
 
 	setupController: function(controller, model){
