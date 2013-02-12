@@ -27,7 +27,7 @@ Search
 Library
 --
 * ~~Pagination~~
-* Make each pagination into Ember.Collectionview
+* ~~Make each pagination into Ember.Collectionview~~
 
 Anime
 --

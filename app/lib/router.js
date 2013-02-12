@@ -25,6 +25,8 @@ App.Router.map(function() {
 		this.route('library');
 	});
 
+	this.resource('requests', {path: '/requests/'});
+
 	this.resource('calendar', { path: '/calendar/:week'});
 
 });

@@ -40,3 +40,6 @@ require('uranime/modules/user/library/libraryView');
 
 // Calendar
 require('uranime/modules/calendar/calendarView');
+
+// Requests
+require('uranime/modules/requests/requestsView');
