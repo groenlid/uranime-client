@@ -56,7 +56,7 @@ App.RequestsRoute = Ember.Route.extend({
 		{
 			id:3,
 			title: 'Hunter x hunter',
-			fanart: 'http://thetvdb.com/banners/fanart/original/252322-2.jpg',
+			fanart: 'http://static.zerochan.net/Hunter.x.Hunter.full.389508.jpg',
 			poster: 'http://thetvdb.com/banners/posters/252322-2.jpg',
 			user: 2,
 			status: 'created',

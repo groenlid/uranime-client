@@ -1,1 +1,49 @@
-test
+<div class="black-top">
+    <header id="fanart" {{bindAttr style="fanartStyle"}}>
+		<div class="backdrop">
+			<h1 class="white-center">
+				Pending request: {{percentage}}% complete
+			</h1>
+		</div>
+    </header>
+</div>
+<div class="content container">
+	<div class="row-fluid">
+        <div class="span9 pull-left">
+            <h1>{{title}}</h1>
+            <p class="animedesc span8 pull-left">
+				Probably the place for comment
+			</p>
+            <table class="table table-striped table-condensed table-small span3 pull-right">
+            <tbody class="pull-right">
+                <tr>
+                    <td class="muted">Myanimelist</td>
+                    <td><span class="label label-success">Done</span></td>
+                </tr>
+                <tr>
+                    <td class="muted">AniDB</td>
+                    <td><span class="label label-success">Done</span></td>
+                </tr>
+                <tr>
+                    <td class="muted">thetvdb</td>
+                    <td><span class="label label-success">Done</span></td>
+                </tr>
+                <tr>
+                    <td class="muted">Trakt.tv</td>
+                    <td><span class="label label-important">Missing</span></td>
+                </tr>
+                <tr>
+                    <td class="muted">themoviedb</td>
+                    <td><span class="label label-success">Done</span></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        <div class="span3 pull-right">
+			<img class="posterimage pull-right" {{bindAttr src="poster"}}>
+		</div>
+    </div>
+</div>
+<div class="content infobar container">
+
+</div>

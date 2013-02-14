@@ -2,7 +2,7 @@ App.Request = DS.Model.extend({
 	title: DS.attr('string'),
 	type: DS.attr('string'),
 	desc: DS.attr('string'),
-	image: DS.attr('string'),
+	poster: DS.attr('string'),
 	fanart: DS.attr('string'),
 
 	user: DS.belongsTo('App.User'), 
@@ -17,5 +17,9 @@ App.Request = DS.Model.extend({
 			return 'badge-warning';
 		else
 			return 'badge-important';
-	}.property('percentage')
+	}.property('percentage'),
+
+	fanartStyle: function(){
+		return "background-image:url("+this.get('fanart')+")";
+	}.property('fanart')
 });

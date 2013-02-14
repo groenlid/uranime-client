@@ -7,7 +7,8 @@ App.User = DS.Model.extend({
   gravatar: DS.attr('string'),
 
   userepisodes: DS.hasMany('App.UserEpisode'),
-
+  requests: DS.hasMany('App.Request'),
+  
   smallGravatar: function(){
     var gravatar = this.get('gravatar');
     if(!Ember.isNone(gravatar))

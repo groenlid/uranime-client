@@ -151,7 +151,7 @@ img.posterimage {
     @include border-radius(3px 3px 0 0);
     border:1px solid #000;
     border-width: 1px 1px 0 1px;
-
+    position:relative;
     &.small {
         height:230px;
     }
@@ -814,6 +814,15 @@ div.backdrop {
     background:rgba(0,0,0,0.6);
     text-align: center;
     vertical-align: middle;
+
+    .white-center {
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-shadow: 2px 2px 2px #000;
+    }
+
     .unseen-episodes {
         bottom: 20px;
         position: absolute;
