@@ -111,23 +111,25 @@ App.RESTAdapter.configure('plurals', {
   episodes: 'episodes',
   user_episode: 'user_episodes',
   last_seen: 'last_seen',
-  library: 'library'
+  library: 'library',
+  request: 'requests',
+  requestType: 'requestTypes'
 })
 
 
 App.RESTAdapter.map(App.Anime, {
-        episodes: {
-          embedded: 'always' // load
-        },
-        genre: {
-          embedded: 'load'
-        },
-        last_seen: {
-          embedded: 'load'
-        },
-        synonyms: {
-          embedded: 'load'
-        }
+  episodes: {
+    embedded: 'always' // load
+  },
+  genre: {
+    embedded: 'load'
+  },
+  last_seen: {
+    embedded: 'load'
+  },
+  synonyms: {
+    embedded: 'load'
+  }
 });
 
 
@@ -148,14 +150,26 @@ App.RESTAdapter.map(App.UserEpisode, {
 });
 
 App.RESTAdapter.map(App.Library, {
-        primaryKey: 'user_id',
-        anime: {
-          embedded: 'load'
-        }
+  primaryKey: 'user_id',
+  anime: {
+    embedded: 'load'
+  }
 });
 
 App.RESTAdapter.map(App.User, {
-        userepisodes: {
-          embedded: 'load'
-        }
+  userepisodes: {
+    embedded: 'load'
+  }
+});
+
+App.RESTAdapter.map(App.Request, {
+  request_info: {
+    embedded: 'load'
+  }
+});
+
+App.RESTAdapter.map(App.RequestInfo, {
+  request_attributes: {
+    embedded: 'load'
+  }
 });

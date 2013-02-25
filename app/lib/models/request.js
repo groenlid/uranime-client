@@ -1,10 +1,12 @@
 App.Request = DS.Model.extend({
 	title: DS.attr('string'),
 	type: DS.attr('string'),
-	desc: DS.attr('string'),
+	comment: DS.attr('string'),
+	ip_adress: DS.attr('string'),
 	poster: DS.attr('string'),
 	fanart: DS.attr('string'),
 
+	request_info: DS.hasMany('App.RequestInfo'),
 	user: DS.belongsTo('App.User'), 
 	status: DS.attr('string'),
 	percentage: DS.attr('number'),
@@ -22,4 +24,8 @@ App.Request = DS.Model.extend({
 	fanartStyle: function(){
 		return "background-image:url("+this.get('fanart')+")";
 	}.property('fanart')
+
+}).reopenClass({
+	addRoot:true
 });
+

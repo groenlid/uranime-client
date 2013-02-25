@@ -1,22 +1,27 @@
-<div class="content container">
-	<caption>Contains the current anime requests for the site</caption>
-	<table class="table table-hover">
-		<thead>
-			<tr>
-				<th>#</th>
-				<th>Request</th>
-				<th>Made by</th>
-				<th>Completeness</th>
-			</tr>
-		</thead>
-		<tbody>
-			{{#each request in model}}
+<div class="container margin-top">
+	<div class="row-fluid">
+		<table class="table table-hover table-striped pull-left span4 content">
+			<thead>
 				<tr>
-					<td>{{request.id}}</td>
-					<td>{{#linkTo request request}}{{request.title}}{{/linkTo}}</td>
-					<td>{{request.createdBy}}</td>
-					<td><span {{bindAttr class="request.labelclass :badge"}}>{{request.percentage}}%</span></td>
+					<th class="span10">Anime request</th>
+					<th class="span2">{{model.length}}
 				</tr>
-			{{/each}}
-	</table>
+			</thead>
+			<tbody>
+				{{#each request in model}}
+					<tr>
+						<td>
+							{{#linkTo request request}}<b>{{request.title}}</b>{{/linkTo}} <small>{{request.createdBy.nick}}</small>
+						</td>
+						<td>
+							<span {{bindAttr class="request.labelclass :badge"}}>{{request.percentage}}%</span>
+						</td>
+					</tr>
+				{{/each}}
+			</tbody>
+		</table>
+
+		{{outlet}}
+	
+	</div>
 </div>

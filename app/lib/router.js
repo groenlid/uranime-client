@@ -25,8 +25,9 @@ App.Router.map(function() {
 		this.route('library');
 	});
 
-	this.resource('requests');
-	this.resource('request', { path: '/request/:request_id' });
+	this.resource('requests', function(){
+		this.resource('request', { path: '/:request_id' });
+	});
 
 	this.resource('calendar', { path: '/calendar/:week'});
 
@@ -34,15 +35,16 @@ App.Router.map(function() {
 
 App.RequestsRoute = Ember.Route.extend({
 	model: function(params){
-		var requests = [
+		
+		/*var requests = [
 		{
 			id:1,
-			title: 'Ano Hi Mita Hana no Namae wo Bokutachi wa Mada Shiranai.',
-			fanart: 'http://thetvdb.com/banners/fanart/original/247958-18.jpg',
-			poster: 'http://thetvdb.com/banners/posters/247958-1.jpg',
+			title: 'Dragon Ball Kai',
+			fanart: 'http://urani.me/attachments/photos/orginal/4f2a552e-5a20-4ebd-aea1-18379e27ab78.jpg',
+			poster: 'http://urani.me/attachments/photos/orginal/4f2a551f-312c-446b-a18f-18379e27ab78.jpg',
 			user: 1,
 			status: 'created',
-			percentage: '90'
+			percentage: '9000'
 		},
 		{
 			id:2,
@@ -63,7 +65,8 @@ App.RequestsRoute = Ember.Route.extend({
 			percentage: 20
 		}]
 		App.store.loadMany(App.Request,requests)
-		return App.store.all(App.Request);
+		return App.store.all(App.Request);*/
+		return App.store.findAll(App.Request);
 	}
 });
 

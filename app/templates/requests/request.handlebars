@@ -1,49 +1,75 @@
-<div class="black-top">
-    <header id="fanart" {{bindAttr style="fanartStyle"}}>
+<div class="span8 pull-right content">
+	<div class="anime-gallery request">
+        <img {{bindAttr src="fanart"}}/>
 		<div class="backdrop">
-			<h1 class="white-center">
-				Pending request: {{percentage}}% complete
-			</h1>
+			<span class="white-center">
+				<img {{bindAttr src="poster"}} />
+			</span>
 		</div>
-    </header>
-</div>
-<div class="content container">
+	</div>
+
+	<h2>{{title}}</h2>
 	<div class="row-fluid">
-        <div class="span9 pull-left">
-            <h1>{{title}}</h1>
-            <p class="animedesc span8 pull-left">
-				Probably the place for comment
-			</p>
-            <table class="table table-striped table-condensed table-small span3 pull-right">
-            <tbody class="pull-right">
+		<table class="table table-striped table-small span12">
+			<thead>
                 <tr>
-                    <td class="muted">Myanimelist</td>
-                    <td><span class="label label-success">Done</span></td>
+                    <th class="span3">Site</th>
+                    <th class="span3">Season/Episodes</th>
+                    <th class="span3">Comment</th>
+                    <th class="span3">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each info in request_info}}
+                    {{#each attribute in info.request_attributes}}
+
+                        <tr>
+                            <td {{bindAttr class="info.scrape_id::muted"}}>
+                            {{#if info.scrape_id}}
+                                <a {{bindAttr href="info.site.url"}}>{{info.site.name}}</a>
+                            {{else}}
+                                {{info.site.name}}
+                            {{/if}}
+                            </td>
+                            <td>{{attribute.value}}</td>
+                            <td><i class="icon-comment"></i></td>
+                            <td><i class="icon-edit"></i> Edit</td>
+                        </tr>
+
+                    {{/each}}
+                {{/each}}
+            	<!--<tr>
+                    <td class="muted"><a>Myanimelist</a></td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="icon-edit"></i> Edit</td>
                 </tr>
                 <tr>
-                    <td class="muted">AniDB</td>
-                    <td><span class="label label-success">Done</span></td>
+                    <td class="muted"><a>AniDB</a></td>
+                    <td>Episode 14 - 94</td>
+                    <td><i class="icon-comment"></i></td>
+                    <td><i class="icon-edit"></i> Edit</td>
                 </tr>
                 <tr>
-                    <td class="muted">thetvdb</td>
-                    <td><span class="label label-success">Done</span></td>
+                    <td class="muted"><a>thetvdb</a></td>
+                    <td class="">Season 2</td>
+                    <td></td>
+                    <td><i class="icon-edit"></i> Edit</td>
                 </tr>
                 <tr>
                     <td class="muted">Trakt.tv</td>
-                    <td><span class="label label-important">Missing</span></td>
+                    <td></td>
+                    <td></td>
+                    <td><i class="icon-edit"></i> Edit</td>
                 </tr>
                 <tr>
                     <td class="muted">themoviedb</td>
-                    <td><span class="label label-success">Done</span></td>
-                </tr>
+                    <td></td>
+                    <td></td> 
+                    <td><i class="icon-edit"></i> Edit</td>
+                </tr>-->
             </tbody>
-        </table>
-        </div>
-        <div class="span3 pull-right">
-			<img class="posterimage pull-right" {{bindAttr src="poster"}}>
-		</div>
-    </div>
-</div>
-<div class="content infobar container">
-
+		</table>
+	</div>
+	<hr />
 </div>

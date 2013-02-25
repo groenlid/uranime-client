@@ -859,6 +859,29 @@ div.backdrop {
     cursor: hand;
 }
 
+.margin-top {
+    margin-top:50px;
+}
+
+.request {
+    min-height:300px;
+    .backdrop {
+        background: rgba(0, 0, 0, 0.7);
+
+
+        .white-center {
+            display:block;
+            top:0;
+            height:100%;
+        }
+
+        img {
+            max-height:80%;
+            margin-top:5%;
+        }
+    }
+}
+
 // UNUSED STUFF START
 /*
 .progressbar {
