@@ -21,3 +21,6 @@ require('uranime/modules/user/library/libraryController');
 
 //Calendar
 require('uranime/modules/calendar/calendarController');
+
+//Requests
+require('uranime/modules/requests/requestsController');

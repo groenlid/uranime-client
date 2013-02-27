@@ -8,16 +8,18 @@
 				</tr>
 			</thead>
 			<tbody>
-				{{#each request in model}}
+				{{#each request in pagedContent}}
 					<tr>
-						<td>
-							{{#linkTo request request}}<b>{{request.title}}</b>{{/linkTo}} <small>{{request.createdBy.nick}}</small>
-						</td>
-						<td>
-							<span {{bindAttr class="request.labelclass :badge"}}>{{request.percentage}}%</span>
+						<td colspan="2">
+							{{#linkTo request request}}{{request.title}}{{/linkTo}}
 						</td>
 					</tr>
 				{{/each}}
+				<tr>
+					<td colspan="2">
+						{{view App.PaginatorCollectionView contentBinding="controller.paginator"}}
+					</td>
+				</tr>
 			</tbody>
 		</table>
 

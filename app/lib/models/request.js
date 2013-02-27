@@ -23,7 +23,14 @@ App.Request = DS.Model.extend({
 
 	fanartStyle: function(){
 		return "background-image:url("+this.get('fanart')+")";
-	}.property('fanart')
+	}.property('fanart'),
+
+	showImage: function(){
+		var fanart = this.get('fanart'),
+			poster = this.get('poster');
+		
+		return !Ember.isNone(fanart) || !Ember.isNone(poster);
+	}.property('fanart','poster'),
 
 }).reopenClass({
 	addRoot:true
