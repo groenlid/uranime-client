@@ -2,7 +2,7 @@ App.CommunityView = Em.View.extend({
   templateName: "uranime/~templates/community/community",
 
   showEpisode: function (episode){
-      App.EpisodeView.popup({content:episode});
+      App.EpisodeView.popup({content:episode, controller: this.get('controller')});
   },
 
   something: function(){

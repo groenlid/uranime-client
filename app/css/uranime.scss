@@ -61,6 +61,10 @@ h1 {
     }
 }*/
 
+.relative {
+    position:relative;
+}
+
 .normal {
     font-weight:normal;
 }
@@ -111,6 +115,13 @@ img.posterimage {
    	background:#fff;
 }
 
+.centertext {
+    text-align: center;
+}
+
+.nomargin {
+    margin:0;
+}
 
 .table-small {
     font-size:0.9em;
@@ -123,7 +134,7 @@ img.posterimage {
 
 #notifications {
 	top:43px;
-	left:-73px;
+	left:-100px;
 }
 
 .transparent-bar {
@@ -509,15 +520,15 @@ select {
 
 
 // MODAL FOR EPISODE-INFORMATION
-.modal {
+
+.modal-backdrop {
+    background-color: rgba(0,0,0,0.7);
+}
+
+.modal-content {
     &.episode {
         border-radius:0 2px 2px 0;
         padding:0;
-
-        width:800px;
-        margin-left:-400px;
-        max-width:100%;
-
         color:#999;
 
         h2 {
@@ -577,6 +588,8 @@ select {
 
         .js-episodeInfo{
             border-right:1px solid #ccc;
+            padding-right: 0;
+            margin-right: 0;
         }
 
         .modal-episode {
@@ -612,6 +625,7 @@ select {
             font-size:1.0em;
             color:#555;
             line-height:1.1em;
+            margin-top: 0px;
         }
 
         .comment-avatar {
@@ -941,6 +955,15 @@ div.backdrop {
         width: 960px;
     }
 }*/
+
+@media (min-width: $responsive_medium) {
+    .modal-dialog {
+        &.episode {
+            width:800px;
+            margin-left:-400px;
+        }
+    }
+}
 
 @media (max-width: $responsive_medium) {
   .navbar-fixed-top,

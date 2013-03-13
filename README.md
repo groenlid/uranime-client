@@ -16,6 +16,8 @@ Episode-Modal
 * ~~Next-Previous episodes from episode-modal~~
 * Esc from episode-modal - Click outside box
 * Bigger buttons for next/prev. Alternatively swipe for next/prev or arrowkeys
+* When moving between episodes, the last-activity column (height) is not re-calculated.
+* Users should be able to comment each episode
 
 Search
 --
@@ -73,10 +75,10 @@ TODO:
 * ~~Jeg liker hånd på alt av linker~~
 * ~~Tooltip tingen over "Last seen by" brukere forventa jeg at skulle komme opp og gå bort ved hover-in/out~~
 * Denne lista burde også har brukernavn(?)
-* Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu
+* ~~Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu~~
 * ~~Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)~~
-* Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
-Som sagt, bare småshit. 
+* ~~Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
+Som sagt, bare småshit. ~~
 
 ===
 Tror det blir sånn typ:

@@ -1,7 +1,7 @@
 App.EpisodeView = Bootstrap.ModalPane.extend({
   templateName: "uranime/~templates/episode/episodeModal",
 
-
+  
   /**
    Set the height of the last active box
    based on the episode description and 
@@ -9,6 +9,9 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
    */
   didInsertElement: function (){
     var content = this.get('content'), id = content.get('id');
+
+    // Instanciate the modal through bootstrap
+    $('.modal').modal();
 
     //$('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight();
     $('.js-commentsHeight').height(
@@ -20,7 +23,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     
     if(Ember.isEmpty(this.get('content.userepisode')))
       App.store.find(App.Episode,{id:id});
-    
+
   },
 
   relativeEpisode: function(relative){
@@ -61,5 +64,13 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     if(!Ember.isNone(previousEpisode) && !previousEpisode.get('isLoading') && Ember.isEmpty(previousEpisode.get('userepisode')))
       previousEpisode.reload();
     this.set('content',previousEpisode);
+  },
+
+  goToAnime: function(anime){
+    var router = this.get('controller').container.lookup('router:main');
+    router.transitionTo('anime.description', anime);
+    $('body').removeClass('modal-open');
+    $('.modal-backdrop').remove();
+    this.destroy();
   }
 });

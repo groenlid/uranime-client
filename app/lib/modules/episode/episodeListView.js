@@ -5,7 +5,7 @@ App.EpisodeListView = Ember.CollectionView.extend({
 		templateName: 'uranime/~templates/episode/episodeListItem',
 
 		showEpisode: function (episode){
-			App.EpisodeView.popup({content:episode});
+			App.EpisodeView.popup({content:episode, controller: this.get('controller')});
 		}
 
 	})

@@ -1,8 +1,6 @@
 require('moment');
 App.AnimeActivityView = Ember.CollectionView.extend({
-  
-  tagName: 'ul',
-  classNames: ['thumbnails'],
+  classNames: ['row'],
 
   itemViewClass: Ember.View.extend({
     template: Ember.Handlebars.compile("<a class='thumbnail clickable'><img {{bindAttr src='view.content.gravatarSmall'}}/></a>"),
@@ -12,8 +10,7 @@ App.AnimeActivityView = Ember.CollectionView.extend({
       this.get('controller').send('goToLibrary',content);
     },
 
-    tagName: 'li',
-    classNames: ['span1'],
+    classNames: ['span1 pull-left margin'],
     
     didInsertElement: function(){
       var episodes = this.get('parentView.episodes'), 

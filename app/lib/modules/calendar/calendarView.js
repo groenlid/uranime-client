@@ -6,7 +6,7 @@ App.CalendarView = Em.View.extend({
   queryBinding: 'controller.content.query.week',
 
   showEpisode: function (episode){
-      App.EpisodeView.popup({content:episode});
+      App.EpisodeView.popup({content:episode, controller: this.get('controller')});
   },
 
   /*goToAnimeByEpisode: function(e,a){

@@ -1,20 +1,16 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
-			<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-				<span class="icon-list-alt icon-white"></span>
-			</a>
-			<a class="btn btn-navbar visible-phone" data-toggle="collapse" data-target=".nav-search">
-				<span class="icon-search icon-white"></span>
-			</a>
-			<a class="brand" href="#">Uranime</a>
-			<ul class="nav hidden-phone">
-					{{#view App.SearchFormView class="navbar-search"}}
-						{{view Ember.TextField valueBinding="view.searchQuery" placeholder="Search for anime" class="input-large search-query"}}
-						<!-- <button type="submit" class="btn">Search</button>-->
-					{{/view}}
-			</ul>
-			<div class="nav-collapse">
+	        <a class="navbar-toggle pull-left" data-toggle="collapse" data-target=".nav-collapse">
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	          <span class="icon-bar"></span>
+	        </a>
+	        <a class="navbar-brand" href="#">Uranime</a>
+			<div class="navbar-form pull-left">
+					{{view App.SearchFormView}}
+			</div>
+			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li>{{#linkTo community}}Community{{/linkTo}}</li>
 					<li>{{#linkTo calendar date}}Calendar{{/linkTo}}
@@ -50,7 +46,7 @@
 </div>
 <div class="navbar-fixed-top nav-search collapse">
   		<div class="navbar-inner">
-  			<div class="row-fluid">
+  			<div class="row">
 	  			{{#view App.SearchFormView class="navbar-form span9"}}
 						{{view Ember.TextField valueBinding="view.searchQuery" placeholder="Search for anime" class="input-large search-query"}}
 						<!--<button type="submit" class="btn hidden">Search</button>-->

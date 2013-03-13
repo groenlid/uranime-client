@@ -1,28 +1,29 @@
 <div class="container margin-top">
-	<div class="row-fluid">
-		<table class="table table-hover table-striped pull-left span4 content">
-			<thead>
-				<tr>
-					<th class="span10">Anime request</th>
-					<th class="span2">{{model.length}}
-				</tr>
-			</thead>
-			<tbody>
-				{{#each request in pagedContent}}
+	<div class="row">
+		<div class="span4">
+			<table class="content table table-hover table-striped pull-left">
+				<thead>
+					<tr>
+						<th class="span10">Anime request</th>
+						<th class="span2">{{model.length}}
+					</tr>
+				</thead>
+				<tbody>
+					{{#each request in pagedContent}}
+						<tr>
+							<td colspan="2">
+								{{#linkTo request request}}{{request.title}}{{/linkTo}}
+							</td>
+						</tr>
+					{{/each}}
 					<tr>
 						<td colspan="2">
-							{{#linkTo request request}}{{request.title}}{{/linkTo}}
+							{{view App.PaginatorCollectionView contentBinding="controller.paginator"}}
 						</td>
 					</tr>
-				{{/each}}
-				<tr>
-					<td colspan="2">
-						{{view App.PaginatorCollectionView contentBinding="controller.paginator"}}
-					</td>
-				</tr>
-			</tbody>
-		</table>
-
+				</tbody>
+			</table>
+		</div>
 		{{outlet}}
 	
 	</div>

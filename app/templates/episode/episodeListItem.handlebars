@@ -1,5 +1,5 @@
 {{#with view.content}}
-<div class="row-fluid episodelist">
+<div class="row episodelist">
     <div class="pull-left span2">
         <div class="gallery-image">
             <a class="clickable" {{action showEpisode this target="view"}}>
@@ -7,7 +7,7 @@
         </div>
     </div>
     <div class="span8 episode-info">
-        <div class="row-fluid">
+        <div class="row">
             <h4 class="span10 normal">
                 <a class="clickable" {{action showEpisode this target="view"}}>
                     {{#if this.special}}
