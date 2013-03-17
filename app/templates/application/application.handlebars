@@ -7,15 +7,19 @@
 	          <span class="icon-bar"></span>
 	        </a>
 	        <a class="navbar-brand" href="#">Uranime</a>
-			<div class="navbar-form pull-left">
-					{{view App.SearchFormView}}
-			</div>
+
 			<div class="nav-collapse collapse">
+
+				<div class="navbar-form pull-left">
+					{{view App.SearchFormView}}
+				</div>
+
 				<ul class="nav">
 					<li>{{#linkTo community}}Community{{/linkTo}}</li>
 					<li>{{#linkTo calendar date}}Calendar{{/linkTo}}
 					<li>{{#linkTo requests}}Requests{{/linkTo}}
 				</ul>	
+				
 				<ul class="nav pull-right">
 
 					<!-- Notification w/popover -->

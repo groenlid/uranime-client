@@ -11,6 +11,15 @@ App.Request = DS.Model.extend({
 	status: DS.attr('string'),
 	percentage: DS.attr('number'),
 
+
+	sortableId: function(){
+		return parseInt(this.get('id'));
+	}.property('id'),
+
+	emptyRequestInfo: function(){
+		return this.get('request_info.length') == 0;
+	}.property('request_info'),                               
+
 	labelclass: function(){
 		var percentage = this.get('percentage');
 		if(percentage >= 70)

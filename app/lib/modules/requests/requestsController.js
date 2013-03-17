@@ -1,6 +1,6 @@
 App.RequestsController = Ember.ArrayController.extend(Ember.PaginationSupport,{
 
-	sortProperties: ['id'],
+	sortProperties: ['sortableId'],
 	sortAscending: false,
 
 	totalBinding: 'content.length',

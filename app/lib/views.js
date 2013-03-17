@@ -44,5 +44,8 @@ require('uranime/modules/calendar/calendarView');
 // Requests
 require('uranime/modules/requests/requestsView');
 
-// Requests -> index
+// Requests -> Index
+require('uranime/modules/requests/requestsIndexView');
+
+// Requests -> request
 require('uranime/modules/requests/requestView');
