@@ -77,8 +77,7 @@ TODO:
 * Denne lista burde også har brukernavn(?)
 * ~~Under last avtivity når man ser på info om en episode, så burde scrollinga dekt hele vindu~~
 * ~~Datoen/klokkeslettet nederst i samme vindu burde bare være dato, eller anderledes formatert(?)~~
-* ~~Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more"
-Som sagt, bare småshit. ~~
+* ~~Hadde vært litt kult hvis "& tags" ble bold når du trykka på "more" Som sagt, bare småshit. ~~
 
 ===
 Tror det blir sånn typ:

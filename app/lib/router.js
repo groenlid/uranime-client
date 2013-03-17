@@ -35,37 +35,6 @@ App.Router.map(function() {
 
 App.RequestsRoute = Ember.Route.extend({
 	model: function(params){
-		
-		/*var requests = [
-		{
-			id:1,
-			title: 'Dragon Ball Kai',
-			fanart: 'http://urani.me/attachments/photos/orginal/4f2a552e-5a20-4ebd-aea1-18379e27ab78.jpg',
-			poster: 'http://urani.me/attachments/photos/orginal/4f2a551f-312c-446b-a18f-18379e27ab78.jpg',
-			user: 1,
-			status: 'created',
-			percentage: '9000'
-		},
-		{
-			id:2,
-			title: 'Yu-Gi-Oh',
-			fanart: 'http://thetvdb.com/banners/fanart/original/113561-1.jpg',
-			poster: 'http://thetvdb.com/banners/posters/113561-1.jpg',
-			user: 3,
-			status: 'created',
-			percentage: 50
-		},
-		{
-			id:3,
-			title: 'Hunter x hunter',
-			fanart: 'http://static.zerochan.net/Hunter.x.Hunter.full.389508.jpg',
-			poster: 'http://thetvdb.com/banners/posters/252322-2.jpg',
-			user: 2,
-			status: 'created',
-			percentage: 20
-		}]
-		App.store.loadMany(App.Request,requests)
-		return App.store.all(App.Request);*/
 		return App.store.findAll(App.Request);
 	}
 });
@@ -78,10 +47,6 @@ App.CalendarRoute = Ember.Route.extend({
 
 	setupController: function(controller, model){
 		controller.set('content',model);
-		/*if(Ember.typeOf(model) == "string")
-			controller.set('content', App.Episode.find({week:model}));
-		else
-			controller.set('content',model);*/
 	},
 
 	events: {
@@ -105,16 +70,13 @@ App.ApplicationRoute = Ember.Route.extend({
 });
 
 App.AnimeRoute = Ember.Route.extend({
-	/*model: function(params){
-		return App.Anime.find(params.id);
-	},*/
 
 	setupController: function(controller, model) {
 		controller.set('content', model);
 
 		//var content = controller.get('content');
-   	if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
-   		model.reload();
+	   	if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
+	   		model.reload();
   }
 });
 
@@ -126,10 +88,7 @@ App.AnimeDescriptionRoute = Ember.Route.extend({
 });
 
 App.AnimeEpisodesRoute = Ember.Route.extend({
-	/*renderTemplate: function() {
-		var controller = this.controllerFor('anime');
-		this.render({ controller: controller });
-	}*/
+
 	setupController: function(controller, model){
 		controller.set('anime',this.controllerFor('anime').get('content'));
 	}
@@ -160,9 +119,6 @@ App.CommunityRoute = Ember.Route.extend({
 });
 
 App.SearchRoute = Ember.Route.extend({
-	/*model: function(params) {
-    return App.Anime.find({title: params.query});
-  },*/
 
   deserialize: function(params){
   	console.log("deserialize", arguments);
@@ -173,83 +129,6 @@ App.SearchRoute = Ember.Route.extend({
   serialize: function(params){
   	console.log("serialize", arguments);
   	return {query: params.query.title}
-  	//return params.query;
   },
 
 });
-
-/*
-App.Router = Ember.Router.extend({
-  enableLogging: true,
-
-  root: Ember.Route.extend({
-	  
-		goToSearch: Ember.Route.transitionTo('search'),
-	  goToAnime: Ember.Route.transitionTo('anime.animeDesc'),
-	  goToCommunity: Ember.Route.transitionTo('community'),
-	  
-		index: Ember.Route.extend({
-			route: '/',
-			
-			// EVENTS
-
-			searchAnime: function( router, evt ){
-				console.log("searching");
-				router.transitionTo('search',evt);
-			},
-
-			connectOutlets: function( router ){
-				//App.store.find(App.Anime, 1);
-				router.get('applicationController').connectOutlet('front');
-			}
-		}),
-		anime: Ember.Route.extend({
-			route: '/anime/:id',
-
-			connectOutlets: function( router, context) { // context is the anime
-					var idValue = context.id;
-
-					router.get('applicationController').connectOutlet('anime',App.store.find(App.Anime, idValue));
-			},	
-
-			// Transitions
-			goToEpisodes: Ember.Route.transitionTo('animeEpisodes'),
-
-			animeDesc: Ember.Route.extend({
-				route: '/',
-
-				connectOutlets: function( router, context ) {
-					router.get('animeController').connectOutlet('animeDesc');
-				}
-
-			}),
-
-			animeEpisodes: Ember.Route.extend({
-				route: '/episodes',
-
-				connectOutlets: function( router, context ) {
-					router.get('animeController').connectOutlet('animeEpisodes');
-				}
-			})
-
-		}),
-		search: Ember.Route.extend({
-			route: '/search/:query',
-			
-			connectOutlets: function( router, context ){ // context is the query
-				console.log("The query is: '" + context.query + "'");
-				// STATES
-				router.get('applicationController').connectOutlet('search', App.store.find(App.Anime,{title:context.query}));
-			}
-		}),
-
-		community: Ember.Route.extend({
-			route: '/community',
-
-			connectOutlets: function( router, context ){
-				router.get('applicationController').connectOutlet('community', App.store.find(App.UserEpisode, {limit:10}));
-			}
-		})
-	})
-});
-*/

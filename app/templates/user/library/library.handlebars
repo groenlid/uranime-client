@@ -1,7 +1,9 @@
 <div class="content container">
   <ul class="breadcrumb">
     <li>
-      {{#linkTo "user.profile" controller.content.firstObject.user}}{{controller.content.firstObject.user.nick}}{{/linkTo}}<span class="divider">/</span>
+      {{#linkTo "user.profile" controller.content.firstObject.user}}
+        {{controller.content.firstObject.user.nick}}
+      {{/linkTo}}
     </li>
     <li class="active">Library</li>
   </ul>
