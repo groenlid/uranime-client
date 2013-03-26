@@ -47,17 +47,19 @@
 <div class="container content">
 
     {{! LAST AIRED EPISODES }}
+    <div class="gallery-header row">
+            {{#if hasFutureEpisodes}} 
+                <h2 class="span3">Next <span class="normal">episode</span></h2>
+            {{/if}}
+            <h2 class="span3">Last aired <span class="normal">episodes</span></h2>
+            {{#linkTo 'anime.episodes' class="btn btn-small pull-right bold"}}
+                More
+            {{/linkTo}}
+    </div>
     <div class="row">
         <div class="anime-gallery">
-            <div class="gallery-header">
-                {{#if hasFutureEpisodes}} 
-                    <h2>Next <span class="normal">episode</span></h2>
-                {{/if}}
-                <h2>Last aired <span class="normal">episodes</span></h2>
-                {{#linkTo 'anime.episodes' class="btn btn-small pull-right bold"}}More{{/linkTo}}
-            </div>
             {{#each episode in lastEpisodes}}
-            <div class="pull-left gallery-episode">
+            <div class="pull-left span3">
                 <div class="gallery-image">
                     <a {{action showEpisode episode target="view"}} class="clickable">
                         <img {{bindAttr src="episode.imageURL"}}/>

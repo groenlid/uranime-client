@@ -8,7 +8,7 @@ App.CalendarController = Ember.ObjectController.extend({
   }.property('model'),
 
   arrangedEpisodes: function(){
-    var now, ret = Ember.A(), dayEpisodes, curDay;
+    var now, ret = Ember.A(), dayEpisodes, curDay, date;
     // Fetch the current date
     now = moment(this.get('model'));
 
@@ -17,7 +17,11 @@ App.CalendarController = Ember.ObjectController.extend({
       // Each row will contain title and episodes-array
       curDay = Ember.A();
       date = now.day(weekday).format(App.Config.get('serverDateFormat'));
-      curDay.pushObject(date);
+
+      curDay.pushObject(Ember.Object.create({
+        date: date,
+        weekday: now.day(weekday).format('dddd')
+      }));
 
       // episodes
       dayEpisodes = this.get('episodes').filter(function(data){
@@ -48,6 +52,12 @@ App.CalendarController = Ember.ObjectController.extend({
      return now.subtract('days', 7).format('YYYY-MM-DD');
   }.property('model'),
 
+  lastWeekLink : function(){
+    var lastWeek = this.get('lastWeek'),
+      m = moment(lastWeek, 'YYYY-MM-DD');
+    return lastWeek + ' - ' + m.add('days',7).format('YYYY-MM-DD');
+  }.property('lastWeek'),
+
 //ONS 06-02-2012
 //4
 
@@ -56,4 +66,12 @@ App.CalendarController = Ember.ObjectController.extend({
     if(now.isValid())
      return now.add('days', 7).format('YYYY-MM-DD');
   }.property('model'),
+
+  nextWeekLink : function(){
+    var nextWeek = this.get('nextWeek'),
+      m = moment(nextWeek, 'YYYY-MM-DD');
+    return nextWeek + ' - ' + m.add('days',7).format('YYYY-MM-DD');
+  }.property('nextWeek')
+
+
 });

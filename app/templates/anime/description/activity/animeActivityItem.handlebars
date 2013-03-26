@@ -1,0 +1,16 @@
+<div class='gallery-image'>
+    <a>
+        <img {{bindAttr src='view.content.gravatarSmall'}}/>
+        {{log view.content}}
+        {{#if view.incomplete}}
+            <div class="backdrop">
+                <!-- <div class="unseen-episodes"><small>{{view.content.amount}}/{{view.episodes.length}}</small></div>-->
+                    <div class="smallprogress">
+                        <div class="smallprogress-filled" {{bindAttr style="view.percentStyle"}}>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </a>
+</div>
+<p>{{view.content.nick}}</p>

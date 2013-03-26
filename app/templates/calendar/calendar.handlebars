@@ -1,32 +1,35 @@
 <div class="content container">
 	<ul class="pager">
 		<li class="previous">
-			{{#linkTo "calendar" lastWeek}}&larr; Oldie but a goodie{{/linkTo}}
+			{{#linkTo "calendar" lastWeek}}{{lastWeekLink}}{{/linkTo}}
 		</li>
 		<li class="next">
-			{{#linkTo "calendar" nextWeek}}Into the future!! &rarr;{{/linkTo}}
+			{{#linkTo "calendar" nextWeek}}{{nextWeekLink}}{{/linkTo}}
 		</li>
 	</ul>
-
-	
-	{{#each day in controller.arrangedEpisodes}}
-		<h2 class="calendar">{{day.firstObject}}</h2>
-		{{#each episode in day.lastObject}}
-		<div class="pull-left gallery-episode">
-			<div class="gallery-image">
-				<a {{action showEpisode episode target="view"}} class="clickable">
-					<img {{bindAttr src="episode.imageURL"}}>
-				</a>
-			</div>
-			<p class="bold single">
-				{{#linkTo "anime.description" episode.anime}}
-					{{episode.anime.title}} {{episode.number}}
-				{{/linkTo}}
-			</p>
-			<p class="calendarinfo single">
-				{{episode.name}}
-			</p>
-		</div>
-		{{/each}}
-	{{/each}}
 </div>
+{{#each day in controller.arrangedEpisodes}}
+    <div class="content container infobar">
+        <h1 class="text-center">{{day.firstObject.weekday}} <span class="normal">{{day.firstObject.date}}</span></h1>
+    </div>
+    <div class="content container">
+        {{#each episode in day.lastObject}}
+            <div class="pull-left gallery-episode">
+                <div class="gallery-image">
+                    <a {{action showEpisode episode target="view"}} class="clickable">
+                        <img {{bindAttr src="episode.imageURL"}}>
+                    </a>
+                </div>
+                <p class="bold single">
+                    {{#linkTo "anime.description" episode.anime}}
+                        {{episode.anime.title}} {{episode.number}}
+                    {{/linkTo}}
+                </p>
+                <p class="calendarinfo single">
+                    {{episode.name}}
+                </p>
+            </div>
+        {{/each}}
+    </div>
+{{/each}}
+

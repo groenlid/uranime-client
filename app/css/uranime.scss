@@ -817,6 +817,11 @@ div.anime-library {
     }
 }
 
+.spanpadding {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+
 div.backdrop {
     
     display:inline !important;
@@ -845,6 +850,7 @@ div.backdrop {
         color: rgba(255,255,255,0.8);
         font-weight: bold;
         font-size: 23px;
+        text-shadow: 0px 1px 1px #000;
     }
 
     .smallprogress {
