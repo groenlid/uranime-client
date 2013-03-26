@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Uranime</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/> 
+    <link rel="stylesheet" href="css/bootstrap.css" media="screen" />
+    <link rel="stylesheet" href="css/app.css" media="screen" />
+    <link rel="stylesheet" href="css/font-proximanova.css" media="screen" />
+    
+  </head>
+  <body role="application">
+    <script src="assets/loader.js"></script>
+    <script src="application.js"></script>
+    <script>
+
+      /*              '.       
+        .-""-._     \ \.--|  
+       /       "-..__) .-'   
+                ಠ_______ಠ      /     
+      \'-.__,   .__.,'       
+       `'----'._\--'  
+      * Whale whale whale, what have we here?
+      */
+      
+      (function() {
+            $("[rel=popover]").popover();
+        })();
+        
+    </script>
+  </body>
+</html>

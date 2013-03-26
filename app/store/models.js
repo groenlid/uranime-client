@@ -1,0 +1,13 @@
+require('uranime/models/anime');
+require('uranime/models/episode');
+require('uranime/models/genre');
+require('uranime/models/synonym');
+require('uranime/models/userepisode');
+require('uranime/models/user');
+require('uranime/models/seenActivity');
+require('uranime/models/library');
+require('uranime/models/request');
+require('uranime/models/requestAttribute');
+require('uranime/models/requestInfo');
+require('uranime/models/requestType');
+require('uranime/models/site');
