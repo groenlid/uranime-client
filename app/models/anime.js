@@ -108,8 +108,8 @@ App.Anime = DS.Model.extend({
   hasFutureEpisodes: function() {
   	var episodesAirDate = this.get('episodes').getEach('aired');
   	var hasFuture = false;
-  	
-  	episodeAirDate.forEach(function(content){
+
+    episodesAirDate.forEach(function(content){
   		if(!Ember.isNone(content) && new Date(content) > new Date())
   			hasFuture = true;
   	});

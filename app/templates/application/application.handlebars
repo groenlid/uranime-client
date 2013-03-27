@@ -1,52 +1,50 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
-	<div class="navbar-inner">
-		<div class="container">
-	        <a class="navbar-toggle pull-left" data-toggle="collapse" data-target=".nav-collapse">
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	          <span class="icon-bar"></span>
-	        </a>
-	        <a class="navbar-brand" href="#">Uranime</a>
+    <div class="container">
+        <a class="navbar-toggle pull-left" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="navbar-brand" href="#">Uranime</a>
 
-			<div class="nav-collapse collapse">
+        <div class="nav-collapse collapse">
 
-				<div class="navbar-form pull-left">
-					{{view App.SearchFormView}}
-				</div>
+            <div class="navbar-form pull-left">
+                {{view App.SearchFormView}}
+            </div>
 
-				<ul class="nav">
-					<li>{{#linkTo community}}Community{{/linkTo}}</li>
-					<li>{{#linkTo calendar date}}Calendar{{/linkTo}}
-					<li>{{#linkTo requests}}Requests{{/linkTo}}
-				</ul>	
-				
-				<ul class="nav pull-right">
+            <ul class="nav">
+                <li>{{#linkTo community}}Community{{/linkTo}}</li>
+                <li>{{#linkTo calendar date}}Calendar{{/linkTo}}
+                <li>{{#linkTo requests}}Requests{{/linkTo}}
+            </ul>
 
-					<!-- Notification w/popover -->
-					<li class="divider-vertical"></li>
-					{{view App.NotificationsView}}
+            <ul class="nav pull-right">
+
+                <!-- Notification w/popover -->
+                <li class="divider-vertical"></li>
+                {{view App.NotificationsView}}
 
 
-					<!-- User profile -->
-					<li class="divider-vertical"></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-							 <img src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20" class="img-rounded"> Groenlid <b class="caret"></b>
-						</a>
-						<ul class="dropdown-menu">
-							<li><a tabindex="-1">Profile</a></li>
-							<li><a tabindex="-1">Watchlist</a></li>
-							<li><a href="index.html#/user/1/library" tabindex="-1">Library</a></li>
-							<li><a tabindex="-1">Settings</a></li>
-							<li><a tabindex="-1">Help</a></li>
-							<li class="divider"></li>
-							<li><a tabindex="-1">Logout</a></li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+                <!-- User profile -->
+                <li class="divider-vertical"></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                         <img src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20" class="img-rounded"> Groenlid <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a tabindex="-1">Profile</a></li>
+                        <li><a tabindex="-1">Watchlist</a></li>
+                        <li><a href="index.html#/user/1/library" tabindex="-1">Library</a></li>
+                        <li><a tabindex="-1">Settings</a></li>
+                        <li><a tabindex="-1">Help</a></li>
+                        <li class="divider"></li>
+                        <li><a tabindex="-1">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
 <div class="navbar-fixed-top nav-search collapse">
   		<div class="navbar-inner">

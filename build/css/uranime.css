@@ -499,7 +499,7 @@ select {
 
 /* line 466, ../../app/sass/uranime.scss */
 .tag {
-  background: url(./img/tag.png) no-repeat 0 0;
+  background: url(../img/tag.png) no-repeat 0 0;
   color: #3f3f3f;
   display: none;
   float: left;
@@ -529,7 +529,7 @@ select {
 
 /* line 470, ../../app/sass/uranime.scss */
 .tag_name {
-  background: url(./img/tag.png) no-repeat 100% -25px;
+  background: url(../img/tag.png) no-repeat 100% -25px;
   height: 19px;
   padding: 6px 10px 0 0;
   position: relative;
@@ -540,7 +540,7 @@ select {
 
 /* line 471, ../../app/sass/uranime.scss */
 .tag_count {
-  background: url(./img/tag.png) no-repeat 100% -50px;
+  background: url(../img/tag.png) no-repeat 100% -50px;
   color: #fff;
   height: 19px;
   padding: 5px 10px 0;
@@ -553,7 +553,7 @@ select {
 
 /* line 474, ../../app/sass/uranime.scss */
 .genre {
-  background: url(./img/tag2.png) no-repeat 0 0;
+  background: url(../img/tag2.png) no-repeat 0 0;
   color: #3f3f3f;
   display: none;
   float: left;
@@ -583,7 +583,7 @@ select {
 
 /* line 478, ../../app/sass/uranime.scss */
 .genre_name {
-  background: url(./img/tag2.png) no-repeat 100% -25px;
+  background: url(../img/tag2.png) no-repeat 100% -25px;
   height: 19px;
   padding: 6px 10px 0 0;
   position: relative;
@@ -594,7 +594,7 @@ select {
 
 /* line 479, ../../app/sass/uranime.scss */
 .genre_count {
-  background: url(./img/tag2.png) no-repeat 100% -50px;
+  background: url(../img/tag2.png) no-repeat 100% -50px;
   color: #fff;
   height: 19px;
   padding: 5px 10px 0;

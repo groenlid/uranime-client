@@ -463,20 +463,20 @@ select {
 
 // Tags
 
-.tag 					{ background: url(./img/tag.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
+.tag 					{ background: url(../img/tag.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
 .tag:hover 				{ cursor: pointer; }
 .tag:active 			{ top: 1px; }
 .tag span 				{ display: block; float: left; }
-.tag_name 				{ background: url(./img/tag.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
-.tag_count 				{ background: url(./img/tag.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
+.tag_name 				{ background: url(../img/tag.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
+.tag_count 				{ background: url(../img/tag.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
 
 
-.genre                    { background: url(./img/tag2.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
+.genre                    { background: url(../img/tag2.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
 .genre:hover              { cursor: pointer; }
 .genre:active             { top: 1px; }
 .genre span               { display: block; float: left; }
-.genre_name               { background: url(./img/tag2.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
-.genre_count              { background: url(./img/tag2.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
+.genre_name               { background: url(../img/tag2.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
+.genre_count              { background: url(../img/tag2.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
 
 
 // SPLASH PAGE
