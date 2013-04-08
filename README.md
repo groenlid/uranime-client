@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/groenlid/uranime-client.png?branch=master)](https://travis-ci.org/groenlid/uranime-client)
 
 Demo: http://groenlid.com
-![ScreenShot](https://raw.github.com/groenlid/uranime-client/master/md/screenshot-1.jpg)
+![ScreenShot](https://raw.github.com/groenlid/uranime-client/master/md/screenshot-1.png)
 
 Todo
 ==
