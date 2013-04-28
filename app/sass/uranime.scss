@@ -270,9 +270,10 @@ img.animeimage, #fanart .animetitle {
 	position:relative;
     
     p {
-        margin-left:5px;
-        overflow:hidden;
+        max-height:1.5em;
+        text-align:center;
         width:100%;
+        overflow: hidden;
     }
     
     .gallery-header {
@@ -319,7 +320,7 @@ h2.calendar {
     border:3px solid #F5F4F9;
     box-shadow:inset 1px 1px 0 #D0D1D5, inset -1px -1px 0 #D0D1D5;
     display:inline-block;
-    padding:3px 5px 3px 3px;
+    padding:3px;
     max-width:100%;
     position:relative;
     @include box-sizing(border-box);
@@ -377,34 +378,22 @@ h2.calendar {
 }
 
 .gallery-episode {
-    width:215px;
-    margin:5px 10px 5px 0;
     a {
         img {
             width: 215px;
             height:113px;
         }
     }
-    p.single {
-        height: 1.5em;
-        overflow: hidden;  
-    }
 }
 
 .gallery-poster {
-    width: 166px;
-    margin:10px;
+    width: 150px;
+    height: 270px;
     a {
         img {
             width: 150px;
             height: 225px;
         }
-    }
-    p {
-        height:1.5em;
-        text-align:center;
-        width:100%;
-        text-overflow: clip;
     }
 }
 
@@ -463,7 +452,7 @@ select {
 
 // Tags
 
-.tag 					{ background: url(../img/tag.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
+.tag 					{ min-width:29px; background: url(../img/tag.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
 .tag:hover 				{ cursor: pointer; }
 .tag:active 			{ top: 1px; }
 .tag span 				{ display: block; float: left; }
@@ -471,7 +460,7 @@ select {
 .tag_count 				{ background: url(../img/tag.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
 
 
-.genre                    { background: url(../img/tag2.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
+.genre                    { min-width:29px; background: url(../img/tag2.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
 .genre:hover              { cursor: pointer; }
 .genre:active             { top: 1px; }
 .genre span               { display: block; float: left; }

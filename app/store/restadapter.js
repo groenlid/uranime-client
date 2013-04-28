@@ -8,9 +8,10 @@ App.RESTAdapter = DS.RESTAdapter.extend({
       last_seen: 'App.SeenActivity'
     },
 
-    url: 'http://localhost:3000',
+    //url: 'http://localhost:3000',
     //url: 'http://uranime.azurewebsites.net',
-	
+    url: 'http://groenlid.no-ip.org:3000',
+    
   ajax: function(url, type, hash) {
     hash.url = url;
     hash.type = type;
@@ -121,10 +122,10 @@ App.RESTAdapter.map(App.Anime, {
   episodes: {
     embedded: 'always' // load
   },
-  genre: {
+  genres: {
     embedded: 'load'
   },
-  last_seen: {
+  seen: {
     embedded: 'load'
   },
   synonyms: {
@@ -134,7 +135,8 @@ App.RESTAdapter.map(App.Anime, {
 
 
 App.RESTAdapter.map(App.Episode, {
-        userepisodes: {
+        seenEpisodes: {
+          key: 'SeenEpisodes',
           embedded: 'load'
         }
 });

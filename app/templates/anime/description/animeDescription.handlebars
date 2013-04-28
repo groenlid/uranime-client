@@ -89,7 +89,7 @@
     <div class="row">
         <ul class="span10">
 
-        {{#each g in genres}}
+        {{#each g in onlyGenres}}
             <li class="pull-left">
                 <a class="genre" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
                     <span class="genre_name">{{g.name}}</span>
@@ -98,7 +98,7 @@
             </li>
         {{/each}}
         {{#if view.showTags}}
-            {{#each t in tags}}
+            {{#each t in onlyTags}}
                 <li class="pull-left">
                     <a class="tag" rel="popover" {{bindAttr data-content="t.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
                         <span class="tag_name">{{t.name}}</span>
@@ -117,7 +117,7 @@
     <div class="row">
         <h2><span class="normal">Last</span> seen <span class="normal">by</span></h2>
         
-        {{view App.AnimeActivityView contentBinding="last_seen" episodesBinding="episodes"}}
+        {{view App.AnimeActivityView contentBinding="seen" episodesBinding="episodes"}}
     </div>
 
 </div>

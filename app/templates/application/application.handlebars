@@ -9,10 +9,6 @@
 
         <div class="nav-collapse collapse">
 
-            <div class="navbar-form pull-left">
-                {{view App.SearchFormView}}
-            </div>
-
             <ul class="nav">
                 <li>{{#linkTo community}}Community{{/linkTo}}</li>
                 <li>{{#linkTo calendar date}}Calendar{{/linkTo}}
@@ -22,6 +18,8 @@
             <ul class="nav pull-right">
 
                 <!-- Notification w/popover -->
+                <li class="divider-vertical"></li>
+                {{view App.SearchFormView}}
                 <li class="divider-vertical"></li>
                 {{view App.NotificationsView}}
 

@@ -1,16 +1,20 @@
 <hr>
 {{#with view.content}}
 <div class="media">
-  {{#linkTo 'anime.description' this class="pull-left"}}
-      <img class="thumbnail" {{bindAttr src="imageURLSmallest"}} />
-  {{/linkTo}}
+  <div class="gallery-poster pull-left">
+    <div class="gallery-image">
+      {{#linkTo 'anime.description' this}}
+          <img {{bindAttr src="imageURLSmall"}} />
+      {{/linkTo}}
+    </div>
+  </div>
   <div class="media-body">
     <h4 class="media-heading">
     	{{#linkTo anime.description this}}
 				{{title}}
 			{{/linkTo}}
 		</h4>
-    <p>{{desc}}</p>
+    <p>{{{desc}}}</p>
   </div>
 </div>
 {{/with}}

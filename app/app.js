@@ -99,4 +99,3 @@ require('app/controllers');
 require('app/router/router');
 
 App.initialize();
-

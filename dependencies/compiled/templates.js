@@ -152,7 +152,7 @@ function program9(depth0,data) {
   var buffer = '', stack1, hashTypes;
   data.buffer.push("\n            ");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "t", "in", "tags", {hash:{},inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers.each.call(depth0, "t", "in", "onlyTags", {hash:{},inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n        ");
   return buffer;
@@ -243,7 +243,7 @@ function program10(depth0,data) {
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"btn btn-small pull-right\" style=\"margin-top:5px;\">More</a>\n    <br class=\"clearfix\">\n\n    <div class=\"row\">\n        <ul class=\"span10\">\n\n        ");
   hashTypes = {};
-  stack2 = helpers.each.call(depth0, "g", "in", "genres", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack2 = helpers.each.call(depth0, "g", "in", "onlyGenres", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n        ");
   hashTypes = {};
@@ -252,7 +252,7 @@ function program10(depth0,data) {
   data.buffer.push("\n        </ul>\n    </div>\n</div>\n\n    <div class=\"container content\">\n\n    \n    <div class=\"row\">\n        <h2><span class=\"normal\">Last</span> seen <span class=\"normal\">by</span></h2>\n        \n        ");
   hashTypes = {'contentBinding': "STRING",'episodesBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.AnimeActivityView", {hash:{
-    'contentBinding': ("last_seen"),
+    'contentBinding': ("seen"),
     'episodesBinding': ("episodes")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("\n    </div>\n\n</div>");
@@ -339,33 +339,34 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, options;
-  data.buffer.push("\n<div class=\"media\">\n  ");
-  hashTypes = {'class': "STRING"};
-  options = {hash:{
-    'class': ("pull-left")
-  },inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
+  data.buffer.push("\n<div class=\"media\">\n  <div class=\"gallery-poster pull-left\">\n    <div class=\"gallery-image\">\n      ");
+  hashTypes = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "", options) : helperMissing.call(depth0, "linkTo", "anime.description", "", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n  <div class=\"media-body\">\n    <h4 class=\"media-heading\">\n    	");
+  data.buffer.push("\n    </div>\n  </div>\n  <div class=\"media-body\">\n    <h4 class=\"media-heading\">\n    	");
   hashTypes = {};
   options = {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "", options) : helperMissing.call(depth0, "linkTo", "anime.description", "", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n		</h4>\n    <p>");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "desc", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  hashTypes = {'unescaped': "STRING"};
+  stack2 = helpers._triageMustache.call(depth0, "desc", {hash:{
+    'unescaped': ("true")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("</p>\n  </div>\n</div>\n");
   return buffer;
   }
 function program2(depth0,data) {
   
   var buffer = '', hashTypes;
-  data.buffer.push("\n      <img class=\"thumbnail\" ");
+  data.buffer.push("\n          <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'src': ("imageURLSmallest")
+    'src': ("imageURLSmall")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" />\n  ");
+  data.buffer.push(" />\n      ");
   return buffer;
   }
 
@@ -488,10 +489,7 @@ function program7(depth0,data) {
   return buffer;
   }
 
-  data.buffer.push("<div class=\"navbar navbar-inverse navbar-fixed-top\">\n    <div class=\"container\">\n        <a class=\"navbar-toggle pull-left\" data-toggle=\"collapse\" data-target=\".nav-collapse\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </a>\n        <a class=\"navbar-brand\" href=\"#\">Uranime</a>\n\n        <div class=\"nav-collapse collapse\">\n\n            <div class=\"navbar-form pull-left\">\n                ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.SearchFormView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            </div>\n\n            <ul class=\"nav\">\n                <li>");
+  data.buffer.push("<div class=\"navbar navbar-inverse navbar-fixed-top\">\n    <div class=\"container\">\n        <a class=\"navbar-toggle pull-left\" data-toggle=\"collapse\" data-target=\".nav-collapse\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </a>\n        <a class=\"navbar-brand\" href=\"#\">Uranime</a>\n\n        <div class=\"nav-collapse collapse\">\n\n            <ul class=\"nav\">\n                <li>");
   hashTypes = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "community", options) : helperMissing.call(depth0, "linkTo", "community", options));
@@ -507,6 +505,9 @@ function program7(depth0,data) {
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "requests", options) : helperMissing.call(depth0, "linkTo", "requests", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n            </ul>\n\n            <ul class=\"nav pull-right\">\n\n                <!-- Notification w/popover -->\n                <li class=\"divider-vertical\"></li>\n                ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.SearchFormView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                <li class=\"divider-vertical\"></li>\n                ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.NotificationsView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("\n\n\n                <!-- User profile -->\n                <li class=\"divider-vertical\"></li>\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                         <img src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20\" class=\"img-rounded\"> Groenlid <b class=\"caret\"></b>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a tabindex=\"-1\">Profile</a></li>\n                        <li><a tabindex=\"-1\">Watchlist</a></li>\n                        <li><a href=\"index.html#/user/1/library\" tabindex=\"-1\">Library</a></li>\n                        <li><a tabindex=\"-1\">Settings</a></li>\n                        <li><a tabindex=\"-1\">Help</a></li>\n                        <li class=\"divider\"></li>\n                        <li><a tabindex=\"-1\">Logout</a></li>\n                    </ul>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n<div class=\"navbar-fixed-top nav-search collapse\">\n  		<div class=\"navbar-inner\">\n  			<div class=\"row\">\n	  			");
@@ -1117,8 +1118,18 @@ function program1(depth0,data) {
     'viewTypeBinding': ("controller.searchResults.viewType"),
     'contentBinding': ("controller")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n<div class=\"clear\"></div>\n</div>");
+  data.buffer.push("\n<div class=\"clear\"></div>\n</div>\n\n<!--\n\n<div class=\"row\">\n  <div class=\"pull-left\">\n    <div class=\"btn-group\">\n        <a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\n            Sort by\n            <span class=\"caret\"></span>\n        </a>\n        <ul class=\"dropdown-menu\">\n        <li><a data-ember-action=\"22\"><script id=\"metamorph-18-start\" type=\"text/x-placeholder\"></script>Last seen<script id=\"metamorph-18-end\" type=\"text/x-placeholder\"></script></a></li>\n        <li><a data-ember-action=\"23\"><script id=\"metamorph-19-start\" type=\"text/x-placeholder\"></script>Title<script id=\"metamorph-19-end\" type=\"text/x-placeholder\"></script></a></li>\n        <li><a data-ember-action=\"24\">Percentage seen</a></li>\n        </ul>\n    </div>\n    </div>\n    <div class=\"btn-group pull-left\" style=\"margin-left:10px;\">\n      <a class=\"btn\">\n          <i class=\"glyphicon glyphicon-th\"></i>\n      </a>\n      <a class=\"btn\">\n          <i class=\"glyphicon glyphicon-th-large\"></i>\n      </a>\n      <a class=\"btn\">\n          <i class=\"glyphicon glyphicon-th-list\"></i>\n      </a>\n    </div>\n    <div class=\"span4 pull-right\">\n      <ul style=\"list-style-type: none;\">\n        <li>\n          <i class=\"glyphicon glyphicon-time\"></i> <script id=\"metamorph-21-start\" type=\"text/x-placeholder\"></script>117d, 12h, 47min<script id=\"metamorph-21-end\" type=\"text/x-placeholder\"></script> spent watching anime\n        </li>\n        <li>\n          <i class=\"glyphicon glyphicon-eye-open\"></i> <script id=\"metamorph-22-start\" type=\"text/x-placeholder\"></script>6719<script id=\"metamorph-22-end\" type=\"text/x-placeholder\"></script> episodes seen\n        </li>\n        <li>\n          <i class=\"glyphicon glyphicon-film\"></i> <script id=\"metamorph-23-start\" type=\"text/x-placeholder\"></script>216<script id=\"metamorph-23-end\" type=\"text/x-placeholder\"></script> anime seen\n        </li>\n      </ul>\n    </div>\n  </div>-->");
   return buffer;
+  
+});
+
+Ember.TEMPLATES["search/searchForm"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Ember.Handlebars.helpers; data = data || {};
+  
+
+
+  data.buffer.push("<div class=\"popover bottom\" id=\"notifications\" style=\"width:250px;display: block;\" data-bindattr-1=\"1\">\n        <div class=\"arrow\"></div>\n        <div class=\"popover-inner\">\n            <div class=\"popover-title\">\n                <input type=\"text\" placeholder=\"Search for anime\">\n            </div>\n            <div class=\"popover-content\">\n                <div class=\"row\">\n                    \n                </div>\n                \n            </div>\n        </div>\n    </div>");
   
 });
 

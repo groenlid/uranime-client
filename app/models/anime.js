@@ -1,34 +1,30 @@
 App.Anime = DS.Model.extend({
   	
-  title: DS.attr('string'),
-  desc: DS.attr('string'),
-  image: DS.attr('string'),
-  fanart: DS.attr('string'),
-  status: DS.attr('string'),
-  runtime: DS.attr('number'),
-  classification: DS.attr('string'),
-  type: DS.attr('string'),
+    title: DS.attr('string'),
+    desc: DS.attr('string'),
+    image: DS.attr('string'),
+    fanart: DS.attr('string'),
+    status: DS.attr('string'),
+    runtime: DS.attr('number'),
+    classification: DS.attr('string'),
+    type: DS.attr('string'),
 
-  episodes: DS.hasMany('App.Episode'),
-  genre: DS.hasMany('App.Genre'),
-  last_seen: DS.hasMany('App.SeenActivity'),
-  synonyms: DS.hasMany('App.Synonym'),
+    episodes: DS.hasMany('App.Episode'),
+    genres: DS.hasMany('App.Genre'),
+    seen: DS.hasMany('App.SeenActivity'),
+    synonyms: DS.hasMany('App.Synonym'),
 
   /**
   * Filters out all the tags and only returns the genres
   * @property genres
   */
-  genres: function(){
-      return this.get('genre').filter(function(f){
-              return f.get('is_genre') == 1
-          });
-  }.property('genre.@each'),
+  onlyGenres: function(){
+      return this.get('genres').filterProperty('is_genre');
+  }.property('genres.@each'),
 
-  tags: function(){
-      return this.get('genre').filter(function(f){
-              return f.get('is_genre') !== '1'
-          });
-  }.property('genre.@each'),
+  onlyTags: function(){
+      return this.get('genres').filterProperty('is_genre',0);
+  }.property('genres.@each'),
 
   imageURL: function(){
   	var image = this.get('image');
@@ -145,10 +141,6 @@ App.Anime = DS.Model.extend({
     else
       return "(" + start + "- )";
   }.property('episodes.@each.aired'),
-
-  didLoad: function() {
-    
-  }
 
 });
 

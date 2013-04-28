@@ -12,15 +12,15 @@ App.SearchController = Ember.ArrayController.extend({
     
     viewTypes: Ember.A([
         Ember.Object.create({
-            icon: 'icon-th',
+            icon: 'glyphicon glyphicon-th',
             viewType: 'animePoster'
         }),
         Ember.Object.create({
-            icon: 'icon-th-large',
+            icon: 'glyphicon glyphicon-th-large',
             viewType: 'animeFanart'
         }),
         Ember.Object.create({
-            icon: 'icon-list',
+            icon: 'glyphicon glyphicon-list',
             viewType: 'animeInfoList'
         }),
     ]),
