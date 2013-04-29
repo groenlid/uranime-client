@@ -3,6 +3,8 @@
 Demo: http://groenlid.com
 ![ScreenShot](https://raw.github.com/groenlid/uranime-client/master/md/screenshot-1.png)
 
+Need a fix for this: http://jsfiddle.net/DDQK4/3/
+
 Todo
 ==
 
