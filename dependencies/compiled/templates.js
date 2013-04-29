@@ -455,7 +455,7 @@ function program3(depth0,data) {
 Ember.TEMPLATES["application/application"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
-  var buffer = '', stack1, stack2, hashTypes, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
+  var buffer = '', stack1, stack2, hashTypes, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 function program1(depth0,data) {
   
@@ -473,20 +473,6 @@ function program5(depth0,data) {
   
   
   data.buffer.push("Requests");
-  }
-
-function program7(depth0,data) {
-  
-  var buffer = '', hashTypes;
-  data.buffer.push("\n						");
-  hashTypes = {'valueBinding': "STRING",'placeholder': "STRING",'class': "STRING"};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "Ember.TextField", {hash:{
-    'valueBinding': ("view.searchQuery"),
-    'placeholder': ("Search for anime"),
-    'class': ("input-large search-query")
-  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n						<!--<button type=\"submit\" class=\"btn hidden\">Search</button>-->\n					");
-  return buffer;
   }
 
   data.buffer.push("<div class=\"navbar navbar-inverse navbar-fixed-top\">\n    <div class=\"container\">\n        <a class=\"navbar-toggle pull-left\" data-toggle=\"collapse\" data-target=\".nav-collapse\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </a>\n        <a class=\"navbar-brand\" href=\"#\">Uranime</a>\n\n        <div class=\"nav-collapse collapse\">\n\n            <ul class=\"nav\">\n                <li>");
@@ -510,13 +496,7 @@ function program7(depth0,data) {
   data.buffer.push("\n                <li class=\"divider-vertical\"></li>\n                ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.NotificationsView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n\n\n                <!-- User profile -->\n                <li class=\"divider-vertical\"></li>\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                         <img src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20\" class=\"img-rounded\"> Groenlid <b class=\"caret\"></b>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a tabindex=\"-1\">Profile</a></li>\n                        <li><a tabindex=\"-1\">Watchlist</a></li>\n                        <li><a href=\"index.html#/user/1/library\" tabindex=\"-1\">Library</a></li>\n                        <li><a tabindex=\"-1\">Settings</a></li>\n                        <li><a tabindex=\"-1\">Help</a></li>\n                        <li class=\"divider\"></li>\n                        <li><a tabindex=\"-1\">Logout</a></li>\n                    </ul>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n<div class=\"navbar-fixed-top nav-search collapse\">\n  		<div class=\"navbar-inner\">\n  			<div class=\"row\">\n	  			");
-  hashTypes = {'class': "STRING"};
-  stack2 = helpers.view.call(depth0, "App.SearchFormView", {hash:{
-    'class': ("navbar-form span9")
-  },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n			</div>\n  		</div>\n  	</div>\n");
+  data.buffer.push("\n\n\n                <!-- User profile -->\n                <li class=\"divider-vertical\"></li>\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                         <img src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20\" class=\"img-rounded\"> Groenlid <b class=\"caret\"></b>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a tabindex=\"-1\">Profile</a></li>\n                        <li><a tabindex=\"-1\">Watchlist</a></li>\n                        <li><a href=\"index.html#/user/1/library\" tabindex=\"-1\">Library</a></li>\n                        <li><a tabindex=\"-1\">Settings</a></li>\n                        <li><a tabindex=\"-1\">Help</a></li>\n                        <li class=\"divider\"></li>\n                        <li><a tabindex=\"-1\">Logout</a></lwi>\n                    </ul>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   return buffer;
@@ -885,7 +865,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   
 
 
-  data.buffer.push("<div class=\"splash-white\">\n    <div class=\"span6 offset3 frontpage-backdrop\">\n	<h1 class=\"normal\">Say <span class=\"bold\">ohayou</span> to your new anime tracker, <span class=\"bold\">uranime</span>.</h1>\n        <div class=\"row center\">\n            <input type=\"text\" class=\"span10 search-frontpage\" placeholder=\"Search for anime, episodes, or your mothers maiden name\">\n            <button type=\"button\" class=\"btn span1\">Search</button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"span6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"span6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"span6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n		</div>\n	</div>\n</div>");
+  data.buffer.push("<div class=\"splash-white\">\n    <div class=\"span6 offset3 frontpage-backdrop\">\n	<h1 class=\"normal\">Say <span class=\"bold\">ohayou</span> to your new anime tracker, <span class=\"bold\">uranime</span>.</h1>\n        <div class=\"row center\">\n            <input type=\"text\" class=\"span9 search-frontpage\" placeholder=\"Search for anime, episodes, or your mothers maiden name\">\n            <button type=\"button\" class=\"btn span2\"><span class=\"glyphicon glyphicon-search\"></span></button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"span6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"span6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"span6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n		</div>\n	</div>\n</div>");
   
 });
 
@@ -1126,10 +1106,17 @@ function program1(depth0,data) {
 Ember.TEMPLATES["search/searchForm"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
-  
+  var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"popover bottom\" id=\"notifications\" style=\"width:250px;display: block;\" data-bindattr-1=\"1\">\n        <div class=\"arrow\"></div>\n        <div class=\"popover-inner\">\n            <div class=\"popover-title\">\n                <input type=\"text\" placeholder=\"Search for anime\">\n            </div>\n            <div class=\"popover-content\">\n                <div class=\"row\">\n                    \n                </div>\n                \n            </div>\n        </div>\n    </div>");
+  data.buffer.push("<div class=\"popover bottom\" id=\"notifications\" style=\"width:250px;display: block;\" data-bindattr-1=\"1\">\n        <div class=\"arrow\"></div>\n        <div class=\"popover-inner\">\n            <div class=\"popover-title\">\n                ");
+  hashTypes = {'placeholder': "STRING",'valueBinding': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "view.searchField", {hash:{
+    'placeholder': ("Search for anime"),
+    'valueBinding': ("view.value")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n            </div>\n            <!--<div class=\"popover-content\">\n                <div class=\"row\">\n                    Should be some magic here..\n                </div>\n                \n            </div>-->\n        </div>\n    </div>");
+  return buffer;
   
 });
 

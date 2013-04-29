@@ -37,21 +37,11 @@
                         <li><a tabindex="-1">Settings</a></li>
                         <li><a tabindex="-1">Help</a></li>
                         <li class="divider"></li>
-                        <li><a tabindex="-1">Logout</a></li>
+                        <li><a tabindex="-1">Logout</a></lwi>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </div>
-<div class="navbar-fixed-top nav-search collapse">
-  		<div class="navbar-inner">
-  			<div class="row">
-	  			{{#view App.SearchFormView class="navbar-form span9"}}
-						{{view Ember.TextField valueBinding="view.searchQuery" placeholder="Search for anime" class="input-large search-query"}}
-						<!--<button type="submit" class="btn hidden">Search</button>-->
-					{{/view}}
-			</div>
-  		</div>
-  	</div>
 {{outlet}}

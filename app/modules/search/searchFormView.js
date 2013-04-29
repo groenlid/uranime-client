@@ -26,6 +26,14 @@ App.SearchFormView = Ember.ContainerView.extend({
         templateName: "search/searchForm",
 
         classNameBindings:['show::hidden'],
+
+        searchField: Ember.TextField.extend({
+            insertNewline: function(){
+                var val = this.get('value');
+                this.get('controller').send('search', {query:val});
+                this.get('parentView.parentView').set('showResult', false);
+            }
+        })
     }),
 
 /*
