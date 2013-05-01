@@ -9,13 +9,13 @@ App.Episode = DS.Model.extend({
 
     anime: DS.belongsTo('App.Anime'),
 
-    seenEpisodes: DS.hasMany('App.UserEpisode', {embedded:true}),
+    userEpisodes: DS.hasMany('App.UserEpisode'),
 
     arrangedUserEpisode: function(){
-        return this.get('seenEpisodes').toArray().sort(function (lhs, rhs) {
+        return this.get('userEpisodes').toArray().sort(function (lhs, rhs) {
             return moment(rhs.get('timestamp'), App.Config.get('serverDateFormat')).diff(moment(lhs.get('timestamp'), App.Config.get('serverDateFormat')));
         });
-	}.property('seenEpisodes.@each'),
+	}.property('userEpisodes.@each'),
 
     imageURL: function(){
         var image = this.get('image');

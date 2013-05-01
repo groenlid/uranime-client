@@ -270,7 +270,7 @@ img.animeimage, #fanart .animetitle {
 	position:relative;
     
     p {
-        max-height:1.5em;
+        height:1.5em;
         text-align:center;
         width:100%;
         overflow: hidden;
@@ -415,12 +415,6 @@ select {
             width: 200px;
             height: 112px;
         }
-    }
-    p {
-        height:1em;
-        text-align:center;
-        width:100%;
-        text-overflow: clip;
     }
 }
 

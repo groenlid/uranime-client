@@ -541,7 +541,7 @@ function program5(depth0,data) {
 function program6(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, options;
-  data.buffer.push("\n            <div class=\"pull-left gallery-episode\">\n                <div class=\"gallery-image\">\n                    <a ");
+  data.buffer.push("\n            <div class=\"anime-gallery pull-left gallery-fanart\">\n                <div class=\"gallery-image\">\n                    <a ");
   hashTypes = {'target': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "episode", {hash:{
     'target': ("view")
@@ -589,7 +589,6 @@ function program7(depth0,data) {
   hashTypes = {};
   stack2 = helpers.each.call(depth0, "day", "in", "controller.arrangedEpisodes", {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n\n");
   return buffer;
   
 });
@@ -862,10 +861,17 @@ function program6(depth0,data) {
 Ember.TEMPLATES["front/front"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
-  
+  var buffer = '', hashTypes, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"splash-white\">\n    <div class=\"span6 offset3 frontpage-backdrop\">\n	<h1 class=\"normal\">Say <span class=\"bold\">ohayou</span> to your new anime tracker, <span class=\"bold\">uranime</span>.</h1>\n        <div class=\"row center\">\n            <input type=\"text\" class=\"span9 search-frontpage\" placeholder=\"Search for anime, episodes, or your mothers maiden name\">\n            <button type=\"button\" class=\"btn span2\"><span class=\"glyphicon glyphicon-search\"></span></button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"span6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"span6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"span6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n		</div>\n	</div>\n</div>");
+  data.buffer.push("<div class=\"splash-white\">\n    <div class=\"span6 offset3 frontpage-backdrop\">\n	<h1 class=\"normal\">Say <span class=\"bold\">ohayou</span> to your new anime tracker, <span class=\"bold\">uranime</span>.</h1>\n        <div class=\"row center\">\n            ");
+  hashTypes = {'class': "STRING",'placeholder': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "view.searchField", {hash:{
+    'class': ("span9 search-frontpage"),
+    'placeholder': ("Search for anime, episodes, or your mothers maiden name")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n            <button type=\"button\" class=\"btn span2\"><span class=\"glyphicon glyphicon-search\"></span></button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"span6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"span6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"span6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n		</div>\n	</div>\n</div>");
+  return buffer;
   
 });
 

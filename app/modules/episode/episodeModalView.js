@@ -60,7 +60,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
 
   previous: function(episode){
     var previousEpisode = this.get('previousEpisode');
-
+    console.log("Pressing previous button", previousEpisode.serialize({includeId:true}));
     if(!Ember.isNone(previousEpisode) && !previousEpisode.get('isLoading') && Ember.isEmpty(previousEpisode.get('userepisode')))
       previousEpisode.reload();
     this.set('content',previousEpisode);

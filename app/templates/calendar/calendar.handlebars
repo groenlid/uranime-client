@@ -14,7 +14,7 @@
     </div>
     <div class="content container">
         {{#each episode in day.lastObject}}
-            <div class="pull-left gallery-episode">
+            <div class="anime-gallery pull-left gallery-fanart">
                 <div class="gallery-image">
                     <a {{action showEpisode episode target="view"}} class="clickable">
                         <img {{bindAttr src="episode.imageURL"}}>
@@ -32,4 +32,3 @@
         {{/each}}
     </div>
 {{/each}}
-
