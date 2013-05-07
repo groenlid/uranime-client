@@ -18,9 +18,9 @@ App.Router.map(function() {
 
 	this.route('search', { path: '/search/:query' });
 
-	this.resource('user', { path: '/user/:id' }, function(){
+	this.resource('user', { path: '/user/:user_id' }, function(){
 		this.route('profile', { path: '/'});
-		this.route('library');
+		this.resource('library');
 	});
 
 	this.resource('requests', function(){
@@ -61,8 +61,8 @@ App.ApplicationRoute = Ember.Route.extend({
           	this.controllerFor('search').set('query', query);
           this.router.transitionTo('search', App.Anime.find({title:query}));
         },
-        goToLibrary: function(params){
-        	this.router.transitionTo('user.library', params);
+        goToLibrary: function(user, library){
+        	this.router.transitionTo('user.library.index', user, library);
         }
       }
 });
@@ -92,21 +92,18 @@ App.AnimeEpisodesRoute = Ember.Route.extend({
 	}
 });
 
-App.UserRoute = Ember.Route.extend({
+App.LibraryRoute = Ember.Route.extend({
 	model: function(params){
-		return App.User.find(params.id);
-	},
-});
+            var user_id = this.modelFor('user').get('id'),
+		library = App.store.find(App.Library, {user_id: user_id});
+                
+                /*
+                  library.one('didLoad',function(){
+                    library.resolve(library.get('firstObject'));
+                });
+                */
 
-App.UserLibraryRoute = Ember.Route.extend({
-	model: function(params){
-		var user_id = this.modelFor('user').get('id');
-		return App.store.find(App.Library, {user_id: user_id});
-	},
-
-	setupController: function(controller, model) {
-		console.log(arguments);
-		controller.set('content', model);
+                return library;
 	}
 });
 

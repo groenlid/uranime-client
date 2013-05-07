@@ -2,7 +2,7 @@
   <ul class="breadcrumb">
     <li>
       {{#linkTo "user.profile" controller.content.firstObject.user}}
-        {{controller.content.firstObject.user.nick}}
+        {{controller.content.user.nick}}
       {{/linkTo}}
     </li>
     <li class="active">Library</li>
@@ -18,7 +18,7 @@
 		<ul class="dropdown-menu">
 			<!-- dropdown menu links -->
       {{#each btn in controller.sortButtons}}
-        <li><a {{action setSorting btn target="controller"}}>{{btn.title}}</a></li>
+        <li><a {{action setSorting btn target="controller"}} class="clickable">{{btn.title}}</a></li>
       {{/each}}
 		</ul>
 	</div>

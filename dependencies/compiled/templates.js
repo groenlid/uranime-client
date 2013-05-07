@@ -647,7 +647,7 @@ function program1(depth0,data) {
   data.buffer.push(">\n    </div>\n    <div class=\"span11\">\n      \n      <div class=\"row\">\n        <h2 class=\"span9 normal\">");
   hashTypes = {};
   options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.library", "activity.user", options) : helperMissing.call(depth0, "linkTo", "user.library", "activity.user", options));
+  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.profile", "activity.user", options) : helperMissing.call(depth0, "linkTo", "user.profile", "activity.user", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push(" \n           watched \n          episode ");
   hashTypes = {};
@@ -703,7 +703,7 @@ function program4(depth0,data) {
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "activity", "in", "view.controller", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n<!--\n  <div class=\"row\">\n    <div class=\"span1 pull-left\">\n      <img class=\"img-rounded\" src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg\">\n    </div>\n    <div class=\"span11\">\n      <h2>Groenlid <span class=\"normal\"> watched</span> episode 5 <span class=\"normal\">of</span> BTOOM</h2>\n      <p class=\"muted italic\">20 minutes ago</p>\n      <div class=\"row\">\n        <div class=\"span5\">\n          <img class=\"gallery-image\" src=\"http://urani.me/attachments/episodes/779/20937.jpg\">\n        </div>\n        <div class=\"span6\">\n          <h2>Episode 5, Attack</h2>\n          <p class=\"bold grey\">Aired: 2012-11-01</p>\n          <p class=\"muted\">\n            A pantless corpse floats by Taira and Sakamoto while they are eating lunch. When Sakamoto leaves to investigate he finds a gruesome scene and a familiar figure.\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <hr />\n-->\n\n</div>");
+  data.buffer.push("\n<!--\n  <div class=\"row\">\n    <div class=\"span1 pull-left\">\n      <img class=\"img-rounded\" src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg\">\n    </div>\n    <div class=\"span11\">\n      <h2>Groenlid <span class=\"normal\"> watched</span> episode 5 <span class=\"normal\">of</span> BTOOM</h2>\n      <p class=\"muted italic\">20 minutes ago</p>\n      <div class=\"row\">\n        <div class=\"span5\">\n          <img class=\"gallery-image\" src=\"http://urani.me/attachments/episodes/779/20937.jpg\">\n        </div>\n        <div class=\"span6\">\n          <h2>Episode 5, Attack</h2>\n          <p class=\"bold grey\">Aired: 2012-11-01</p>\n          <p class=\"muted\">\n            A pantless corpse floats by Taira and Sakamoto while they are eating lunch. When Sakamoto leaves to investigate he finds a gruesome scene and a familiar figure.\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <hr />\n-->\n\n</div>\n");
   return buffer;
   
 });
@@ -839,15 +839,25 @@ function program4(depth0,data) {
 
 function program6(depth0,data) {
   
-  var buffer = '', hashTypes;
-  data.buffer.push("\n\n            <div class=\"row span12\">\n              <div class=\"span12\">  \n                  <a class=\"bold\">");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.user.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</a> watched this.<span class=\"pull-right small\"> ");
+  var buffer = '', stack1, stack2, hashTypes, options;
+  data.buffer.push("\n\n            <div class=\"row span12\">\n              <div class=\"span12\">  \n                  ");
+  hashTypes = {'class': "STRING"};
+  options = {hash:{
+    'class': ("bold")
+  },inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.profile", "activity.user", options) : helperMissing.call(depth0, "linkTo", "user.profile", "activity.user", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push(" watched this.<span class=\"pull-right small\"> ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.since", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" </span> \n              </div>\n            </div>\n            <hr/>\n           \n\n          ");
   return buffer;
+  }
+function program7(depth0,data) {
+  
+  var hashTypes;
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.user.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   }
 
   hashTypes = {};
@@ -1136,7 +1146,7 @@ function program1(depth0,data) {
   var buffer = '', hashTypes;
   data.buffer.push("\n        ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "controller.content.firstObject.user.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "controller.content.user.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      ");
   return buffer;
   }
@@ -1149,7 +1159,7 @@ function program3(depth0,data) {
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "setSorting", "btn", {hash:{
     'target': ("controller")
   },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">");
+  data.buffer.push(" class=\"clickable\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "btn.title", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("</a></li>\n      ");

@@ -14,15 +14,13 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     $('.modal').modal();
 
     //$('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight();
-    $('.js-commentsHeight').height(
-      $('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight() - 10
-    );
+    this.setCommentHeight();
 
     // Check if the userSeen episodes has been loaded
     // If not.. load them ;)
     
     if(Ember.isEmpty(this.get('content.userepisode')))
-      App.store.find(App.Episode,{id:id});
+        App.store.find(App.Episode,{id:id});
 
   },
 
@@ -32,6 +30,12 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
           pos = arranged.indexOf(episode),
           relative = arranged.objectAt(pos + relative);
     return relative;
+  },
+
+  setCommentHeight: function(){
+    $('.js-commentsHeight').height(
+      $('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight() - 10
+    );
   },
 
   previousEpisode: function(){
@@ -56,6 +60,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     if(!Ember.isNone(nextEpisode) && !nextEpisode.get('isLoading') && Ember.isEmpty(nextEpisode.get('userepisode')))
       nextEpisode.reload();
     this.set('content',nextEpisode);
+    this.setCommentHeight()
   },
 
   previous: function(episode){
@@ -64,6 +69,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     if(!Ember.isNone(previousEpisode) && !previousEpisode.get('isLoading') && Ember.isEmpty(previousEpisode.get('userepisode')))
       previousEpisode.reload();
     this.set('content',previousEpisode);
+    this.setCommentHeight()
   },
 
   goToAnime: function(anime){
