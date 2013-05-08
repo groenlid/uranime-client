@@ -880,7 +880,7 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
     'class': ("span9 search-frontpage"),
     'placeholder': ("Search for anime, episodes, or your mothers maiden name")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            <button type=\"button\" class=\"btn span2\"><span class=\"glyphicon glyphicon-search\"></span></button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"span6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"span6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"span6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n		</div>\n	</div>\n</div>");
+  data.buffer.push("\n            <button type=\"button\" class=\"btn span2\"><span class=\"glyphicon glyphicon-search\"></span></button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"span6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"span6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"span6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n                    </div>\n                    <div class=\"span6 discover\">\n                        <h2><i class=\"glyphicon glyphicon-heart-empty\"></i> <span class=\"bold\">Participate</span> in the community</h2>\n                        <p>The code for this site is open-source and available for everyone. Want to contribute to the site with code, design feedback or typo-fixes? Head on over to our <a href=\"https://github.com/groenlid/uranime-client\">Github site</a>.</p>\n                    </div>\n	</div>\n</div>\n");
   return buffer;
   
 });
@@ -1146,7 +1146,7 @@ function program1(depth0,data) {
   var buffer = '', hashTypes;
   data.buffer.push("\n        ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "controller.content.user.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "controllers.user.content.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("\n      ");
   return buffer;
   }
@@ -1216,7 +1216,7 @@ function program7(depth0,data) {
   data.buffer.push("<div class=\"content container\">\n  <ul class=\"breadcrumb\">\n    <li>\n      ");
   hashTypes = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.profile", "controller.content.firstObject.user", options) : helperMissing.call(depth0, "linkTo", "user.profile", "controller.content.firstObject.user", options));
+  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.profile", "controllers.user.content", options) : helperMissing.call(depth0, "linkTo", "user.profile", "controllers.user.content", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n    </li>\n    <li class=\"active\">Library</li>\n  </ul>\n\n<div class=\"row\">\n  <div class=\"pull-left\">\n    <div class=\"btn-group\">\n		<a class=\"btn dropdown-toggle\" data-toggle=\"dropdown\" href=\"#\">\n			Sort by\n			<span class=\"caret\"></span>\n		</a>\n		<ul class=\"dropdown-menu\">\n			<!-- dropdown menu links -->\n      ");
   hashTypes = {};

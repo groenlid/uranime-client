@@ -1,6 +1,8 @@
 App.LibraryController = Ember.ArrayController.extend(Ember.PaginationSupport, {
   
   totalBinding: 'content.length',
+  
+  needs:['user'],
 
   maxPaginationLinks: 10,
   
