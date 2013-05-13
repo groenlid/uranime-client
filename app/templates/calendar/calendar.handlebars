@@ -16,7 +16,7 @@
         {{#each episode in day.lastObject}}
             <div class="anime-gallery pull-left gallery-fanart">
                 <div class="gallery-image">
-                    <a {{action showEpisode episode target="view"}} class="clickable">
+                    <a {{action showModal 'episodemodal' episode}} class="clickable">
                         <img {{bindAttr src="episode.imageURL"}}>
                     </a>
                 </div>

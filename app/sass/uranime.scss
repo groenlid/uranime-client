@@ -129,7 +129,10 @@ img.posterimage {
 
 .navbar {
 	z-index:1000;
-	position:absolute;
+	position:fixed;
+        .nav li a.active {
+                color:#fff;
+        }
 }
 
 #notifications {
@@ -894,6 +897,49 @@ div.backdrop {
         img {
             max-height:80%;
             margin-top:5%;
+        }
+    }
+}
+
+.seenepisode {
+    background:#fff;
+    border:1px solid #ccc;
+    margin-bottom:30px;
+
+    .gallery-image {
+        background:#fff;
+    }    
+    .avatarWrapper{
+        position:relative;
+    }
+    .avatar {
+        position:absolute;
+        height:60px;
+        top:-35px;
+        width:100%;
+        
+        img {
+            position:absolute;
+            left:20px;
+            height:50px;
+            bottom:0;
+            background:#fff;
+            border: 1px solid #ddd;
+            padding:1px;
+        }
+        p {
+            position:absolute;
+            bottom:0;
+            right:10px;
+            margin:0;
+        }
+        
+    }
+    .desc {
+        margin-top:40px;   
+        padding:0 10px 10px 10px;
+        a {
+            display:block;
         }
     }
 }

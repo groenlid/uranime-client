@@ -97,5 +97,3 @@ require('app/controllers');
  * actions.
 */
 require('app/router/router');
-
-App.initialize();

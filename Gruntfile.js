@@ -50,7 +50,7 @@ module.exports = function(grunt) {
     */
     watch: {
       application_code: {
-        files: ['dependencies/ember.js', 'app/**/*.js'],
+        files: ['dependencies/ember.js', 'app/**/**/*.js'],
         tasks: ['neuter']
       },
       handlebars_templates: {

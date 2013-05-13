@@ -1,19 +1,18 @@
-App.EpisodeView = Bootstrap.ModalPane.extend({
+App.EpisodemodalView = App.ModalView.extend({
+ 
   templateName: "episode/episodeModal",
-
-  
   /**
    Set the height of the last active box
    based on the episode description and 
    episode image.
    */
+
+  contentBinding: 'controller.content',
+
   didInsertElement: function (){
+    this._super();
     var content = this.get('content'), id = content.get('id');
 
-    // Instanciate the modal through bootstrap
-    $('.modal').modal();
-
-    //$('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight();
     this.setCommentHeight();
 
     // Check if the userSeen episodes has been loaded
@@ -21,7 +20,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     
     if(Ember.isEmpty(this.get('content.userepisode')))
         App.store.find(App.Episode,{id:id});
-
+    
   },
 
   relativeEpisode: function(relative){
@@ -36,6 +35,7 @@ App.EpisodeView = Bootstrap.ModalPane.extend({
     $('.js-commentsHeight').height(
       $('.js-episodeInfo').outerHeight() - $('.modal-header').outerHeight() - 10
     );
+
   },
 
   previousEpisode: function(){

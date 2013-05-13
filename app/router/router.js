@@ -55,16 +55,31 @@ App.CalendarRoute = Ember.Route.extend({
 });
 
 App.ApplicationRoute = Ember.Route.extend({
-	events: {
+    events: {
         search: function(params) {
-        	var query = params.query;
-          	this.controllerFor('search').set('query', query);
-          this.router.transitionTo('search', App.Anime.find({title:query}));
+            var query = params.query;
+            this.controllerFor('search').set('query', query);
+            this.router.transitionTo('search', App.Anime.find({title:query}));
         },
         goToLibrary: function(user, library){
-        	this.router.transitionTo('user.library.index', user, library);
+                this.router.transitionTo('library', library);
+        },
+
+        // Show and hide the modals
+        showModal: function(modal, content, options){
+            var controller = this.controllerFor(modal);
+                controller.setProperties(options);
+                controller.set('content', content);
+                this.render(modal, {
+                    into: 'application',
+                    outlet: 'modal',
+                });
+        },
+        hideModal: function(){
+                this.clearOutlet('application','modal');
         }
-      }
+
+    }
 });
 
 App.AnimeRoute = Ember.Route.extend({

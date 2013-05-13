@@ -1,10 +1,6 @@
 App.CommunityView = Em.View.extend({
   templateName: "community/community",
 
-  showEpisode: function (episode){
-      App.EpisodeView.popup({content:episode, controller: this.get('controller')});
-  },
-
   goToAnimeByEpisode: function(e,a){
     console.log("going to anime");
     var id = e.get("anime.id");

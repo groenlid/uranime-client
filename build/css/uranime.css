@@ -132,16 +132,20 @@ img.posterimage {
 /* line 130, ../../app/sass/uranime.scss */
 .navbar {
   z-index: 1000;
-  position: absolute;
+  position: fixed;
+}
+/* line 133, ../../app/sass/uranime.scss */
+.navbar .nav li a.active {
+  color: #fff;
 }
 
-/* line 135, ../../app/sass/uranime.scss */
+/* line 138, ../../app/sass/uranime.scss */
 #notifications {
   top: 43px;
   left: -100px;
 }
 
-/* line 140, ../../app/sass/uranime.scss */
+/* line 143, ../../app/sass/uranime.scss */
 .transparent-bar {
   background: rgba(0, 0, 0, 0.6);
   padding: 5px 0;
@@ -153,7 +157,7 @@ img.posterimage {
   text-align: center;
 }
 
-/* line 152, ../../app/sass/uranime.scss */
+/* line 155, ../../app/sass/uranime.scss */
 #fanart {
   display: block;
   background-size: 100%;
@@ -174,12 +178,12 @@ img.posterimage {
   border-width: 1px 1px 0 1px;
   position: relative;
 }
-/* line 166, ../../app/sass/uranime.scss */
+/* line 169, ../../app/sass/uranime.scss */
 #fanart.small {
   height: 230px;
 }
 
-/* line 173, ../../app/sass/uranime.scss */
+/* line 176, ../../app/sass/uranime.scss */
 .numberbox {
   border: 1px solid #E8E8E8;
   display: inline-block;
@@ -194,21 +198,21 @@ img.posterimage {
   margin-left: 50px;
 }
 
-/* line 187, ../../app/sass/uranime.scss */
+/* line 190, ../../app/sass/uranime.scss */
 .numberbox h2 {
   font-size: 2em;
   margin: 0;
   display: block;
 }
 
-/* line 193, ../../app/sass/uranime.scss */
+/* line 196, ../../app/sass/uranime.scss */
 .center {
   display: block;
   margin: 0 auto;
   text-align: center;
 }
 
-/* line 201, ../../app/sass/uranime.scss */
+/* line 204, ../../app/sass/uranime.scss */
 #fanart .userseen {
   width: 20%;
   float: left;
@@ -227,7 +231,7 @@ img.posterimage {
   -o-transition: opacity .6s ease-out;
   transition: opacity .6s ease-out;
 }
-/* line 215, ../../app/sass/uranime.scss */
+/* line 218, ../../app/sass/uranime.scss */
 #fanart .userseen:nth-child(1) {
   -webkit-border-radius: 3px 0 0 0;
   -moz-border-radius: 3px 0 0 0;
@@ -235,7 +239,7 @@ img.posterimage {
   -o-border-radius: 3px 0 0 0;
   border-radius: 3px 0 0 0;
 }
-/* line 219, ../../app/sass/uranime.scss */
+/* line 222, ../../app/sass/uranime.scss */
 #fanart .userseen:nth-child(5) {
   -webkit-border-radius: 0 3px 0 0;
   -moz-border-radius: 0 3px 0 0;
@@ -243,7 +247,7 @@ img.posterimage {
   -o-border-radius: 0 3px 0 0;
   border-radius: 0 3px 0 0;
 }
-/* line 223, ../../app/sass/uranime.scss */
+/* line 226, ../../app/sass/uranime.scss */
 #fanart .userseen .border-image {
   border: rgba(255, 255, 255, 0.1) 1px solid;
   -webkit-box-sizing: border-box;
@@ -256,7 +260,7 @@ img.posterimage {
   pointer-events: none;
 }
 
-/* line 236, ../../app/sass/uranime.scss */
+/* line 239, ../../app/sass/uranime.scss */
 p.animedesc {
   font-family: 'Proxima Nova';
   color: #5E5E5E;
@@ -266,12 +270,12 @@ p.animedesc {
   font-size: 0.9em;
 }
 
-/* line 246, ../../app/sass/uranime.scss */
+/* line 249, ../../app/sass/uranime.scss */
 .smalltext {
   font-size: 0.8em;
 }
 
-/* line 250, ../../app/sass/uranime.scss */
+/* line 253, ../../app/sass/uranime.scss */
 img.animeimage, #fanart .animetitle {
   border: 1px solid #000002;
   box-shadow: inset 1px 1px 1px rgba(255, 255, 255, 0.2);
@@ -287,53 +291,53 @@ img.animeimage, #fanart .animetitle {
   background: #fff;
 }
 
-/* line 265, ../../app/sass/uranime.scss */
+/* line 268, ../../app/sass/uranime.scss */
 .clear {
   clear: both;
 }
 
-/* line 269, ../../app/sass/uranime.scss */
+/* line 272, ../../app/sass/uranime.scss */
 .anime-gallery {
   position: relative;
 }
-/* line 272, ../../app/sass/uranime.scss */
+/* line 275, ../../app/sass/uranime.scss */
 .anime-gallery p {
   height: 1.5em;
   text-align: center;
   width: 100%;
   overflow: hidden;
 }
-/* line 279, ../../app/sass/uranime.scss */
+/* line 282, ../../app/sass/uranime.scss */
 .anime-gallery .gallery-header {
   height: 30px;
 }
-/* line 281, ../../app/sass/uranime.scss */
+/* line 284, ../../app/sass/uranime.scss */
 .anime-gallery .gallery-header h2 {
   width: 216px;
   display: inline;
   margin-left: 5px;
   font-size: 18px;
 }
-/* line 288, ../../app/sass/uranime.scss */
+/* line 291, ../../app/sass/uranime.scss */
 .anime-gallery .gallery-header h2 span.normal {
   font-weight: normal;
 }
 
-/* line 298, ../../app/sass/uranime.scss */
+/* line 301, ../../app/sass/uranime.scss */
 .italic {
   font-style: italic;
 }
 
-/* line 303, ../../app/sass/uranime.scss */
+/* line 306, ../../app/sass/uranime.scss */
 .newsfeed h2 {
   margin: 0 0 5px 0;
 }
-/* line 306, ../../app/sass/uranime.scss */
+/* line 309, ../../app/sass/uranime.scss */
 .newsfeed p {
   margin: 4px 0;
 }
 
-/* line 311, ../../app/sass/uranime.scss */
+/* line 314, ../../app/sass/uranime.scss */
 h2.calendar {
   padding: 0 10px;
   width: 95%;
@@ -341,7 +345,7 @@ h2.calendar {
   border: 1px solid #eee;
 }
 
-/* line 318, ../../app/sass/uranime.scss */
+/* line 321, ../../app/sass/uranime.scss */
 .gallery-image {
   border: 3px solid #F5F4F9;
   box-shadow: inset 1px 1px 0 #D0D1D5, inset -1px -1px 0 #D0D1D5;
@@ -353,13 +357,13 @@ h2.calendar {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 328, ../../app/sass/uranime.scss */
+/* line 331, ../../app/sass/uranime.scss */
 .gallery-image a {
   display: block;
   position: relative;
   background: #000;
 }
-/* line 333, ../../app/sass/uranime.scss */
+/* line 336, ../../app/sass/uranime.scss */
 .gallery-image a img {
   vertical-align: bottom;
   border: 1px solid #fff;
@@ -370,13 +374,13 @@ h2.calendar {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 342, ../../app/sass/uranime.scss */
+/* line 345, ../../app/sass/uranime.scss */
 .gallery-image a span {
   display: none;
   color: #fff;
   font-weight: bold;
 }
-/* line 348, ../../app/sass/uranime.scss */
+/* line 351, ../../app/sass/uranime.scss */
 .gallery-image a:hover span {
   display: inline;
   width: 100%;
@@ -385,67 +389,67 @@ h2.calendar {
   text-align: center;
   vertical-align: middle;
 }
-/* line 357, ../../app/sass/uranime.scss */
+/* line 360, ../../app/sass/uranime.scss */
 .gallery-image a:hover img {
   border: 1px solid #000;
   opacity: 0.5;
 }
-/* line 364, ../../app/sass/uranime.scss */
+/* line 367, ../../app/sass/uranime.scss */
 .gallery-image:hover {
   background: #2F6A9F;
 }
-/* line 368, ../../app/sass/uranime.scss */
+/* line 371, ../../app/sass/uranime.scss */
 .gallery-image span.info {
   position: absolute;
   margin-top: 10px;
   overflow: hidden;
 }
-/* line 373, ../../app/sass/uranime.scss */
+/* line 376, ../../app/sass/uranime.scss */
 .gallery-image span.info p {
   height: 1.1em;
   line-height: 1.1em;
 }
 
-/* line 383, ../../app/sass/uranime.scss */
+/* line 386, ../../app/sass/uranime.scss */
 .gallery-episode a img {
   width: 215px;
   height: 113px;
 }
 
-/* line 390, ../../app/sass/uranime.scss */
+/* line 393, ../../app/sass/uranime.scss */
 .gallery-poster {
   width: 150px;
   height: 270px;
   margin: 15px;
 }
-/* line 395, ../../app/sass/uranime.scss */
+/* line 398, ../../app/sass/uranime.scss */
 .gallery-poster a img {
   width: 150px;
   height: 225px;
 }
 
-/* line 402, ../../app/sass/uranime.scss */
+/* line 405, ../../app/sass/uranime.scss */
 select {
   max-width: 100%;
 }
 
-/* line 406, ../../app/sass/uranime.scss */
+/* line 409, ../../app/sass/uranime.scss */
 .line-height-input {
   line-height: 30px;
 }
 
-/* line 410, ../../app/sass/uranime.scss */
+/* line 413, ../../app/sass/uranime.scss */
 .gallery-fanart {
   width: 216px;
   margin: 10px;
 }
-/* line 414, ../../app/sass/uranime.scss */
+/* line 417, ../../app/sass/uranime.scss */
 .gallery-fanart a img {
   width: 200px;
   height: 112px;
 }
 
-/* line 421, ../../app/sass/uranime.scss */
+/* line 424, ../../app/sass/uranime.scss */
 .loading {
   background: url("../img/loading_square.gif");
   width: 400px;
@@ -453,32 +457,32 @@ select {
   margin: 0 auto;
 }
 
-/* line 428, ../../app/sass/uranime.scss */
+/* line 431, ../../app/sass/uranime.scss */
 .bold {
   font-weight: bold !important;
 }
 
-/* line 432, ../../app/sass/uranime.scss */
+/* line 435, ../../app/sass/uranime.scss */
 .grey {
   color: #ccc;
 }
 
-/* line 436, ../../app/sass/uranime.scss */
+/* line 439, ../../app/sass/uranime.scss */
 .small {
   font-size: 0.9em;
 }
 
-/* line 440, ../../app/sass/uranime.scss */
+/* line 443, ../../app/sass/uranime.scss */
 .episodelist .episode-info {
   margin-top: 10px;
 }
 
-/* line 444, ../../app/sass/uranime.scss */
+/* line 447, ../../app/sass/uranime.scss */
 .margin {
   margin: 15px;
 }
 
-/* line 451, ../../app/sass/uranime.scss */
+/* line 454, ../../app/sass/uranime.scss */
 .tag {
   min-width: 29px;
   background: url(../img/tag.png) no-repeat 0 0;
@@ -493,23 +497,23 @@ select {
   text-decoration: none;
 }
 
-/* line 452, ../../app/sass/uranime.scss */
+/* line 455, ../../app/sass/uranime.scss */
 .tag:hover {
   cursor: pointer;
 }
 
-/* line 453, ../../app/sass/uranime.scss */
+/* line 456, ../../app/sass/uranime.scss */
 .tag:active {
   top: 1px;
 }
 
-/* line 454, ../../app/sass/uranime.scss */
+/* line 457, ../../app/sass/uranime.scss */
 .tag span {
   display: block;
   float: left;
 }
 
-/* line 455, ../../app/sass/uranime.scss */
+/* line 458, ../../app/sass/uranime.scss */
 .tag_name {
   background: url(../img/tag.png) no-repeat 100% -25px;
   height: 19px;
@@ -520,7 +524,7 @@ select {
   max-width: 188px;
 }
 
-/* line 456, ../../app/sass/uranime.scss */
+/* line 459, ../../app/sass/uranime.scss */
 .tag_count {
   background: url(../img/tag.png) no-repeat 100% -50px;
   color: #fff;
@@ -533,7 +537,7 @@ select {
   z-index: 5;
 }
 
-/* line 459, ../../app/sass/uranime.scss */
+/* line 462, ../../app/sass/uranime.scss */
 .genre {
   min-width: 29px;
   background: url(../img/tag2.png) no-repeat 0 0;
@@ -548,23 +552,23 @@ select {
   text-decoration: none;
 }
 
-/* line 460, ../../app/sass/uranime.scss */
+/* line 463, ../../app/sass/uranime.scss */
 .genre:hover {
   cursor: pointer;
 }
 
-/* line 461, ../../app/sass/uranime.scss */
+/* line 464, ../../app/sass/uranime.scss */
 .genre:active {
   top: 1px;
 }
 
-/* line 462, ../../app/sass/uranime.scss */
+/* line 465, ../../app/sass/uranime.scss */
 .genre span {
   display: block;
   float: left;
 }
 
-/* line 463, ../../app/sass/uranime.scss */
+/* line 466, ../../app/sass/uranime.scss */
 .genre_name {
   background: url(../img/tag2.png) no-repeat 100% -25px;
   height: 19px;
@@ -575,7 +579,7 @@ select {
   max-width: 188px;
 }
 
-/* line 464, ../../app/sass/uranime.scss */
+/* line 467, ../../app/sass/uranime.scss */
 .genre_count {
   background: url(../img/tag2.png) no-repeat 100% -50px;
   color: #fff;
@@ -588,7 +592,7 @@ select {
   z-index: 5;
 }
 
-/* line 468, ../../app/sass/uranime.scss */
+/* line 471, ../../app/sass/uranime.scss */
 .splash-white {
   margin-top: 0;
   padding-top: 5%;
@@ -596,66 +600,66 @@ select {
   min-height: 350px;
   background: url("../img/splash-background.jpg") repeat scroll 0 0/100% auto transparent;
 }
-/* line 475, ../../app/sass/uranime.scss */
+/* line 478, ../../app/sass/uranime.scss */
 .splash-white h1 {
   color: #FFFFFF;
   font-size: 2.5em;
   text-shadow: 0 1px 1px #000000;
   text-align: center;
 }
-/* line 482, ../../app/sass/uranime.scss */
+/* line 485, ../../app/sass/uranime.scss */
 .splash-white .gallery-splash {
   width: 800px;
   max-width: 100%;
   margin: 0 auto 20px auto;
 }
 
-/* line 489, ../../app/sass/uranime.scss */
+/* line 492, ../../app/sass/uranime.scss */
 .frontpage-backdrop {
   background: none repeat scroll 0 0 rgba(0, 0, 0, 0.3);
   border-radius: 5px 5px 5px 5px;
   padding: 20px;
 }
 
-/* line 496, ../../app/sass/uranime.scss */
+/* line 499, ../../app/sass/uranime.scss */
 .container-splash .span6 {
   margin-top: 20px;
 }
-/* line 499, ../../app/sass/uranime.scss */
+/* line 502, ../../app/sass/uranime.scss */
 .container-splash .span6 h2 {
   font-weight: 100;
 }
-/* line 503, ../../app/sass/uranime.scss */
+/* line 506, ../../app/sass/uranime.scss */
 .container-splash .span6 h2, .container-splash .span6 p {
   margin-bottom: 5px;
 }
-/* line 508, ../../app/sass/uranime.scss */
+/* line 511, ../../app/sass/uranime.scss */
 .container-splash .calendar, .container-splash .discover, .container-splash .sync {
   padding-left: 50px;
 }
-/* line 509, ../../app/sass/uranime.scss */
+/* line 512, ../../app/sass/uranime.scss */
 .container-splash .calendar i, .container-splash .discover i, .container-splash .sync i {
   margin-top: 5px;
 }
 
-/* line 520, ../../app/sass/uranime.scss */
+/* line 523, ../../app/sass/uranime.scss */
 .modal-backdrop {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-/* line 525, ../../app/sass/uranime.scss */
+/* line 528, ../../app/sass/uranime.scss */
 .modal-content.episode {
   border-radius: 0 2px 2px 0;
   padding: 0;
   color: #999;
 }
-/* line 530, ../../app/sass/uranime.scss */
+/* line 533, ../../app/sass/uranime.scss */
 .modal-content.episode h2 {
   font-weight: normal;
   margin-bottom: 5px;
   padding: 5px;
 }
-/* line 535, ../../app/sass/uranime.scss */
+/* line 538, ../../app/sass/uranime.scss */
 .modal-content.episode h2.outside {
   position: absolute;
   bottom: -45px;
@@ -667,17 +671,17 @@ select {
   font-size: 16px;
   color: #fefefe;
 }
-/* line 546, ../../app/sass/uranime.scss */
+/* line 549, ../../app/sass/uranime.scss */
 .modal-content.episode h2.outside .arrow {
   opacity: 0.7;
 }
-/* line 553, ../../app/sass/uranime.scss */
+/* line 556, ../../app/sass/uranime.scss */
 .modal-content.episode .last-seen {
   height: 50px;
   position: relative;
   display: block;
 }
-/* line 557, ../../app/sass/uranime.scss */
+/* line 560, ../../app/sass/uranime.scss */
 .modal-content.episode .last-seen h2 {
   padding: 0 10px;
   margin: 0;
@@ -689,7 +693,7 @@ select {
   left:0;*/
   float: left;
 }
-/* line 569, ../../app/sass/uranime.scss */
+/* line 572, ../../app/sass/uranime.scss */
 .modal-content.episode .last-seen img {
   float: left;
   height: 30px;
@@ -697,7 +701,7 @@ select {
   border: 1px solid #ccc;
   margin: 10px 10px 0 0;
 }
-/* line 578, ../../app/sass/uranime.scss */
+/* line 581, ../../app/sass/uranime.scss */
 .modal-content.episode p.animedesc {
   padding: 30px 0;
   max-height: 250px;
@@ -731,23 +735,23 @@ select {
   border-radius: 30px;
   border: none;
 }
-/* line 585, ../../app/sass/uranime.scss */
+/* line 588, ../../app/sass/uranime.scss */
 .modal-content.episode .js-episodeInfo {
   border-right: 1px solid #ccc;
   padding-right: 0;
   margin-right: 0;
 }
-/* line 591, ../../app/sass/uranime.scss */
+/* line 594, ../../app/sass/uranime.scss */
 .modal-content.episode .modal-episode {
   background: whitesmoke;
   margin-bottom: -3px;
   position: relative;
 }
-/* line 596, ../../app/sass/uranime.scss */
+/* line 599, ../../app/sass/uranime.scss */
 .modal-content.episode .modal-episode img {
   width: 100%;
 }
-/* line 600, ../../app/sass/uranime.scss */
+/* line 603, ../../app/sass/uranime.scss */
 .modal-content.episode .modal-episode .border-image {
   border: rgba(255, 255, 255, 0.1) 1px solid;
   -webkit-box-sizing: border-box;
@@ -759,11 +763,11 @@ select {
   width: 100%;
   pointer-events: none;
 }
-/* line 613, ../../app/sass/uranime.scss */
+/* line 616, ../../app/sass/uranime.scss */
 .modal-content.episode .modal-header {
   margin-bottom: 10px;
 }
-/* line 617, ../../app/sass/uranime.scss */
+/* line 620, ../../app/sass/uranime.scss */
 .modal-content.episode .modal-footer {
   text-align: left;
   padding: 15px 10px;
@@ -772,19 +776,19 @@ select {
   line-height: 1.1em;
   margin-top: 0px;
 }
-/* line 627, ../../app/sass/uranime.scss */
+/* line 630, ../../app/sass/uranime.scss */
 .modal-content.episode .comment-avatar {
   left: -60px;
 }
-/* line 631, ../../app/sass/uranime.scss */
+/* line 634, ../../app/sass/uranime.scss */
 .modal-content.episode .comment-container {
   margin-left: 50px;
 }
-/* line 635, ../../app/sass/uranime.scss */
+/* line 638, ../../app/sass/uranime.scss */
 .modal-content.episode .comments {
   overflow-y: auto;
 }
-/* line 638, ../../app/sass/uranime.scss */
+/* line 641, ../../app/sass/uranime.scss */
 .modal-content.episode .comments.js-commentsHeight {
   max-height: 474px;
 }
@@ -817,28 +821,28 @@ select {
   border: none;
 }
 
-/* line 648, ../../app/sass/uranime.scss */
+/* line 651, ../../app/sass/uranime.scss */
 .searchBar h1 {
   font-size: 24px;
 }
-/* line 651, ../../app/sass/uranime.scss */
+/* line 654, ../../app/sass/uranime.scss */
 .searchBar div.span2, .searchBar .btn-group {
   margin-top: 6px;
 }
 
-/* line 660, ../../app/sass/uranime.scss */
+/* line 663, ../../app/sass/uranime.scss */
 .smallPoster img {
   width: 138px;
   height: 203px;
 }
 
-/* line 665, ../../app/sass/uranime.scss */
+/* line 668, ../../app/sass/uranime.scss */
 .smallPoster + p {
   width: 138px;
 }
 
 /* Comment system */
-/* line 673, ../../app/sass/uranime.scss */
+/* line 676, ../../app/sass/uranime.scss */
 .comment-container {
   padding: 2px;
   background: #efefef;
@@ -848,7 +852,7 @@ select {
   margin-bottom: 20px;
 }
 
-/* line 682, ../../app/sass/uranime.scss */
+/* line 685, ../../app/sass/uranime.scss */
 .comment-meta {
   height: 33px;
   padding: 0 10px;
@@ -871,7 +875,7 @@ select {
   text-overflow: ellipsis;
 }
 
-/* line 704, ../../app/sass/uranime.scss */
+/* line 707, ../../app/sass/uranime.scss */
 .comment-text {
   position: relative;
   padding: 0;
@@ -881,7 +885,7 @@ select {
   padding: 10px;
 }
 
-/* line 713, ../../app/sass/uranime.scss */
+/* line 716, ../../app/sass/uranime.scss */
 .comment {
   border: 1px solid #CACACA;
   /*-webkit-border-radius: 0 0 3px 3px;
@@ -900,13 +904,13 @@ select {
   border-top: 0 solid #DDD;*/
 }
 
-/* line 731, ../../app/sass/uranime.scss */
+/* line 734, ../../app/sass/uranime.scss */
 .comment-avatar {
   position: absolute;
   left: -85px;
 }
 
-/* line 736, ../../app/sass/uranime.scss */
+/* line 739, ../../app/sass/uranime.scss */
 .comment-avatar img {
   padding: 2px;
   border: 3px solid #f5f4f9;
@@ -915,7 +919,7 @@ select {
   max-height: 50px;
 }
 
-/* line 744, ../../app/sass/uranime.scss */
+/* line 747, ../../app/sass/uranime.scss */
 .comment-time {
   color: #AAA;
   background: #f0f0f0;
@@ -932,30 +936,30 @@ select {
   padding-right: 10px;
 }
 
-/* line 760, ../../app/sass/uranime.scss */
+/* line 763, ../../app/sass/uranime.scss */
 .comment-text textarea {
   max-width: 98%;
   width: 480px;
   padding: 10px;
 }
 
-/* line 766, ../../app/sass/uranime.scss */
+/* line 769, ../../app/sass/uranime.scss */
 .comment-meta .btn {
   margin-top: 3px;
 }
 
-/* line 770, ../../app/sass/uranime.scss */
+/* line 773, ../../app/sass/uranime.scss */
 a.green {
   color: #5BB75B;
 }
 
-/* line 774, ../../app/sass/uranime.scss */
+/* line 777, ../../app/sass/uranime.scss */
 .animelist-info {
   text-align: center;
   margin-top: 10px;
   color: #555;
 }
-/* line 778, ../../app/sass/uranime.scss */
+/* line 781, ../../app/sass/uranime.scss */
 .animelist-info h2 {
   margin: 0;
   color: #343434;
@@ -963,7 +967,7 @@ a.green {
 }
 
 /* HERE COMES THE PROGRESS */
-/* line 787, ../../app/sass/uranime.scss */
+/* line 790, ../../app/sass/uranime.scss */
 .smallprogress {
   width: 100%;
   background: #d4d9dd;
@@ -974,7 +978,7 @@ a.green {
   position: relative;
 }
 
-/* line 797, ../../app/sass/uranime.scss */
+/* line 800, ../../app/sass/uranime.scss */
 .smallprogress .smallprogress-filled {
   display: block;
   position: absolute;
@@ -988,18 +992,18 @@ a.green {
   background: url("../img/smallprogress_background.png");
 }
 
-/* line 811, ../../app/sass/uranime.scss */
+/* line 814, ../../app/sass/uranime.scss */
 div.anime-library .gallery-image a:hover img {
   opacity: 1;
 }
 
-/* line 816, ../../app/sass/uranime.scss */
+/* line 819, ../../app/sass/uranime.scss */
 .spanpadding {
   padding-right: 8px;
   padding-left: 8px;
 }
 
-/* line 821, ../../app/sass/uranime.scss */
+/* line 824, ../../app/sass/uranime.scss */
 div.backdrop {
   display: inline !important;
   width: 100%;
@@ -1011,7 +1015,7 @@ div.backdrop {
   text-align: center;
   vertical-align: middle;
 }
-/* line 833, ../../app/sass/uranime.scss */
+/* line 836, ../../app/sass/uranime.scss */
 div.backdrop .white-center {
   color: #fff;
   position: absolute;
@@ -1019,7 +1023,7 @@ div.backdrop .white-center {
   width: 100%;
   text-shadow: 2px 2px 2px #000;
 }
-/* line 841, ../../app/sass/uranime.scss */
+/* line 844, ../../app/sass/uranime.scss */
 div.backdrop .unseen-episodes {
   bottom: 20px;
   position: absolute;
@@ -1030,7 +1034,7 @@ div.backdrop .unseen-episodes {
   font-size: 23px;
   text-shadow: 0px 1px 1px #000;
 }
-/* line 852, ../../app/sass/uranime.scss */
+/* line 855, ../../app/sass/uranime.scss */
 div.backdrop .smallprogress {
   background: url("../img/animeposter-progress-background.png");
   height: 6px;
@@ -1041,7 +1045,7 @@ div.backdrop .smallprogress {
   border: 1px solid #2c2f37;
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1);
 }
-/* line 862, ../../app/sass/uranime.scss */
+/* line 865, ../../app/sass/uranime.scss */
 div.backdrop .smallprogress .smallprogress-filled {
   border: 0;
   top: 0;
@@ -1049,35 +1053,83 @@ div.backdrop .smallprogress .smallprogress-filled {
   background: url("../img/animeposter-progress-fill.png");
 }
 
-/* line 873, ../../app/sass/uranime.scss */
+/* line 876, ../../app/sass/uranime.scss */
 .clickable {
   cursor: pointer;
   cursor: hand;
 }
 
-/* line 878, ../../app/sass/uranime.scss */
+/* line 881, ../../app/sass/uranime.scss */
 .margin-top {
   margin-top: 50px;
 }
 
-/* line 882, ../../app/sass/uranime.scss */
+/* line 885, ../../app/sass/uranime.scss */
 .request {
   min-height: 300px;
 }
-/* line 884, ../../app/sass/uranime.scss */
+/* line 887, ../../app/sass/uranime.scss */
 .request .backdrop {
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 888, ../../app/sass/uranime.scss */
+/* line 891, ../../app/sass/uranime.scss */
 .request .backdrop .white-center {
   display: block;
   top: 0;
   height: 100%;
 }
-/* line 894, ../../app/sass/uranime.scss */
+/* line 897, ../../app/sass/uranime.scss */
 .request .backdrop img {
   max-height: 80%;
   margin-top: 5%;
+}
+
+/* line 904, ../../app/sass/uranime.scss */
+.seenepisode {
+  background: #fff;
+  border: 1px solid #ccc;
+  margin-bottom: 30px;
+}
+/* line 909, ../../app/sass/uranime.scss */
+.seenepisode .gallery-image {
+  background: #fff;
+}
+/* line 912, ../../app/sass/uranime.scss */
+.seenepisode .avatarWrapper {
+  position: relative;
+}
+/* line 915, ../../app/sass/uranime.scss */
+.seenepisode .avatar {
+  position: absolute;
+  height: 60px;
+  top: -35px;
+  width: 100%;
+}
+/* line 921, ../../app/sass/uranime.scss */
+.seenepisode .avatar img {
+  position: absolute;
+  left: 20px;
+  height: 50px;
+  bottom: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  padding: 1px;
+}
+/* line 930, ../../app/sass/uranime.scss */
+.seenepisode .avatar p {
+  position: absolute;
+  bottom: 0;
+  right: 10px;
+  margin: 0;
+}
+/* line 938, ../../app/sass/uranime.scss */
+.seenepisode .desc {
+  margin-top: 40px;
+  padding: 0 10px 10px 10px;
+}
+/* line 941, ../../app/sass/uranime.scss */
+.seenepisode .desc a {
+  display: block;
 }
 
 /*
@@ -1134,28 +1186,28 @@ div.backdrop .smallprogress .smallprogress-filled {
     }
 }*/
 @media (min-width: 979px) {
-  /* line 963, ../../app/sass/uranime.scss */
+  /* line 1009, ../../app/sass/uranime.scss */
   .modal-dialog.episode {
     width: 800px;
     margin-left: -400px;
   }
 }
 @media (max-width: 979px) {
-  /* line 973, ../../app/sass/uranime.scss */
+  /* line 1019, ../../app/sass/uranime.scss */
   .navbar-fixed-top,
   .navbar-fixed-bottom,
   .navbar-static-top {
     margin-right: 0;
     margin-left: 0;
   }
-  /* line 977, ../../app/sass/uranime.scss */
+  /* line 1023, ../../app/sass/uranime.scss */
   .navbar-fixed-top.nav-search,
   .navbar-fixed-bottom.nav-search,
   .navbar-static-top.nav-search {
     margin-bottom: 10px;
     margin-top: 9px;
   }
-  /* line 981, ../../app/sass/uranime.scss */
+  /* line 1027, ../../app/sass/uranime.scss */
   .navbar-fixed-top.nav-search .navbar-inner,
   .navbar-fixed-bottom.nav-search .navbar-inner,
   .navbar-static-top.nav-search .navbar-inner {
@@ -1163,13 +1215,13 @@ div.backdrop .smallprogress .smallprogress-filled {
   }
 }
 @media (max-width: 767px) {
-  /* line 990, ../../app/sass/uranime.scss */
+  /* line 1036, ../../app/sass/uranime.scss */
   .brand {
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* line 991, ../../app/sass/uranime.scss */
+  /* line 1037, ../../app/sass/uranime.scss */
   body {
     padding-right: 0px;
     padding-left: 0px;

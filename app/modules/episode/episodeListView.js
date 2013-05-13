@@ -1,11 +1,11 @@
 App.EpisodeListView = Ember.CollectionView.extend({
-
+ 
 	itemViewClass: Ember.View.extend({
-		templateName: 'episode/episodeListItem',
+            templateName: 'episode/episodeListItem',
 
-		showEpisode: function (episode){
-			App.EpisodeView.popup({content:episode, controller: this.get('controller')});
-		}
+            showEpisode: function (episode){
+                    App.EpisodeView.popup({content:episode, controller: this.get('controller')});
+            }
 
 	})
 

@@ -1,6 +1,10 @@
 // Common -> Paginator
 require('app/common/paginator/paginatorCollectionView');
 
+// Common -> ModalView
+require('app/common/modal/modalView');
+require('app/modules/episode/episodeModal/episodemodalView');
+
 // Application
 require('app/modules/application/applicationView');
 
@@ -20,7 +24,6 @@ require('app/modules/community/communityView');
 
 // Episode
 require('app/modules/episode/episodeListView');
-require('app/modules/episode/episodeModalView');
 
 // Front
 require('app/modules/front/frontView');

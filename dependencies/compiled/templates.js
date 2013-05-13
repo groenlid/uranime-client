@@ -66,15 +66,12 @@ function program1(depth0,data) {
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
   data.buffer.push("/>\n        ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.log.call(depth0, "view.content", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n        ");
-  hashTypes = {};
   stack1 = helpers['if'].call(depth0, "view.incomplete", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n    </a>\n</div>\n<p>");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "view.content.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</p>");
+  data.buffer.push("</p>\n");
   return buffer;
   
 });
@@ -100,20 +97,16 @@ function program5(depth0,data) {
   
   var buffer = '', hashTypes;
   data.buffer.push("\n            <div class=\"pull-left span3\">\n                <div class=\"gallery-image\">\n                    <a ");
-  hashTypes = {'target': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "episode", {hash:{
-    'target': ("view")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"clickable\">\n                        <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'src': ("episode.imageURL")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push("/>\n                        <span>\n                            View Episode\n                        </span>\n                    </a>\n                </div>\n                <p class=\"bold\">\n                   <a ");
-  hashTypes = {'target': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "episode", {hash:{
-    'target': ("view")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("/>\n                        <span>\n                            View Episode\n                        </span>\n                    </a>\n                </div>\n                <p class=\"bold\">\n                <a ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"clickable\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "episode.anime.title", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
@@ -255,7 +248,7 @@ function program10(depth0,data) {
     'contentBinding': ("seen"),
     'episodesBinding': ("episodes")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n    </div>\n\n</div>");
+  data.buffer.push("\n    </div>\n\n</div>\n");
   return buffer;
   
 });
@@ -496,9 +489,14 @@ function program5(depth0,data) {
   data.buffer.push("\n                <li class=\"divider-vertical\"></li>\n                ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.NotificationsView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n\n\n                <!-- User profile -->\n                <li class=\"divider-vertical\"></li>\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                         <img src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20\" class=\"img-rounded\"> Groenlid <b class=\"caret\"></b>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a tabindex=\"-1\">Profile</a></li>\n                        <li><a tabindex=\"-1\">Watchlist</a></li>\n                        <li><a href=\"index.html#/user/1/library\" tabindex=\"-1\">Library</a></li>\n                        <li><a tabindex=\"-1\">Settings</a></li>\n                        <li><a tabindex=\"-1\">Help</a></li>\n                        <li class=\"divider\"></li>\n                        <li><a tabindex=\"-1\">Logout</a></lwi>\n                    </ul>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n");
+  data.buffer.push("\n\n\n                <!-- User profile -->\n                <li class=\"divider-vertical\"></li>\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                         <img src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20\" class=\"img-rounded\"> Groenlid <b class=\"caret\"></b>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a tabindex=\"-1\">Profile</a></li>\n                        <li><a tabindex=\"-1\">Watchlist</a></li>\n                        <li><a href=\"index.html#/user/1/library\" tabindex=\"-1\">Library</a></li>\n                        <li><a tabindex=\"-1\">Settings</a></li>\n                        <li><a tabindex=\"-1\">Help</a></li>\n                        <li class=\"divider\"></li>\n                        <li><a tabindex=\"-1\">Logout</a></lwi>\n                    </ul>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n\n");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n");
+  hashTypes = {};
+  options = {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
+  data.buffer.push(escapeExpression(((stack1 = helpers.outlet),stack1 ? stack1.call(depth0, "modal", options) : helperMissing.call(depth0, "outlet", "modal", options))));
+  data.buffer.push("\n");
   return buffer;
   
 });
@@ -542,10 +540,8 @@ function program6(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, options;
   data.buffer.push("\n            <div class=\"anime-gallery pull-left gallery-fanart\">\n                <div class=\"gallery-image\">\n                    <a ");
-  hashTypes = {'target': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "episode", {hash:{
-    'target': ("view")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"clickable\">\n                        <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
@@ -589,6 +585,7 @@ function program7(depth0,data) {
   hashTypes = {};
   stack2 = helpers.each.call(depth0, "day", "in", "controller.arrangedEpisodes", {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n");
   return buffer;
   
 });
@@ -639,71 +636,63 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
 function program1(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, options;
-  data.buffer.push("\n  <div class=\"row\">\n\n    <div class=\"span1 pull-left\">\n      <img class=\"img-rounded\" ");
-  hashTypes = {'src': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'src': ("activity.user.gravatar")
-  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n    </div>\n    <div class=\"span11\">\n      \n      <div class=\"row\">\n        <h2 class=\"span9 normal\">");
+  data.buffer.push("\n        <div class=\"span4\">\n                <div class=\"seenepisode\">\n                    <a ");
   hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.profile", "activity.user", options) : helperMissing.call(depth0, "linkTo", "user.profile", "activity.user", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push(" \n           watched \n          episode ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.number", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" \n          of \n          ");
-  hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "activity.episode.anime", options) : helperMissing.call(depth0, "linkTo", "anime.description", "activity.episode.anime", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        </h2>\n        <p class=\"muted italic span3\">");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.since", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</p>\n      </div>\n\n      <div class=\"row\">\n        <div class=\"span4\">\n         <a ");
-  hashTypes = {'target': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "activity.episode", {hash:{
-    'target': ("view")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" class=\"clickable\"> <img class=\"gallery-image community-activity\" ");
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "activity.episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"clickable\">\n                        <img class=\"gallery-image\" ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
     'src': ("activity.episode.imageURL")
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" /></a>\n        </div>\n        <div class=\"span6\">\n          <h2 class=\"normal\">Episode ");
+  data.buffer.push("/>\n                    </a>\n                        <div class=\"avatarWrapper\">\n                                <div class=\"avatar\">\n                                        ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.number", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(", ");
+  options = {hash:{},inverse:self.noop,fn:self.program(2, program2, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "user.profile", "activity.user", options) : helperMissing.call(depth0, "linkTo", "user.profile", "activity.user", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                                        <p class=\"grey\">\n                                                <i class=\"glyphicon glyphicon-time\"></i> ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.since", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                                        </p>\n                                </div>\n                            </div>\n                            <div class=\"desc\">\n                                ");
+  hashTypes = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(4, program4, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "activity.episode.anime", options) : helperMissing.call(depth0, "linkTo", "anime.description", "activity.episode.anime", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                                ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</h2>\n          <p class=\"bold grey\">Aired: ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.parseAired", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</p>\n          <p class=\"muted\">\n            ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.shortDescription", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n          </p>\n        </div>\n      </div>\n      <hr />\n\n    </div>\n\n  </div>\n  ");
+  data.buffer.push("\n                            </div>\n                </div>\n        </div>\n    ");
   return buffer;
   }
 function program2(depth0,data) {
   
-  var hashTypes;
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.user.nick", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  var buffer = '', hashTypes;
+  data.buffer.push("\n                                                <img ");
+  hashTypes = {'src': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'src': ("activity.user.gravatar")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push("/>\n                                        ");
+  return buffer;
   }
 
 function program4(depth0,data) {
   
-  var hashTypes;
+  var buffer = '', hashTypes;
+  data.buffer.push("\n                                ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.anime.title", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "activity.episode.number", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                                ");
+  return buffer;
   }
 
-  data.buffer.push("<div class=\"content container infobar\">\n   <h1> What are people watching right now?</h1>\n</div>\n<div class=\"content container newsfeed\">\n  ");
+  data.buffer.push("<div class=\"content container infobar\">\n   <h1>List of users should go here</h1>\n</div>\n<div class=\"container\">\n    ");
   hashTypes = {};
   stack1 = helpers.each.call(depth0, "activity", "in", "view.controller", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n<!--\n  <div class=\"row\">\n    <div class=\"span1 pull-left\">\n      <img class=\"img-rounded\" src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg\">\n    </div>\n    <div class=\"span11\">\n      <h2>Groenlid <span class=\"normal\"> watched</span> episode 5 <span class=\"normal\">of</span> BTOOM</h2>\n      <p class=\"muted italic\">20 minutes ago</p>\n      <div class=\"row\">\n        <div class=\"span5\">\n          <img class=\"gallery-image\" src=\"http://urani.me/attachments/episodes/779/20937.jpg\">\n        </div>\n        <div class=\"span6\">\n          <h2>Episode 5, Attack</h2>\n          <p class=\"bold grey\">Aired: 2012-11-01</p>\n          <p class=\"muted\">\n            A pantless corpse floats by Taira and Sakamoto while they are eating lunch. When Sakamoto leaves to investigate he finds a gruesome scene and a familiar figure.\n          </p>\n        </div>\n      </div>\n    </div>\n  </div>\n  <hr />\n-->\n\n</div>\n");
+  data.buffer.push("\n</div>\n");
   return buffer;
   
 });
@@ -861,7 +850,7 @@ function program7(depth0,data) {
   }
 
   hashTypes = {};
-  stack1 = helpers['with'].call(depth0, "view.content", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers['with'].call(depth0, "content", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n\n");
   return buffer;
@@ -1254,10 +1243,8 @@ function program1(depth0,data) {
   
   var buffer = '', hashTypes;
   data.buffer.push("\n        <div class=\"userseen\">\n          <a ");
-  hashTypes = {'target': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "uep.episode", {hash:{
-    'target': ("view")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "uep.episode", {hash:{},contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"clickable\">\n            <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
@@ -1274,7 +1261,7 @@ function program1(depth0,data) {
   data.buffer.push("\n    </header>\n</div>\n\n");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n\n<!--\n\n  <div class=\"black-top\">\n    <header id=\"fanart\" class=\"small\" style=\"\">\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/6808.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/4562.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/4561.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/4560.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/99/4726.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/99/4725.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/749/20221.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/638/18124.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/photos/orginal/4f6d1777-eeac-4791-ba43-5a959e27ab78.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/784/21273.jpg\">\n      </div>\n    </header>\n</div>\n-->");
+  data.buffer.push("\n\n<!--\n\n  <div class=\"black-top\">\n    <header id=\"fanart\" class=\"small\" style=\"\">\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/6808.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/4562.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/4561.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/9/4560.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/99/4726.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/99/4725.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/749/20221.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/638/18124.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/photos/orginal/4f6d1777-eeac-4791-ba43-5a959e27ab78.jpg\">\n      </div>\n      <div class=\"userseen\">\n        <img src=\"http://urani.me/attachments/episodes/784/21273.jpg\">\n      </div>\n    </header>\n</div>\n-->\n");
   return buffer;
   
 });
