@@ -1,4 +1,4 @@
-App.LibraryView = Em.View.extend({
+App.UserLibraryView = Em.View.extend({
   templateName: "user/library/library",
 
   didInsertElement: function(){

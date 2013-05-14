@@ -20,7 +20,7 @@ App.Router.map(function() {
 
 	this.resource('user', { path: '/user/:user_id' }, function(){
 		this.route('profile', { path: '/'});
-		this.resource('library');
+		this.route('library');
 	});
 
 	this.resource('requests', function(){
@@ -62,7 +62,7 @@ App.ApplicationRoute = Ember.Route.extend({
             this.router.transitionTo('search', App.Anime.find({title:query}));
         },
         goToLibrary: function(user, library){
-                this.router.transitionTo('library', library);
+                this.router.transitionTo('user.library', user);
         },
 
         // Show and hide the modals
@@ -87,7 +87,6 @@ App.AnimeRoute = Ember.Route.extend({
 	setupController: function(controller, model) {
 		controller.set('content', model);
 
-		//var content = controller.get('content');
 	   	if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
 	   		model.reload();
   }
@@ -107,17 +106,11 @@ App.AnimeEpisodesRoute = Ember.Route.extend({
 	}
 });
 
-App.LibraryRoute = Ember.Route.extend({
+App.UserLibraryRoute = Ember.Route.extend({
 	model: function(params){
             var user_id = this.modelFor('user').get('id'),
 		library = App.store.find(App.Library, {user_id: user_id});
                 
-                /*
-                  library.one('didLoad',function(){
-                    library.resolve(library.get('firstObject'));
-                });
-                */
-
                 return library;
 	}
 });
@@ -131,13 +124,11 @@ App.CommunityRoute = Ember.Route.extend({
 App.SearchRoute = Ember.Route.extend({
 
   deserialize: function(params){
-  	console.log("deserialize", arguments);
   	return App.Anime.find({title:params.query});
   },
 
 
   serialize: function(params){
-  	console.log("serialize", arguments);
   	return {query: params.query.title}
   },
 

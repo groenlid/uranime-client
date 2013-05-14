@@ -1003,7 +1003,11 @@ div.backdrop {
         width: 960px;
     }
 }*/
-
+@media (min-width: $responsive_small) {
+    .seenepisode {
+        height:310px;
+    }
+}
 @media (min-width: $responsive_medium) {
     .modal-dialog {
         &.episode {
@@ -1011,6 +1015,8 @@ div.backdrop {
             margin-left:-400px;
         }
     }
+
+
 }
 
 @media (max-width: $responsive_medium) {

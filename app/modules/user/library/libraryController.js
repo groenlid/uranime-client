@@ -1,4 +1,4 @@
-App.LibraryController = Ember.ArrayController.extend(Ember.PaginationSupport, {
+App.UserLibraryController = Ember.ArrayController.extend(Ember.PaginationSupport, {
   
   totalBinding: 'content.length',
   
