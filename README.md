@@ -10,6 +10,7 @@ Todo
 
 Important:
 --
+* Implement https://github.com/jamesarosen/ember-i18n
 * Notifications based on genres/tags when new anime appears
 * Hide shows from the calendar
 * Remove all references to App.store. Should use through controller or route.
