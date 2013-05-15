@@ -19,8 +19,6 @@ App.UserLibraryController = Ember.ArrayController.extend(Ember.PaginationSupport
 
   }.property('rangeStart','rangeStop', 'sortProperties'),
 
-  needs: 'user',
-  
   sortButtons: Ember.A([ 
     Ember.Object.create({
       title: 'Last seen',

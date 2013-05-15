@@ -38,7 +38,6 @@ App.RequestsRoute = Ember.Route.extend({
 });
 
 App.CalendarRoute = Ember.Route.extend({
-
 	model: function(params){
 		return params.week;
 	},
@@ -48,9 +47,9 @@ App.CalendarRoute = Ember.Route.extend({
 	},
 
 	events: {
-        goToWeek: function(week) {
-          this.router.transitionTo('calendar', App.Episode.find({week:week}));
-        }
+            goToWeek: function(week) {
+              this.router.transitionTo('calendar', App.Episode.find({week:week}));
+            }
       }
 });
 
@@ -61,8 +60,9 @@ App.ApplicationRoute = Ember.Route.extend({
             this.controllerFor('search').set('query', query);
             this.router.transitionTo('search', App.Anime.find({title:query}));
         },
-        goToLibrary: function(user, library){
-                this.router.transitionTo('user.library', user);
+
+        goToLibrary: function(user){
+            this.router.transitionTo('user.library', user);    
         },
 
         // Show and hide the modals
@@ -96,7 +96,7 @@ App.AnimeDescriptionRoute = Ember.Route.extend({
 	renderTemplate: function() {
 		var controller = this.controllerFor('anime');
 		this.render({ controller: controller });
-	}
+	},
 });
 
 App.AnimeEpisodesRoute = Ember.Route.extend({
@@ -107,12 +107,14 @@ App.AnimeEpisodesRoute = Ember.Route.extend({
 });
 
 App.UserLibraryRoute = Ember.Route.extend({
-	model: function(params){
-            var user_id = this.modelFor('user').get('id'),
-		library = App.store.find(App.Library, {user_id: user_id});
-                
-                return library;
-	}
+    setupController: function(controller){
+        var user_id = this.modelFor('user').get('id'),
+            library = App.store.find(App.Library, {user_id: user_id});
+               
+        controller.set('content', library);
+    }
+
+
 });
 
 App.CommunityRoute = Ember.Route.extend({

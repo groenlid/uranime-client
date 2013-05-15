@@ -1,12 +1,9 @@
 App.AnimeDescriptionView = Em.View.extend({
-	templateName: "anime/description/animeDescription",
-  showEpisode: function (episode){
-      App.EpisodeView.popup({content:episode, controller: this.get('controller')});
-  },
+    templateName: "anime/description/animeDescription",
 
-  showTags: false,
+    showTags: false,
 
-  toggleTags: function(evt){
-    this.toggleProperty('showTags');
-  }
+    toggleTags: function(evt){
+        this.toggleProperty('showTags');
+    }
 });

@@ -706,10 +706,8 @@ function program1(depth0,data) {
   
   var buffer = '', stack1, hashTypes;
   data.buffer.push("\n<div class=\"row episodelist\">\n    <div class=\"pull-left span2\">\n        <div class=\"gallery-image\">\n            <a class=\"clickable\" ");
-  hashTypes = {'target': "STRING"};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showEpisode", "", {hash:{
-    'target': ("view")
-  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "showepisode", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n            <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
@@ -748,7 +746,7 @@ function program2(depth0,data) {
   hashTypes = {};
   stack1 = helpers['with'].call(depth0, "view.content", {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("    ");
+  data.buffer.push("    \n");
   return buffer;
   
 });
@@ -1244,7 +1242,7 @@ function program1(depth0,data) {
   var buffer = '', hashTypes;
   data.buffer.push("\n        <div class=\"userseen\">\n          <a ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "uep.episode", {hash:{},contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "uep.episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" class=\"clickable\">\n            <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{

@@ -8,10 +8,8 @@ App.AnimeActivityView = Ember.CollectionView.extend({
     templateName: 'anime/description/activity/animeActivityItem',
 
     click: function(event){
-      var user = this.get('content'),
-        library = App.Library.find({user_id:user.get('id')});
-  
-      this.get('controller').send('goToLibrary',user, library);
+      var seenActivity = this.get('content');
+      this.get('controller').send('goToLibrary', seenActivity.get('user'));
     },
 
     episodesBinding: 'parentView.episodes',
