@@ -8,9 +8,9 @@ App.RESTAdapter = DS.RESTAdapter.extend({
       last_seen: 'App.SeenActivity'
     },
 
-    //url: 'http://localhost:3000',
+    url: 'http://localhost:3000',
     //url: 'http://uranime.azurewebsites.net',
-    url: 'http://groenlid.no-ip.org:3000',
+    //url: 'http://groenlid.no-ip.org:3000',
 
   ajax: function(url, type, hash) {
     hash.url = url;

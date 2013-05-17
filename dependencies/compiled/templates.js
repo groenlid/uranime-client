@@ -707,7 +707,7 @@ function program1(depth0,data) {
   var buffer = '', stack1, hashTypes;
   data.buffer.push("\n<div class=\"row episodelist\">\n    <div class=\"pull-left span2\">\n        <div class=\"gallery-image\">\n            <a class=\"clickable\" ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "showepisode", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n            <img ");
   hashTypes = {'src': "STRING"};
   data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
