@@ -1,7 +1,7 @@
 {
-  "name": "todo-example",
+  "name": "uranime",
   "version": "0.0.0",
-  "description": "'TodoMVC Ember example with buildtools and tests'",
+  "description": "'Online anime tracker.'",
   "main": "Gruntfile.js",
   "scripts": {
     "test": "grunt"
@@ -10,13 +10,13 @@
   "author": "Trek Glowacki <trek.glowacki@gmail.com>",
   "license": "BSD",
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-neuter": "~0.5.0",
-    "grunt-contrib-uglify": "~0.2.0",
-    "grunt-contrib-jshint": "~0.1.1rc5",
-    "grunt-contrib-qunit": "~0.1.1rc5",
-    "grunt-ember-templates": "~0.4.2rc5",
-    "grunt-contrib-watch": "~0.2.0rc5",
-    "grunt-contrib-compass": "~0.1.3"
+    "grunt": "latest",
+    "grunt-neuter": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-jshint": "latest",
+    "grunt-contrib-qunit": "latest",
+    "grunt-ember-templates": "0.4.5",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-compass": "latest"
   }
 }
