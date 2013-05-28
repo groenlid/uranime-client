@@ -1,5 +1,6 @@
 .DS_Store
 tmp/
 assets/
+node_modules/
 *.js~
 *.handlebars~
