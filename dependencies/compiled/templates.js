@@ -468,7 +468,7 @@ function program5(depth0,data) {
   data.buffer.push("Requests");
   }
 
-  data.buffer.push("<nav class=\"top-bar\">\n    <ul class=\"title-area\">\n        <li class=\"name\">\n            <h1><a href=\"#\">Uranime</a></h1>\n        </li>\n        <li class=\"toggle-topbar menu-icon\"><a href=\"#\"><span>Menu</span></a></li>\n    </ul>\n\n    <section class=\"top-bar-section\">\n        <ul class=\"left\">\n            <li class=\"divider\"></li>\n            <li>");
+  data.buffer.push("<nav class=\"top-bar\">\n    <ul class=\"title-area\">\n        <li class=\"name\">\n            <h1><a href=\"#\">Uranime</a></h1>\n        </li>\n        <li class=\"toggle-topbar menu-icon\"><a href=\"#\"><span>Menu</span></a></li>\n        <li class=\"toggle-topbar search-icon search\"><a href=\"#\"><span>Search</span></a></li>\n\n    </ul>\n\n    <section class=\"top-bar-section\">\n        <ul class=\"left\">\n            <li class=\"divider\"></li>\n            <li>");
   hashTypes = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "community", options) : helperMissing.call(depth0, "linkTo", "community", options));

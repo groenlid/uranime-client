@@ -1,0 +1,16 @@
+/* line 4, ../../app/sass/uranime.scss */
+.top-bar .name h1 a {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* line 11, ../../app/sass/uranime.scss */
+.top-bar .toggle-topbar.menu-icon {
+  left: 15px;
+}
+
+/* line 15, ../../app/sass/uranime.scss */
+.top-bar .toggle-topbar.menu-icon.search {
+  right: 15px;
+  left: auto;
+}

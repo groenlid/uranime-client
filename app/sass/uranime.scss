@@ -1,0 +1,21 @@
+// START MENU-BAR
+
+// center align the menu title
+.top-bar .name h1 a {
+    margin: 0 auto;
+    text-align:center;
+}
+
+
+// left side menu
+.top-bar .toggle-topbar.menu-icon {
+    left: 15px;
+}
+
+.top-bar .toggle-topbar.menu-icon.search {
+    right: 15px;
+    left: auto;
+}
+
+
+// END MENU-BAR
