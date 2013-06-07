@@ -448,7 +448,7 @@ function program3(depth0,data) {
 Ember.TEMPLATES["application/application"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [2,'>= 1.0.0-rc.3'];
 helpers = helpers || Ember.Handlebars.helpers; data = data || {};
-  var buffer = '', stack1, stack2, hashTypes, options, self=this, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+  var buffer = '', stack1, stack2, hashTypes, options, escapeExpression=this.escapeExpression, self=this, helperMissing=helpers.helperMissing;
 
 function program1(depth0,data) {
   
@@ -468,7 +468,12 @@ function program5(depth0,data) {
   data.buffer.push("Requests");
   }
 
-  data.buffer.push("<nav class=\"top-bar\">\n    <ul class=\"title-area\">\n        <li class=\"name\">\n            <h1><a href=\"#\">Uranime</a></h1>\n        </li>\n        <li class=\"toggle-topbar menu-icon\"><a href=\"#\"><span>Menu</span></a></li>\n        <li class=\"toggle-topbar search-icon search\"><a href=\"#\"><span>Search</span></a></li>\n\n    </ul>\n\n    <section class=\"top-bar-section\">\n        <ul class=\"left\">\n            <li class=\"divider\"></li>\n            <li>");
+  data.buffer.push("<nav class=\"top-bar\">\n    <ul class=\"title-area\">\n        <li class=\"name\">\n            <h1><a href=\"#\">Uranime</a></h1>\n        </li>\n        <li class=\"toggle-topbar menu-icon\"><a href=\"#sidebar\" id=\"sidebarButton\"><span>Menu</span></a></li>\n        ");
+  hashTypes = {'class': "STRING"};
+  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.SearchFormView", {hash:{
+    'class': ("toggle-topbar search-icon search")
+  },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n        <!--<li class=\"toggle-topbar search-icon search\"><a href=\"#\"><span class=\"general icon-search\"></span></a></li>-->\n    </ul>\n\n    <section class=\"top-bar-section\">\n        <ul class=\"left\">\n            <li class=\"divider\"></li>\n            <li>");
   hashTypes = {};
   options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "community", options) : helperMissing.call(depth0, "linkTo", "community", options));
@@ -483,28 +488,7 @@ function program5(depth0,data) {
   options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "requests", options) : helperMissing.call(depth0, "linkTo", "requests", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n        </uL>\n    </section>\n\n</nav>\n<div class=\"navbar navbar-inverse navbar-fixed-top\">\n    <div class=\"container\">\n        <a class=\"navbar-toggle pull-left\" data-toggle=\"collapse\" data-target=\".nav-collapse\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </a>\n        <a class=\"navbar-brand\" href=\"#\">Uranime</a>\n\n        <div class=\"nav-collapse collapse\">\n\n            <ul class=\"nav\">\n                <li>");
-  hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(1, program1, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "community", options) : helperMissing.call(depth0, "linkTo", "community", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("</li>\n                <li>");
-  hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(3, program3, data),contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "calendar", "date", options) : helperMissing.call(depth0, "linkTo", "calendar", "date", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                <li>");
-  hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(5, program5, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "requests", options) : helperMissing.call(depth0, "linkTo", "requests", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n            </ul>\n\n            <ul class=\"nav pull-right\">\n\n                <!-- Notification w/popover -->\n                <li class=\"divider-vertical\"></li>\n                ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.SearchFormView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n                <li class=\"divider-vertical\"></li>\n                ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.view.call(depth0, "App.NotificationsView", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n\n\n                <!-- User profile -->\n                <li class=\"divider-vertical\"></li>\n                <li class=\"dropdown\">\n                    <a href=\"#\" class=\"dropdown-toggle\" data-toggle=\"dropdown\">\n                         <img src=\"http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20\" class=\"img-rounded\"> Groenlid <b class=\"caret\"></b>\n                    </a>\n                    <ul class=\"dropdown-menu\">\n                        <li><a tabindex=\"-1\">Profile</a></li>\n                        <li><a tabindex=\"-1\">Watchlist</a></li>\n                        <li><a href=\"index.html#/user/1/library\" tabindex=\"-1\">Library</a></li>\n                        <li><a tabindex=\"-1\">Settings</a></li>\n                        <li><a tabindex=\"-1\">Help</a></li>\n                        <li class=\"divider\"></li>\n                        <li><a tabindex=\"-1\">Logout</a></lwi>\n                    </ul>\n                </li>\n            </ul>\n        </div>\n    </div>\n</div>\n<div>\n    <section id=\"sidebar\" role=\"complementary\">\n        <nav id=\"sideMenu\" role=\"navigation\">\n            <ul id=\"sideMainNav\" class=\"nav-bar\">\n                <li><a href=\"\">One</a></li>\n                <li><a href=\"\">Two</a></li>\n                <li><a href=\"\">Three</a></li>\n                <li><a href=\"\">Four</a></li>\n            </ul>\n        </nav>\n    </section>\n    ");
+  data.buffer.push("\n        </uL>\n    </section>\n</nav>\n\n<div>\n    <section id=\"sidebar\" role=\"complementary\">\n        <nav id=\"sideMenu\" role=\"navigation\">\n            <ul id=\"sideMainNav\" class=\"nav-bar\">\n                <li><a href=\"\">One</a></li>\n                <li><a href=\"\">Two</a></li>\n                <li><a href=\"\">Three</a></li>\n                <li><a href=\"\">Four</a></li>\n            </ul>\n        </nav>\n    </section>\n    ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "outlet", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push("\n</div>\n");

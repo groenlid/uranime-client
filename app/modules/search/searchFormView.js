@@ -13,7 +13,7 @@ App.SearchFormView = Ember.ContainerView.extend({
 
     notification: Ember.View.extend({
         tagName: ['a'],
-        classNames: ['glyphicon glyphicon-search'],
+        classNames: ['general icon-search right'],
 
         click: function(){
             this.get('parentView').toggleProperty('showResult');
@@ -25,7 +25,7 @@ App.SearchFormView = Ember.ContainerView.extend({
 
         templateName: "search/searchForm",
 
-        classNameBindings:['show::hidden'],
+        classNameBindings:['show::hide'],
         
         inlinesearch: function(){
                 var parent = this.get('parentView'),

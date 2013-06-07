@@ -15,6 +15,7 @@
  * and they have to be loaded before any application code.
 */
 require('dependencies/jquery-1.8.3');
+require('dependencies/jquery.offcanvas');
 require('dependencies/moment');
 
 /*
