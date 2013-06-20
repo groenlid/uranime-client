@@ -65,6 +65,7 @@ Anime-Details
 Episodes
 --
 * ~~Pagination~~
+* When entered, page with the currently aired episode is shown.
 
 
 ServerSide
