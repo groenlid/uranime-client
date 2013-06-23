@@ -84,7 +84,7 @@ h2 {
 }
 
 .container {
-    max-width: 960px;
+    //max-width: 960px;
 
     h2 {
         display: inline-block;
@@ -157,8 +157,7 @@ img.posterimage {
 	display:block;
 	background-size:100%;
 	height:385px;
-	width:100%;
-    max-width:1020px;
+    max-width:100%;
     margin:0 auto;
 	z-index:0;
     @include box-shadow(inset 0 0 0 1px rgba(255, 255, 255, 0.15));
@@ -461,16 +460,16 @@ select {
 .tag:hover 				{ cursor: pointer; }
 .tag:active 			{ top: 1px; }
 .tag span 				{ display: block; float: left; }
-.tag_name 				{ background: url(../img/tag.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
-.tag_count 				{ background: url(../img/tag.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
+.tag_name 				{ background: url(../img/tag.png) no-repeat 100% -25px; height: 100%; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
+.tag_count 				{ background: url(../img/tag.png) no-repeat 100% -50px; color: #fff; height: 100%; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
 
 
 .genre                    { min-width:29px; background: url(../img/tag2.png) no-repeat 0 0; color: #3f3f3f; display: none; float: left; height: 25px; line-height: 1; margin: 5px; padding: 0 5px 0 8px; position: relative; text-decoration: none; }
 .genre:hover              { cursor: pointer; }
 .genre:active             { top: 1px; }
 .genre span               { display: block; float: left; }
-.genre_name               { background: url(../img/tag2.png) no-repeat 100% -25px; height: 19px; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
-.genre_count              { background: url(../img/tag2.png) no-repeat 100% -50px; color: #fff; height: 19px; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
+.genre_name               { background: url(../img/tag2.png) no-repeat 100% -25px; height: 100%; padding: 6px 10px 0 0; position: relative; text-shadow: 0 1px 1px #fff; z-index: 10; max-width:188px;}
+.genre_count              { background: url(../img/tag2.png) no-repeat 100% -50px; color: #fff; height: 100%; padding: 5px 10px 0; position: absolute; right: 0; text-shadow: 0 -1px 0 #c54a0c; top: 1px; z-index: 5; }
 
 
 // SPLASH PAGE
@@ -502,7 +501,7 @@ select {
 }
 
 .container-splash {
-    .span6 {
+    .col-lg-6 {
         margin-top:20px;
         
         h2 {
@@ -550,7 +549,8 @@ select {
                 height:31px;
                 line-height:31px;
                 font-size:16px;
-                color:#fefefe;
+                color:#fff;
+                text-shadow:0 1px 1px rgba(0, 0, 0, 0.8);
             
                 .arrow {
                     opacity:0.7;
@@ -657,7 +657,7 @@ select {
     h1 {
         font-size:24px;
     }
-    div.span2, .btn-group {
+    div.col-lg-2, .btn-group {
         margin-top:6px;
     }
 
@@ -792,12 +792,12 @@ a.green {
 }
 
 /* HERE COMES THE PROGRESS */
-
-.smallprogress {
+/*
+.smallprogress, .mediumprogress {
  width:100%;
  background:#d4d9dd;
  border:1px solid #b8bbc0;
- height:4px;  
+ height:8px;  
  border-radius: 4px;
  box-shadow:inset 0 1px 0 #cbd0d4;     
  position:relative;
@@ -814,7 +814,7 @@ a.green {
  border-radius:4px;
  width:40%;
  background:url('../img/smallprogress_background.png');
-}
+}*/
 
 div.anime-library {
     .gallery-image a:hover img {
@@ -825,6 +825,31 @@ div.anime-library {
 .spanpadding {
   padding-right: 8px;
   padding-left: 8px;
+}
+
+.smallprogress, .mediumprogress {
+        background:url('../img/animeposter-progress-background.png');
+        height:8px;
+        position:absolute;
+        bottom:10px;
+        left:10%;
+        width:80%;
+        border:1px solid #2c2f37;
+        border-radius: 4px;
+        box-shadow:0 1px 0 rgba(255,255,255,0.1);
+        
+        .smallprogress-filled, .mediumprogress-filled {
+            border:0;
+            top:0;
+            border-radius: 4px;
+            height:100%;
+            left:0;
+            background:url('../img/animeposter-progress-fill.png');
+        }
+}
+
+.mediumprogress {
+    height:12px;
 }
 
 div.backdrop {
@@ -858,25 +883,15 @@ div.backdrop {
         text-shadow: 0px 1px 1px #000;
     }
 
-    .smallprogress {
-        background:url('../img/animeposter-progress-background.png');
-        height:6px;
-        position:absolute;
-        bottom:10px;
-        left:10%;
-        width:80%;
-        border:1px solid #2c2f37;
-        box-shadow:0 1px 0 rgba(255,255,255,0.1);
-        
-        .smallprogress-filled {
-            border:0;
-            top:0;
-            left:0;
-            background:url('../img/animeposter-progress-fill.png');
-        }
-    }
+}
 
 
+.bg-white {
+    background:#fff;
+}
+
+.no-margin {
+    margin:0;
 }
 
 .clickable {

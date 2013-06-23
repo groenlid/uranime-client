@@ -9,6 +9,7 @@ require('app/modules/episode/episodeModal/episodemodalView');
 require('app/modules/application/applicationView');
 
 // Anime
+require('app/modules/animeoverview/animeoverviewView');
 require('app/modules/anime/animeView');
 require('app/modules/anime/animeListView');
 

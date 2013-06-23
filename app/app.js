@@ -24,10 +24,15 @@ require('dependencies/moment');
 */
 require('dependencies/handlebars');
 
-/* This is Ember. I think you'll like it */
 require('dependencies/ember');
 
 require('dependencies/ember-data');
+
+/*
+ * Translation library
+*/
+require('dependencies/cldr-1.0.0');
+require('dependencies/i18n');
 
 require('dependencies/bootstrap');
 require('dependencies/ember-bootstrap');
@@ -53,6 +58,8 @@ window.App = Ember.Application.create({
 if (window.TESTING) {
   window.App.deferReadiness();
 }
+
+require('app/translations');
 
 /*
  * The global configuration object

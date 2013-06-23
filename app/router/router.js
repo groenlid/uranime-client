@@ -9,6 +9,8 @@ App.Router = Ember.Router.extend({
 App.Router.map(function() {
 	this.route('front', { path:'/'});
 	
+    this.resource('animeoverview', {path: '/anime'});
+
 	this.resource('anime', { path: '/anime/:anime_id' }, function(){
 		this.route('description', { path: '/' } );
 		this.route('episodes');

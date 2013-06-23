@@ -2,25 +2,11 @@
 <div class="modal-dialog episode">
   <div class="modal-content episode">
     <div class="row">
-      <div class="span6 js-episodeInfo">
+      <div class="col-lg-6 js-episodeInfo">
         <div class="modal-episode">
           <img {{bindAttr src="imageURL"}}>
           <div class="border-image"></div>
         </div>
-
-        <h2 class="outside">
-          {{#if view.hasPrevious}}
-          <a class="clickable" {{action previous this target="view"}}> 
-            <img class ="pull-left arrow" src="./img/arrow_left.png">
-          </a> 
-          {{/if}}
-          <span class="small grey">Episode {{number}}</span> - {{name}} <span class="small grey">  {{dateformat aired}}</span> 
-          {{#if view.hasNext}}
-          <a class="clickable" {{action next this target="view"}}>
-            <img class ="pull-right arrow" src="./img/arrow_right.png">
-          </a>
-          {{/if}}
-        </h2>
         
         <!--
         <div class="last-seen" style="display:none;">
@@ -41,12 +27,12 @@
           </p>
         </div>
       </div>
-      <div class="span6">
+      <div class="col-lg-6">
 
         <div class="modal-header">
           <button type="button" class="close" rel="close" data-dismiss="modal" aira-hidden="true">&times;</button>
           <div class="row">
-            <div class="span11 centertext">
+            <div class="col-lg-11 centertext">
               <h2 class="nomargin">
                 <a class="clickable" href {{action goToAnime anime target="view"}}>
                   {{anime.title}}
@@ -59,8 +45,8 @@
         <div class="comments js-commentsHeight">
           {{#each activity in arrangedUserEpisode}}
 
-            <div class="row span12">
-              <div class="span12">  
+            <div class="row">
+              <div class="col-lg-12">  
                   {{#linkTo user.profile activity.user class="bold"}}{{activity.user.nick}}{{/linkTo}} watched this.<span class="pull-right small"> {{activity.since}} </span> 
               </div>
             </div>
@@ -71,6 +57,19 @@
 
         </div>
       </div>
+      <h2 class="outside">
+          {{#if view.hasPrevious}}
+          <a class="clickable" {{action previous this target="view"}}> 
+            <img class ="pull-left arrow" src="./img/arrow_left.png">
+          </a> 
+          {{/if}}
+          <span class="small grey">Episode {{number}}</span> - {{name}} <span class="small grey">  {{dateformat aired}}</span> 
+          {{#if view.hasNext}}
+          <a class="clickable" {{action next this target="view"}}>
+            <img class ="pull-right arrow" src="./img/arrow_right.png">
+          </a>
+          {{/if}}
+        </h2>
     </div>
   </div>
   <!--<div class="modal-backdrop"></div>-->

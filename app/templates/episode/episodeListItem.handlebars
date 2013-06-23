@@ -1,14 +1,14 @@
 {{#with view.content}}
 <div class="row episodelist">
-    <div class="pull-left span2">
+    <div class="pull-left col-lg-2">
         <div class="gallery-image">
             <a class="clickable" {{action showModal 'episodemodal' this}}>
             <img {{bindAttr src="this.imageURL"}} /></a>
         </div>
     </div>
-    <div class="span8 episode-info">
+    <div class="col-lg-8 episode-info">
         <div class="row">
-            <h4 class="span10 normal">
+            <h4 class="col-lg-10 normal">
                 <a class="clickable" {{action showEpisode this target="view"}}>
                     {{#if this.special}}
                         <span class="label label-info">Special</span>
@@ -16,7 +16,7 @@
                     #{{this.number}} - {{this.name}}
                 </a>
             </h4>
-            <p class="subtle span2 pull-right">{{this.parseAired}}</p>
+            <p class="subtle col-lg-2 pull-right">{{this.parseAired}}</p>
         </div>
         <p>{{this.shortDescription}}</p>
     </div>

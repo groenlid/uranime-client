@@ -1,6 +1,6 @@
 <div class="container content infobar searchBar">
 <div class="row">
-        <h1 class="span6"><span class="normal">Found</span> {{controller.content.length}} <span class="normal">results matching your query</span></h1>
+        <h1 class="col-lg-6"><span class="normal">Found</span> {{controller.content.length}} <span class="normal">results matching your query</span></h1>
         <div class="btn-group pull-right" style="margin-left:10px;">
             {{#each viewTypes}}
                 <a class="btn" {{action changeViewType this target="controller"}}>
@@ -8,9 +8,9 @@
                 </a>
             {{/each}}
         </div>
-        <div class="span2 pull-right">
-            <div class="span5 line-height-input">Sort by: </div>
-            <div class="span7">
+        <div class="col-lg-2 pull-right">
+            <div class="col-lg-5 line-height-input">Sort by: </div>
+            <div class="col-lg-7">
             {{view Ember.Select 
                 contentBinding="sortTypes" 
                 optionLabelPath="content.label"
@@ -22,48 +22,6 @@
 </div>
 
 <div class="container content">
-{{view App.AnimeListView viewTypeBinding="controller.searchResults.viewType" contentBinding="controller"}}
+  {{view App.AnimeListView viewTypeBinding="controller.searchResults.viewType" contentBinding="controller"}}
 <div class="clear"></div>
 </div>
-
-<!--
-
-<div class="row">
-  <div class="pull-left">
-    <div class="btn-group">
-        <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-            Sort by
-            <span class="caret"></span>
-        </a>
-        <ul class="dropdown-menu">
-        <li><a data-ember-action="22"><script id="metamorph-18-start" type="text/x-placeholder"></script>Last seen<script id="metamorph-18-end" type="text/x-placeholder"></script></a></li>
-        <li><a data-ember-action="23"><script id="metamorph-19-start" type="text/x-placeholder"></script>Title<script id="metamorph-19-end" type="text/x-placeholder"></script></a></li>
-        <li><a data-ember-action="24">Percentage seen</a></li>
-        </ul>
-    </div>
-    </div>
-    <div class="btn-group pull-left" style="margin-left:10px;">
-      <a class="btn">
-          <i class="glyphicon glyphicon-th"></i>
-      </a>
-      <a class="btn">
-          <i class="glyphicon glyphicon-th-large"></i>
-      </a>
-      <a class="btn">
-          <i class="glyphicon glyphicon-th-list"></i>
-      </a>
-    </div>
-    <div class="span4 pull-right">
-      <ul style="list-style-type: none;">
-        <li>
-          <i class="glyphicon glyphicon-time"></i> <script id="metamorph-21-start" type="text/x-placeholder"></script>117d, 12h, 47min<script id="metamorph-21-end" type="text/x-placeholder"></script> spent watching anime
-        </li>
-        <li>
-          <i class="glyphicon glyphicon-eye-open"></i> <script id="metamorph-22-start" type="text/x-placeholder"></script>6719<script id="metamorph-22-end" type="text/x-placeholder"></script> episodes seen
-        </li>
-        <li>
-          <i class="glyphicon glyphicon-film"></i> <script id="metamorph-23-start" type="text/x-placeholder"></script>216<script id="metamorph-23-end" type="text/x-placeholder"></script> anime seen
-        </li>
-      </ul>
-    </div>
-  </div>-->

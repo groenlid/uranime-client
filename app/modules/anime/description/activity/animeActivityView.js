@@ -3,7 +3,7 @@ App.AnimeActivityView = Ember.CollectionView.extend({
 
   itemViewClass: Ember.View.extend({
 
-    classNames: ['gallery-avatar pull-left clickable span1 spanpadding'],
+    classNames: ['gallery-avatar pull-left clickable col-lg-1 spanpadding'],
 
     templateName: 'anime/description/activity/animeActivityItem',
 

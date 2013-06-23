@@ -1,7 +1,13 @@
 {{#with controller.content}}
 <div class="black-top">
-    <header id="fanart" {{bindAttr style="fanartStyle"}}>
-    </header>
+    <div class="container">
+        <header id="fanart" {{bindAttr style="fanartStyle"}}>
+        <div class="smallprogress">
+            <div class="smallprogress-filled" style="width:23.076923076923077%;" data-bindattr-127="127">
+            </div>
+          </div>
+        </header>
+    </div>
 </div>
 {{outlet}}
 {{/with}}

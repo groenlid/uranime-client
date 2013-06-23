@@ -3,7 +3,7 @@
 </div>
 <div class="container">
     {{#each activity in view.controller}}
-        <div class="span4">
+        <div class="col-lg-4">
                 <div class="seenepisode">
                     <a {{action showModal 'episodemodal' activity.episode}} class="clickable">
                         <img class="gallery-image" {{bindAttr src="activity.episode.imageURL"}}/>
