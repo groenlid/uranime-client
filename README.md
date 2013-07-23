@@ -16,37 +16,6 @@ Important:
 - [] Remove all references to App.store. Should use through controller or route.
 - [x] Make a calendar
 
-Episode-Modal
---
-- [x] Next-Previous episodes from episode-modal
-- [] Esc from episode-modal - Click outside box
-- [] Bigger buttons for next/prev. Alternatively swipe for next/prev or arrowkeys
-- [] When moving between episodes, the last-activity column (height) is not re-calculated.
-- [] Users should be able to comment each episode
-
-Search
---
-- [] Empty search should not send query to server
-- [] Search by tags/genre
-- [] Sort by rating
-- [] Layout for detailed list
-- [] Paginate
-- [] When searching, the search result anime titles should show the matching synonym.
-
-Library
---
-- [x] Pagination
-- [x] Make each pagination into Ember.Collectionview
-
-Anime
---
-
-- [] Anime "overview page" should give the 10 latest added anime
-- [] The user should be able to sort by date added or Alphabetical
-- [] Select a character to show all anime beginning with this char. Need to change backend for this.
-- [] Capitalize tags/genres
-- [] To crowded with all on same page tags/genres.
-
 Calendar
 --
 
