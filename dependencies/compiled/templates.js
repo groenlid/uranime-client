@@ -871,17 +871,17 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   var buffer = '', stack1, hashTypes, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
 
 
-  data.buffer.push("<div class=\"splash-white\">\n    <div class=\"col-lg-6 col-offset-3 frontpage-backdrop\">\n	<h1 class=\"normal\">");
+  data.buffer.push("<div class=\"splash-white\">\n    <div class=\"col-lg-6 col-offset-3 frontpage-backdrop\">\n		\n		<h1 class=\"normal\">");
   hashTypes = {};
   options = {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data};
   data.buffer.push(escapeExpression(((stack1 = helpers['t']),stack1 ? stack1.call(depth0, "front.title", options) : helperMissing.call(depth0, "t", "front.title", options))));
-  data.buffer.push("</h1>\n        <div class=\"row center\">\n            ");
+  data.buffer.push("</h1>\n        <div class=\"row center\">\n        	<div class=\"input-group\">\n	            ");
   hashTypes = {'class': "STRING",'placeholder': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "view.searchField", {hash:{
-    'class': ("col-lg-9 search-frontpage"),
+    'class': ("form-control search-frontpage"),
     'placeholder': ("Search for anime, episodes, or your mothers maiden name")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n            <button type=\"button\" class=\"btn col-lg-2\"><span class=\"glyphicon glyphicon-search\"></span></button>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"col-lg-6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"col-lg-6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"col-lg-6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n                    </div>\n                    <div class=\"col-lg-6 discover\">\n                        <h2><i class=\"glyphicon glyphicon-heart-empty\"></i> <span class=\"bold\">Participate</span> in the community</h2>\n                        <p>The code for this site is open-source and available for everyone. Want to contribute to the site with code, design feedback or typo-fixes? Head on over to our <a href=\"https://github.com/groenlid/uranime-client\">Github site</a>.</p>\n                    </div>\n	</div>\n</div>\n");
+  data.buffer.push("\n	            <span class=\"input-group-btn\">\n	            	<button type=\"button\" class=\"btn btn-default\">\n	            		<span class=\"glyphicon glyphicon-search\"> Search</span>\n	            	</button>\n	      		</span>\n            </div>\n        </div>\n    </div>\n	<br class=\"clear\">\n</div>\n\n<div class=\"container container-splash\">\n	<div class=\"row\">\n		<div class=\"col-lg-6 discover\">\n			<h2><i class=\"glyphicon glyphicon-search\"></i> <span class=\"bold\">Discover</span> new anime</h2>\n			<p>Search and discover new anime based on tags, genres or just plain old\n			recommendations</p>\n		</div>\n		<div class=\"col-lg-6 calendar\">\n			<h2><i class=\"glyphicon glyphicon-calendar\"></i> <span class=\"bold\">Never</span> miss a show airing</h2>\n			<p>Maximize your anime intake with the calendar specifically designed just for you.</p>\n		</div>\n	</div>\n	<div class=\"row\">\n		<div class=\"col-lg-6 sync\">\n			<h2><i class=\"glyphicon glyphicon-refresh\"></i> <span class=\"bold\">Sync</span> your library</h2>\n			<p>Have your library up to date anywhere and everywhere you are.</p>\n			<p>With the <a href=\"https://play.google.com/store/apps/details?id=com.banan.anime\">mobile uranime app</a>, your are just a few clicks away from\n			a discussion-winning fact </p>\n                    </div>\n                    <div class=\"col-lg-6 discover\">\n                        <h2><i class=\"glyphicon glyphicon-heart-empty\"></i> <span class=\"bold\">Participate</span> in the community</h2>\n                        <p>The code for this site is open-source and available for everyone. Want to contribute to the site with code, design feedback or typo-fixes? Head on over to our <a href=\"https://github.com/groenlid/uranime-client\">Github site</a>.</p>\n                    </div>\n	</div>\n</div>\n");
   return buffer;
   
 });
@@ -1176,8 +1176,9 @@ function program6(depth0,data) {
   }
 
   data.buffer.push("<div class=\"popover bottom\" id=\"notifications\" style=\"width:250px;display: block;\" data-bindattr-1=\"1\">\n        <div class=\"arrow\"></div>\n        <div class=\"popover-inner\">\n            <div class=\"popover-title\">\n                ");
-  hashTypes = {'placeholder': "STRING",'valueBinding': "STRING"};
+  hashTypes = {'class': "STRING",'placeholder': "STRING",'valueBinding': "STRING"};
   data.buffer.push(escapeExpression(helpers.view.call(depth0, "view.searchField", {hash:{
+    'class': ("form-control"),
     'placeholder': ("Search for anime"),
     'valueBinding': ("view.value")
   },contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));

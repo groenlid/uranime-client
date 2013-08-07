@@ -1,9 +1,16 @@
 <div class="splash-white">
     <div class="col-lg-6 col-offset-3 frontpage-backdrop">
-	<h1 class="normal">{{t front.title}}</h1>
+		
+		<h1 class="normal">{{t front.title}}</h1>
         <div class="row center">
-            {{view view.searchField class="col-lg-9 search-frontpage" placeholder="Search for anime, episodes, or your mothers maiden name"}}
-            <button type="button" class="btn col-lg-2"><span class="glyphicon glyphicon-search"></span></button>
+        	<div class="input-group">
+	            {{view view.searchField class="form-control search-frontpage" placeholder="Search for anime, episodes, or your mothers maiden name"}}
+	            <span class="input-group-btn">
+	            	<button type="button" class="btn btn-default">
+	            		<span class="glyphicon glyphicon-search"> Search</span>
+	            	</button>
+	      		</span>
+            </div>
         </div>
     </div>
 	<br class="clear">

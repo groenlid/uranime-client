@@ -600,7 +600,7 @@ select {
   padding-top: 5%;
   position: relative;
   min-height: 350px;
-  background: url("../img/splash-background.jpg") repeat scroll 0 0/100% auto transparent;
+  background: url("../img/splash-background_2.jpg") repeat scroll 0 0/100% auto transparent;
 }
 /* line 483, ../../app/sass/uranime.scss */
 .splash-white h1 {
