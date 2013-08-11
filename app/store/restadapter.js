@@ -10,7 +10,7 @@ App.RESTAdapter = DS.RESTAdapter.extend({
     namespace: 'api',
     //url: 'http://localhost:3000',
     //url: 'http://uranime.azurewebsites.net',
-    //url: 'http://groenlid.no-ip.org',
+    url: 'http://groenlid.no-ip.org',
 
   ajax: function(url, type, hash) {
     hash.url = url;

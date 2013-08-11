@@ -1,12 +1,13 @@
 <div class="content container">
-	<ul class="pager">
-		<li class="previous">
-			{{#linkTo "calendar" lastWeek}}{{lastWeekLink}}{{/linkTo}}
-		</li>
-		<li class="next">
-			{{#linkTo "calendar" nextWeek}}{{nextWeekLink}}{{/linkTo}}
-		</li>
-	</ul>
+	<div class="row">
+		{{#linkTo "calendar" lastWeek class="btn btn-default pull-left"}}
+            <span class="glyphicon glyphicon-chevron-left"></span> {{lastWeekLink}}
+        {{/linkTo}}
+		
+        {{#linkTo "calendar" nextWeek class="btn btn-default pull-right"}}
+            {{nextWeekLink}} <span class="glyphicon glyphicon-chevron-right"></span>
+        {{/linkTo}}
+	</div>
 </div>
 {{#each day in controller.arrangedEpisodes}}
     <div class="content container infobar">

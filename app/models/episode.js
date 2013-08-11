@@ -23,6 +23,10 @@ App.Episode = DS.Model.extend({
             this.get('anime.fanartURL') : 
             App.Config.get('episodepath') + this.get('anime.id') + '/' + this.get('image');
     }.property('image', 'anime.id'),
+
+    fanartStyle: function() {
+        return "background-image:url(" + this.get('imageURL') + ")";
+    }.property('imageURL').cacheable(),
    
     parseAired: function(){
         var aired = this.get('aired');

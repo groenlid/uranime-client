@@ -1,14 +1,16 @@
 <div class="black-top">
-    <header id="fanart" class="small" style="">
-      {{#each uep in content.userepisodes}}
-        <div class="userseen">
-          <a {{action showModal 'episodemodal' uep.episode}} class="clickable">
-            <img {{bindAttr src="uep.episode.imageURL"}}>
-          </a>
-          <div class="border-image"></div>
-        </div>
-      {{/each}}
-    </header>
+    <div class="container">
+      <header id="fanart" class="small">
+        {{#each uep in content.userepisodes}}
+          <div class="userseen">
+            <a {{action showModal 'episodemodal' uep.episode}} class="clickable">
+              <div class="border-image" {{bindAttr style="uep.episode.fanartStyle"}}>
+              </div>
+            </a>
+          </div>
+        {{/each}}
+      </header>
+    </div>
 </div>
 
 {{outlet}}

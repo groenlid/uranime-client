@@ -6,7 +6,7 @@ App.Config = Ember.Object.create({
         noImageYet: './img/200x112&text=No+image+yet.gif',
         
         // Anime
-        search: "search?q=",
+        search: "api/search?q=",
 
 
         // Episodes
