@@ -5,6 +5,10 @@ App.CalendarView = Em.View.extend({
 
   showEpisode: function (episode){
       App.EpisodeView.popup({content:episode, controller: this.get('controller')});
+  },
+
+  toggleDay: function(day){
+  	day.get('firstObject').toggleProperty('show');
   }
 
 });

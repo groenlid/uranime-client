@@ -10,26 +10,34 @@
 	</div>
 </div>
 {{#each day in controller.arrangedEpisodes}}
-    <div class="content container infobar">
-        <h1 class="text-center">{{day.firstObject.weekday}} <span class="normal">{{day.firstObject.date}}</span></h1>
+    <div class="content container infobar clickable" {{action toggleDay day target="view"}}>
+        <h1 class="text-center col-11">
+            {{day.firstObject.weekday}} 
+            <span class="normal">{{day.firstObject.date}}</span>
+        </h1>
+        <h1 class="col-1">
+            <span class="glyphicon glyphicon-chevron-down"></span>
+        </h1>
     </div>
-    <div class="content container">
-        {{#each episode in day.lastObject}}
-            <div class="anime-gallery pull-left gallery-fanart">
-                <div class="gallery-image">
-                    <a {{action showModal 'episodemodal' episode}} class="clickable">
-                        <img {{bindAttr src="episode.imageURL"}}>
-                    </a>
+    {{#if day.firstObject.show}}
+        <div class="content container">
+            {{#each episode in day.lastObject}}
+                <div class="anime-gallery pull-left gallery-fanart">
+                    <div class="gallery-image">
+                        <a {{action showModal 'episodemodal' episode}} class="clickable">
+                            <img {{bindAttr src="episode.imageURL"}}>
+                        </a>
+                    </div>
+                    <p class="bold single">
+                        {{#linkTo "anime.description" episode.anime}}
+                            {{episode.anime.title}} {{episode.number}}
+                        {{/linkTo}}
+                    </p>
+                    <p class="calendarinfo single">
+                        {{episode.name}}
+                    </p>
                 </div>
-                <p class="bold single">
-                    {{#linkTo "anime.description" episode.anime}}
-                        {{episode.anime.title}} {{episode.number}}
-                    {{/linkTo}}
-                </p>
-                <p class="calendarinfo single">
-                    {{episode.name}}
-                </p>
-            </div>
-        {{/each}}
-    </div>
+            {{/each}}
+        </div>
+    {{/if}}
 {{/each}}

@@ -539,51 +539,66 @@ function program3(depth0,data) {
 function program5(depth0,data) {
   
   var buffer = '', stack1, hashTypes;
-  data.buffer.push("\n    <div class=\"content container infobar\">\n        <h1 class=\"text-center\">");
+  data.buffer.push("\n    <div class=\"content container infobar clickable\" ");
+  hashTypes = {'target': "STRING"};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleDay", "day", {hash:{
+    'target': ("view")
+  },contexts:[depth0,depth0],types:["ID","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n        <h1 class=\"text-center col-11\">\n            ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "day.firstObject.weekday", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" <span class=\"normal\">");
+  data.buffer.push(" \n            <span class=\"normal\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "day.firstObject.date", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</span></h1>\n    </div>\n    <div class=\"content container\">\n        ");
+  data.buffer.push("</span>\n        </h1>\n        <h1 class=\"col-1\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n        </h1>\n    </div>\n    ");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "episode", "in", "day.lastObject", {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers['if'].call(depth0, "day.firstObject.show", {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
-  data.buffer.push("\n    </div>\n");
+  data.buffer.push("\n");
   return buffer;
   }
 function program6(depth0,data) {
   
-  var buffer = '', stack1, stack2, hashTypes, options;
-  data.buffer.push("\n            <div class=\"anime-gallery pull-left gallery-fanart\">\n                <div class=\"gallery-image\">\n                    <a ");
+  var buffer = '', stack1, hashTypes;
+  data.buffer.push("\n        <div class=\"content container\">\n            ");
   hashTypes = {};
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push(" class=\"clickable\">\n                        <img ");
-  hashTypes = {'src': "STRING"};
-  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
-    'src': ("episode.imageURL")
-  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
-  data.buffer.push(">\n                    </a>\n                </div>\n                <p class=\"bold single\">\n                    ");
-  hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
-  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "episode.anime", options) : helperMissing.call(depth0, "linkTo", "anime.description", "episode.anime", options));
-  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
-  data.buffer.push("\n                </p>\n                <p class=\"calendarinfo single\">\n                    ");
-  hashTypes = {};
-  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "episode.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n                </p>\n            </div>\n        ");
+  stack1 = helpers.each.call(depth0, "episode", "in", "day.lastObject", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n        </div>\n    ");
   return buffer;
   }
 function program7(depth0,data) {
   
+  var buffer = '', stack1, stack2, hashTypes, options;
+  data.buffer.push("\n                <div class=\"anime-gallery pull-left gallery-fanart\">\n                    <div class=\"gallery-image\">\n                        <a ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "showModal", "episodemodal", "episode", {hash:{},contexts:[depth0,depth0,depth0],types:["ID","STRING","ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push(" class=\"clickable\">\n                            <img ");
+  hashTypes = {'src': "STRING"};
+  data.buffer.push(escapeExpression(helpers.bindAttr.call(depth0, {hash:{
+    'src': ("episode.imageURL")
+  },contexts:[],types:[],hashTypes:hashTypes,data:data})));
+  data.buffer.push(">\n                        </a>\n                    </div>\n                    <p class=\"bold single\">\n                        ");
+  hashTypes = {};
+  options = {hash:{},inverse:self.noop,fn:self.program(8, program8, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
+  stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "episode.anime", options) : helperMissing.call(depth0, "linkTo", "anime.description", "episode.anime", options));
+  if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
+  data.buffer.push("\n                    </p>\n                    <p class=\"calendarinfo single\">\n                        ");
+  hashTypes = {};
+  data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "episode.name", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
+  data.buffer.push("\n                    </p>\n                </div>\n            ");
+  return buffer;
+  }
+function program8(depth0,data) {
+  
   var buffer = '', hashTypes;
-  data.buffer.push("\n                        ");
+  data.buffer.push("\n                            ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "episode.anime.title", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
   data.buffer.push(" ");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "episode.number", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("\n                    ");
+  data.buffer.push("\n                        ");
   return buffer;
   }
 

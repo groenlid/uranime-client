@@ -8,7 +8,7 @@ App.CalendarController = Ember.ObjectController.extend({
   }.property('model'),
 
   arrangedEpisodes: function(){
-    var now, ret = Ember.A(), dayEpisodes, curDay, date;
+    var now, ret = Ember.A(), dayEpisodes, curDay, date, show;
     // Fetch the current date
     now = moment(this.get('model'));
 
@@ -17,10 +17,12 @@ App.CalendarController = Ember.ObjectController.extend({
       // Each row will contain title and episodes-array
       curDay = Ember.A();
       date = now.day(weekday).format(App.Config.get('serverDateFormat'));
-
+      show = now.diff(now.day(weekday),'days') == 0;
+      
       curDay.pushObject(Ember.Object.create({
         date: date,
-        weekday: now.day(weekday).format('dddd')
+        weekday: now.day(weekday).format('dddd'),
+        show: show
       }));
 
       // episodes
