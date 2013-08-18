@@ -987,6 +987,43 @@ div.backdrop {
         }
 }
 
+.col-2-5 {
+    width:20%;
+    float:left;
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+// Redoing of stuff
+.media-item {
+    border: 3px solid #F5F4F9;
+    box-shadow: inset 1px 1px 0 #D0D1D5, inset -1px -1px 0 #D0D1D5;
+    padding: 3px;
+    display:block;
+    &:hover {
+        background:#2F6A9F;
+    }
+    .poster {
+        background-size:100% 100%;
+        padding-bottom:150%;
+    }
+}
+
+.overflow-hidden {
+    overflow:hidden;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.margin-bottom-m {
+    margin-bottom:10px;
+}
+// End of redoing
+
 // UNUSED STUFF START
 /*
 .progressbar {

@@ -1204,6 +1204,48 @@ div.backdrop .unseen-episodes {
   border: 1px solid #E8E8E8;
 }
 
+/* line 990, ../../app/sass/uranime.scss */
+.col-2-5 {
+  width: 20%;
+  float: left;
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+/* line 1000, ../../app/sass/uranime.scss */
+.media-item {
+  border: 3px solid #F5F4F9;
+  box-shadow: inset 1px 1px 0 #D0D1D5, inset -1px -1px 0 #D0D1D5;
+  padding: 3px;
+  display: block;
+}
+/* line 1005, ../../app/sass/uranime.scss */
+.media-item:hover {
+  background: #2F6A9F;
+}
+/* line 1008, ../../app/sass/uranime.scss */
+.media-item .poster {
+  background-size: 100% 100%;
+  padding-bottom: 150%;
+}
+
+/* line 1014, ../../app/sass/uranime.scss */
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* line 1018, ../../app/sass/uranime.scss */
+.nowrap {
+  white-space: nowrap;
+}
+
+/* line 1022, ../../app/sass/uranime.scss */
+.margin-bottom-m {
+  margin-bottom: 10px;
+}
+
 /*
 .progressbar {
 	height:30px;
@@ -1258,34 +1300,34 @@ div.backdrop .unseen-episodes {
     }
 }*/
 @media (min-width: 767px) {
-  /* line 1050, ../../app/sass/uranime.scss */
+  /* line 1087, ../../app/sass/uranime.scss */
   .seenepisode {
     height: 310px;
   }
 }
 @media (min-width: 979px) {
-  /* line 1056, ../../app/sass/uranime.scss */
+  /* line 1093, ../../app/sass/uranime.scss */
   .modal-dialog.episode {
     width: 800px;
     margin-left: -400px;
   }
 }
 @media (max-width: 979px) {
-  /* line 1068, ../../app/sass/uranime.scss */
+  /* line 1105, ../../app/sass/uranime.scss */
   .navbar-fixed-top,
   .navbar-fixed-bottom,
   .navbar-static-top {
     margin-right: 0;
     margin-left: 0;
   }
-  /* line 1072, ../../app/sass/uranime.scss */
+  /* line 1109, ../../app/sass/uranime.scss */
   .navbar-fixed-top.nav-search,
   .navbar-fixed-bottom.nav-search,
   .navbar-static-top.nav-search {
     margin-bottom: 10px;
     margin-top: 9px;
   }
-  /* line 1076, ../../app/sass/uranime.scss */
+  /* line 1113, ../../app/sass/uranime.scss */
   .navbar-fixed-top.nav-search .navbar-inner,
   .navbar-fixed-bottom.nav-search .navbar-inner,
   .navbar-static-top.nav-search .navbar-inner {
@@ -1293,13 +1335,13 @@ div.backdrop .unseen-episodes {
   }
 }
 @media (max-width: 767px) {
-  /* line 1085, ../../app/sass/uranime.scss */
+  /* line 1122, ../../app/sass/uranime.scss */
   .brand {
     margin-left: auto;
     margin-right: auto;
   }
 
-  /* line 1086, ../../app/sass/uranime.scss */
+  /* line 1123, ../../app/sass/uranime.scss */
   body {
     padding-right: 0px;
     padding-left: 0px;
