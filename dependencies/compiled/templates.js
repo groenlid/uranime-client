@@ -451,6 +451,16 @@ helpers = helpers || Ember.Handlebars.helpers; data = data || {};
   
 
 
+  data.buffer.push("<div class=\"black-top\">\n	<div style=\"overflow:hidden; width:100%\">\n		<ul class=\"fanart-carousel relative\" style=\"margin:0;padding:0; margin-left:-24%; width:150%\">\n			<li class=\"pull-left col-4 no-padding\" style=\"opacity:0.5\">\n				<div style=\"cursor: pointer; background: url('http://urani.me/attachments/photos/orginal/51e867c2-84c4-4288-8a7d-6484b8adc2dc.jpg'); background-size:100% 100%; padding-bottom:50%\"></div>\n			</li>\n			<li class=\"pull-left col-4 no-padding\">\n				<div style=\"cursor: pointer; background: url('http://urani.me/attachments/photos/orginal/51db2ed6-0dac-4b35-98af-0577b8adc2dc.jpg'); background-size:100% 100%; padding-bottom:50%; box-shadow:1px 1px 5px #000\"></div>\n			</li>\n			<li class=\"pull-left col-4 no-padding\" style=\"opacity:0.5\">\n				<div style=\"cursor: pointer; background: url('http://urani.me/attachments/photos/orginal/4f0f7971-666c-4969-88da-09d29e27ab78.jpg'); background-size:100% 100%; padding-bottom:50%\"></div>\n			</li>\n		</ul>\n	</div>\n	<br class=\"clear\"/>\n</div>\n<div class=\"container content\">\n	<div class=\"col-2 col-push-10\">\n		a\n	</div>\n	<div class=\"col-10 col-pull-2\">\n		<h1>Discover <span class=\"normal\">new anime</span></h1>\n\n		\n		Should be able to choose simple or advance query.\n		Simple should be \"Spring 2012\" with limited customizability.\n		Advanced should be from to date picker with.\n	</div> \n</div>");
+  
+});
+
+Ember.TEMPLATES["animeoverview/animeoverview_old"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [2,'>= 1.0.0-rc.3'];
+helpers = helpers || Ember.Handlebars.helpers; data = data || {};
+  
+
+
   data.buffer.push("<style type=\"text/css\">\n.title {\ncolor: rgb(145, 145, 145);\ntext-shadow: 0px -1px 0px rgb(0, 0, 0);\n}\n</style>\n<div class=\"black-top\" style=\"padding-top:200px;\">\n	<div class=\"row no-margin\">\n		<div class=\"col-lg-3\">\n			<div class=\"col-lg-6\">\n				<img src=\"http://urani.me/attachments/photos/orginal/51605bb5-63e8-43c7-8873-1444b8adc2dc.jpg\" class=\"img-responsive\"/>\n				<p class=\"title text-center\">Date A Live</p>\n			</div>\n			<div class=\"col-lg-6\">\n				<img src=\"http://urani.me/attachments/photos/orginal/51647660-590c-433c-adfb-765ab8adc2dc.jpg\" class=\"img-responsive\"/>\n				<p class=\"title text-center\">Hyakka Ryouran: S...</p>\n			</div>\n		</div>\n		<div class=\"col-lg-6\">\n			<div class=\"col-lg-12\" style=\"position:absolute; top:-174px\">\n				<img class=\"img-responsive\" id=\"fanart\" src=\"http://urani.me/attachments/photos/orginal/51570d37-4bd8-42b8-985d-7b50b8adc2dc.jpg\"/>\n				<div class=\"infobar\"><h1 class=\"no-margin\" style=\"padding:20px;\">Shingeki no Kyojin</h1></div>\n				<div class=\"animeplot\" style=\"background:#fff; padding:20px;\">\n					<p class=\"animedesc\">Several hundred years ago, humans were nearly exterminated by giants. Giants are typically several stories tall, seem to have no intelligence, devour human beings and, worst of all, seem to do it for the pleasure rather than as a food source. A small percentage of humanity survived by walling themselves in a city protected by extremely high walls, even taller than the biggest of giants.\n					Flash forward to the present and the city has not seen a giant in over 100 years. Teenage boy Elen and his foster sister Mikasa witness something horrific as the city walls are destroyed by a super giant that appears out of thin air. As the smaller giants flood the city, the two kids watch in horror as their mother is eaten alive. Elen vows that he will murder every single giant and take revenge for all of mankind.</p>\n				</div>\n			</div>\n		</div>\n		<div class=\"col-lg-3\">\n			<div class=\"col-lg-6\">\n				<img src=\"http://urani.me/attachments/photos/orginal/515c87e5-40f0-408d-93ac-526ab8adc2dc.jpg\" class=\"img-responsive\"/>\n				<p class=\"title text-center\">Hataraku Maou-sama!</p>\n			</div>\n			<div class=\"col-lg-6\">\n				<img src=\"http://urani.me/attachments/photos/orginal/4f90535e-ada4-4d01-a1cb-05989e27ab78.jpg\" class=\"img-responsive\"/>\n				<p class=\"title text-center\">Kurozuka</p>\n			</div>\n		</div>\n	</div>\n</div>");
   
 });
@@ -539,7 +549,7 @@ function program3(depth0,data) {
 function program5(depth0,data) {
   
   var buffer = '', stack1, hashTypes;
-  data.buffer.push("\n    <div class=\"content container infobar clickable\" ");
+  data.buffer.push("\n    <div class=\"content container infobar clickable small\" ");
   hashTypes = {'target': "STRING"};
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "toggleDay", "day", {hash:{
     'target': ("view")
@@ -550,24 +560,40 @@ function program5(depth0,data) {
   data.buffer.push(" \n            <span class=\"normal\">");
   hashTypes = {};
   data.buffer.push(escapeExpression(helpers._triageMustache.call(depth0, "day.firstObject.date", {hash:{},contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data})));
-  data.buffer.push("</span>\n        </h1>\n        <h1 class=\"col-1\">\n            <span class=\"glyphicon glyphicon-chevron-down\"></span>\n        </h1>\n    </div>\n    ");
+  data.buffer.push("</span>\n        </h1>\n        <h1 class=\"col-1\">\n            ");
   hashTypes = {};
-  stack1 = helpers['if'].call(depth0, "day.firstObject.show", {hash:{},inverse:self.noop,fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers['if'].call(depth0, "day.firstObject.show", {hash:{},inverse:self.program(8, program8, data),fn:self.program(6, program6, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
+  if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
+  data.buffer.push("\n        </h1>\n    </div>\n    ");
+  hashTypes = {};
+  stack1 = helpers['if'].call(depth0, "day.firstObject.show", {hash:{},inverse:self.noop,fn:self.program(10, program10, data),contexts:[depth0],types:["ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n");
   return buffer;
   }
 function program6(depth0,data) {
   
+  
+  data.buffer.push("\n                <span class=\"glyphicon glyphicon-chevron-down\"></span>\n            ");
+  }
+
+function program8(depth0,data) {
+  
+  
+  data.buffer.push("\n                <span class=\"glyphicon glyphicon-chevron-right\"></span>\n            ");
+  }
+
+function program10(depth0,data) {
+  
   var buffer = '', stack1, hashTypes;
   data.buffer.push("\n        <div class=\"content container\">\n            ");
   hashTypes = {};
-  stack1 = helpers.each.call(depth0, "episode", "in", "day.lastObject", {hash:{},inverse:self.noop,fn:self.program(7, program7, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
+  stack1 = helpers.each.call(depth0, "episode", "in", "day.lastObject", {hash:{},inverse:self.noop,fn:self.program(11, program11, data),contexts:[depth0,depth0,depth0],types:["ID","ID","ID"],hashTypes:hashTypes,data:data});
   if(stack1 || stack1 === 0) { data.buffer.push(stack1); }
   data.buffer.push("\n        </div>\n    ");
   return buffer;
   }
-function program7(depth0,data) {
+function program11(depth0,data) {
   
   var buffer = '', stack1, stack2, hashTypes, options;
   data.buffer.push("\n                <div class=\"anime-gallery pull-left gallery-fanart\">\n                    <div class=\"gallery-image\">\n                        <a ");
@@ -580,7 +606,7 @@ function program7(depth0,data) {
   },contexts:[],types:[],hashTypes:hashTypes,data:data})));
   data.buffer.push(">\n                        </a>\n                    </div>\n                    <p class=\"bold single\">\n                        ");
   hashTypes = {};
-  options = {hash:{},inverse:self.noop,fn:self.program(8, program8, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
+  options = {hash:{},inverse:self.noop,fn:self.program(12, program12, data),contexts:[depth0,depth0],types:["STRING","ID"],hashTypes:hashTypes,data:data};
   stack2 = ((stack1 = helpers.linkTo),stack1 ? stack1.call(depth0, "anime.description", "episode.anime", options) : helperMissing.call(depth0, "linkTo", "anime.description", "episode.anime", options));
   if(stack2 || stack2 === 0) { data.buffer.push(stack2); }
   data.buffer.push("\n                    </p>\n                    <p class=\"calendarinfo single\">\n                        ");
@@ -589,7 +615,7 @@ function program7(depth0,data) {
   data.buffer.push("\n                    </p>\n                </div>\n            ");
   return buffer;
   }
-function program8(depth0,data) {
+function program12(depth0,data) {
   
   var buffer = '', hashTypes;
   data.buffer.push("\n                            ");

@@ -10,13 +10,17 @@
 	</div>
 </div>
 {{#each day in controller.arrangedEpisodes}}
-    <div class="content container infobar clickable" {{action toggleDay day target="view"}}>
+    <div class="content container infobar clickable small" {{action toggleDay day target="view"}}>
         <h1 class="text-center col-11">
             {{day.firstObject.weekday}} 
             <span class="normal">{{day.firstObject.date}}</span>
         </h1>
         <h1 class="col-1">
-            <span class="glyphicon glyphicon-chevron-down"></span>
+            {{#if day.firstObject.show}}
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            {{else}}
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            {{/if}}
         </h1>
     </div>
     {{#if day.firstObject.show}}
