@@ -1,16 +1,8 @@
 {{#with view.content}}
-<div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image">
-        {{#linkTo 'anime.description' this}}
-            <img {{bindAttr src="imageURLSmall"}} />
-            <span>
-                View Anime
-            </span>
-        {{/linkTo}}
-    </div>
-
-    <p>
-        {{title}}
-    </p>
+<div class="col-2 overflow-hidden margin-bottom-m">
+    {{#linkTo 'anime.description' this class="media-item clickable"}}
+        <div class="poster" {{bindAttr style="imageUrlSmallStyle"}}></div>
+    {{/linkTo}}
+    <span class="nowrap small">{{title}}</span>
 </div>
 {{/with}}

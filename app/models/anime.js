@@ -36,6 +36,10 @@ App.Anime = DS.Model.extend({
   return this.generate_imageURL(width);
   }.property('image'),
 
+  imageUrlSmallStyle: function(){
+    return "background-image:url("+this.get('imageURLSmall')+")";
+  }.property('imageURLSmall'),
+
   imageURLSmallest: function(){
     var width = 75;
     return this.generate_imageURL(width);
@@ -88,8 +92,6 @@ App.Anime = DS.Model.extend({
     });
   	
   	return lastAiredEpisodes;
-  	//return episodes.slice(0,amount);
-  	
   }.property('episodes.@each'),
 
   sortedEpisodes: function () {

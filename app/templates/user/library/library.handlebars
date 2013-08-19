@@ -52,22 +52,21 @@
 
 {{#each item in controller.pagedContent}}
 
-  <div class="anime-gallery gallery-poster pull-left">
-    <div class="gallery-image">
-      {{#linkTo "anime.description" item.anime}}
-        <img {{bindAttr src="item.anime.imageURL"}}>
-        {{#if item.incomplete}}
-        <div class="backdrop">
-          <div class="unseen-episodes">{{item.progress}}/{{item.total}}</div>
-          <div class="smallprogress">
-            <div class="smallprogress-filled" {{bindAttr style="item.percentStyle"}}>
-            </div>
+  <div class="col-2 overflow-hidden margin-bottom-m">
+      {{#linkTo "anime.description" item.anime class="media-item clickable"}}
+          <div class="poster relative" {{bindAttr style="item.anime.imageUrlSmallStyle"}}>
+            {{#if item.incomplete}}
+              <div class="backdrop">
+                <div class="unseen-episodes">{{item.progress}}/{{item.total}}</div>
+                <div class="smallprogress">
+                  <div class="smallprogress-filled" {{bindAttr style="item.percentStyle"}}>
+                  </div>
+                </div>
+              </div>
+            {{/if}}
           </div>
-        </div>
-        {{/if}}
       {{/linkTo}}
-    </div>
-    <p>{{item.anime.title}}</p>
+      <span class="nowrap small">{{item.anime.title}}</span>
   </div>
 
 {{/each}}
