@@ -3,7 +3,7 @@
       <header id="fanart" class="small">
         {{#each uep in content.userepisodes}}
           <div class="userseen">
-            <a {{action showModal 'episodemodal' uep.episode}} class="clickable">
+            <a {{action 'showModal' 'episodemodal' uep.episode}} class="clickable">
               <div class="border-image" {{bindAttr style="uep.episode.fanartStyle"}}>
               </div>
             </a>

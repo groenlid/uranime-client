@@ -11,7 +11,4 @@ App.UserEpisode = DS.Model.extend({
     return then.from(now);
   }.property('timestamp'),
 
-}).reopenClass({
-  url: 'userepisodes',
-  addRoot: true
 });

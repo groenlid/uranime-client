@@ -4,6 +4,4 @@ App.Site = DS.Model.extend({
 	url: DS.attr('string'),
 	link_id: DS.attr('string')
 
-}).reopenClass({
-	addRoot: true
 });

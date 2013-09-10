@@ -91,7 +91,7 @@ App.AnimeRoute = Ember.Route.extend({
 
 	   	if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
 	   		model.reload();
-  }
+  	}
 });
 
 App.AnimeDescriptionRoute = Ember.Route.extend({

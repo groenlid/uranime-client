@@ -145,7 +145,3 @@ App.Anime = DS.Model.extend({
   }.property('episodes.@each.aired'),
 
 });
-
-App.Anime.reopenClass({
-	addRoot: true
-});

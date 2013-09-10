@@ -41,7 +41,5 @@ App.Request = DS.Model.extend({
 		return !Ember.isNone(fanart) || !Ember.isNone(poster);
 	}.property('fanart','poster'),
 
-}).reopenClass({
-	addRoot:true
 });
 

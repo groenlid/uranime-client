@@ -2,14 +2,14 @@
 <div class="row episodelist">
     <div class="pull-left col-lg-2">
         <div class="gallery-image">
-            <a class="clickable" {{action showModal 'episodemodal' this}}>
+            <a class="clickable" {{action 'showModal' 'episodemodal' this}}>
             <img {{bindAttr src="this.imageURL"}} /></a>
         </div>
     </div>
     <div class="col-lg-8 episode-info">
         <div class="row">
             <h4 class="col-lg-10 normal">
-                <a class="clickable" {{action showEpisode this target="view"}}>
+                <a class="clickable" {{action 'showEpisode' this target="view"}}>
                     {{#if this.special}}
                         <span class="label label-info">Special</span>
                     {{/if}}

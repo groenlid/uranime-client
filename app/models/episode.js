@@ -43,8 +43,3 @@ App.Episode = DS.Model.extend({
 
     }.property('description', 'App.Config.shortDescriptionLength'),
 });
-
-App.Episode.reopenClass({
-    addRoot: true,
-    url: 'episodes'
-});

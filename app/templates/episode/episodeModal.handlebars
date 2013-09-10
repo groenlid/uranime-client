@@ -7,19 +7,6 @@
           <img {{bindAttr src="imageURL"}}>
           <div class="border-image"></div>
         </div>
-        
-        <!--
-        <div class="last-seen" style="display:none;">
-          <h2><span class="bold">Last</span> seen by</h2> 
-
-
-          <img class="img-rounded" src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=30">
-          <img class="img-rounded" src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=30">
-          <img class="img-rounded" src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=30">
-          <img class="img-rounded" src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=30">
-        
-        </div>
-        -->
 
         <div class="modal-footer">
           <p class="animedesc">
@@ -34,7 +21,7 @@
           <div class="row">
             <div class="col-lg-11 centertext">
               <h2 class="nomargin">
-                <a class="clickable" href {{action goToAnime anime target="view"}}>
+                <a class="clickable" href {{action 'goToAnime' anime target="view"}}>
                   {{anime.title}}
                 </a>
               </h2>
@@ -57,13 +44,13 @@
       </div>
       <h2 class="outside">
           {{#if view.hasPrevious}}
-          <a class="clickable" {{action previous this target="view"}}> 
+          <a class="clickable" {{action 'previous' this target="view"}}> 
             <img class ="pull-left arrow" src="./img/arrow_left.png">
           </a> 
           {{/if}}
           <span class="small grey">Episode {{number}}</span> - {{name}} <span class="small grey">  {{dateformat aired}}</span> 
           {{#if view.hasNext}}
-          <a class="clickable" {{action next this target="view"}}>
+          <a class="clickable" {{action 'next' this target="view"}}>
             <img class ="pull-right arrow" src="./img/arrow_right.png">
           </a>
           {{/if}}

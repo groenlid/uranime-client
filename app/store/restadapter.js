@@ -1,31 +1,55 @@
+Ember.Inflector.inflector.uncountable("anime");
+
 App.ApplicationAdapter = DS.RESTAdapter.extend({ 
   	bulkCommit:false,
-  
+    
+    /*
     mappings: {
       user_episode: 'App.UserEpisode',
       episodes: 'App.Episode',
       genre: 'App.Genre',
       last_seen: 'App.SeenActivity'
     },
-    
+    */
+
     namespace: 'api',
     host: 'http://localhost:3000',
     //host: 'http://uranime.azurewebsites.net',
     //host: 'http://groenlid.no-ip.org',
     
-    pathForType: function(type) {
-      return type;
-    }
 });
 
 App.ApplicationSerializer = DS.RESTSerializer.extend({
 
+    /**
+      Normalize the payload so that every $.ajax call gets a 
+      root node associated with that model.
+    */
     normalizePayload: function(type, payload) {
       var newPayload = {};
       newPayload[type.typeKey] = payload;      
       return newPayload;
     }
 
+});
+
+App.AnimeSerializer = App.ApplicationSerializer.extend({
+  
+  normalizePayload: function(type, payload) {
+      var newPayload = {}, ids = {};
+
+      ids.comments = payload.comments.mapProperty('id');
+
+      newPayload[type.typeKey] = payload;
+
+      return newPayload;
+  }
+  /*extractSingle: function(store, type, payload, id, requestType) {
+
+      // Map 
+
+      this._super(store, type, payload, id, requestType);
+  }*/
 });
 
 /*

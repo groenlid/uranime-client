@@ -16,6 +16,3 @@ App.User = DS.Model.extend({
   }.property('gravatar'),
 
 });
-App.User.reopenClass({
-  addRoot: true,
-});

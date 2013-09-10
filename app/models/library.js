@@ -19,6 +19,4 @@ App.Library = DS.Model.extend({
     return "width:" + this.get('percent') + "%;";
   }.property('percent'),
 
-}).reopenClass({
-  addRoot: true
 });
