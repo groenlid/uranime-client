@@ -7,15 +7,15 @@
     "test": "grunt"
   },
   "repository": "",
-  "author": "Trek Glowacki <trek.glowacki@gmail.com>",
+  "author": "",
   "license": "BSD",
   "devDependencies": {
     "grunt": "latest",
-    "grunt-neuter": "latest",
+    "grunt-minispade": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-qunit": "latest",
-    "grunt-ember-templates": "0.4.5",
+    "grunt-ember-templates": "latest",
     "grunt-contrib-watch": "latest",
     "grunt-contrib-compass": "latest"
   }

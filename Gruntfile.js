@@ -10,7 +10,7 @@ module.exports = function(grunt) {
     compass: {
       dist: {
         options: {
-          cssDir: 'build/css/',
+          cssDir: 'build/',
           sassDir: 'app/sass/'
         }
       }
@@ -31,11 +31,17 @@ module.exports = function(grunt) {
        You would set this option to false for 
        production.
     */
-    neuter: {
+    minispade: {
       options: {
-        includeSourceURL: true
+        useStrict: true,
+        stringModule: true,
+        renameRequire: true,
+        removeFileExtension: true
       },
-      'build/application.js': 'app/app.js'
+      files:{
+          dest: 'build/application.js',
+          src: ['dependencies/**/*.js','app/**/*.js']
+      }
     },
 
     /*
@@ -51,11 +57,11 @@ module.exports = function(grunt) {
     watch: {
       application_code: {
         files: ['dependencies/ember.js', 'app/**/**/*.js'],
-        tasks: ['neuter']
+        tasks: ['minispade']
       },
       handlebars_templates: {
         files: ['app/**/*.handlebars'],
-        tasks: ['ember_templates', 'neuter']
+        tasks: ['emberTemplates', 'minispade']
       },
       application_styling: {
         files: ['app/**/*.scss'],
@@ -98,13 +104,13 @@ module.exports = function(grunt) {
       The compiled result will be stored in
       Ember.TEMPLATES keyed on their file path (with the 'app/templates' stripped)
     */
-    ember_templates: {
+    emberTemplates: {
       options: {
         templateName: function(sourceFile) {
           return sourceFile.replace(/app\/templates\//, '');
         }
       },
-      'dependencies/compiled/templates.js': ["app/templates/**/*.handlebars"]
+      'build/templates.js': ["app/templates/**/*.handlebars"]
     },
 
     /*
@@ -121,7 +127,7 @@ module.exports = function(grunt) {
   // grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-qunit');
-  grunt.loadNpmTasks('grunt-neuter');
+  grunt.loadNpmTasks('grunt-minispade');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-ember-templates');
   grunt.loadNpmTasks('grunt-contrib-compass');
@@ -153,11 +159,11 @@ module.exports = function(grunt) {
       - build an html file with a script tag for each test file
       - headlessy load this page and print the test runner results
   */
-  grunt.registerTask('test', ['ember_templates', 'neuter', 'compass', 'jshint', 'build_test_runner_file', 'qunit']);
+  grunt.registerTask('test', ['emberTemplates', 'minispade', 'compass', 'jshint', 'build_test_runner_file', 'qunit']);
 
   /*
     Default task. Compiles templates, neuters application code, and begins
     watching for changes.
   */
-  grunt.registerTask('default', ['ember_templates', 'neuter', 'compass', 'watch']);
+  grunt.registerTask('default', ['emberTemplates', 'minispade', 'compass', 'watch']);
 };

@@ -4,8 +4,8 @@ App.Library = DS.Model.extend({
   progress: DS.attr('number'),
   last_seen: DS.attr('date'),
     
-  anime: DS.belongsTo('App.Anime'),
-  user: DS.belongsTo('App.User'),
+  anime: DS.belongsTo('anime'),
+  user: DS.belongsTo('user'),
         
   incomplete: function(){
     return this.get('progress') < this.get('total');

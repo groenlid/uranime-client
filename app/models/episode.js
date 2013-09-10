@@ -7,9 +7,9 @@ App.Episode = DS.Model.extend({
     description: DS.attr('string'),
     image: DS.attr('string'),
 
-    anime: DS.belongsTo('App.Anime'),
+    anime: DS.belongsTo('anime'),
 
-    userEpisodes: DS.hasMany('App.UserEpisode'),
+    userEpisodes: DS.hasMany('userEpisode'),
 
     arrangedUserEpisode: function(){
         return this.get('userEpisodes').toArray().sort(function (lhs, rhs) {

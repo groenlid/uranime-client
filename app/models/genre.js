@@ -4,7 +4,7 @@ App.Genre = DS.Model.extend({
   description: DS.attr('string'),
   is_genre: DS.attr('number'),
     
-  anime: DS.belongsTo('App.Anime'),
+  anime: DS.belongsTo('anime'),
         
   didLoad: function(){
        

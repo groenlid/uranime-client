@@ -48,15 +48,15 @@ App.CalendarRoute = Ember.Route.extend({
 		controller.set('content',model);
 	},
 
-	events: {
-            goToWeek: function(week) {
-              this.router.transitionTo('calendar', App.Episode.find({week:week}));
-            }
-      }
+	actions: {
+        goToWeek: function(week) {
+        	this.router.transitionTo('calendar', App.Episode.find({week:week}));
+        }
+  	}
 });
 
 App.ApplicationRoute = Ember.Route.extend({
-    events: {
+    actions: {
         search: function(params) {
             var query = params.query;
             this.controllerFor('search').set('query', query);

@@ -6,8 +6,8 @@ App.Request = DS.Model.extend({
 	poster: DS.attr('string'),
 	fanart: DS.attr('string'),
 
-	request_info: DS.hasMany('App.RequestInfo'),
-	user: DS.belongsTo('App.User'), 
+	request_info: DS.hasMany('requestInfo'),
+	user: DS.belongsTo('user'), 
 	status: DS.attr('string'),
 	percentage: DS.attr('number'),
 

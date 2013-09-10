@@ -2,9 +2,9 @@ App.UserEpisode = DS.Model.extend({
         
   timestamp: DS.attr('string'),
   
-  episode: DS.belongsTo('App.Episode'),
+  episode: DS.belongsTo('episode'),
 
-  user: DS.belongsTo('App.User'),
+  user: DS.belongsTo('user'),
 
   since: function(){
     var then = moment(this.get('timestamp')), now = moment();

@@ -9,10 +9,10 @@ App.Anime = DS.Model.extend({
     classification: DS.attr('string'),
     type: DS.attr('string'),
 
-    episodes: DS.hasMany('App.Episode'),
-    genres: DS.hasMany('App.Genre'),
-    seen: DS.hasMany('App.SeenActivity'),
-    synonyms: DS.hasMany('App.Synonym'),
+    episodes: DS.hasMany('episode'),
+    genres: DS.hasMany('genre'),
+    seen: DS.hasMany('seenActivity'),
+    synonyms: DS.hasMany('synonym'),
 
   /**
   * Filters out all the tags and only returns the genres
