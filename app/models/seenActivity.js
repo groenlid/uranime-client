@@ -17,7 +17,7 @@ App.SeenActivity = DS.Model.extend({
   }.property('gravatar'),
 
   //anime: DS.belongsTo('App.Anime'),
-  user: DS.belongsTo('App.User')      
+  user: DS.belongsTo('user')      
 });
 
 

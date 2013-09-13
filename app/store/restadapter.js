@@ -35,21 +35,36 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
 
 App.AnimeSerializer = App.ApplicationSerializer.extend({
   
+  /**
+    This is a temporary workaround until
+    ember data includes embedded relationships.
+  */
   normalizePayload: function(type, payload) {
-      var newPayload = {}, ids = {};
+      var newPayload = {}, ids = {}, embedded = {};
+      
+      embedded.episodes = payload.episodes;
+      embedded.genres   = payload.genres;
+      embedded.synonyms = payload.synonyms;
+      embedded.seen     = payload.seen;
 
-      ids.comments = payload.comments.mapProperty('id');
+      ids.episodes      = payload.episodes.mapBy('id');
+      ids.genres        = payload.genres.mapBy('id');
+      ids.synonyms      = payload.synonyms.mapBy('id');
+      ids.seen          = payload.seen.mapBy('id');
 
-      newPayload[type.typeKey] = payload;
+      payload.episodes  = ids.episodes;
+      payload.genres    = ids.genres;
+      payload.synonyms  = ids.synonyms;
+      payload.seen      = ids.seen;
+
+      newPayload[type.typeKey]  = payload;
+      newPayload.episodes       = embedded.episodes;
+      newPayload.genres         = embedded.genres;
+      newPayload.synonyms       = embedded.synonyms;
+      newPayload.seenActivity   = embedded.seen;
 
       return newPayload;
   }
-  /*extractSingle: function(store, type, payload, id, requestType) {
-
-      // Map 
-
-      this._super(store, type, payload, id, requestType);
-  }*/
 });
 
 /*
