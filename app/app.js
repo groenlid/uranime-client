@@ -42,6 +42,10 @@ window.App = Ember.Application.create({
     })
 });
 
+Ember.onerror = function(error){
+    console.log(error);
+};
+
 if (window.TESTING) {
   window.App.deferReadiness();
 }

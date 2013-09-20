@@ -6,7 +6,7 @@ App.User = DS.Model.extend({
   desc: DS.attr('string'),
   gravatar: DS.attr('string'),
 
-  userepisodes: DS.hasMany('userEpisode'),
+  userEpisodes: DS.hasMany('userEpisode'),
   requests: DS.hasMany('request'),
   
   smallGravatar: function(){

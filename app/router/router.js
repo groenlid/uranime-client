@@ -111,7 +111,7 @@ App.AnimeEpisodesRoute = Ember.Route.extend({
 App.UserLibraryRoute = Ember.Route.extend({
     setupController: function(controller){
         var user_id = this.modelFor('user').get('id'),
-            library = App.store.find(App.Library, {user_id: user_id});
+            library = this.get('store').find('library', {user_id: user_id});
                
         controller.set('content', library);
     }
@@ -121,7 +121,7 @@ App.UserLibraryRoute = Ember.Route.extend({
 
 App.CommunityRoute = Ember.Route.extend({
 	model: function(params){
-		return App.store.find(App.UserEpisode, {limit:10})
+		return this.get('store').find('userEpisode', {limit:10});
 	}
 });
 

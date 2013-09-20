@@ -1,17 +1,8 @@
 Ember.Inflector.inflector.uncountable("anime");
 
 App.ApplicationAdapter = DS.RESTAdapter.extend({ 
-  	bulkCommit:false,
+    bulkCommit:false,
     
-    /*
-    mappings: {
-      user_episode: 'App.UserEpisode',
-      episodes: 'App.Episode',
-      genre: 'App.Genre',
-      last_seen: 'App.SeenActivity'
-    },
-    */
-
     namespace: 'api',
     host: 'http://localhost:3000',
     //host: 'http://uranime.azurewebsites.net',
@@ -26,106 +17,88 @@ App.ApplicationSerializer = DS.RESTSerializer.extend({
       root node associated with that model.
     */
     normalizePayload: function(type, payload) {
-      var newPayload = {};
-      newPayload[type.typeKey] = payload;      
-      return newPayload;
+        var newPayload = {};
+        newPayload[type.typeKey] = payload;      
+        return newPayload;
     }
 
 });
 
 App.AnimeSerializer = App.ApplicationSerializer.extend({
   
-  /**
-    This is a temporary workaround until
-    ember data includes embedded relationships.
-  */
-  normalizePayload: function(type, payload) {
-      var newPayload = {}, ids = {}, embedded = {};
-      
-      embedded.episodes = payload.episodes;
-      embedded.genres   = payload.genres;
-      embedded.synonyms = payload.synonyms;
-      embedded.seen     = payload.seen;
+    /**
+        This is a temporary workaround until
+        ember data includes embedded relationships.
+    */
+    normalizePayload: function(type, payload) {
+        var newPayload = {}, ids = {}, embedded = {};
 
-      ids.episodes      = payload.episodes.mapBy('id');
-      ids.genres        = payload.genres.mapBy('id');
-      ids.synonyms      = payload.synonyms.mapBy('id');
-      ids.seen          = payload.seen.mapBy('id');
+        embedded.episodes = payload.episodes;
+        embedded.genres   = payload.genres;
+        embedded.synonyms = payload.synonyms;
+        embedded.seen     = payload.seen;
 
-      payload.episodes  = ids.episodes;
-      payload.genres    = ids.genres;
-      payload.synonyms  = ids.synonyms;
-      payload.seen      = ids.seen;
+        ids.episodes      = payload.episodes.mapBy('id');
+        ids.genres        = payload.genres.mapBy('id');
+        ids.synonyms      = payload.synonyms.mapBy('id');
+        ids.seen          = payload.seen.mapBy('id');
 
-      newPayload[type.typeKey]  = payload;
-      newPayload.episodes       = embedded.episodes;
-      newPayload.genres         = embedded.genres;
-      newPayload.synonyms       = embedded.synonyms;
-      newPayload.seenActivity   = embedded.seen;
+        payload.episodes  = ids.episodes;
+        payload.genres    = ids.genres;
+        payload.synonyms  = ids.synonyms;
+        payload.seen      = ids.seen;
 
-      return newPayload;
-  }
+        newPayload[type.typeKey]  = payload;
+        newPayload.episodes       = embedded.episodes;
+        newPayload.genres         = embedded.genres;
+        newPayload.synonyms       = embedded.synonyms;
+        newPayload.seenActivity   = embedded.seen;
+
+        return newPayload;
+    }
 });
 
-/*
-App.RESTAdapter.configure('plurals', {
-  anime: 'anime',
-  episode: 'episodes',
-  episodes: 'episodes',
-  user_episode: 'user_episodes',
-  last_seen: 'last_seen',
-  library: 'library',
-  request: 'requests',
-  requestType: 'requestTypes'
-})
-*/
-/*
-App.RESTAdapter.map('App.Anime', {
-  episodes: {
-    embedded: 'always' // load
-  },
-  genres: {
-    embedded: 'load'
-  },
-  seen: {
-    embedded: 'load'
-  },
-  synonyms: {
-    embedded: 'load'
-  }
+App.UserSerializer = App.ApplicationSerializer.extend({
+
+    /**
+        This is a temporary workaround until
+        ember data includes embedded relationships.
+    */
+    normalizePayload: function(type, payload) {
+        var newPayload = {}, ids = {}, embedded = {};
+
+        embedded.userEpisodes = payload.userEpisodes;
+        
+        ids.userEpisodes      = payload.userEpisodes.mapBy('id');
+
+        payload.userEpisodes  = ids.userEpisodes;
+
+        newPayload[type.typeKey]  = payload;
+        newPayload.userEpisodes       = embedded.userEpisodes;
+
+        return newPayload;
+    }
 });
 
+App.EpisodeSerializer = App.ApplicationSerializer.extend({
 
-App.RESTAdapter.map(App.Episode, {
-        userEpisodes: {
-          key: 'userEpisodes',
-          embedded: 'load'
-        }
+    /**
+        This is a temporary workaround until
+        ember data includes embedded relationships.
+    */
+    normalizePayload: function(type, payload) {
+        var newPayload = {}, ids = {}, embedded = {};
+
+        embedded.userEpisodes = payload.userEpisodes;
+        
+        ids.userEpisodes      = payload.userEpisodes.mapBy('id');
+
+        payload.userEpisodes  = ids.userEpisodes;
+
+        newPayload[type.typeKey]  = payload;
+        newPayload.userEpisodes       = embedded.userEpisodes;
+
+        return newPayload;
+    }
 });
 
-
-App.RESTAdapter.map(App.Library, {
-  primaryKey: 'user_id',
-  anime: {
-    embedded: 'load'
-  }
-});
-
-App.RESTAdapter.map(App.User, {
-  userepisodes: {
-    embedded: 'load'
-  }
-});
-
-App.RESTAdapter.map(App.Request, {
-  request_info: {
-    embedded: 'load'
-  }
-});
-
-App.RESTAdapter.map(App.RequestInfo, {
-  request_attributes: {
-    embedded: 'load'
-  }
-});
-*/
