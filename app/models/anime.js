@@ -1,3 +1,12 @@
+App.AnimeSerializer = DS.ActiveModelSerializer.extend({
+    attr: {
+        episodes:       { embedded: 'load' },
+        genres:         { embedded: 'load' },
+        synonyms:       { embedded: 'load' },
+        seenActivity:   { embedded: 'load' }
+    }
+});
+
 App.Anime = DS.Model.extend({
   	
     title: DS.attr('string'),

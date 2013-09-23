@@ -4,7 +4,7 @@ App.CalendarController = Ember.ObjectController.extend({
     console.log("episodes:",this.get('model'));
     if(Ember.isNone(this.get('model')))
       return Ember.A();
-    return App.Episode.find({week:this.get('model')});
+    return this.get('store').find('episode',{week:this.get('model')});
   }.property('model'),
 
   arrangedEpisodes: function(){
