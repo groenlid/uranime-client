@@ -26,18 +26,17 @@
     {{#if day.firstObject.show}}
         <div class="content container">
             {{#each episode in day.lastObject}}
-                <div class="anime-gallery pull-left gallery-fanart">
-                    <div class="gallery-image">
-                        <a {{action showModal 'episodemodal' episode}} class="clickable">
-                            <img {{bindAttr src="episode.imageURL"}}>
-                        </a>
-                    </div>
-                    <p class="bold single">
+                <div class="col-3 overflow-hidden margin-bottom-m">
+                    <a class="media-item clickable" {{action showModal 'episodemodal' episode}}>
+                        <div class="fanart" {{bindAttr style="episode.fanartStyle"}}>
+                        </div>
+                    </a>
+                    <p class="bold nowrap">
                         {{#linkTo "anime.description" episode.anime}}
                             {{episode.anime.title}} {{episode.number}}
                         {{/linkTo}}
                     </p>
-                    <p class="calendarinfo single">
+                    <p class="calendarinfo nowrap">
                         {{episode.name}}
                     </p>
                 </div>

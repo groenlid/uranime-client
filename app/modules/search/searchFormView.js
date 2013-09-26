@@ -31,11 +31,12 @@ App.SearchFormView = Ember.ContainerView.extend({
                 var parent = this.get('parentView'),
                     hidden = !parent.get('showResult'),
                     value = this.get('value'),
+                    store = this.get('controller.store'),
                     result;
                 
                 if(hidden) return Ember.debug('The search was activated with enter, so skipping inline-search.');
                 
-                result = App.Anime.find({title:value});
+                result = store.find('search', {title:value});
                 this.set('result', result);
         },
 

@@ -60,6 +60,7 @@ require('app/config');
 /*
  * Require the mixins
 */
+//require(/app\/mixins.*/g);
 require('app/mixins');
 
 /*
@@ -74,7 +75,8 @@ require('app/common/helpers/dateformat');
  * doesn't communicate with a server, plain
  * Ember.Objects will do.
 */
-require('app/models');
+require(/app\/models\/.*/g);
+//require('app/models');
 require('app/store/store');
 
 /*

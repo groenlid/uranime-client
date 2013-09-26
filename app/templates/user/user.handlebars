@@ -1,7 +1,7 @@
 <div class="black-top">
     <div class="container">
       <header id="fanart" class="small">
-        {{#each uep in content.userepisodes}}
+        {{#each uep in content.userEpisodes}}
           <div class="userseen">
             <a {{action 'showModal' 'episodemodal' uep.episode}} class="clickable">
               <div class="border-image" {{bindAttr style="uep.episode.fanartStyle"}}>
@@ -12,9 +12,9 @@
       </header>
     </div>
 </div>
-
 {{outlet}}
 
+{{content.userEpisodes.length}}
 <!--
 
   <div class="black-top">

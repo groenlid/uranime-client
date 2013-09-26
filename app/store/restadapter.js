@@ -10,28 +10,54 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
     
 });
 
-App.ApplicationSerializer = DS.RESTSerializer.extend({
+App.ApplicationSerializer = DS.ActiveModelSerializer.extend({
 
     /**
      * Normalize the payload so that every $.ajax call gets a 
      * root node associated with that model.
      */
-    normalizePayload: function(type, payload) {
-        var newPayload = {};
-        newPayload[type.typeKey] = payload;      
-        return newPayload;
+    extractSingle: function(store, type, payload, id, requestType){
+        var newPayload = {},
+            root = this.keyForAttribute(type.typeKey);
+
+        newPayload[root] = payload;
+
+        return this._super(store, type, newPayload, id, requestType);
+    },
+
+    extractArray: function(store, type, payload, requestType){
+        var newPayload = {},
+            root = this.keyForAttribute(type.typeKey),
+            pluralized = Ember.String.pluralize(root);
+
+        newPayload[pluralized] = payload;
+
+        return this._super(store, type, newPayload, requestType);
+         
+    },
+
+    /*serializeIntoHash: function(hash, type, record, options) {
+        return Ember.merge(hash, this.serialize(record, options));
+    }*/
+});
+
+App.AnimeSerializer = App.ApplicationSerializer.extend({
+    attrs: {
+        episodes:       { embedded: 'always' },
+        genres:         { embedded: 'load' },
+        synonyms:       { embedded: 'load' },
+        seen:           { embedded: 'load' }
     }
 });
 
-App.UserSerializer = DS.RESTSerializer.extend({
-    attr: {
-        userEpisodes: { embedded: 'load' }
+App.UserSerializer = App.ApplicationSerializer.extend({
+    attrs: {
+        userEpisodes:   { embedded: 'load' }
     }
 });
 
-App.EpisodeSerializer = DS.RESTSerializer.extend({
-    attr: {
-        userEpisodes: { embedded: 'load' }
+App.EpisodeSerializer = App.ApplicationSerializer.extend({
+    attrs: {
+        userEpisodes:   { embedded: 'load' }
     }
 });
-
