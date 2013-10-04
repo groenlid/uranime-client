@@ -1,3 +1,3 @@
-/*App.UserController = Ember.ObjectController.extend({
+App.UserController = Ember.ObjectController.extend({
 
-});*/
+});

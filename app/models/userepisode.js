@@ -1,3 +1,4 @@
+/*global moment*/
 App.UserEpisode = DS.Model.extend({
         
   timestamp: DS.attr('string'),

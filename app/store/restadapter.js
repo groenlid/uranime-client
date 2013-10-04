@@ -11,6 +11,15 @@ App.ApplicationAdapter = DS.RESTAdapter.extend({
 });
 
 App.ApplicationSerializer = DS.ActiveModelSerializer.extend({
+    /**
+    * Update keyForAttribute so that it
+    * expects the excact same propertyname
+    * from the payload as the attributename on
+    * the model
+    * */
+    keyForAttribute: function(attr) {
+        return attr;
+    },
 
     /**
      * Normalize the payload so that every $.ajax call gets a 
@@ -34,11 +43,8 @@ App.ApplicationSerializer = DS.ActiveModelSerializer.extend({
 
         return this._super(store, type, newPayload, requestType);
          
-    },
+    }
 
-    /*serializeIntoHash: function(hash, type, record, options) {
-        return Ember.merge(hash, this.serialize(record, options));
-    }*/
 });
 
 App.AnimeSerializer = App.ApplicationSerializer.extend({
