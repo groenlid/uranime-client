@@ -18,9 +18,8 @@ App.EpisodemodalView = App.ModalView.extend({
     // Check if the userSeen episodes has been loaded
     // If not.. load them ;)
     
-    if(Ember.isEmpty(this.get('content.userepisode')))
-        App.store.find(App.Episode,{id:id});
-    
+    if(Ember.isEmpty(this.get('content.userEpisodes')))
+        this.get('content').reload();
   },
 
   relativeEpisode: function(relative){

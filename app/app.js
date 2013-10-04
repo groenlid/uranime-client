@@ -43,8 +43,12 @@ window.App = Ember.Application.create({
 });
 
 Ember.onerror = function(error){
-    console.log(error);
+    Ember.Logger.assert(false,error.stack);
 };
+
+Ember.RSVP.configure('onerror', function(error) {
+      Ember.Logger.assert(false, error.stack);
+});
 
 if (window.TESTING) {
   window.App.deferReadiness();
