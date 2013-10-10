@@ -49,10 +49,10 @@ App.CalendarRoute = Ember.Route.extend({
 	},
 
 	actions: {
-        goToWeek: function(week) {
-        	this.router.transitionTo('calendar', App.Episode.find({week:week}));
+            goToWeek: function(week) {
+                    this.router.transitionTo('calendar', App.Episode.find({week:week}));
+            }
         }
-  	}
 });
 
 App.ApplicationRoute = Ember.Route.extend({
@@ -78,7 +78,10 @@ App.ApplicationRoute = Ember.Route.extend({
                 });
         },
         hideModal: function(){
-                this.clearOutlet('application','modal');
+                this.disconnectOutlet({ 
+                    parentView: 'application', 
+                    outlet:'modal'
+                });
         }
 
     }
@@ -89,9 +92,9 @@ App.AnimeRoute = Ember.Route.extend({
 	setupController: function(controller, model) {
 		controller.set('content', model);
 
-	   	if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
-	   		model.reload();
-  	}
+            if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
+                model.reload();
+        }
 });
 
 App.AnimeDescriptionRoute = Ember.Route.extend({

@@ -9,7 +9,7 @@
     <div class="col-lg-8 episode-info">
         <div class="row">
             <h4 class="col-lg-10 normal">
-                <a class="clickable" {{action 'showEpisode' this target="view"}}>
+                <a class="clickable" {{action 'showModal' 'episodemodal' this}}>
                     {{#if this.special}}
                         <span class="label label-info">Special</span>
                     {{/if}}

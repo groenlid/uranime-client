@@ -12,9 +12,8 @@ App.ModalView = Ember.View.extend({
             this._super();
             this.$().modal(this.get('config'));
         },
-    
-    
+        
         willDestroyElement: function() {
-            $(this.$()).modal('hide');
+            Ember.$(this.$()).modal('hide');
         }
 });

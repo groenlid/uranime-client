@@ -8,9 +8,11 @@ App.FrontView = Em.View.extend({
     },
 
     searchField: Ember.TextField.extend({
-        insertNewline: function(){
+        /*
+         insertNewline: function(){
             var val = this.get('value');
             this.get('controller').send('search', {query:val});
         }
+        */
     })
 });
