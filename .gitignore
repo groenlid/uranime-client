@@ -4,3 +4,5 @@ assets/
 node_modules/
 *.js~
 *.handlebars~
+build/
+.sass-cache/
