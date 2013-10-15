@@ -16,11 +16,7 @@
             <span class="normal">{{day.firstObject.date}}</span>
         </h1>
         <h1 class="col-1">
-            {{#if day.firstObject.show}}
-                <span class="glyphicon glyphicon-chevron-down"></span>
-            {{else}}
-                <span class="glyphicon glyphicon-chevron-right"></span>
-            {{/if}}
+            <span {{bindAttr class="day.firstObject.show:glyphicon-chevron-down:glyphicon-chevron-right :glyphicon"}}></span>
         </h1>
     </div>
     {{#if day.firstObject.show}}

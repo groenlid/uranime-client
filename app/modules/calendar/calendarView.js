@@ -1,14 +1,11 @@
 App.CalendarView = Em.View.extend({
-  templateName: "calendar/calendar",
+    templateName: "calendar/calendar",
 
-  queryBinding: 'controller.content.query.week',
+    queryBinding: 'controller.content.query.week',
 
-  showEpisode: function (episode){
-      App.EpisodeView.popup({content:episode, controller: this.get('controller')});
-  },
-
-  toggleDay: function(day){
-  	day.get('firstObject').toggleProperty('show');
-  }
-
+    actions: {
+        toggleDay: function(day){
+            day.get('firstObject').toggleProperty('show');
+        }
+    }
 });

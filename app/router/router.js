@@ -89,12 +89,6 @@ App.ApplicationRoute = Ember.Route.extend({
 
 App.AnimeRoute = Ember.Route.extend({
 
-	setupController: function(controller, model) {
-		controller.set('content', model);
-
-            if(!Ember.isNone(model) && !model.get('isLoading') && Ember.isEmpty(model.get('episodes')))
-                model.reload();
-        }
 });
 
 App.AnimeDescriptionRoute = Ember.Route.extend({

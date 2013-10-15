@@ -1,6 +1,6 @@
 App.AnimeEpisodesController = Ember.ArrayController.extend(Ember.PaginationSupport, {
 
-	totalBinding: 'anime.episodes.length',
+	totalBinding: 'anime.details.episodes.length',
 
 	maxPaginationLinks: 10,
   
@@ -10,7 +10,7 @@ App.AnimeEpisodesController = Ember.ArrayController.extend(Ember.PaginationSuppo
   	sortAscending: false,
 
   	// anime property is set in router
-  	contentBinding: 'anime.episodes',
+  	contentBinding: 'anime.details.episodes',
 
 
   	pagedContent: function(){

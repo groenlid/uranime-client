@@ -17,7 +17,7 @@ App.AnimeActivityView = Ember.CollectionView.extend({
     episodesAired: function(){
       return this.get('episodes').filter(function(item){
         return !Ember.isNone(item.get('aired')) &&
-                moment(item.get('aired'), App.Config.get('serverDateFormat')).diff(moment()) < 1;
+                moment(item.get('aired'), App.Config.serverDateFormat).diff(moment()) < 1;
       });
     }.property('episodes.length'),
 

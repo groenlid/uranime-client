@@ -1,7 +1,7 @@
 <div class="container content infobar">
     <div class="row">
         <div class="col-lg-9 pull-left">
-            <h1>{{title}}<span class="small pull-right">{{toFromDates}}</span></h1>
+            <h1>{{title}}<span class="small pull-right">{{details.toFromDates}}</span></h1>
             <div class="col-lg-9 pull-left">
                  <p class="animedesc">
 				    {{{desc}}}
@@ -58,7 +58,7 @@
     </div>
     <div class="row">
         <div class="anime-gallery">
-            {{#each episode in lastEpisodes}}
+            {{#each episode in details.lastEpisodes}}
             <div class="pull-left col-lg-3">
                 <div class="gallery-image">
                     <a {{action 'showModal' 'episodemodal' episode}} class="clickable">
@@ -89,7 +89,7 @@
     <div class="row">
         <ul class="col-lg-10">
 
-        {{#each g in onlyGenres}}
+        {{#each g in details.onlyGenres}}
             <li class="pull-left">
                 <a class="genre" rel="popover" {{bindAttr data-content="g.description"}} {{bindAttr data-original-title="g.name"}} style="display: block; opacity: 1; padding-right: 5px;">
                     <span class="genre_name">{{g.name}}</span>
@@ -117,7 +117,7 @@
     <div class="row">
         <h2><span class="normal">Last</span> seen <span class="normal">by</span></h2>
         
-        {{view App.AnimeActivityView contentBinding="seen" episodesBinding="episodes"}}
+        {{view App.AnimeActivityView contentBinding="details.seen" episodesBinding="details.episodes"}}
     </div>
 
 </div>

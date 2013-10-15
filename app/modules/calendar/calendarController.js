@@ -16,7 +16,7 @@ App.CalendarController = Ember.ObjectController.extend({
     {
       // Each row will contain title and episodes-array
       curDay = Ember.A();
-      date = now.day(weekday).format(App.Config.get('serverDateFormat'));
+      date = now.day(weekday).format(App.Config.serverDateFormat);
       show = now.diff(now.day(weekday),'days') == 0;
       
       curDay.pushObject(Ember.Object.create({
@@ -28,7 +28,7 @@ App.CalendarController = Ember.ObjectController.extend({
       // episodes
       dayEpisodes = this.get('episodes').filter(function(data){
         return (!Ember.isNone(data.get('aired')) &&
-          moment(data.get('aired')).format(App.Config.get('serverDateFormat')) == date);
+          moment(data.get('aired')).format(App.Config.serverDateFormat) == date);
       });
 
       curDay.pushObject(dayEpisodes);
@@ -44,7 +44,7 @@ App.CalendarController = Ember.ObjectController.extend({
     var c = this.get('episodes');
     return c.filter(function(data){
       console.log(data.serialize());
-      return moment(data.get('aired')).format(App.Config.get('serverDateFormat')) == day;
+      return moment(data.get('aired')).format(App.Config.serverDateFormat) == day;
     });
   },
 

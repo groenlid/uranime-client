@@ -1,4 +1,5 @@
 Ember.Inflector.inflector.uncountable("anime");
+Ember.Inflector.inflector.uncountable("animedetails");
 
 App.ApplicationAdapter = DS.RESTAdapter.extend({ 
     bulkCommit:false,
@@ -47,9 +48,9 @@ App.ApplicationSerializer = DS.ActiveModelSerializer.extend({
 
 });
 
-App.AnimeSerializer = App.ApplicationSerializer.extend({
+App.AnimeDetailsSerializer = App.ApplicationSerializer.extend({
     attrs: {
-        episodes:       { embedded: 'always' },
+        episodes:       { embedded: 'load' },
         genres:         { embedded: 'load' },
         synonyms:       { embedded: 'load' },
         seen:           { embedded: 'load' }
