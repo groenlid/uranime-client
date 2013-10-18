@@ -24,7 +24,7 @@ App.EpisodemodalView = App.ModalView.extend({
 
   relativeEpisode: function(relative){
     var episode = this.get('content'),
-          arranged = episode.get('anime.sortedEpisodes'),
+          arranged = episode.get('anime.details.sortedEpisodes'),
           pos = arranged.indexOf(episode),
           relative = arranged.objectAt(pos + relative);
     return relative;

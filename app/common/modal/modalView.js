@@ -3,8 +3,8 @@ App.ModalView = Ember.View.extend({
         
         // Default config object
         config: {
-                backdrop: 'static',
-                keyboard: 'false',
+                backdrop: false,
+                keyboard: false,
                 show: true
         },
 

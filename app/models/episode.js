@@ -22,7 +22,7 @@ App.Episode = DS.Model.extend({
         return Ember.isNone(image) || Ember.isNone(this.get('anime.id')) ? 
             this.get('anime.fanartURL') : 
             App.Config.episodepath + this.get('anime.id') + '/' + this.get('image');
-    }.property('image', 'anime.id'),
+    }.property('image', 'anime.id','anime.fanart'),
 
     fanartStyle: function() {
         return "background-image:url(" + this.get('imageURL') + ")";
