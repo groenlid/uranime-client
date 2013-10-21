@@ -15,6 +15,7 @@ Important:
 - [] Hide shows from the calendar
 - [] Remove all references to App.store. Should use through controller or route.
 - [x] Make a calendar
+- https://github.com/stubbornella/oocss/wiki/faq
 
 Calendar
 --
