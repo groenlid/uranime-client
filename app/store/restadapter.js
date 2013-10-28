@@ -1,5 +1,6 @@
 Ember.Inflector.inflector.uncountable("anime");
 Ember.Inflector.inflector.uncountable("animedetails");
+Ember.Inflector.inflector.uncountable("episodedetails");
 
 App.ApplicationAdapter = DS.RESTAdapter.extend({ 
     bulkCommit:false,
@@ -63,7 +64,7 @@ App.UserSerializer = App.ApplicationSerializer.extend({
     }
 });
 
-App.EpisodeSerializer = App.ApplicationSerializer.extend({
+App.EpisodeDetailsSerializer = App.ApplicationSerializer.extend({
     attrs: {
         userEpisodes:   { embedded: 'load' }
     }

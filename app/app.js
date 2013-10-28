@@ -54,6 +54,8 @@ if (window.TESTING) {
   window.App.deferReadiness();
 }
 
+require('app/authentication');
+
 require('app/translations');
 
 /*

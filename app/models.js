@@ -12,3 +12,4 @@ require('app/models/requestInfo');
 require('app/models/requestType');
 require('app/models/site');
 require('app/models/animeDetails');
+require('app/models/episodeDetails');

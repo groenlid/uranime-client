@@ -8,16 +8,10 @@ App.Episode = DS.Model.extend({
     image: DS.attr('string'),
 
     anime: DS.belongsTo('anime'),
+    
+    details: DS.belongsTo('episodeDetails'),
 
-    userEpisodes: DS.hasMany('userEpisode'),
-
-    arrangedUserEpisode: function(){
-        return this.get('userEpisodes').toArray().sort(function (lhs, rhs) {
-            return moment(rhs.get('timestamp'), App.Config.serverDateFormat).diff(moment(lhs.get('timestamp'), App.Config.serverDateFormat));
-        });
-	}.property('userEpisodes.@each'),
-
-    imageURL: function(){
+   imageURL: function(){
         var image = this.get('image');
         return Ember.isNone(image) || Ember.isNone(this.get('anime.id')) ? 
             this.get('anime.fanartURL') : 

@@ -28,9 +28,8 @@
             </div>
           </div>
         </div>
-
         <div class="comments js-commentsHeight">
-          {{#each activity in arrangedUserEpisode}}
+          {{#each activity in details.arrangedUserEpisode}}
 
           <div>  
             {{#link-to 'user.profile' activity.user class="bold"}}{{activity.user.nick}}{{/link-to}} watched this.<span class="pull-right small"> {{activity.since}} </span> 

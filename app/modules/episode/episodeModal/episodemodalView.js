@@ -15,11 +15,6 @@ App.EpisodemodalView = App.ModalView.extend({
 
     this.setCommentHeight();
 
-    // Check if the userSeen episodes has been loaded
-    // If not.. load them ;)
-    
-    if(Ember.isEmpty(this.get('content.userEpisodes')))
-        this.get('content').reload();
   },
 
   relativeEpisode: function(relative){
