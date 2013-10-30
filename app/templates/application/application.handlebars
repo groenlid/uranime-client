@@ -27,20 +27,13 @@
 
                 <!-- User profile -->
                 <li class="divider-vertical"></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                         <img src="http://www.gravatar.com/avatar/5c713d38d26a2b1cef8ff286fc53c8fa.jpg?size=20" class="img-rounded"> Groenlid <b class="caret"></b>
-                    </a>
-                    <ul class="dropdown-menu">
-                        <li><a tabindex="-1">Profile</a></li>
-                        <li><a tabindex="-1">Watchlist</a></li>
-                        <li><a href="index.html#/user/1/library" tabindex="-1">Library</a></li>
-                        <li><a tabindex="-1">Settings</a></li>
-                        <li><a tabindex="-1">Help</a></li>
-                        <li class="divider"></li>
-                        <li><a tabindex="-1">Logout</a></lwi>
-                    </ul>
-                </li>
+
+                {{#if auth.signedIn}}
+                    {{partial 'application/partials/loggedIn'}}
+                {{else}}
+                    {{partial 'application/partials/notLoggedIn'}}
+                {{/if}}
+                
             </ul>
         </div>
     </div>

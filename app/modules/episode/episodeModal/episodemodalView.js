@@ -1,14 +1,14 @@
 App.EpisodemodalView = App.ModalView.extend({
  
   templateName: "episode/episodeModal",
+  
+  contentBinding: 'controller.content',
+  
   /**
    Set the height of the last active box
    based on the episode description and 
    episode image.
    */
-
-  contentBinding: 'controller.content',
-
   didInsertElement: function (){
     this._super();
     var content = this.get('content'), id = content.get('id');

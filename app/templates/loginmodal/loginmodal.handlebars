@@ -1,0 +1,31 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <h2 class="text-center">Login</h2>
+        <div class="modal-body">
+        {{#if view.showLoginError}}
+            <div class="row">
+                <div class="alert alert-danger text-center col-10 col-offset-1">Wrong username and/or password</div>
+            </div>
+        {{/if}}
+
+            <div class="row">
+                <form class="col-8 col-offset-2" {{action 'login' on="submit"}}>
+                    {{view Ember.TextField valueBinding="email" placeholder="Email" type="email" class="form-control input-lg margin-bottom-m"}}
+                    {{view Ember.TextField valueBinding="password" placeholder="Password" type="password" class="form-control input-lg margin-bottom-m"}}
+                    <input type="submit" class="btn btn-primary btn-block margin-bottom-m" value="Login"/>
+                    <span class="help-block">To login, enter your username and press enter or click login...</span>
+                </form>
+            </div>
+            
+            <h2 class="text-center">OR</h2>
+
+            <div class="row">
+                <div class="col-8 col-offset-2">
+                    <button class="btn btn-block btn-success" value="Sign up">Sign up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div {{action 'hideModal'}} class="modal-backdrop"></div>

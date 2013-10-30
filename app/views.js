@@ -53,3 +53,6 @@ require('app/modules/requests/requestsIndexView');
 
 // Requests -> request
 require('app/modules/requests/requestView');
+
+// LoginModalView
+require('app/modules/loginModal/loginmodalView');

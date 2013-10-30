@@ -1,6 +1,7 @@
 // Common -> ModalController
 require('app/common/modal/modalController');
 require('app/modules/episode/episodeModal/episodemodalController');
+require('app/modules/loginModal/loginmodalController');
 
 //Applications
 require('app/modules/application/applicationController');
