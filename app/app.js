@@ -73,6 +73,7 @@ require('app/mixins');
  * Common helpers
 */
 require('app/common/helpers/dateformat');
+require('app/common/helpers/concat');
 
 /* 
  * Model layer. 

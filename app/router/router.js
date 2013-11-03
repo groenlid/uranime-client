@@ -9,7 +9,7 @@ App.Router = Ember.Router.extend({
 App.Router.map(function() {
 	this.route('front', { path:'/'});
 	
-    this.resource('animeoverview', {path: '/anime'});
+    this.resource('animeoverview', {path: '/animeoverview/:after/:before'});
 
 	this.resource('anime', { path: '/anime/:anime_id' }, function(){
 		this.route('description', { path: '/' } );
@@ -39,21 +39,6 @@ App.RequestsRoute = Ember.Route.extend({
 	}
 });
 
-App.CalendarRoute = Ember.Route.extend({
-	model: function(params){
-		return params.week;
-	},
-
-	setupController: function(controller, model){
-		controller.set('content',model);
-	},
-
-	actions: {
-            goToWeek: function(week) {
-                    this.router.transitionTo('calendar', App.Episode.find({week:week}));
-            }
-        }
-});
 
 App.ApplicationRoute = Ember.Route.extend({
     actions: {
@@ -87,8 +72,26 @@ App.ApplicationRoute = Ember.Route.extend({
     }
 });
 
-App.AnimeRoute = Ember.Route.extend({
+App.CalendarRoute = Ember.Route.extend({
+	setupController: function(controller, params){
+		controller.set('content', this.get('store').find('episode', {week: params.week}));
+	},
 
+	actions: {
+            goToWeek: function(week) {
+                    this.router.transitionTo('calendar', App.Episode.find({week:week}));
+            }
+        }
+});
+
+App.AnimeoverviewRoute = Ember.Route.extend({
+    setupController: function(controller, params){
+        controller.set('content', this.get('store').find('anime', { before: params.before, after: params.after}));
+    }
+});
+
+App.AnimeRoute = Ember.Route.extend({
+    
 });
 
 App.AnimeDescriptionRoute = Ember.Route.extend({

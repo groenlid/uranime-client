@@ -1,11 +1,6 @@
-App.CalendarController = Ember.ObjectController.extend({
+App.CalendarController = Ember.ArrayController.extend({
 
-  episodes: function(){
-    console.log("episodes:",this.get('model'));
-    if(Ember.isNone(this.get('model')))
-      return Ember.A();
-    return this.get('store').find('episode',{week:this.get('model')});
-  }.property('model'),
+  episodesBinding: 'content',
 
   arrangedEpisodes: function(){
     var now, ret = Ember.A(), dayEpisodes, curDay, date, show;
