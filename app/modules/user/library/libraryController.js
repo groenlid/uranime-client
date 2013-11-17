@@ -1,23 +1,18 @@
 App.UserLibraryController = Ember.ArrayController.extend(Ember.PaginationSupport, {
   
-  totalBinding: 'content.length',
+    totalBinding: 'content.length',
   
-  needs:['user'],
+    needs:['user'],
 
-  maxPaginationLinks: 10,
+    maxPaginationLinks: 10,
   
-  rangeWindowSize:20,
+    rangeWindowSize:20,
 
-  sortProperties:['last_seen'],
-  sortAscending: false,
+    sortProperties:['last_seen'],
+    sortAscending: false,
 
-  pagedContent: function(){
-    var rStart = this.get('rangeStart'),
-        rStop  = this.get('rangeStop'); 
-    
-    return this.get('arrangedContent').slice(rStart,rStop);
-
-  }.property('rangeStart','rangeStop', 'sortProperties'),
+    // Dataflow
+    paginationInputBinding: 'arrangedContent',
 
   sortButtons: Ember.A([ 
     Ember.Object.create({

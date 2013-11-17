@@ -12,11 +12,17 @@
   "devDependencies": {
     "grunt": "latest",
     "grunt-minispade": "latest",
+    "grunt-contrib-clean": "latest",
     "grunt-contrib-uglify": "latest",
     "grunt-contrib-jshint": "latest",
     "grunt-contrib-qunit": "latest",
     "grunt-ember-templates": "latest",
     "grunt-contrib-watch": "latest",
-    "grunt-contrib-compass": "latest"
+    "grunt-contrib-compass": "latest",
+    "load-grunt-config": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-cssmin": "~0.6.1",
+    "grunt-concurrent": "~0.3.1",
+    "time-grunt": "latest"
   }
 }

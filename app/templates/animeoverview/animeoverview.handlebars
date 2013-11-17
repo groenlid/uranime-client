@@ -28,20 +28,28 @@
 		<h2>Shows <span class="normal">by season</span></h2>
 		<hr />
 		<ul class="list-unstyled">
-			<li><a>Upcoming anime</a></li>
-			<li>Currently airing</li>
-			<li><a>Summer 2013</a></li>
-			<li><a>Spring 2013</a></li>
-			<li><a>Winter 2012</a></li>
+            {{#each season in view.seasons}}
+                <li>
+                    {{#if season.active}}
+                        {{season.title}}
+                    {{else}}
+                        {{#link-to 'animeoverview' season}}{{season.title}}{{/link-to}}
+                    {{/if}}
+                </li>
+            {{/each}}
 		</ul>
 		<hr />
 		<h2><span class="normal">or by</span> year</h2>
 		<hr />
         {{#each year in view.years}}
             <div class="col-3 margin-bottom-m">
-            {{#link-to 'animeoverview' year}}
+            {{#if year.active}}
                 {{year.title}}
-            {{/link-to}}
+            {{else}}
+                {{#link-to 'animeoverview' year}}
+                    {{year.title}}
+                {{/link-to}}
+            {{/if}}
             </div>
         {{/each}}
 	</div>

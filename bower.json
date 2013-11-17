@@ -1,0 +1,20 @@
+{
+    "name": "Uranime",
+    "dependencies": {
+        "handlebars": "latest",
+        "jquery": "latest",
+        "ember": "latest",
+        "ember-data": "1.0.0-beta.3",
+        "emblem":"latest",
+        "bootstrap":"latest",
+        "lodash" : "latest",
+        "moment": "latest",
+        "ember-auth": "latest",
+        "ember-auth-request-jquery": "latest",
+        "ember-auth-response-json": "latest",
+        "ember-auth-module-ember-data": "latest",
+        "ember-auth-strategy-token": "latest",
+        "ember-auth-session-cookie": "latest"
+        
+    }
+}

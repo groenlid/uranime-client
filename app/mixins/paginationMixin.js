@@ -22,6 +22,13 @@ Ember.PaginationSupport = Ember.Mixin.create({
    */
   maxPaginationLinks: 5,
 
+    paginationOutput: function(){
+        return this.get('paginationInput').slice(
+            this.get('rangeStart'), 
+            this.get('rangeStop')
+            );
+    }.property('paginationInput.@each','rangeStart','rangeStop'),
+
   /**
    */
   rangeStop: Ember.computed('total', 'rangeStart', 'rangeWindowSize', function() {

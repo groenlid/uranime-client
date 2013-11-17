@@ -62,7 +62,7 @@ require('app/translations');
  * The global configuration object
 */
 require('app/config');
-
+require(/app\/extensions\/.*/);
 /*
  * Require the mixins
 */
@@ -95,7 +95,8 @@ require('app/views');
 /*
  * The applications' controlers
 */
-require('app/controllers');
+require(/app\/.*Controller/);
+//require('app/controllers');
 
 /* 
  * States (i.e. Routes)

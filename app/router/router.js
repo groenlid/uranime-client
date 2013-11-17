@@ -42,10 +42,9 @@ App.RequestsRoute = Ember.Route.extend({
 
 App.ApplicationRoute = Ember.Route.extend({
     actions: {
-        search: function(params) {
-            var query = params.query;
+        search: function(query) {
             this.controllerFor('search').set('query', query);
-            this.router.transitionTo('search', App.Anime.find({title:query}));
+            this.router.transitionTo('search', this.get('store').find('anime',{title:query}));
         },
 
         goToLibrary: function(user){
@@ -75,6 +74,7 @@ App.ApplicationRoute = Ember.Route.extend({
 App.CalendarRoute = Ember.Route.extend({
 	setupController: function(controller, params){
 		controller.set('content', this.get('store').find('episode', {week: params.week}));
+        controller.set('params', params);
 	},
 
 	actions: {
@@ -86,7 +86,9 @@ App.CalendarRoute = Ember.Route.extend({
 
 App.AnimeoverviewRoute = Ember.Route.extend({
     setupController: function(controller, params){
+        controller.set('popular_anime', this.get('store').find('anime', {limit:10, orderBy: 'popularity'}));
         controller.set('content', this.get('store').find('anime', { before: params.before, after: params.after}));
+        controller.set('params', params);
     }
 });
 
@@ -126,11 +128,12 @@ App.CommunityRoute = Ember.Route.extend({
 });
 
 App.SearchRoute = Ember.Route.extend({
-
-  deserialize: function(params){
-  	return App.Anime.find({title:params.query});
+  model: function(params){
+    return this.get('store').find('anime', {title: params.title});
   },
-
+  /*deserialize: function(params){
+  	return App.Anime.find({title:params.query});
+  },*/
 
   serialize: function(params){
   	return {query: params.query.title}
