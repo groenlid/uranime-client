@@ -23,6 +23,15 @@
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-cssmin": "~0.6.1",
     "grunt-concurrent": "~0.3.1",
-    "time-grunt": "latest"
+    "time-grunt": "latest",
+    "grunt-emblem": "latest",
+    "grunt-preprocess": "latest",
+    "lockfile": "~0.3.0",
+    "grunt-karma": "~0.5",
+    "karma": "~0.9.4",
+    "karma-qunit": "~0.0.3",
+    "karma-coverage": "~0.0.3",
+    "karma-phantomjs-launcher": "~0.0.2",
+    "request": "~2.27.0"
   }
 }

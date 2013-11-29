@@ -1,8 +1,7 @@
-language: ruby
-rvm:
-  - 1.9.3
-bundler_args: --without development
+language: node_js
+node_js:
+    - 0.10
 before_script:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
-script: "bundle exec rake test"
+    - npm install -g grunt-cli
+    - npm install -g bower
+    - bower install

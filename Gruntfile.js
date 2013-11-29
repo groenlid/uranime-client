@@ -4,6 +4,7 @@ module.exports = function(grunt) {
     
     require('time-grunt')(grunt);
 
+
     var config = require('load-grunt-config')(grunt, {
         configPath: 'grunt/tasks',
         init:false
@@ -47,13 +48,11 @@ module.exports = function(grunt) {
         "buildTemplates:dist",
         "buildScripts",
         "buildStyles",
-        "buildIndexHTML:dist"
       ],
       buildDebug: [
         "buildTemplates:debug",
         "buildScripts",
         "buildStyles",
-        "buildIndexHTML:debug"
       ]
     }
   });
@@ -71,33 +70,19 @@ module.exports = function(grunt) {
 
   // Scripts
   grunt.registerTask('buildScripts', [
-                     'copy:javascriptToTmp',
-                     'transpile',
+                     'minispade:app',
+                     'minispade:tests',
                      'jshint:app',
-                     'jshint:tests',
-                     'concat_sourcemap'
+                     'jshint:tests'
                      ]);
 
   // Styles
   grunt.registerTask('buildStyles', [
-                     'compass:compile',
-                     'sass:compile',
-                     'less:compile',
-                     'stylus:compile',
-                     'copy:cssToResult'
+                     'compass',
                      // ToDo: Add 'autoprefixer'
                      ]);
 
-  // Index HTML
-  grunt.registerTask('buildIndexHTML:dist', [
-                     'preprocess:indexHTMLDistApp',
-                     'preprocess:indexHTMLDistTests'
-                     ]);
-
-  grunt.registerTask('buildIndexHTML:debug', [
-                     'preprocess:indexHTMLDebugApp',
-                     'preprocess:indexHTMLDebugTests'
-                     ]);
+  grunt.loadTasks('grunt');
 
   grunt.initConfig(config);
 };

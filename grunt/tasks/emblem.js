@@ -6,10 +6,10 @@ module.exports = {
     options: {
       root: 'app/templates/',
       dependencies: {
-        jquery: 'dependencies/jquery-1.9.1.js',
-        ember: 'dependencies/ember-1.0.0.js',
-        handlebars: 'dependencies/handlebars1-0.0.js',
-        emblem: 'dependencies/emblem.js'
+        jquery: 'dependencies/jquery/jquery.js',
+        ember: 'dependencies/ember/ember.js',
+        handlebars: 'dependencies/handlebars/handlebars.js',
+        emblem: 'dependencies/emblem/dist/emblem.js'
       }
     }
   }

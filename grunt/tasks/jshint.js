@@ -12,7 +12,11 @@ module.exports = {
         ],
         options: { jshintrc: 'grunt/.jshintrc' }
     },
-
+    tests: {
+        src: [
+            'tests/**/*.js'
+             ]
+    },
     options: {
         jshintrc: '.jshintrc',
         force: true
