@@ -56,3 +56,6 @@ moment.fn.subtractSeason = function(){
     return this.subtract('month', 3);
 };
 
+moment.fn.formatSimpleDate = function(){
+    return this.format('YYYY-MM-DD');
+};

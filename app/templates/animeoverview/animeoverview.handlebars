@@ -1,5 +1,5 @@
 <div class="black-top">
-	
+
 	<div style="overflow:hidden; width:100%">
 		<ul class="fanart-carousel relative list-unstyled" style="margin:0;padding:0; margin-left:-24%; width:150%">
 			<li class="pull-left col-4 no-padding" style="opacity:0.5">
@@ -56,7 +56,7 @@
 	<div class="col-9 col-pull-3">
 		<h1>Discover <span class="normal">new anime</span></h1>
 		<div class="row">
-            {{#each anime in content}}
+            {{#each anime in controller.paginationOutput}}
                 <div class="col-2-5 overflow-hidden margin-bottom-m">
                     {{#link-to 'anime.description' anime class="media-item clickable"}}
                         <div class="poster" {{bindAttr style="anime.imageUrlSmallStyle"}}></div>
@@ -66,6 +66,7 @@
             {{/each}}
         </div>
 		
+        {{view App.PaginatorCollectionView contentBinding="controller.paginator"}}
 		<!--
 		Should be able to choose simple or advance query.
 		Simple should be "Spring 2012" with limited customizability.
