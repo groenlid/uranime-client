@@ -15,5 +15,5 @@ App.Config = {
 
         clientDateFormat: "dddd, MMM Do YYYY",
 
-        defaultgravatar: "http://groenlid.no-ip.org/img/default_guy2.png"
+        defaultgravatar: "http://urani.me/img/default_guy2.png"
 };

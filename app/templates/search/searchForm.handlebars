@@ -1,23 +1,23 @@
-<div class="popover bottom" id="notifications" style="width:250px;display: block;" data-bindattr-1="1">
-        <div class="arrow"></div>
-        <div class="popover-inner">
-            <div class="popover-title">
-                {{view view.searchField class="form-control" placeholder="Search for anime" valueBinding="view.value"}}
-            </div>
-            <div class="popover-content searchresult">
-                {{#with view.result}}
-                    {{#if this.isLoaded}}
-                        {{#each row in this}}
-                                {{#linkTo anime.description row tagName="div" class="row"}}
-                                        {{row.title}}               
-                                {{/linkTo}}
-                        {{/each}}
-                    {{else}}
-                        <div class="row text-align-center">
-                                <span class="loading"></span>
-                        </div>
-                    {{/if}}
-                {{/with}}
-            </div>
+<div class="popover bottom" id="notifications" style="width:250px;display: block;">
+    <div class="arrow"></div>
+    <div class="popover-inner">
+        <div class="popover-title">
+            {{view view.searchField class="form-control" placeholder="Search for anime" valueBinding="view.value"}}
+        </div>
+        <div class="popover-content searchresult">
+            {{#with view.result}}
+                {{#if this.isPending}}
+                    <div class="row text-align-center">
+                        <span class="loading"></span>
+                    </div>
+                {{else}}
+                    {{#each row in this}}
+                            {{#linkTo 'anime.description' row tagName="div" class="row clickable"}}
+                                    {{row.title}}               
+                            {{/linkTo}}
+                    {{/each}}
+                {{/if}}
+            {{/with}}
         </div>
     </div>
+</div>
