@@ -61,7 +61,7 @@ var define, requireModule;
 
   @class Ember
   @static
-  @version 1.0.0
+  @version 1.0.1
 */
 
 if ('undefined' === typeof Ember) {
@@ -88,10 +88,10 @@ Ember.toString = function() { return "Ember"; };
 /**
   @property VERSION
   @type String
-  @default '1.0.0'
+  @default '1.0.1'
   @final
 */
-Ember.VERSION = '1.0.0';
+Ember.VERSION = '1.0.1';
 
 /**
   Standard environmental variables. You can define these in a global `ENV`
@@ -24621,6 +24621,20 @@ function exists(value) {
   return !Ember.isNone(value);
 }
 
+function sanitizedHandlebarsGet(currentContext, property, options) {
+  var result = handlebarsGet(currentContext, property, options);
+  if (result === null || result === undefined) {
+    result = "";
+  } else if (!(result instanceof Handlebars.SafeString)) {
+    result = String(result);
+  }
+  if (!options.hash.unescaped){
+    result = Handlebars.Utils.escapeExpression(result);
+  }
+
+  return result;
+}
+
 // Binds a property into the DOM. This will create a hook in DOM that the
 // KVO system will look for and update if the property changes.
 function bind(property, options, preserveContext, shouldDisplay, valueNormalizer, childProperties) {
@@ -24710,9 +24724,9 @@ function simpleBind(property, options) {
         Ember.run.once(view, 'rerender');
       };
 
-      var result = handlebarsGet(currentContext, property, options);
-      if (result === null || result === undefined) { result = ""; }
-      data.buffer.push(result);
+      output = sanitizedHandlebarsGet(currentContext, property, options);
+
+      data.buffer.push(output);
     } else {
       var bindView = new Ember._SimpleHandlebarsView(
         property, currentContext, !options.hash.unescaped, options.data
@@ -24736,7 +24750,9 @@ function simpleBind(property, options) {
   } else {
     // The object is not observable, so just render it out and
     // be done with it.
-    data.buffer.push(handlebarsGet(currentContext, property, options));
+    output = sanitizedHandlebarsGet(currentContext, property, options);
+
+    data.buffer.push(output);
   }
 }
 

@@ -6,7 +6,8 @@ App.Episode = DS.Model.extend({
     special: DS.attr('boolean'),
     description: DS.attr('string'),
     image: DS.attr('string'),
-
+    seen: DS.attr('boolean'),
+    seenAt: DS.attr('date'),
     anime: DS.belongsTo('anime'),
     
     details: DS.belongsTo('episodeDetails'),

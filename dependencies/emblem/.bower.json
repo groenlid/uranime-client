@@ -1,12 +1,12 @@
 {
   "name": "emblem",
   "homepage": "https://github.com/machty/emblem.js",
-  "version": "0.3.4",
-  "_release": "0.3.4",
+  "version": "0.3.11",
+  "_release": "0.3.11",
   "_resolution": {
     "type": "version",
-    "tag": "0.3.4",
-    "commit": "098946250df64a564a8b9c620cb55156aa7d8484"
+    "tag": "0.3.11",
+    "commit": "698abb657caecab920e0ffabe0e27cdb5aae8ae5"
   },
   "_source": "git://github.com/machty/emblem.js.git",
   "_target": "*",

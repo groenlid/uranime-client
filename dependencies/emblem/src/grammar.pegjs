@@ -57,6 +57,34 @@
     "drag": true, "dragEnter": true, "dragLeave": true, 
     "dragOver": true, "drop": true, "dragEnd": true
   };
+  
+  // Ridiculous that we have to do this, but PEG doesn't
+  // support unmatched closing braces in JS code,
+  // so we have to construct.
+  var closeBrace = String.fromCharCode(125);
+  var twoBrace = closeBrace + closeBrace;
+  var threeBrace = twoBrace + closeBrace;
+
+  var use11AST = handlebarsVariant.VERSION.slice(0, 3) >= 1.1;
+  var useSexprNodes = handlebarsVariant.VERSION.slice(0, 3) >= 1.3;
+
+  function createMustacheNode(params, hash, escaped) {
+    if (use11AST) {
+      var open = escaped ? twoBrace : threeBrace;
+      return new AST.MustacheNode(params, hash, open, { left: false, right: false });
+    } else {
+      // old style
+      return new AST.MustacheNode(params, hash, !escaped);
+    }
+  }
+
+  function createProgramNode(statements, inverse) {
+    if (use11AST) {
+      return new AST.ProgramNode(statements, { left: false, right: false}, inverse, null);
+    } else {
+      return new AST.ProgramNode(statements, inverse);
+    }
+  }
 
   // Returns a new MustacheNode with a new preceding param (id).
   function unshiftParam(mustacheNode, helperName, newHashPairs) {
@@ -74,7 +102,7 @@
 
     var params = [mustacheNode.id].concat(mustacheNode.params);
     params.unshift(new AST.IdNode([{ part: helperName}]));
-    return new AST.MustacheNode(params, hash, !mustacheNode.escaped);
+    return createMustacheNode(params, hash, mustacheNode.escaped);
   }
 
   function textNodesResult(first, tail) {
@@ -98,7 +126,7 @@ start = invertibleContent
 
 invertibleContent = c:content i:( DEDENT else _ TERM indentation c:content {return c;})?
 { 
-  return new AST.ProgramNode(c, i || []);
+  return createProgramNode(c, i || []);
 }
 
 else
@@ -258,19 +286,31 @@ htmlElement = h:inHtmlTag nested:htmlTerminator
 mustacheOrBlock = mustacheNode:inMustache _ inlineComment? nestedContentProgramNode:mustacheNestedContent
 { 
   if (!nestedContentProgramNode) { return mustacheNode; }
-  return new AST.BlockNode(mustacheNode, nestedContentProgramNode, nestedContentProgramNode.inverse, mustacheNode.id);
+
+  var close = mustacheNode.id;
+  if (use11AST) {
+    close.path = mustacheNode.id;
+    close.strip = {
+      left: false,
+      right: false
+    };
+  }
+
+  var block = new AST.BlockNode(mustacheNode, nestedContentProgramNode, nestedContentProgramNode.inverse, close);
+  block.path = mustacheNode.id;
+  return block;
 }
 
 invertibleContent = c:content i:( DEDENT else _ TERM blankLine* indentation c:content {return c;})?
 { 
-  return new AST.ProgramNode(c, i || []);
+  return createProgramNode(c, i || []);
 }
 
 colonContent = ': ' _ c:contentStatement { return c; }
 
 // Returns a ProgramNode
 mustacheNestedContent
-  = statements:(colonContent / textLine) { return new AST.ProgramNode(statements, []); }
+  = statements:(colonContent / textLine) { return createProgramNode(statements, []); }
   / TERM block:(blankLine* indentation invertibleContent DEDENT)? { return block && block[2]; }
 
 explicitMustache = e:equalSign ret:mustacheOrBlock
@@ -281,13 +321,35 @@ explicitMustache = e:equalSign ret:mustacheOrBlock
 }
 
 inMustache
-  = isPartial:'>'? _ path:pathIdNode params:inMustacheParam* hash:hash? 
+  = isPartial:'>'? _ sexpr:sexpr
 { 
   if(isPartial) {
-    var n = new AST.PartialNameNode(new AST.StringNode(path.string));
-    return new AST.PartialNode(n, params[0]);
+    var n = new AST.PartialNameNode(new AST.StringNode(sexpr.id.string));
+    return new AST.PartialNode(n, sexpr.params[0]);
   }
 
+  var mustacheNode
+  if (useSexprNodes) {
+    mustacheNode = createMustacheNode(sexpr, null, true);
+  } else {
+    mustacheNode = createMustacheNode([sexpr.id].concat(sexpr.params), sexpr.hash, true);
+  }
+
+  var tm = sexpr.id._emblemSuffixModifier;
+  if(tm === '!') {
+    return unshiftParam(mustacheNode, 'unbound');
+  } else if(tm === '?') {
+    return unshiftParam(mustacheNode, 'if');
+  } else if(tm === '^') {
+    return unshiftParam(mustacheNode, 'unless');
+  }
+
+  return mustacheNode;
+}
+
+sexpr
+  = path:pathIdNode params:inMustacheParam* hash:hash?
+{
   var actualParams = [];
   var attrs = {};
   var hasAttrs = false;
@@ -315,18 +377,16 @@ inMustache
 
   actualParams.unshift(path);
 
-  var mustacheNode = new AST.MustacheNode(actualParams, hash); 
-
-  var tm = path._emblemSuffixModifier;
-  if(tm === '!') {
-    return unshiftParam(mustacheNode, 'unbound');
-  } else if(tm === '?') {
-    return unshiftParam(mustacheNode, 'if');
-  } else if(tm === '^') {
-    return unshiftParam(mustacheNode, 'unless');
+  if (useSexprNodes) {
+    return new AST.SexprNode(actualParams, hash);
+  } else {
+    // Stub a sexpr-like node for backwards compatibility with pre-1.3 AST.
+    return {
+      id: actualParams[0],
+      params: actualParams.slice(1),
+      hash: hash
+    };
   }
-
-  return mustacheNode;
 }
 
 // %div converts to tagName="div", .foo.thing converts to class="foo thing", #id converst to id="id"
@@ -348,7 +408,7 @@ attributesAtLeastClass
   = classes:classShorthand+ { return [null, classes]; }
 
 inMustacheParam
-  = a:(htmlMustacheAttribute / param) { return a; }
+  = a:(htmlMustacheAttribute / __ p:param { return p; } ) { return a; }
 
 hash 
   = h:hashSegment+ { return new AST.HashNode(h); }
@@ -360,16 +420,14 @@ key "Key"
   = $((nmchar / ':')*)
 
 hashSegment
-  = __ h:( key '=' booleanNode 
-        / key '=' integerNode
-        / key '=' pathIdNode
-        / key '=' stringNode ) { return [h[0], h[2]]; }
+  = __ h:(key '=' param) { return [h[0], h[2]]; }
 
 param
-  = __ n:(booleanNode 
-          / integerNode 
-          / pathIdNode
-          / stringNode) { return n; }
+  = booleanNode
+  / integerNode
+  / pathIdNode
+  / stringNode
+  / sexprOpen s:sexpr sexprClose { s.isHelper = true; return s; }
 
 path = first:pathIdent tail:(s:seperator p:pathIdent { return { part: p, separator: s }; })* 
 {
@@ -523,6 +581,9 @@ singleClose "SingleMustacheClose" = '}'
 doubleClose "DoubleMustacheClose" = '}}'
 tripleClose "TripleMustacheClose" = '}}}'
 
+sexprOpen "SubexpressionOpen" = '('
+sexprClose "SubexpressionClose" = ')'
+
 hashStacheOpen  "InterpolationOpen"  = '#{'
 hashStacheClose "InterpolationClose" = '}'
 
@@ -549,27 +610,84 @@ inHtmlTag = h:htmlStart inTagMustaches:inTagMustache* fullAttributes:fullAttribu
   var tagName = h[0] || 'div',
       shorthandAttributes = h[1] || [],
       id = shorthandAttributes[0],
-      classes = shorthandAttributes[1];
+      classes = shorthandAttributes[1] || [],
+      tagOpenContent = [],
+      updateMustacheNode;
 
-  var tagOpenContent = [];
+  updateMustacheNode = function (node) {
+    var pairs, pair, stringNode, original;
+    if (!classes.length) {
+      return;
+    }
+    if (!node.id || node.id.string !== 'bind-attr') {
+      return;
+    }
+    if (node.hash && node.hash.pairs && (pairs = node.hash.pairs)) {
+      for (var i2 in pairs) {
+        if (!pairs.hasOwnProperty(i2)) { continue; }
+        pair = pairs[i2];
+        if (pair && pair[0] === 'class' && pair[1] instanceof AST.StringNode) {
+          stringNode = pair[1];
+          original = stringNode.original;
+          stringNode.original = stringNode.string = stringNode.stringModeValue = ':' + classes.join(' :') + ' ' + original;
+          classes = [];
+        }
+      }
+    }
+  };
+
   tagOpenContent.push(new AST.ContentNode('<' + tagName));
 
   if(id) {
     tagOpenContent.push(new AST.ContentNode(' id="' + id + '"'));
   }
 
-  if(classes && classes.length) {
-    tagOpenContent.push(new AST.ContentNode(' class="' + classes.join(' ') + '"'));
-  }
-
   // Pad in tag mustaches with spaces.
   for(var i = 0; i < inTagMustaches.length; ++i) {
+    // Check if given mustache node has class bindings and prepend shorthand classes
+    updateMustacheNode(inTagMustaches[i]);
     tagOpenContent.push(new AST.ContentNode(' '));
     tagOpenContent.push(inTagMustaches[i]);
   }
-
+  
   for(var i = 0; i < fullAttributes.length; ++i) {
+    for (var i2 in fullAttributes[i]) {
+      if (fullAttributes[i][i2] instanceof AST.MustacheNode) {
+        updateMustacheNode(fullAttributes[i][i2]);
+      }
+    }
+    
+    if (classes.length) {
+      var isClassAttr = fullAttributes[i][1] && fullAttributes[i][1].string === 'class="';
+  
+      // Check if attribute is class attribute and has content
+      if (isClassAttr && fullAttributes[i].length === 4) {
+        if (fullAttributes[i][2].type == 'mustache') {
+          var mustacheNode, classesContent, hash, params;
+          // If class was mustache binding, transform attribute into bind-attr MustacheNode
+          // In case of 'div.shorthand class=varBinding' will transform into '<div {{bind-attr class=":shorthand varBinding"}}'
+          mustacheNode = fullAttributes[i][2];
+          classesContent = ':' + classes.join(' :') + ' ' + mustacheNode.id.original;
+          hash = new AST.HashNode([
+              ['class', new AST.StringNode(classesContent)]
+          ]);
+          
+          params = [new AST.IdNode([{ part: 'bind-attr'}])].concat(mustacheNode.params);
+          fullAttributes[i] = [fullAttributes[i][0], createMustacheNode(params, hash, true)];
+        } else {
+          // Else prepend shorthand classes to attribute 
+          classes.push(fullAttributes[i][2].string);
+          fullAttributes[i][2].string = classes.join(' ');
+        }
+        classes = [];
+      }
+    }
+    
     tagOpenContent = tagOpenContent.concat(fullAttributes[i]);
+  }
+
+  if(classes && classes.length) {
+    tagOpenContent.push(new AST.ContentNode(' class="' + classes.join(' ') + '"'));
   }
 
   var closingTagSlashPresent = !!h[2];
@@ -609,12 +727,12 @@ fullAttribute
   }
 }
 
-boundAttributeValueChar = [A-Za-z.0-9_\-] / nonSeparatorColon
+boundAttributeValueChar = [A-Za-z\.0-9_\-] / nonSeparatorColon
 
 // Value of an action can be an unwrapped string, or a single or double quoted string
 actionValue
   = quotedActionValue
-  / id:pathIdNode { return new AST.MustacheNode([id]); }
+  / id:pathIdNode { return createMustacheNode([id], null, true); }
 
 quotedActionValue = p:('"' inMustache '"' / "'" inMustache "'") { return p[1]; }
 
@@ -645,8 +763,8 @@ boundAttribute
   = key:key '=' value:boundAttributeValue !'!' &{ return IS_EMBER; }
 { 
   var hashNode = new AST.HashNode([[key, new AST.StringNode(value)]]);
-  var params = [new AST.IdNode([{part: 'bindAttr'}])];
-  var mustacheNode = new AST.MustacheNode(params, hashNode);
+  var params = [new AST.IdNode([{part: 'bind-attr'}])];
+  var mustacheNode = createMustacheNode(params, hashNode);
 
   return [mustacheNode];
 }
@@ -656,7 +774,7 @@ boundAttribute
 rawMustacheAttribute
   = key:key '=' id:pathIdNode 
 { 
-  var mustacheNode = new AST.MustacheNode([id]);
+  var mustacheNode = createMustacheNode([id], null, true);
 
   if(IS_EMBER && id._emblemSuffixModifier === '!') {
     mustacheNode = unshiftParam(mustacheNode, 'unbound');

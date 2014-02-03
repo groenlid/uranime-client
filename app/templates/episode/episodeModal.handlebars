@@ -7,7 +7,10 @@
           <img {{bindAttr src="imageURL"}}>
           <div class="border-image"></div>
         </div>
-
+        <div class="modal-episode">
+          <a class="btn" {{action markEpisodeAsSeen this}}>Mark as seen</a>
+          <a class="btn">Report a issue</a>
+        </div>
         <div class="modal-footer">
           <p class="animedesc">
             {{description}}
@@ -31,11 +34,10 @@
         <div class="comments js-commentsHeight">
           {{#each activity in details.arrangedUserEpisode}}
 
-          <div>  
-            {{#link-to 'user.profile' activity.user class="bold"}}{{activity.user.nick}}{{/link-to}} watched this.<span class="pull-right small"> {{activity.since}} </span> 
-          </div>
-          <hr/>
-           
+            <div>  
+              {{#link-to 'user.profile' activity.user class="bold"}}{{activity.user.nick}}{{/link-to}} watched this.<span class="pull-right small"> {{activity.since}} </span> 
+            </div>
+            <hr/>
 
           {{/each}}              
 

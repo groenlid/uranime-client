@@ -1,7 +1,13 @@
-var CompilerContext, Ember, EmberHandlebars, Emblem, Handlebars, bindAttrHelper, compileWithPartials, equal, equals, ok, precompileEmber, runTextLineSuite, shouldCompileTo, shouldCompileToString, shouldCompileToWithPartials, shouldEmberPrecompileToHelper, shouldThrow, throws, _equal, _ref,
+var CompilerContext, Ember, EmberHandlebars, Emblem, Handlebars, LoadedEmber, bindAttrHelper, compileWithPartials, equal, equals, ok, precompileEmber, runTextLineSuite, shouldCompileTo, shouldCompileToString, shouldCompileToWithPartials, shouldEmberPrecompileToHelper, shouldThrow, supportsSubexpressions, throws, _equal, _ref,
   __hasProp = {}.hasOwnProperty;
 
-Ember = (typeof window !== "undefined" && window !== null ? window.Emblem : void 0) || this.Emblem;
+Ember = (typeof window !== "undefined" && window !== null ? window.Emblem : void 0) || this.Emblem || {};
+
+LoadedEmber = LoadedEmber || {};
+
+Ember.Handlebars = LoadedEmber.Handlebars;
+
+Ember.warn = LoadedEmber.warn;
 
 if (typeof Emblem !== "undefined" && Emblem !== null) {
   _equal = equal;
@@ -25,6 +31,8 @@ if (typeof CompilerContext === "undefined" || CompilerContext === null) {
   };
 }
 
+supportsSubexpressions = Handlebars.VERSION.slice(0, 3) >= 1.3;
+
 precompileEmber = function(emblem) {
   return Emblem.precompile(EmberHandlebars, emblem).toString();
 };
@@ -32,10 +40,10 @@ precompileEmber = function(emblem) {
 shouldEmberPrecompileToHelper = function(emblem, helper) {
   var result;
   if (helper == null) {
-    helper = 'bindAttr';
+    helper = 'bind-attr';
   }
   result = precompileEmber(emblem);
-  ok(result.match("helpers." + helper));
+  ok((result.match("helpers." + helper)) || (result.match("helpers\\['" + helper + "'\\]")));
   return result;
 };
 
@@ -922,6 +930,55 @@ test("else followed by newline doesn't gobble else content", function() {
   return shouldCompileTo(emblem, {}, '<p>not nothing</p>');
 });
 
+suite("class shorthand and explicit declaration is coalesced");
+
+test("when literal class is used", function() {
+  return shouldCompileTo('p.foo class="bar"', '<p class="foo bar"></p>');
+});
+
+test("when ember expression is used with variable", function() {
+  return shouldCompileTo('p.foo class=bar', {
+    bar: 'baz'
+  }, '<p bind-attr class to :foo bar></p>');
+});
+
+test("when ember expression is used with variable in braces", function() {
+  var result;
+  result = shouldEmberPrecompileToHelper('p.foo class={ bar }');
+  return ok(-1 !== result.indexOf('\'class\': (":foo bar")'));
+});
+
+test("when ember expression is used with constant in braces", function() {
+  var result;
+  result = shouldEmberPrecompileToHelper('p.foo class={ :bar }');
+  return ok(-1 !== result.indexOf('\'class\': (":foo :bar")'));
+});
+
+test("when ember expression is used with constant and variable in braces", function() {
+  var result;
+  result = shouldEmberPrecompileToHelper('p.foo class={ :bar bar }');
+  return ok(-1 !== result.indexOf('\'class\': (":foo :bar bar")'));
+});
+
+test("when ember expression is used with bind-attr", function() {
+  var result;
+  result = shouldEmberPrecompileToHelper('p.foo{ bind-attr class="bar" }');
+  return ok(-1 !== result.indexOf('\'class\': (":foo bar")'));
+});
+
+test("when ember expression is used with bind-attr and multiple attrs", function() {
+  var result;
+  result = shouldEmberPrecompileToHelper('p.foo{ bind-attr something=bind class="bar" }');
+  return ok(-1 !== result.indexOf('\'class\': (":foo bar")'));
+});
+
+test("only with bind-attr helper", function() {
+  var result;
+  result = shouldEmberPrecompileToHelper('p.foo{ someHelper class="bar" }', 'someHelper');
+  ok(-1 !== result.indexOf('\'class\': ("bar")'));
+  return ok(-1 !== result.indexOf('class=\\"foo\\"'));
+});
+
 bindAttrHelper = function() {
   var bindingString, k, options, param, params, v, _ref1;
   options = arguments[arguments.length - 1];
@@ -937,14 +994,14 @@ bindAttrHelper = function() {
     bindingString = " narf";
   }
   param = params[0] || 'none';
-  return "bindAttr" + bindingString;
+  return "bind-attr" + bindingString;
 };
 
-Handlebars.registerHelper('bindAttr', bindAttrHelper);
+Handlebars.registerHelper('bind-attr', bindAttrHelper);
 
-EmberHandlebars.registerHelper('bindAttr', bindAttrHelper);
+EmberHandlebars.registerHelper('bind-attr', bindAttrHelper);
 
-suite("bindAttr behavior for unquoted attribute values");
+suite("bind-attr behavior for unquoted attribute values");
 
 test("basic", function() {
   var emblem;
@@ -984,7 +1041,7 @@ test("multiple", function() {
   }, '<p class="FOO" id="yup" data-thinger="YEAH">Hooray</p>');
 });
 
-test("class bindAttr special syntax", function() {
+test("class bind-attr special syntax", function() {
   var emblem;
   emblem = 'p class=foo:bar:baz';
   shouldEmberPrecompileToHelper(emblem);
@@ -993,7 +1050,7 @@ test("class bindAttr special syntax", function() {
   }));
 });
 
-test("class bindAttr braced syntax w/ underscores and dashes", function() {
+test("class bind-attr braced syntax w/ underscores and dashes", function() {
   var emblem;
   shouldEmberPrecompileToHelper('p class={f-oo:bar :b_az}');
   shouldEmberPrecompileToHelper('p class={ f-oo:bar :b_az }');
@@ -1077,10 +1134,10 @@ test("multiple", function() {
 
 test("with nesting", function() {
   var emblem;
-  emblem = "p{{bindAttr class=\"foo\"}}\n  span Hello";
+  emblem = "p{{bind-attr class=\"foo\"}}\n  span Hello";
   return shouldCompileTo(emblem, {
     foo: "yar"
-  }, '<p bindAttr class to foo><span>Hello</span></p>');
+  }, '<p bind-attr class to foo><span>Hello</span></p>');
 });
 
 suite("actions");
@@ -1688,3 +1745,63 @@ test("windows newlines", function() {
   emblem = "\r\n  \r\n  p Hello\r\n\r\n";
   return shouldCompileTo(emblem, '<p>Hello</p>');
 });
+
+if (supportsSubexpressions) {
+  suite("subexpressions");
+  Handlebars.registerHelper('echo', function(param) {
+    return "ECHO " + param;
+  });
+  Handlebars.registerHelper('echofun', function() {
+    var options;
+    options = Array.prototype.pop.call(arguments);
+    return "FUN = " + options.hash.fun;
+  });
+  Handlebars.registerHelper('hello', function(param) {
+    return "hello";
+  });
+  Handlebars.registerHelper('equal', function(x, y) {
+    return x === y;
+  });
+  test("arg-less helper", function() {
+    var emblem;
+    emblem = 'p {{echo (hello)}}';
+    shouldCompileTo(emblem, '<p>ECHO hello</p>');
+    emblem = '= echo (hello)';
+    return shouldCompileTo(emblem, 'ECHO hello');
+  });
+  test("helper w args", function() {
+    var emblem;
+    emblem = 'p {{echo (equal 1 1)}}';
+    shouldCompileTo(emblem, '<p>ECHO true</p>');
+    emblem = '= echo (equal 1 1)';
+    return shouldCompileTo(emblem, 'ECHO true');
+  });
+  test("supports much nesting", function() {
+    var emblem;
+    emblem = 'p {{echo (equal (equal 1 1) true)}}';
+    shouldCompileTo(emblem, '<p>ECHO true</p>');
+    emblem = '= echo (equal (equal 1 1) true)';
+    return shouldCompileTo(emblem, 'ECHO true');
+  });
+  test("with hashes", function() {
+    var emblem;
+    emblem = 'p {{echo (equal (equal 1 1) true fun="yes")}}';
+    shouldCompileTo(emblem, '<p>ECHO true</p>');
+    emblem = '= echo (equal (equal 1 1) true fun="yes")';
+    return shouldCompileTo(emblem, 'ECHO true');
+  });
+  test("as hashes", function() {
+    var emblem;
+    emblem = 'p {{echofun fun=(equal 1 1)}}';
+    shouldCompileTo(emblem, '<p>FUN = true</p>');
+    emblem = '= echofun fun=(equal 1 1)';
+    return shouldCompileTo(emblem, 'FUN = true');
+  });
+  test("complex expression", function() {
+    var emblem;
+    emblem = 'p {{echofun true (hello how="are" you=false) 1 not=true fun=(equal "ECHO hello" (echo (hello))) win="yes"}}';
+    shouldCompileTo(emblem, '<p>FUN = true</p>');
+    emblem = '= echofun true (hello how="are" you=false) 1 not=true fun=(equal "ECHO hello" (echo (hello))) win="yes"';
+    return shouldCompileTo(emblem, 'FUN = true');
+  });
+}

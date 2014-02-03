@@ -14,7 +14,9 @@
         "ember-auth-response-json": "latest",
         "ember-auth-module-ember-data": "latest",
         "ember-auth-strategy-token": "latest",
-        "ember-auth-session-cookie": "latest"
+        "ember-auth-session-cookie": "latest",
+        "ember-auth-session-local-storage": "latest",
+        "ember-auth-module-rememberable": "latest"
         
     }
 }

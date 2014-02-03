@@ -1,7 +1,12 @@
 
 # Test Setup: Set up an environment that'll work for both Node and Qunit tests.
 
-Ember = window?.Emblem || @Emblem
+Ember = window?.Emblem || @Emblem || {}
+
+# These are needed for the full version ember to load properly
+LoadedEmber = LoadedEmber || {}
+Ember.Handlebars = LoadedEmber.Handlebars
+Ember.warn = LoadedEmber.warn
 
 if Emblem?
   # Qunit testing
@@ -30,12 +35,14 @@ unless CompilerContext?
     compile: (template, options) ->
       Emblem.compile(Handlebars, template, options)
 
+supportsSubexpressions = Handlebars.VERSION.slice(0, 3) >= 1.3
+
 precompileEmber = (emblem) ->
   Emblem.precompile(EmberHandlebars, emblem).toString()
 
-shouldEmberPrecompileToHelper = (emblem, helper = 'bindAttr') ->
+shouldEmberPrecompileToHelper = (emblem, helper = 'bind-attr') ->
   result = precompileEmber emblem
-  ok result.match "helpers.#{helper}"
+  ok (result.match "helpers.#{helper}") or (result.match "helpers\\['#{helper}'\\]")
   result
 
 shouldCompileToString = (string, hashOrArray, expected) ->
@@ -1106,6 +1113,38 @@ test "else followed by newline doesn't gobble else content", ->
   """
   shouldCompileTo emblem, {}, '<p>not nothing</p>'
 
+suite "class shorthand and explicit declaration is coalesced"
+
+test "when literal class is used", ->
+  shouldCompileTo 'p.foo class="bar"', '<p class="foo bar"></p>'
+
+test "when ember expression is used with variable", ->
+  shouldCompileTo 'p.foo class=bar', {bar: 'baz'}, '<p bind-attr class to :foo bar></p>'
+
+test "when ember expression is used with variable in braces", ->
+  result = shouldEmberPrecompileToHelper 'p.foo class={ bar }'
+  ok -1  != result.indexOf '\'class\': (":foo bar")'
+
+test "when ember expression is used with constant in braces", ->
+  result = shouldEmberPrecompileToHelper 'p.foo class={ :bar }'
+  ok -1  != result.indexOf '\'class\': (":foo :bar")'
+
+test "when ember expression is used with constant and variable in braces", ->
+  result = shouldEmberPrecompileToHelper 'p.foo class={ :bar bar }'
+  ok -1  != result.indexOf '\'class\': (":foo :bar bar")'
+
+test "when ember expression is used with bind-attr", ->
+  result = shouldEmberPrecompileToHelper 'p.foo{ bind-attr class="bar" }'
+  ok -1  != result.indexOf '\'class\': (":foo bar")'
+  
+test "when ember expression is used with bind-attr and multiple attrs", ->
+  result = shouldEmberPrecompileToHelper 'p.foo{ bind-attr something=bind class="bar" }'
+  ok -1 != result.indexOf '\'class\': (":foo bar")'
+
+test "only with bind-attr helper", ->
+  result = shouldEmberPrecompileToHelper 'p.foo{ someHelper class="bar" }', 'someHelper'
+  ok -1 != result.indexOf '\'class\': ("bar")'
+  ok -1 != result.indexOf 'class=\\"foo\\"'
 
 bindAttrHelper = ->
   options = arguments[arguments.length - 1]
@@ -1115,13 +1154,13 @@ bindAttrHelper = ->
     bindingString += " #{k} to #{v}"
   bindingString = " narf" unless bindingString
   param = params[0] || 'none'
-  "bindAttr#{bindingString}"
+  "bind-attr#{bindingString}"
 
-Handlebars.registerHelper 'bindAttr', bindAttrHelper
+Handlebars.registerHelper 'bind-attr', bindAttrHelper
 
-EmberHandlebars.registerHelper 'bindAttr', bindAttrHelper
+EmberHandlebars.registerHelper 'bind-attr', bindAttrHelper
 
-suite "bindAttr behavior for unquoted attribute values"
+suite "bind-attr behavior for unquoted attribute values"
 
 test "basic", ->
   emblem = 'p class=foo'
@@ -1142,12 +1181,12 @@ test "multiple", ->
   shouldCompileTo 'p class=foo id="yup" data-thinger=yeah Hooray', { foo: "FOO", yeah: "YEAH" },
                   '<p class="FOO" id="yup" data-thinger="YEAH">Hooray</p>'
 
-test "class bindAttr special syntax", ->
+test "class bind-attr special syntax", ->
   emblem = 'p class=foo:bar:baz'
   shouldEmberPrecompileToHelper emblem
   shouldThrow (-> CompilerContext.compile emblem)
 
-test "class bindAttr braced syntax w/ underscores and dashes", ->
+test "class bind-attr braced syntax w/ underscores and dashes", ->
   shouldEmberPrecompileToHelper 'p class={f-oo:bar :b_az}'
   shouldEmberPrecompileToHelper 'p class={ f-oo:bar :b_az }'
   shouldEmberPrecompileToHelper 'p class={ f-oo:bar :b_az } Hello'
@@ -1210,11 +1249,11 @@ test "multiple", ->
 test "with nesting", ->
   emblem =
   """
-  p{{bindAttr class="foo"}}
+  p{{bind-attr class="foo"}}
     span Hello
   """
   shouldCompileTo emblem, {foo: "yar"}, 
-    '<p bindAttr class to foo><span>Hello</span></p>'
+    '<p bind-attr class to foo><span>Hello</span></p>'
 
 suite "actions"
 
@@ -1891,3 +1930,61 @@ test "windows newlines", ->
   emblem = "\r\n  \r\n  p Hello\r\n\r\n"
   shouldCompileTo emblem, '<p>Hello</p>'
 
+if supportsSubexpressions
+
+  suite "subexpressions"
+
+  Handlebars.registerHelper 'echo', (param) ->
+    "ECHO #{param}"
+
+  Handlebars.registerHelper 'echofun', ->
+    options = Array.prototype.pop.call(arguments)
+    "FUN = #{options.hash.fun}"
+
+  Handlebars.registerHelper 'hello', (param) ->
+    "hello"
+
+  Handlebars.registerHelper 'equal', (x, y) ->
+    x == y
+
+  test "arg-less helper", ->
+    emblem = 'p {{echo (hello)}}'
+    shouldCompileTo emblem, '<p>ECHO hello</p>'
+
+    emblem = '= echo (hello)'
+    shouldCompileTo emblem, 'ECHO hello'
+
+  test "helper w args", ->
+    emblem = 'p {{echo (equal 1 1)}}'
+    shouldCompileTo emblem, '<p>ECHO true</p>'
+
+    emblem = '= echo (equal 1 1)'
+    shouldCompileTo emblem, 'ECHO true'
+
+  test "supports much nesting", ->
+    emblem = 'p {{echo (equal (equal 1 1) true)}}'
+    shouldCompileTo emblem, '<p>ECHO true</p>'
+
+    emblem = '= echo (equal (equal 1 1) true)'
+    shouldCompileTo emblem, 'ECHO true'
+
+  test "with hashes", ->
+    emblem = 'p {{echo (equal (equal 1 1) true fun="yes")}}'
+    shouldCompileTo emblem, '<p>ECHO true</p>'
+
+    emblem = '= echo (equal (equal 1 1) true fun="yes")'
+    shouldCompileTo emblem, 'ECHO true'
+
+  test "as hashes", ->
+    emblem = 'p {{echofun fun=(equal 1 1)}}'
+    shouldCompileTo emblem, '<p>FUN = true</p>'
+
+    emblem = '= echofun fun=(equal 1 1)'
+    shouldCompileTo emblem, 'FUN = true'
+
+  test "complex expression", ->
+    emblem = 'p {{echofun true (hello how="are" you=false) 1 not=true fun=(equal "ECHO hello" (echo (hello))) win="yes"}}'
+    shouldCompileTo emblem, '<p>FUN = true</p>'
+
+    emblem = '= echofun true (hello how="are" you=false) 1 not=true fun=(equal "ECHO hello" (echo (hello))) win="yes"'
+    shouldCompileTo emblem, 'FUN = true'

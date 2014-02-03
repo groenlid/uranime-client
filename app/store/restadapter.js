@@ -44,8 +44,15 @@ App.ApplicationSerializer = DS.ActiveModelSerializer.extend({
         newPayload[pluralized] = payload;
 
         return this._super(store, type, newPayload, requestType);
-         
-    }
+    },
+
+    /**
+        Used by the restadapter to serialize the record into json.
+    */
+    serializeIntoHash: function(data, type, record, options) {
+        Ember.merge(data, this.serialize(record, options));
+    },
+
 
 });
 
