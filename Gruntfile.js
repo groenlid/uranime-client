@@ -78,7 +78,7 @@ module.exports = function(grunt) {
 
   // Styles
   grunt.registerTask('buildStyles', [
-                     'compass',
+                     'sass:debug',
                      // ToDo: Add 'autoprefixer'
                      ]);
 

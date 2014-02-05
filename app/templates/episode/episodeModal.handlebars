@@ -7,10 +7,18 @@
           <img {{bindAttr src="imageURL"}}>
           <div class="border-image"></div>
         </div>
-        <div class="modal-episode">
-          <a class="btn" {{action markEpisodeAsSeen this}}>Mark as seen</a>
-          <a class="btn">Report a issue</a>
-        </div>
+        {{#if view.auth.signedIn}}
+          <div class="modal-episode">
+            <a class="btn" {{action toggleEpisodeSeen this}}>
+              {{#if seen}}
+                Mark as not seen
+              {{else}}
+                Mark as seen
+              {{/if}}
+            </a>
+            <a class="btn">Report a issue</a>
+          </div>
+        {{/if}}
         <div class="modal-footer">
           <p class="animedesc">
             {{description}}

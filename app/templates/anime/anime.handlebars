@@ -2,10 +2,12 @@
 <div class="black-top">
     <div class="container">
         <header id="fanart" class="big" {{bindAttr style="fanartStyle"}}>
-        <div class="smallprogress">
-            <div class="smallprogress-filled" style="width:23.076923076923077%;" data-bindattr-127="127">
-            </div>
-          </div>
+        	{{#if view.auth.signedIn}}
+        		<div class="smallprogress">
+            		<div class="smallprogress-filled" {{bindAttr style=view.percentageSeenStyle}}>
+            		</div>
+          		</div>
+          	{{/if}}
         </header>
     </div>
 </div>
