@@ -1,0 +1,8 @@
+.black-top
+    .container
+        header.small#fanart
+            each uep in content.userEpisodes
+                .userseen
+                    a.clickable click="showModal 'episodemodal' uep.episode"
+                        .border-image{bindAttr style="uep.episode.fanartStyle"}
+= outlet

@@ -1,0 +1,56 @@
+.splash-white
+    .col-lg-6.col-offset-3.frontpage-backdrop
+        h1.normal
+            t front.title
+        .row.center
+            form.input-group submit="search view.query"
+                Ember.TextField valueBinding="view.query" class="form-control search-frontpage" placeholder="Search for anime, episodes, or your mothers maiden name"
+                span.input-group-btn
+                    button.btn.btn-default
+                        span.glyphicon.glyphicon-search
+    %br.clear
+
+.container.container-splash
+    .row
+        .col-lg-6.discover
+            h2
+                i.glyphicon.glyphicon-search
+                span.bold 
+                    | Discover 
+                | new anime
+            p 
+                | Search and discover new anime based on tags, genres or just plain old recommendations
+        .col-lg-6.calendar
+            h2
+                i.glyphicon.glyphicon-calendar
+                span.bold 
+                    | Never
+                | miss a show airing
+            p 
+                | Maximize your anime intake with the calendar specifically designed just for you.
+    .row
+        .col-lg-6.sync
+            h2
+                i.glyphicon.glyphicon-refresh
+                span.bold 
+                    | Sync
+                | your library
+            p 
+                | Have your library up to date anywhere and everywhere you are.
+            p 
+                | With the 
+                a href="https://play.google.com/store/apps/details?id=com.banan.anime"
+                    | mobile uranime app
+                | , you can keep track of your favourite anime while on the move.
+        .col-lg-6.discover
+            h2
+                i.glyphicon.glyphicon-heart-empty
+                span.bold
+                    | Participate
+                | in the community
+            p 
+                | The code for this site is open-source and available for everyone. 
+                | Want to contribute to the site with code, design feedback or typo-fixes? 
+                | Head on over to our 
+                a href="https://github.com/groenlid/uranime-client"
+                    | Github site

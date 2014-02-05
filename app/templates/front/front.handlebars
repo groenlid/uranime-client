@@ -3,7 +3,7 @@
 		
 		<h1 class="normal">{{t front.title}}</h1>
         <div class="row center">
-        	<form {{action 'search' view.query on='submit'}}class="input-group">
+        	<form {{action 'search' view.query on='submit'}} class="input-group">
 	            {{view Ember.TextField valueBinding="view.query" class="form-control search-frontpage" placeholder="Search for anime, episodes, or your mothers maiden name"}}
 	            <span class="input-group-btn">
 	            	<button type="button" class="btn btn-default">
