@@ -26,7 +26,8 @@
     "ok",
     "strictEqual",
     "module",
-    "expect"
+    "expect",
+    "$"
   ],
 
   "node" : false,

@@ -14,39 +14,37 @@
     .row
         .col-lg-6.discover
             h2
-                i.glyphicon.glyphicon-search
+                i.glyphicon.glyphicon-search.mar-right
                 span.bold 
-                    | Discover 
+                    ' Discover 
                 | new anime
             p 
                 | Search and discover new anime based on tags, genres or just plain old recommendations
         .col-lg-6.calendar
             h2
-                i.glyphicon.glyphicon-calendar
+                i.glyphicon.glyphicon-calendar.mar-right
                 span.bold 
-                    | Never
+                    ' Never
                 | miss a show airing
-            p 
-                | Maximize your anime intake with the calendar specifically designed just for you.
+            p Maximize your anime intake with the calendar specifically designed just for you.
     .row
         .col-lg-6.sync
             h2
-                i.glyphicon.glyphicon-refresh
+                i.glyphicon.glyphicon-refresh.mar-right
                 span.bold 
-                    | Sync
+                    ' Sync
                 | your library
             p 
                 | Have your library up to date anywhere and everywhere you are.
             p 
                 | With the 
-                a href="https://play.google.com/store/apps/details?id=com.banan.anime"
-                    | mobile uranime app
+                a href="https://play.google.com/store/apps/details?id=com.banan.anime" mobile uranime app
                 | , you can keep track of your favourite anime while on the move.
         .col-lg-6.discover
             h2
-                i.glyphicon.glyphicon-heart-empty
+                i.glyphicon.glyphicon-heart-empty.mar-right
                 span.bold
-                    | Participate
+                    ' Participate
                 | in the community
             p 
                 | The code for this site is open-source and available for everyone. 

@@ -50,17 +50,12 @@ App.EpisodemodalView = App.ModalView.extend({
 
   next: function(episode){
     var nextEpisode = this.get('nextEpisode');
-
-    if(!Ember.isNone(nextEpisode) && !nextEpisode.get('isLoading') && Ember.isEmpty(nextEpisode.get('userepisode')))
-      nextEpisode.reload();
     this.set('content',nextEpisode);
     this.setCommentHeight()
   },
 
   previous: function(episode){
     var previousEpisode = this.get('previousEpisode');
-    if(!Ember.isNone(previousEpisode) && !previousEpisode.get('isLoading') && Ember.isEmpty(previousEpisode.get('userepisode')))
-      previousEpisode.reload();
     this.set('content',previousEpisode);
     this.setCommentHeight()
   },
