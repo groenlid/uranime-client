@@ -33,7 +33,6 @@ App.UserLibraryController = Ember.ArrayController.extend(Ember.PaginationSupport
     ]),
 
   setSorting: function(sort){
-    console.log(arguments);
     this.set('sortProperties', sort.get('sortProperties'));
     this.set('sortAscending', sort.get('sortAscending'));
   },

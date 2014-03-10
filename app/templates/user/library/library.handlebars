@@ -37,7 +37,7 @@
     <div class="col-lg-4 pull-right">
       <ul style="list-style-type: none;">
         <li>
-          <i class="glyphicon glyphicon-time"></i> {{controller.seenTime}} spent watching anime
+          <i class="glyphicon glyphicon-time"></i> {{!controller.seenTime}} spent watching anime
         </li>
         <li>
           <i class="glyphicon glyphicon-eye-open"></i> {{controller.seenEpisodes}} episodes seen
@@ -54,7 +54,7 @@
 
   <div class="col-2 overflow-hidden margin-bottom-m">
       {{#link-to 'anime.description' item.anime class="media-item clickable"}}
-          <div class="poster relative" {{bindAttr style="item.anime.imageUrlSmallStyle"}}>
+          <div class="poster relative" {{bindAttr style="item.imageUrlStyle"}}>
             {{#if item.incomplete}}
               <div class="backdrop">
                 <div class="unseen-episodes">{{item.progress}}/{{item.total}}</div>
@@ -66,7 +66,7 @@
             {{/if}}
           </div>
       {{/link-to}}
-      <span class="nowrap small">{{item.anime.title}}</span>
+      <span class="nowrap small">{{item.title}}</span>
   </div>
 
 {{/each}}
